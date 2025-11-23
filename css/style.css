@@ -30,13 +30,67 @@ html {
   }
 }
 
+.section__head {
+  text-align: center;
+}
+
+.section__title-sub {
+  color: #231815;
+  text-align: center;
+  font-family: "Zen Kaku Gothic New";
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 2.4px;
+  padding-bottom: 7px;
+  border-bottom: 2px solid #f99b9e;
+}
+@media screen and (min-width:768px) {
+  .section__title-sub {
+    font-size: 20px;
+    letter-spacing: 3.2px;
+    border-bottom: 3px solid #f99b9e;
+  }
+}
+
+.section__title-main {
+  margin-top: 8px;
+  color: #231815;
+  font-family: "Zen Kaku Gothic New";
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 1.54px;
+}
+@media screen and (min-width:768px) {
+  .section__title-main {
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: 3.6px;
+    margin-top: 14px;
+  }
+}
+
+.section__title-pink-1 {
+  color: #f99b9e;
+  font-family: "Zen Old Mincho";
+  font-size: 32px;
+  font-weight: 900;
+  line-height: 46px; /* 143.75% */
+  letter-spacing: 2.24px;
+}
+@media screen and (min-width:768px) {
+  .section__title-pink-1 {
+    font-size: 52px;
+    letter-spacing: 5.2px;
+  }
+}
+
 .fv {
   width: 100%;
   height: 600px;
 }
 @media screen and (min-width:768px) {
   .fv {
-    height: 768px;
+    height: auto;
   }
 }
 
@@ -646,45 +700,6 @@ html {
   }
 }
 
-.problem__head {
-  text-align: center;
-}
-
-.problem__head-1 {
-  color: #231815;
-  text-align: center;
-  font-family: "Zen Kaku Gothic New";
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: 2.4px;
-  padding-bottom: 7px;
-  border-bottom: 2px solid #f99b9e;
-}
-@media screen and (min-width:768px) {
-  .problem__head-1 {
-    font-size: 20px;
-    letter-spacing: 3.2px;
-    border-bottom: 3px solid #f99b9e;
-  }
-}
-
-.problem__head-2 {
-  margin-top: 8px;
-  color: #231815;
-  font-family: "Zen Kaku Gothic New";
-  font-size: 22px;
-  font-weight: 700;
-  letter-spacing: 1.54px;
-}
-@media screen and (min-width:768px) {
-  .problem__head-2 {
-    font-size: 36px;
-    font-weight: 700;
-    letter-spacing: 3.6px;
-    margin-top: 14px;
-  }
-}
-
 .problem__body {
   width: 100%;
   height: 1005px;
@@ -695,7 +710,7 @@ html {
   .problem__body {
     margin-top: 24px;
     max-width: 1376px;
-    height: 892px;
+    height: 650px;
   }
 }
 
@@ -924,7 +939,7 @@ html {
 }
 @media screen and (min-width:768px) {
   .problem__image {
-    bottom: 243px;
+    bottom: 0;
   }
 }
 .problem__image img {
@@ -933,21 +948,6 @@ html {
 @media screen and (min-width:768px) {
   .problem__image img {
     width: 207px;
-  }
-}
-
-.problem__text-pink--1 {
-  color: #f99b9e;
-  font-family: "Zen Old Mincho";
-  font-size: 32px;
-  font-weight: 900;
-  line-height: 46px; /* 143.75% */
-  letter-spacing: 2.24px;
-}
-@media screen and (min-width:768px) {
-  .problem__text-pink--1 {
-    font-size: 52px;
-    letter-spacing: 5.2px;
   }
 }
 
@@ -972,6 +972,12 @@ html {
   padding-top: 105px;
   position: relative;
 }
+@media screen and (min-width:768px) {
+  .case {
+    margin-top: -400px;
+    padding-top: 400px;
+  }
+}
 .case::before {
   position: absolute;
   content: "";
@@ -983,21 +989,43 @@ html {
   top: 0;
   left: 0;
 }
+@media screen and (min-width:768px) {
+  .case::before {
+    background: url(../img/case/wave.svg) no-repeat top center;
+    height: 400px;
+  }
+}
 
 .case__inner {
-  padding-inline: 20px;
   background: #f9f7f3;
 }
+
+.case__wrapper {
+  padding-inline: 20px;
+}
 @media screen and (min-width:768px) {
-  .case__inner {
+  .case__wrapper {
     max-width: 1080px;
     width: 100%;
     margin: 0 auto;
+    position: relative;
   }
 }
 
 .case__title {
   padding-top: 40px;
+  text-align: center;
+}
+@media screen and (min-width:768px) {
+  .case__title {
+    position: absolute;
+    top: -125px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    padding-top: 0;
+    width: 100%;
+  }
 }
 
 .case__title-main {
@@ -1009,6 +1037,15 @@ html {
   letter-spacing: 1.54px;
   text-align: center;
 }
+@media screen and (min-width:768px) {
+  .case__title-main {
+    color: var(--11, #231815);
+    /* h2_Noto Sans JP_Bold_36px */
+    font-family: "Noto Sans JP";
+    font-size: 36px;
+    letter-spacing: 3.6px;
+  }
+}
 
 .case__title-sub {
   margin-top: 10px;
@@ -1019,14 +1056,33 @@ html {
   line-height: 26px;
   letter-spacing: 1.12px;
 }
+@media screen and (min-width:768px) {
+  .case__title-sub {
+    margin-top: 16px;
+    font-size: 18px;
+    line-height: 30px;
+    letter-spacing: 1.26px;
+  }
+}
 
 .case__title-label {
   position: absolute;
   top: 114px;
   left: 20px;
 }
+@media screen and (min-width:768px) {
+  .case__title-label {
+    top: -40px;
+    left: 50px;
+  }
+}
 .case__title-label img {
   width: 170px;
+}
+@media screen and (min-width:768px) {
+  .case__title-label img {
+    width: 265px;
+  }
 }
 
 .case__contents {
@@ -1051,6 +1107,9 @@ html {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+    margin-top: 0;
+    padding-top: 86px;
+    gap: 32px;
   }
 }
 
@@ -1165,8 +1224,20 @@ html {
       -ms-flex-align: center;
           align-items: center;
 }
+@media screen and (min-width:768px) {
+  .case__worker {
+    margin-top: 18px;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+}
 
-.case__worker-comment {
+.case__worker-bubble {
   position: relative;
 }
 
@@ -1185,12 +1256,26 @@ html {
   line-height: 30px;
   letter-spacing: 1.26px;
 }
+@media screen and (min-width:768px) {
+  .case__worker-text {
+    font-size: 28px;
+    line-height: 48px;
+    letter-spacing: 2.8px;
+  }
+}
 
 .case__worker-human {
   width: 305px;
   margin-top: -45px;
   margin-left: 50px;
   z-index: 1;
+}
+@media screen and (min-width:768px) {
+  .case__worker-human {
+    width: 596px;
+    margin-top: 0;
+    margin-left: -159px;
+  }
 }
 
 .text-blue-1 {
@@ -1202,6 +1287,12 @@ html {
   line-height: 46px; /* 143.75% */
   letter-spacing: 2.24px;
 }
+@media screen and (min-width:768px) {
+  .text-blue-1 {
+    font-size: 52px;
+    letter-spacing: 5.2px;
+  }
+}
 
 .text-blue-2 {
   color: #5075b0;
@@ -1210,6 +1301,13 @@ html {
   font-weight: 700;
   line-height: 26px; /* 162.5% */
   letter-spacing: 1.12px;
+}
+@media screen and (min-width:768px) {
+  .text-blue-2 {
+    font-size: 18px;
+    line-height: 30px; /* 166.667% */
+    letter-spacing: 1.26px;
+  }
 }
 
 .text-blue-3 {

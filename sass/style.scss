@@ -50,12 +50,64 @@ html {
   }
 }
 
+.section__head {
+  text-align: center;
+}
+
+.section__title-sub {
+  color: #231815;
+  text-align: center;
+  font-family: "Zen Kaku Gothic New";
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 2.4px;
+  padding-bottom: 7px;
+  border-bottom: 2px solid #f99b9e;
+
+  @include mq(md) {
+    font-size: 20px;
+    letter-spacing: 3.2px;
+    border-bottom: 3px solid #f99b9e;
+  }
+}
+
+.section__title-main {
+  margin-top: 8px;
+  color: #231815;
+  font-family: "Zen Kaku Gothic New";
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 1.54px;
+
+  @include mq(md) {
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: 3.6px;
+    margin-top: 14px;
+  }
+}
+
+.section__title-pink-1 {
+  color: #f99b9e;
+  font-family: "Zen Old Mincho";
+  font-size: 32px;
+  font-weight: 900;
+  line-height: 46px; /* 143.75% */
+  letter-spacing: 2.24px;
+
+  @include mq(md) {
+    font-size: 52px;
+    letter-spacing: 5.2px;
+  }
+}
+
 .fv {
   width: 100%;
   height: 600px;
 
   @include mq(md) {
-    height: 768px;
+    // height: 768px;
+    height: auto;
   }
 }
 
@@ -653,43 +705,6 @@ html {
 .problem__contents {
 }
 
-.problem__head {
-  text-align: center;
-}
-
-.problem__head-1 {
-  color: #231815;
-  text-align: center;
-  font-family: "Zen Kaku Gothic New";
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: 2.4px;
-  padding-bottom: 7px;
-  border-bottom: 2px solid #f99b9e;
-
-  @include mq(md) {
-    font-size: 20px;
-    letter-spacing: 3.2px;
-    border-bottom: 3px solid #f99b9e;
-  }
-}
-
-.problem__head-2 {
-  margin-top: 8px;
-  color: #231815;
-  font-family: "Zen Kaku Gothic New";
-  font-size: 22px;
-  font-weight: 700;
-  letter-spacing: 1.54px;
-
-  @include mq(md) {
-    font-size: 36px;
-    font-weight: 700;
-    letter-spacing: 3.6px;
-    margin-top: 14px;
-  }
-}
-
 .problem__body {
   width: 100%;
   height: 1005px;
@@ -699,7 +714,8 @@ html {
   @include mq(md) {
     margin-top: 24px;
     max-width: 1376px;
-    height: 892px;
+    // height: 892px;
+    height: 650px;
   }
 }
 
@@ -930,7 +946,8 @@ html {
   transform: translateX(-50%);
 
   @include mq(md) {
-    bottom: 243px;
+    // bottom: 243px;
+    bottom: 0;
   }
 
   img {
@@ -939,20 +956,6 @@ html {
     @include mq(md) {
       width: 207px;
     }
-  }
-}
-
-.problem__text-pink--1 {
-  color: #f99b9e;
-  font-family: "Zen Old Mincho";
-  font-size: 32px;
-  font-weight: 900;
-  line-height: 46px; /* 143.75% */
-  letter-spacing: 2.24px;
-
-  @include mq(md) {
-    font-size: 52px;
-    letter-spacing: 5.2px;
   }
 }
 
@@ -976,6 +979,11 @@ html {
   padding-top: 105px;
   position: relative;
 
+  @include mq(md) {
+    margin-top: -400px;
+    padding-top: 400px;
+  }
+
   &::before {
     position: absolute;
     content: "";
@@ -986,22 +994,41 @@ html {
     clip-path: inset(0 0 0 0); // 上部のみ表示
     top: 0;
     left: 0;
+
+    @include mq(md) {
+      background: url(../img/case/wave.svg) no-repeat top center;
+      height: 400px;
+    }
   }
 }
 
 .case__inner {
-  padding-inline: 20px;
   background: #f9f7f3;
+}
+
+.case__wrapper {
+  padding-inline: 20px;
 
   @include mq(md) {
     max-width: 1080px;
     width: 100%;
     margin: 0 auto;
+    position: relative;
   }
 }
 
 .case__title {
   padding-top: 40px;
+  text-align: center;
+
+  @include mq(md) {
+    position: absolute;
+    top: -125px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-top: 0;
+    width: 100%;
+  }
 }
 
 .case__title-main {
@@ -1012,6 +1039,15 @@ html {
   font-weight: 700;
   letter-spacing: 1.54px;
   text-align: center;
+
+  @include mq(md) {
+    color: var(--11, #231815);
+
+    /* h2_Noto Sans JP_Bold_36px */
+    font-family: "Noto Sans JP"; //要確認
+    font-size: 36px;
+    letter-spacing: 3.6px;
+  }
 }
 
 .case__title-sub {
@@ -1022,6 +1058,13 @@ html {
   font-weight: 700;
   line-height: 26px;
   letter-spacing: 1.12px;
+
+  @include mq(md) {
+    margin-top: 16px;
+    font-size: 18px;
+    line-height: 30px;
+    letter-spacing: 1.26px;
+  }
 }
 
 .case__title-label {
@@ -1029,8 +1072,17 @@ html {
   top: 114px;
   left: 20px;
 
+  @include mq(md) {
+    top: -40px;
+    left: 50px;
+  }
+
   img {
     width: 170px;
+
+    @include mq(md) {
+      width: 265px;
+    }
   }
 }
 
@@ -1044,6 +1096,10 @@ html {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    margin-top: 0;
+    // padding-top: 70px;
+    padding-top: 86px;
+    gap: 32px;
   }
 }
 
@@ -1152,13 +1208,19 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @include mq(md) {
+    margin-top: 18px;
+    flex-direction: row;
+    align-items: flex-start;
+  }
 }
 
 .case__worker-comment {
-  position: relative;
 }
 
 .case__worker-bubble {
+  position: relative;
 }
 
 .case__worker-text {
@@ -1174,6 +1236,12 @@ html {
   font-weight: 700;
   line-height: 30px;
   letter-spacing: 1.26px;
+
+  @include mq(md) {
+    font-size: 28px;
+    line-height: 48px;
+    letter-spacing: 2.8px;
+  }
 }
 
 .case__worker-human {
@@ -1185,6 +1253,12 @@ html {
   margin-top: -45px;
   margin-left: 50px;
   z-index: 1;
+
+  @include mq(md) {
+    width: 596px;
+    margin-top: 0;
+    margin-left: -159px;
+  }
 }
 
 .text-blue-1 {
@@ -1195,6 +1269,11 @@ html {
   font-weight: 900;
   line-height: 46px; /* 143.75% */
   letter-spacing: 2.24px;
+
+  @include mq(md) {
+    font-size: 52px;
+    letter-spacing: 5.2px;
+  }
 }
 
 .text-blue-2 {
@@ -1204,6 +1283,12 @@ html {
   font-weight: 700;
   line-height: 26px; /* 162.5% */
   letter-spacing: 1.12px;
+
+  @include mq(md) {
+    font-size: 18px;
+    line-height: 30px; /* 166.667% */
+    letter-spacing: 1.26px;
+  }
 }
 
 .text-blue-3 {
@@ -1233,4 +1318,72 @@ html {
   font-weight: 900;
   line-height: 30px; /* 125% */
   letter-spacing: 1.68px;
+}
+
+.feature {
+}
+
+.feature__inner {
+}
+
+.feature__contents {
+}
+
+.feature__head {
+}
+
+.feature__title-sub {
+}
+
+.feature__title-main {
+}
+
+.feature__body {
+}
+
+.feature__card {
+}
+
+.feature-card {
+}
+
+.feature-card__inner {
+}
+
+.feature-card__head {
+  img {
+  }
+}
+
+.feature-card__body {
+}
+
+.feature-card__title {
+}
+
+.feature-card__title--black {
+}
+
+.feature-card__title-pink {
+}
+
+.feature-card__title--number {
+}
+
+.feature-card__description {
+}
+
+.feature__achievement {
+}
+
+.feature-achievement {
+}
+
+.feature-achievement__title-main {
+}
+
+.feature-achievement__title-sub {
+}
+
+.feature-achievement__image {
 }
