@@ -29,6 +29,11 @@ body {
   font-weight: 300;
 }
 
+body,
+html {
+  overflow-x: hidden;
+}
+
 .fv {
   width: 100%;
   height: 600px;
@@ -74,15 +79,24 @@ body {
   }
 }
 
-.fv__header {
-  position: absolute;
+.fv__header,
+.fv__header-2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
   top: 0;
   left: 0;
   width: 100%;
+  height: 72px;
   padding-left: 20px;
+
+  @include mq(md) {
+    height: 100px;
+  }
+}
+
+.fv__header {
+  position: absolute;
 }
 
 .fv__logo {
@@ -91,23 +105,38 @@ body {
 .fv__logo-link {
 }
 
+.fv__logo-text,
+.fv__logo-text2 {
+  /* h1_Zen Kaku Gothic New_Bold_11px */
+  font-family: "Zen Kaku Gothic New";
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+}
+
 .fv__logo-text {
   color: #fff;
-  /* SP_h1_Zen Kaku Gothic New_Bold_11pt */
-  font-family: "Zen Kaku Gothic New";
-  font-size: 11px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  letter-spacing: 0.55px;
+}
+
+.fv__logo-text2 {
+  color: #7d7d7d;
 }
 
 .fv__logo-image {
   margin-top: 4px;
-  width: 140px;
-  height: 36px;
 
-  svg {
+  @include mq(md) {
+    width: 175px;
+  }
+
+  img {
+    width: 140px;
+    height: 36px;
+
+    @include mq(md) {
+      width: 175px;
+      height: 45px;
+    }
   }
 }
 
@@ -214,19 +243,29 @@ body {
 }
 
 .fv__drawer {
-  width: 72px;
-
   @include mq(md) {
     margin-left: 8px;
   }
 
   a {
     img {
+      width: 72px;
+      height: 100px;
+
+      @include mq(md) {
+        width: 100px;
+        height: 100px;
+      }
     }
   }
 }
 
 .fv__flower {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
 }
 
 .fv__flower--left {
@@ -273,8 +312,17 @@ body {
   left: 16px;
   bottom: 250px;
 
+  @include mq(md) {
+    left: 841px;
+    bottom: 529px;
+  }
+
   img {
     width: 24px;
+
+    @include mq(md) {
+      width: 39px;
+    }
   }
 }
 
@@ -283,8 +331,17 @@ body {
   bottom: 10px;
   left: 100px;
 
+  @include mq(md) {
+    left: 984px;
+    bottom: 278px;
+  }
+
   img {
     width: 38px;
+
+    @include mq(md) {
+      width: 46px;
+    }
   }
 }
 
@@ -293,8 +350,17 @@ body {
   bottom: 26px;
   left: 200px;
 
+  @include mq(md) {
+    left: 613px;
+    bottom: 248px;
+  }
+
   img {
     width: 26px;
+
+    @include mq(md) {
+      width: 31px;
+    }
   }
 }
 
@@ -332,9 +398,9 @@ body {
 
   @include mq(md) {
     flex-direction: row;
-    gap: 40px;
-    top: 275px;
-    left: 344px;
+    gap: 35px;
+    top: 235px;
+    left: 281px;
   }
 }
 
@@ -379,7 +445,7 @@ body {
     height: 30px;
 
     @include mq(md) {
-      width: 66px;
+      width: 63px;
       height: 61px;
     }
   }
@@ -391,7 +457,7 @@ body {
     height: 30px;
 
     @include mq(md) {
-      width: 69px;
+      width: 63px;
       height: 61px;
     }
   }
@@ -434,7 +500,7 @@ body {
   @include mq(md) {
     writing-mode: horizontal-tb;
     text-shadow: 0 0 32px rgba(121, 5, 16, 0.5);
-    font-size: 48px;
+    font-size: 38px;
     font-style: normal;
     font-weight: 700;
     line-height: 110%; /* 52.8px */
@@ -467,10 +533,10 @@ body {
 
   @include mq(md) {
     writing-mode: horizontal-tb;
-    font-size: 48px;
+    font-size: 42px;
     padding-inline: 92px;
-    left: 379px;
-    bottom: 351px;
+    left: 315px;
+    bottom: 410px;
   }
 
   &::before,
@@ -519,4 +585,462 @@ body {
     font-size: 40px;
     margin-inline: 6px;
   }
+}
+
+.fv__header2 {
+}
+
+.fv__header2-inner {
+}
+
+.fv__header2-contents {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 20px;
+}
+
+.fv__header2-logo {
+}
+
+.fv__header2-link {
+}
+
+.fv__header2-text {
+  color: #7d7d7d;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.55px;
+}
+
+.fv__header2-image {
+  img {
+  }
+}
+
+.problem {
+  padding-block: 55px 40px;
+  background: #fff;
+
+  @include mq(md) {
+    padding-block: 26px 243px;
+  }
+}
+
+.problem__inner {
+  @include mq(md) {
+    padding-left: 25px;
+    padding-right: 39px;
+  }
+}
+
+.problem__contents {
+}
+
+.problem__head {
+  text-align: center;
+}
+
+.problem__head-1 {
+  color: #231815;
+  text-align: center;
+  font-family: "Zen Kaku Gothic New";
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 2.4px;
+  padding-bottom: 7px;
+  border-bottom: 2px solid #f99b9e;
+
+  @include mq(md) {
+    font-size: 20px;
+    letter-spacing: 3.2px;
+    border-bottom: 3px solid #f99b9e;
+  }
+}
+
+.problem__head-2 {
+  margin-top: 8px;
+  color: #231815;
+  font-family: "Zen Kaku Gothic New";
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 1.54px;
+
+  @include mq(md) {
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: 3.6px;
+    margin-top: 14px;
+  }
+}
+
+.problem__body {
+  width: 100%;
+  height: 1005px;
+  position: relative;
+  margin-top: 36px;
+
+  @include mq(md) {
+    margin-top: 24px;
+    max-width: 1376px;
+    height: 892px;
+  }
+}
+
+.problem__inheritance,
+.problem__demolish,
+.problem__price,
+.problem__contract,
+.problem__trouble,
+.problem__valuables {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  content: "";
+
+  @include mq(md) {
+    &::before {
+      position: absolute;
+      content: "";
+      background: url(../img/ellipse.svg) no-repeat center center / contain;
+      width: 23px;
+      height: 15px;
+    }
+
+    &::after {
+      position: absolute;
+      content: "";
+      background: url(../img/ellipse.svg) no-repeat center center / contain;
+      width: 12px;
+      height: 8px;
+    }
+  }
+}
+
+.problem__inheritance-text,
+.problem__demolish-text,
+.problem__price-text,
+.problem__contract-text,
+.problem__trouble-text,
+.problem__valuables-text {
+  text-align: center;
+  color: #231815;
+  font-family: "Zen Kaku Gothic New";
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 36px;
+  letter-spacing: 0.9px;
+
+  @include mq(md) {
+    font-size: 20px;
+    line-height: 38px;
+    letter-spacing: 1px;
+  }
+}
+
+.problem__inheritance {
+  background: url(../img/inheritance-bubble.svg) no-repeat center center / contain;
+  width: 314px;
+  height: 164px;
+  top: 0;
+  left: -6px;
+
+  @include mq(md) {
+    width: 401px;
+    height: 209px;
+    top: 4px;
+    left: 382px;
+
+    &::before {
+      left: 209px;
+      bottom: -4px;
+    }
+
+    &::after {
+      left: 219px;
+      bottom: -15px;
+    }
+  }
+}
+
+.problem__inheritance-text {
+}
+
+.problem__demolish {
+  width: 377px;
+  height: 160px;
+  background: url(../img/demolish-bubble.svg) no-repeat center center / contain;
+  top: 146px;
+  right: -26px;
+
+  @include mq(md) {
+    width: 405px;
+    height: 194px;
+    top: 162px;
+    left: 77px;
+
+    &::before {
+      left: 192px;
+      bottom: -14px;
+    }
+
+    &::after {
+      left: 207px;
+      bottom: -25px;
+    }
+  }
+}
+
+.problem__demolish-text {
+}
+
+.problem__price {
+  width: 257px;
+  height: 127px;
+  background: url(../img/price-bubble.svg) no-repeat center center / contain;
+  top: 289px;
+  right: 126px;
+
+  @include mq(md) {
+    width: 375px;
+    height: 185px;
+    top: 100px;
+    right: 51px;
+
+    &::before {
+      left: 177px;
+      bottom: -12px;
+    }
+
+    &::after {
+      left: 177px;
+      bottom: -23px;
+    }
+  }
+}
+
+.problem__price-text {
+}
+
+.problem__contract {
+  width: 334px;
+  height: 139px;
+  background: url(../img/contract-bubble.svg) no-repeat center center / contain;
+  top: 403px;
+  right: -34px;
+
+  @include mq(md) {
+    width: 401px;
+    height: 181px;
+    top: 402px;
+    left: 180px;
+
+    &::before {
+      left: 218px;
+      bottom: -10px;
+    }
+
+    &::after {
+      left: 235px;
+      bottom: -20px;
+    }
+  }
+}
+
+.problem__contract-text {
+}
+
+.problem__trouble {
+  width: 326px;
+  height: 134px;
+  background: url(../img/trouble-bubble.svg) no-repeat center center / contain;
+  top: 533px;
+  left: -25px;
+
+  @include mq(md) {
+    width: 396px;
+    height: 181px;
+    top: 193px;
+    left: 565px;
+
+    &::before {
+      left: 168px;
+      bottom: -14px;
+    }
+
+    &::after {
+      left: 167px;
+      bottom: -26px;
+    }
+  }
+}
+
+.problem__trouble-text {
+}
+
+.problem__valuables {
+  width: 373px;
+  height: 169px;
+  background: url(../img/valuables-bubble.svg) no-repeat center center / contain;
+  top: 648px;
+  right: -18px;
+
+  @include mq(md) {
+    width: 435px;
+    height: 188px;
+    top: 363px;
+    right: 132px;
+
+    &::before {
+      left: 170px;
+      bottom: -7px;
+    }
+
+    &::after {
+      left: 167px;
+      bottom: -26px;
+    }
+  }
+}
+
+.problem__valuables-text {
+}
+
+.problem__image {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+
+  @include mq(md) {
+    bottom: 243px;
+  }
+
+  img {
+    width: 177px;
+
+    @include mq(md) {
+      width: 207px;
+    }
+  }
+}
+
+.problem__text-pink--1 {
+  color: #f99b9e;
+  font-family: "Zen Old Mincho";
+  font-size: 32px;
+  font-weight: 900;
+  line-height: 46px; /* 143.75% */
+  letter-spacing: 2.24px;
+
+  @include mq(md) {
+    font-size: 52px;
+    letter-spacing: 5.2px;
+  }
+}
+
+.problem__text-pink--2 {
+  color: #f28c90;
+  font-family: "Zen Kaku Gothic New";
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 36px; /* 138.462% */
+  letter-spacing: 1.3px;
+
+  @include mq(md) {
+    font-size: 30px;
+    line-height: 38px;
+    letter-spacing: 1.5px;
+  }
+}
+
+.case {
+  margin-top: -105px;
+  padding-top: 105px;
+  background: #d9d9d9;
+  position: relative;
+
+  &::before {
+    position: absolute;
+    content: "";
+    background: url(../img/case/wave.png) no-repeat center center / contain;
+    width: 100%;
+    height: 105px;
+    top: 0;
+    left: 0;
+  }
+}
+
+.case__inner {
+  padding-inline: 20px;
+}
+
+.case__title {
+}
+
+.case__title-main {
+}
+
+.case__title-sub {
+}
+
+.case__title-label {
+}
+
+.case__contents {
+}
+
+.case__card {
+}
+
+.case-card {
+}
+
+.case-card__head {
+}
+
+.case-card__head-number {
+}
+
+.case-card__body {
+}
+
+.case-card__problem {
+}
+
+.case-card__problem-inner {
+}
+
+.case-card__problem-logo {
+}
+
+.case-card__problem-text {
+}
+
+.case-card__strength {
+}
+
+.case-card__strength-inner {
+}
+
+.case-card__strength-label {
+}
+
+.case-card__strength-text {
+}
+
+.case__worker {
+}
+
+.case__worker-comment {
+}
+
+.case__worker-bubble {
+}
+
+.case__worker-text {
+}
+
+.case__worker-human {
 }
