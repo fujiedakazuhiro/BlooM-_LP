@@ -991,7 +991,7 @@ html {
     width: 100%;
     height: 114px;
     background-size: 100% auto;
-    clip-path: inset(0 0 0 0); // 上部のみ表示
+    // clip-path: inset(0 0 0 0); // 上部のみ表示
     top: 0;
     left: 0;
 
@@ -1147,6 +1147,7 @@ html {
   padding-top: 20px;
   padding-bottom: 16px;
   text-align: center;
+  height: 224px;
 }
 
 .case-card__problem-inner {
@@ -1176,6 +1177,7 @@ html {
   position: relative;
   border-radius: 0 0 4px 4px;
   background: #f99b9e;
+  height: 171px;
 }
 
 .case-card__strength-inner {
@@ -1321,15 +1323,66 @@ html {
 }
 
 .feature {
+  position: relative;
+  padding-top: 150px;
+  margin-top: -150px;
+
+  @include mq(md) {
+    padding-top: 368px;
+    margin-top: -368px;
+  }
+
+  &::before {
+    position: absolute;
+    content: "";
+    background: url(../img/feature/sp/wave-sp.svg) no-repeat top center;
+    width: 100%;
+    height: 150px;
+    background-size: 100% auto;
+    // clip-path: inset(0 0 0 0); // 上部のみ表示
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+    @include mq(md) {
+      background: url(../img/feature/wave.svg) no-repeat top center;
+      height: 368px;
+    }
+  }
 }
 
 .feature__inner {
+  padding-inline: 15px;
+  width: 100%;
+  background: #f9f9f9;
+
+  @include mq(md) {
+    padding-inline: 50px;
+  }
 }
 
 .feature__contents {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+
+  @include mq(md) {
+    max-width: 984px;
+    margin: 0 auto;
+    position: relative;
+  }
 }
 
 .feature__head {
+  @include mq(md) {
+    position: absolute;
+    top: -176px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    width: 100%;
+  }
 }
 
 .feature__title-sub {
@@ -1338,52 +1391,421 @@ html {
 .feature__title-main {
 }
 
+.feature__title-pink-2 {
+  color: #f99b9e;
+  font-family: "Zen Old Mincho";
+  font-size: 36px;
+  font-weight: 900;
+  letter-spacing: 3.6px;
+}
+
 .feature__body {
+  margin-top: 32px;
+
+  @include mq(md) {
+    margin-top: 0;
+  }
+}
+
+.feature__cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .feature__card {
 }
 
 .feature-card {
+  border-radius: 4px;
+  background: #fff;
+  padding-block: 20px;
+
+  @include mq(md) {
+    width: calc(777 / 984 * 100%);
+    padding-block: 28px 25px;
+
+    &:nth-child(1),
+    &:nth-child(3),
+    &:nth-child(5) {
+      align-self: flex-start;
+    }
+
+    &:nth-child(2),
+    &:nth-child(4),
+    &:nth-child(6) {
+      align-self: flex-end;
+    }
+  }
 }
 
 .feature-card__inner {
+  padding-inline: 20px;
+
+  @include mq(md) {
+    display: flex;
+    align-items: center;
+    padding-inline: 19px 40px;
+    gap: 20px;
+  }
 }
 
 .feature-card__head {
+  text-align: center;
+  margin-left: 13px;
+
   img {
+    width: 170px;
+    height: auto;
   }
 }
 
 .feature-card__body {
+  margin-top: 11px;
 }
 
 .feature-card__title {
+  padding-bottom: 10px;
+  position: relative;
+
+  @include mq(md) {
+    padding-left: 80px;
+    padding-bottom: 14px;
+  }
+
+  &::after {
+    position: absolute;
+    content: "";
+    background: #242424;
+    width: 100%;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+  }
 }
 
 .feature-card__title--black {
+  color: #242424;
+  /* SP_h3_Zen Kaku Gothic New_Bold_18px */
+  font-family: "Zen Kaku Gothic New";
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 28px; /* 155.556% */
+  letter-spacing: 1.26px;
+
+  @include mq(md) {
+    font-size: 24px;
+    line-height: 34px;
+    letter-spacing: 2.4px;
+  }
 }
 
-.feature-card__title-pink {
+.feature-card__title--pink {
+  color: #f88388;
+  font-family: "Zen Old Mincho";
+  font-size: 15px;
+  font-weight: 900;
+  line-height: 25px; /* 166.667% */
+
+  @include mq(md) {
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: 1.26px;
+  }
 }
 
 .feature-card__title--number {
+  color: #242424;
+  font-family: "Zen Old Mincho";
+  font-size: 55px;
+  font-weight: 600;
+  letter-spacing: -1.65px;
+  position: absolute;
+  left: 0;
+  top: -100%;
+
+  @include mq(md) {
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+  }
 }
 
 .feature-card__description {
+  margin-top: 10px;
+  color: #242424;
+  /* SP_p_Zen Kaku Gothic New_Medium_15px */
+  font-family: "Zen Kaku Gothic New";
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 25px; /* 166.667% */
+
+  @include mq(md) {
+    margin-top: 13px;
+    font-size: 16px;
+    line-height: 28px;
+  }
 }
 
 .feature__achievement {
+  padding-top: 50px;
+  background: #f9f9f9;
+
+  @include mq(md) {
+    padding-top: 72px;
+  }
 }
 
 .feature-achievement {
 }
 
+.feature-achievement__inner {
+  padding-inline: 15px;
+  padding-bottom: 103px;
+  background: #f9f9f9;
+
+  @include mq(md) {
+    padding-inline: 0;
+  }
+}
+
 .feature-achievement__title-main {
+  color: #242424;
+  text-align: center;
+  font-family: "Zen Kaku Gothic New";
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  padding-inline: 29px;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+
+  @include mq(md) {
+    font-size: 28px;
+    letter-spacing: 1.96px;
+  }
+
+  &::before,
+  &::after {
+    position: absolute;
+    content: "";
+    width: 18px;
+    height: 26px;
+    bottom: 0;
+  }
+
+  &::before {
+    background: url(../img/feature/jisseki-before.svg) no-repeat center center / contain;
+    left: 0;
+  }
+
+  &::after {
+    background: url(../img/feature/jisseki-after.svg) no-repeat center center / contain;
+    right: 0;
+  }
 }
 
 .feature-achievement__title-sub {
+  margin-top: 19px;
+  color: #242424;
+  font-family: "Zen Kaku Gothic New";
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 26px; /* 162.5% */
+  letter-spacing: 1.12px;
+
+  @include mq(md) {
+    margin-top: 21px;
+    font-size: 18px;
+    line-height: 30px;
+    letter-spacing: 1.26px;
+  }
 }
 
 .feature-achievement__image {
+  margin-top: -4px;
+  padding: 36px 0 0;
+  position: relative;
+  text-align: center;
+
+  @include mq(md) {
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 130px 0;
+    max-width: 1060px;
+  }
+
+  &::before {
+    position: absolute;
+    content: "";
+    background: url(../img/feature/sp/graph-bubble-sp.svg) no-repeat center center / contain;
+    width: 66px;
+    height: 74px;
+    top: 0;
+    right: 7px;
+
+    @include mq(md) {
+      background: url(../img/feature/graph-bubble.svg) no-repeat center center / contain;
+      width: 191px;
+      height: 163px;
+      top: 16px;
+      right: 0;
+    }
+  }
+}
+
+.feature-achievement__image-wrap {
+  padding: 25px 28px 16px 13px;
+  border-radius: 4px;
+  background: #fff;
+  width: 100%;
+
+  @include mq(md) {
+    padding: 42px 65px 32px 65px;
+    width: 800px;
+    height: 530px;
+    margin: 0 auto;
+  }
+
+  img {
+    width: 303px;
+
+    @include mq(md) {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.feature-achievement__date {
+  color: #242424;
+  text-align: right;
+  font-family: "Zen Kaku Gothic New";
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 14px; /* 107.692% */
+  letter-spacing: 0.65px;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  margin-top: 8px;
+}
+
+.service {
+  margin-top: -40px;
+  padding-block: 40px 37px;
+  position: relative;
+
+  &::before {
+    position: absolute;
+    content: "";
+    background: url(../img/service/sp/wave-sp.svg);
+    width: 100%;
+    height: 40px;
+    background-size: 100% auto;
+    // clip-path: inset(0 0 0 0); // 上部のみ表示
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+}
+
+.service__inner {
+  padding-inline: 15px;
+  background: #f2efe7;
+}
+
+.service__contents {
+  padding-top: 40px;
+}
+
+.service__head {
+}
+
+.service__title-sub {
+}
+
+.service__title-main {
+}
+
+.service__text-pink--1 {
+}
+
+.service__area {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.service__area-text {
+  color: #242424;
+  font-family: "Zen Kaku Gothic New";
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 26px; /* 162.5% */
+  letter-spacing: 1.12px;
+}
+
+.service__area-map {
+  // background: url(<path-to-image>) lightgray 50% / cover no-repeat;
+  text-align: center;
+
+  img {
+    width: 288px;
+  }
+}
+
+.service__area-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.service__area-card {
+}
+
+.service-area__card {
+}
+
+.service-area__head {
+  width: 100%;
+  height: 44px;
+  padding-block: 8px;
+  border-radius: 4px 4px 0 0;
+  background: #f99b9e;
+}
+
+.service-area__head-inner {
+  padding-inline: 16px;
+}
+
+.service-area__head-text {
+  color: #fff;
+  text-align: center;
+  font-family: "Zen Kaku Gothic New";
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 28px; /* 155.556% */
+  letter-spacing: 14.4px;
+}
+
+.service-area__body {
+  padding-block: 12px;
+  background: #fff;
+  border-radius: 0 0 4px 4px;
+}
+
+.service-area__body-inner {
+  padding-inline: 16px;
+}
+
+.service-area__body-text {
+  color: #242424;
+  font-family: "Zen Kaku Gothic New";
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 22px; /* 169.231% */
 }
