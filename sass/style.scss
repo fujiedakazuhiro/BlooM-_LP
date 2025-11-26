@@ -227,22 +227,29 @@ html {
   }
 }
 
-.fv__tel-link {
+.tel {
+}
+
+.fv__tel-link,
+.tel-link {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.fv__tel-number {
+.fv__tel-number,
+.tel-number {
   display: flex;
 }
 
-.fv__tel-logo {
+.fv__tel-logo,
+.tel-logo {
   width: 12px;
   height: 15px;
 }
 
-.fv__tel-text {
+.fv__tel-text,
+.tel-text {
   color: #fff;
   font-family: Roboto;
   font-size: 20px;
@@ -252,12 +259,14 @@ html {
   letter-spacing: 1px;
 }
 
-.fv__tel-reception {
+.fv__tel-reception,
+.tel-reception {
   display: flex;
   gap: 6px;
 }
 
-.fv__tel-label {
+.fv__tel-label,
+.tel-label {
   color: #fff;
   font-family: "Zen Kaku Gothic New";
   font-size: 12px;
@@ -266,7 +275,8 @@ html {
   line-height: normal;
 }
 
-.fv__tel-hour {
+.fv__tel-hour,
+.tel-hour {
   color: #fff;
   font-family: Roboto;
   font-size: 13px;
@@ -288,19 +298,25 @@ html {
   }
 }
 
-.fv__line-link {
+.line {
+}
+
+.fv__line-link,
+.line-link {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
 }
 
-.fv__line-logo {
+.fv__line-logo,
+.line-logo {
   width: 31px;
   height: 30px;
 }
 
-.fv__line-text {
+.fv__line-text,
+.line-text {
   color: #fff;
   font-family: "Zen Kaku Gothic New";
   font-size: 16px;
@@ -1963,7 +1979,9 @@ html {
 }
 
 .works__swiper-slide.swiper-slide-active {
-  transform: translateY(-67px) !important;
+  @include mq(md) {
+    transform: translateY(-67px) !important;
+  }
 }
 
 .works__card {
@@ -2230,4 +2248,473 @@ html {
 }
 //activeな部分
 .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+}
+
+// TwentyTwentyのコード-ここから
+/* TwentyTwenty 基本スタイル */
+.twentytwenty-container {
+  box-sizing: content-box;
+  overflow: hidden;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  width: 100%;
+}
+
+.twentytwenty-container img {
+  max-width: 100%;
+  position: absolute;
+  top: 0;
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.twentytwenty-container.active .twentytwenty-overlay,
+.twentytwenty-container.active :hover.twentytwenty-overlay {
+  background: rgba(0, 0, 0, 0);
+}
+
+.twentytwenty-container * {
+  box-sizing: content-box;
+}
+
+.twentytwenty-before-label,
+.twentytwenty-after-label,
+.twentytwenty-overlay {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.twentytwenty-before-label,
+.twentytwenty-after-label {
+  transition-duration: 0.5s;
+}
+
+.twentytwenty-before-label:before,
+.twentytwenty-after-label:before {
+  color: white;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.2);
+  line-height: 38px;
+  padding: 0 20px;
+  border-radius: 2px;
+  top: 50%;
+  margin-top: -19px;
+}
+
+.twentytwenty-before-label:before {
+  content: "Before";
+  left: 10px;
+}
+
+.twentytwenty-after-label:before {
+  content: "After";
+  right: 10px;
+}
+
+.twentytwenty-horizontal .twentytwenty-handle:before,
+.twentytwenty-horizontal .twentytwenty-handle:after,
+.twentytwenty-vertical .twentytwenty-handle:before,
+.twentytwenty-vertical .twentytwenty-handle:after {
+  content: " ";
+  display: block;
+  background: white;
+  position: absolute;
+  z-index: 30;
+  box-shadow: 0px 0px 12px rgba(51, 51, 51, 0.5);
+}
+
+.twentytwenty-horizontal .twentytwenty-handle:before,
+.twentytwenty-horizontal .twentytwenty-handle:after {
+  width: 3px;
+  height: 9999px;
+  left: 50%;
+  margin-left: -1.5px;
+}
+
+.twentytwenty-vertical .twentytwenty-handle:before,
+.twentytwenty-vertical .twentytwenty-handle:after {
+  width: 9999px;
+  height: 3px;
+  top: 50%;
+  margin-top: -1.5px;
+}
+
+.twentytwenty-before-label,
+.twentytwenty-after-label {
+  transition: opacity 0.5s ease;
+}
+
+.twentytwenty-handle {
+  height: 38px;
+  width: 38px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -22px;
+  margin-top: -22px;
+  border: 3px solid white;
+  border-radius: 1000px;
+  box-shadow: 0px 0px 12px rgba(51, 51, 51, 0.5);
+  z-index: 40;
+  cursor: pointer;
+}
+
+.twentytwenty-horizontal .twentytwenty-handle:before {
+  bottom: 50%;
+  margin-bottom: 22px;
+  box-shadow: 0 3px 0 white, 0px 0px 12px rgba(51, 51, 51, 0.5);
+}
+
+.twentytwenty-horizontal .twentytwenty-handle:after {
+  top: 50%;
+  margin-top: 22px;
+  box-shadow: 0 -3px 0 white, 0px 0px 12px rgba(51, 51, 51, 0.5);
+}
+
+.twentytwenty-left-arrow,
+.twentytwenty-right-arrow {
+  width: 0;
+  height: 0;
+  border: 6px inset transparent;
+  position: absolute;
+  top: 50%;
+  margin-top: -6px;
+}
+
+.twentytwenty-left-arrow {
+  border-right: 6px solid white;
+  left: 50%;
+  margin-left: -17px;
+}
+
+.twentytwenty-right-arrow {
+  border-left: 6px solid white;
+  right: 50%;
+  margin-right: -17px;
+}
+
+.twentytwenty-down-arrow,
+.twentytwenty-up-arrow {
+  width: 0;
+  height: 0;
+  border: 6px inset transparent;
+  position: absolute;
+  left: 50%;
+  margin-left: -6px;
+}
+
+.twentytwenty-down-arrow {
+  border-top: 6px solid white;
+  bottom: 50%;
+  margin-bottom: -17px;
+}
+
+.twentytwenty-up-arrow {
+  border-bottom: 6px solid white;
+  top: 50%;
+  margin-top: -17px;
+}
+// TwentyTwentyのコード-ここまで
+
+.cta {
+  padding-block: 88px 32px;
+  background: linear-gradient(100deg, rgba(223, 10, 30, 0.3) 23.69%, rgba(130, 91, 1, 0.3) 109.57%), url(../img/cta/sp/cta-img-sp.png) no-repeat center center / cover;
+  text-align: center;
+
+  @include mq(md) {
+    padding-block: 97px 98px;
+    background: linear-gradient(100deg, rgba(223, 10, 30, 0.3) 23.69%, rgba(130, 91, 1, 0.3) 109.57%), url(../img/cta/cta-img.png) no-repeat center center / cover;
+  }
+}
+
+.cta__inner {
+  padding-inline: 27px;
+}
+
+.cta__contents {
+  @include mq(md) {
+    max-width: 656px;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+.cta__text--large {
+  color: #fff;
+  text-shadow: 0 0 16px #a3383c;
+  font-family: "Zen Kaku Gothic New";
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 32px; /* 160% */
+  letter-spacing: 1.4px;
+
+  @include mq(md) {
+    font-size: 32px;
+    line-height: 42px; /* 131.25% */
+    letter-spacing: 2.24px;
+  }
+}
+
+.cta__text--small {
+  margin-top: 16px;
+  color: #fff;
+  text-shadow: 0 0 16px rgba(39, 58, 88, 0.5);
+  font-family: "Zen Kaku Gothic New";
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1.12px;
+  padding-inline: 23px;
+  position: relative;
+  display: inline-block;
+
+  @include mq(md) {
+    margin-top: 32px;
+    font-size: 18px;
+    letter-spacing: 1.26px;
+    padding-inline: 35px;
+  }
+
+  &::before,
+  &::after {
+    position: absolute;
+    content: "";
+    top: 50%;
+    transform: translateY(-50%);
+    width: 17px;
+    height: 23px;
+
+    @include mq(md) {
+      width: 25px;
+      height: 32px;
+    }
+  }
+
+  &::before {
+    background: url(../img/cta/cta-before.svg) no-repeat center center / contain;
+    left: 0;
+  }
+
+  &::after {
+    background: url(../img/cta/cta-after.svg) no-repeat center center / contain;
+    right: 0;
+  }
+}
+
+.cta__sns-wrapper {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+
+  @include mq(md) {
+    margin-top: 27px;
+    flex-direction: row;
+    gap: 16px;
+  }
+}
+
+.cta__tel {
+  display: block;
+  border-radius: 28px;
+  background: #242424;
+  width: 230px;
+  height: 56px;
+  padding-block: 5px;
+  width: 100%;
+
+  @include mq(md) {
+  }
+}
+
+.cta__tel-link {
+}
+
+.cta__tel-number {
+}
+
+.cta__tel-logo {
+}
+
+.cta__tel-text {
+}
+
+.cta__tel-reception {
+}
+
+.cta__tel-label {
+}
+
+.cta__tel-hour {
+}
+
+.cta__line {
+  display: block;
+  width: 230px;
+  height: 56px;
+  border-radius: 28px;
+  background: #06c755;
+  padding-block: 5px;
+  width: 100%;
+
+  @include mq(md) {
+  }
+}
+
+.cta__line-link {
+}
+
+.cta__line-logo {
+}
+
+.cta__line-text {
+}
+
+.price {
+  padding-block: 63px 148px;
+  background: linear-gradient(135deg, #f9f7f3 21.75%, #edebe7 83.66%);
+
+  @include mq(md) {
+    padding-block: 80px 360px;
+  }
+}
+
+.price__inner {
+  padding-inline: 36px;
+
+  @include mq(md) {
+    padding-inline: 80px;
+  }
+}
+
+.price__contents {
+  @include mq(md) {
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+.price__head {
+}
+
+.price__title-sub {
+}
+
+.price__title-main {
+}
+
+.price__text-pink--1 {
+}
+
+.price__cards {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  @include mq(md) {
+    margin-top: 48px;
+    flex-direction: row;
+    gap: 24px;
+  }
+}
+
+.price__card {
+}
+
+.price-card {
+}
+
+.price-card__inner {
+}
+
+.price-card__contents {
+}
+
+.price-card__image {
+  background: url(<path-to-image>) lightgray 50% / cover no-repeat;
+  border-radius: 4px 4px 0 0;
+
+  img {
+    width: 100%;
+    aspect-ratio: 302 / 227;
+  }
+}
+
+.price-card__description {
+  text-align: center;
+  background: #fff;
+  border-radius: 0 0 4px 4px;
+}
+
+.price-card__description--inner {
+  padding-inline: 20px;
+}
+
+.price-card__description--contents {
+  padding-block: 46px 32px;
+  position: relative;
+}
+
+.price-card__text--pink1 {
+  color: #f99b9e;
+  font-family: Roboto;
+  font-size: 40px;
+  font-weight: 600;
+
+  @include mq(md) {
+    font-size: 44px;
+  }
+}
+
+.price-card__text--pink2 {
+  color: #f99b9e;
+  font-family: "Noto Sans JP";
+  font-size: 24px;
+  font-weight: 700;
+
+  @include mq(md) {
+    font-size: 26px;
+  }
+}
+
+.price-card__text--black {
+  margin-top: 8px;
+  color: #242424;
+  /* p_Zen Kaku Gothic New_Medium_16px */
+  font-family: "Zen Kaku Gothic New";
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 28px; /* 175% */
+}
+
+.price-card__plan--label {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 20px;
+  background: #f99b9e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+}
+
+.plan-card__plan--text {
+  color: #fff;
+  font-family: "Zen Kaku Gothic New";
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 34px; /* 170% */
+  letter-spacing: 2px;
 }
