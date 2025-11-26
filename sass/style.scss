@@ -1834,7 +1834,11 @@ html {
 }
 
 .service-area__card {
-  width: calc(33.33% - 24px * 2 / 3);
+  width: 100%;
+
+  @include mq(md) {
+    width: calc(33.33% - 24px * 2 / 3);
+  }
 }
 
 .service-area__head {
@@ -1899,4 +1903,331 @@ html {
     font-size: 14px;
     line-height: 24px; /* 171.429% */
   }
+}
+
+.works {
+  padding-top: 51px;
+  padding-bottom: 72px;
+
+  @include mq(md) {
+    padding-top: 73px;
+    padding-bottom: 80px;
+  }
+}
+
+.works__inner {
+}
+
+.works__contents {
+  // margin-top: 32px;
+}
+
+.works__swiper-container,
+.works__swiper,
+.works__swiper-wrapper,
+.works__swiper-slide {
+  position: relative;
+}
+.works__swiper-container {
+  margin-top: 32px;
+
+  @include mq(md) {
+    margin-top: 48px;
+  }
+}
+
+.works__swiper {
+  @include mq(md) {
+    padding-top: 67px;
+  }
+}
+
+.works__swiper-wrapper {
+}
+
+.works__swiper-slide {
+  // transition: margin-bottom 0.5s ease;
+  padding-inline: 20px;
+  padding-bottom: 35px;
+  transition: transform 0.5s ease-out;
+
+  @include mq(md) {
+    @include mq(md) {
+      padding-inline: 0;
+      padding-bottom: 67px;
+    }
+  }
+
+  // &.swiper-slide-active {
+  // }
+}
+
+.works__swiper-slide.swiper-slide-active {
+  transform: translateY(-67px) !important;
+}
+
+.works__card {
+}
+
+.works-card {
+  padding: 24px 20px;
+  border-radius: 24px;
+  background: #f7f7f7;
+
+  @include mq(md) {
+    padding: 32px 32px;
+  }
+}
+
+.works-card__inner {
+}
+
+.works-card__contents {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  @include mq(md) {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 24px;
+  }
+}
+
+.works-card__image {
+  @include mq(md) {
+    width: calc(521 / 961 * 100%);
+    flex-shrink: 0;
+  }
+
+  img {
+    aspect-ratio: 295 / 240;
+
+    @include mq(md) {
+      aspect-ratio: 521 / 400;
+      width: 100%;
+    }
+  }
+}
+
+.works-card__description {
+  flex: grow;
+}
+
+.works-card__wrapper {
+}
+
+.works-card__title {
+  margin-top: 16px;
+  color: #242424;
+  /* SP_h3_Zen Kaku Gothic New_Bold_18px */
+  font-family: "Zen Kaku Gothic New";
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 28px; /* 155.556% */
+  letter-spacing: 1.26px;
+
+  @include mq(md) {
+    font-size: 24px;
+    line-height: 34px; /* 141.667% */
+    letter-spacing: 2.4px;
+    padding-block: 60px;
+  }
+}
+
+.works-card__info {
+  margin-top: 16px;
+
+  @include mq(md) {
+    margin-top: 0;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+
+    &:nth-child(n + 2) {
+      margin-top: 6px;
+    }
+
+    @include mq(md) {
+      &:nth-child(n + 2) {
+        margin-top: 8px;
+      }
+    }
+  }
+}
+
+.label {
+  color: #242424;
+  font-family: "Zen Kaku Gothic New";
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 25px; /* 166.667% */
+  letter-spacing: 4.95px;
+  flex: 0 0 84px;
+
+  @include mq(md) {
+    font-size: 16px;
+    line-height: 26px; /* 162.5% */
+    letter-spacing: 5.28px;
+    flex: 0 0 92px;
+  }
+}
+
+.value {
+  color: #242424;
+  /* SP_p_Zen Kaku Gothic New_Medium_15px */
+  font-family: "Zen Kaku Gothic New";
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 25px; /* 166.667% */
+  padding-left: 20px;
+  position: relative;
+
+  @include mq(md) {
+    font-size: 16px;
+    line-height: 26px; /* 162.5% */
+    letter-spacing: 0.8px;
+  }
+
+  &::before {
+    position: absolute;
+    content: "";
+    background: url(../img/works/info-arrow.svg) no-repeat center center / contain;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    width: 12px;
+    height: 9px;
+  }
+}
+
+.works-card__point {
+  margin-top: 6px;
+
+  @include mq(md) {
+    margin-top: 8px;
+  }
+}
+
+.works-card__point--title {
+  color: #242424;
+  font-family: "Zen Kaku Gothic New";
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 25px; /* 166.667% */
+
+  @include mq(md) {
+    font-size: 16px;
+    line-height: 26px; /* 162.5% */
+  }
+}
+
+.works-card__point--text {
+  margin-top: 3px;
+  color: #242424;
+  /* SP_p_Zen Kaku Gothic New_Medium_15px */
+  font-family: "Zen Kaku Gothic New";
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 25px; /* 166.667% */
+
+  @include mq(md) {
+    font-size: 16px;
+    line-height: 26px; /* 162.5% */
+    letter-spacing: 0.8px;
+  }
+}
+
+//位置のreset
+.works__swiper-button-prev,
+.works__swiper-button-next,
+.works__swiper-pagination-bullets.works__swiper-pagination-horizontal {
+  top: unset;
+  bottom: unset;
+  left: unset;
+  right: unset;
+  margin: 0;
+  padding: 0;
+}
+
+.works__swiper-pagination {
+  // margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+// =============================
+// ナビゲーションボタン
+// =============================
+//デフォルトのボタンを初期化
+.works__swiper-button-prev::after,
+.works__swiper-button-next::after {
+  content: "" !important; //デフォルトのものを初期化
+  display: none !important;
+}
+//各ボタンのカスタマイズ
+.works__swiper-button-prev,
+.works__swiper-button-next {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 280px !important;
+
+  @include mq(md) {
+    width: 56px;
+    height: 56px;
+  }
+
+  svg {
+    content: "" !important;
+    display: none !important;
+  }
+}
+.works__swiper-button-prev {
+  background: url(../img/works/prev-arrow.svg) no-repeat center center / contain;
+  left: 8px !important;
+
+  @include mq(md) {
+    left: 169px !important;
+  }
+}
+.works__swiper-button-next {
+  background: url(../img/works/next-arrow.svg) no-repeat center center / contain;
+  right: 8px !important;
+
+  @include mq(md) {
+    right: 169px !important;
+  }
+}
+
+// =============================
+// ページネーション (bullets)
+// =============================
+//位置の設定 (枠組み)
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+}
+//それぞれのページネーション
+.swiper-pagination-bullets.swiper-pagination-horizontal .swiper-pagination-bullet {
+  opacity: 1;
+  width: 10px;
+  height: 10px;
+  background: #d9d9d9;
+}
+//activeな部分
+.swiper-pagination-bullets.swiper-pagination-horizontal .swiper-pagination-bullet-active {
+  width: 10px;
+  height: 10px;
+  background: #f99b9e;
+}
+
+// =============================
+// ページネーション (progressbar)
+// =============================
+//位置の設定と外枠
+.swiper-pagination-progressbar.swiper-pagination-horizontal {
+}
+//activeな部分
+.swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
 }
