@@ -2598,11 +2598,12 @@ html {
 }
 .price {
   padding-block: 63px 148px;
+  position: relative;
   background: linear-gradient(135deg, #f9f7f3 21.75%, #edebe7 83.66%);
 }
 @media screen and (min-width:768px) {
   .price {
-    padding-block: 80px 360px;
+    padding-block: 80px 442px;
   }
 }
 
@@ -2724,11 +2725,273 @@ html {
   height: 40px;
 }
 
-.plan-card__plan--text {
+.price-card__plan--text {
   color: #fff;
   font-family: "Zen Kaku Gothic New";
   font-size: 20px;
   font-weight: 700;
   line-height: 34px; /* 170% */
   letter-spacing: 2px;
+}
+
+.flow {
+  padding-block: 97px 114px;
+  position: relative;
+  margin-top: -97px;
+}
+@media screen and (min-width:768px) {
+  .flow {
+    padding-block: 0;
+  }
+}
+.flow::before, .flow::after {
+  position: absolute;
+  content: "";
+  background-size: 100% auto;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+}
+.flow::before {
+  height: 97px;
+  top: 0;
+  background: url(../img/flow/sp/wave-sp.svg) no-repeat top center;
+}
+@media screen and (min-width:768px) {
+  .flow::before {
+    background: none;
+  }
+}
+.flow::after {
+  height: 114px;
+  bottom: 0;
+  background: url(../img/flow/sp/wave-sp.svg) no-repeat bottom center;
+}
+
+.flow__inner {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(6.59%, #f9f9f9), color-stop(147.87%, #e8e8e8));
+  background: linear-gradient(180deg, #f9f9f9 6.59%, #e8e8e8 147.87%);
+  padding-inline: 20px;
+}
+@media screen and (min-width:768px) {
+  .flow__inner {
+    padding-inline: none;
+    background: transparent;
+    padding-inline: 0;
+  }
+}
+
+@media screen and (min-width:768px) {
+  .flow__contents {
+    padding-top: 368px;
+    margin-top: -368px;
+    padding-bottom: 200px;
+    position: relative;
+  }
+  .flow__contents::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 368px;
+    background: url(../img/flow/wave.svg) no-repeat top center;
+    background-size: 100% auto;
+    top: 0;
+    left: 0;
+  }
+}
+
+@media screen and (min-width:768px) {
+  .flow__head {
+    position: absolute;
+    top: 202px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+}
+
+.flow__body {
+  margin-top: 32px;
+}
+@media screen and (min-width:768px) {
+  .flow__body {
+    margin-top: 0;
+    padding-inline: 100px;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(6.59%, #f9f9f9), color-stop(147.87%, #e8e8e8));
+    background: linear-gradient(180deg, #f9f9f9 6.59%, #e8e8e8 147.87%);
+  }
+}
+
+@media screen and (min-width:768px) {
+  .flow__body-contents {
+    max-width: 834px;
+    width: 100%;
+    margin-inline: auto;
+  }
+}
+
+.flow-step {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  gap: 8px;
+}
+@media screen and (min-width:768px) {
+  .flow-step {
+    gap: 24px;
+  }
+}
+.flow-step:nth-of-type(1) .flow-step__logo {
+  padding-bottom: 129px;
+}
+.flow-step:nth-of-type(1) .flow-step__logo::after {
+  height: 121px;
+}
+@media screen and (min-width:768px) {
+  .flow-step:nth-of-type(1) .flow-step__logo {
+    padding-bottom: 62px;
+  }
+  .flow-step:nth-of-type(1) .flow-step__logo::after {
+    height: 54px;
+  }
+}
+.flow-step:nth-of-type(2) .flow-step__logo {
+  padding-bottom: 277px;
+}
+.flow-step:nth-of-type(2) .flow-step__logo::after {
+  height: 269px;
+}
+@media screen and (min-width:768px) {
+  .flow-step:nth-of-type(2) .flow-step__logo {
+    padding-bottom: 146px;
+  }
+  .flow-step:nth-of-type(2) .flow-step__logo::after {
+    height: 138px;
+  }
+}
+.flow-step:nth-of-type(3) .flow-step__logo {
+  padding-bottom: 153px;
+}
+.flow-step:nth-of-type(3) .flow-step__logo::after {
+  height: 145px;
+}
+@media screen and (min-width:768px) {
+  .flow-step:nth-of-type(3) .flow-step__logo {
+    padding-bottom: 62px;
+  }
+  .flow-step:nth-of-type(3) .flow-step__logo::after {
+    height: 54px;
+  }
+}
+.flow-step:nth-of-type(4) .flow-step__logo {
+  padding-bottom: 153px;
+}
+.flow-step:nth-of-type(4) .flow-step__logo::after {
+  height: 145px;
+}
+@media screen and (min-width:768px) {
+  .flow-step:nth-of-type(4) .flow-step__logo {
+    padding-bottom: 78px;
+  }
+  .flow-step:nth-of-type(4) .flow-step__logo::after {
+    height: 70px;
+  }
+}
+.flow-step:nth-of-type(5) .flow-step__logo {
+  padding-bottom: 178px;
+}
+.flow-step:nth-of-type(5) .flow-step__logo::after {
+  height: 170px;
+}
+@media screen and (min-width:768px) {
+  .flow-step:nth-of-type(5) .flow-step__logo {
+    padding-bottom: 90px;
+  }
+  .flow-step:nth-of-type(5) .flow-step__logo::after {
+    height: 82px;
+  }
+}
+
+.flow-step__logo {
+  width: 16.7164179104%;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  margin-top: 6px;
+  position: relative;
+}
+@media screen and (min-width:768px) {
+  .flow-step__logo {
+    width: 9.5923261391%;
+    margin-top: 6px;
+  }
+}
+.flow-step__logo::after {
+  position: absolute;
+  content: "";
+  width: 1px;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(50%, #242424), color-stop(50%, transparent));
+  background-image: linear-gradient(to bottom, #242424 50%, transparent 50%);
+  background-size: 1px 5px;
+  background-repeat: repeat-y;
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+.flow-step__logo img {
+  width: 56px;
+  height: 73px;
+}
+@media screen and (min-width:768px) {
+  .flow-step__logo img {
+    width: 80px;
+    height: 104px;
+  }
+}
+
+.flow-step__body {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.flow-step__title {
+  color: #242424;
+  /* SP_h3_Zen Kaku Gothic New_Bold_18px */
+  font-family: "Zen Kaku Gothic New";
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 28px; /* 155.556% */
+  letter-spacing: 1.26px;
+}
+@media screen and (min-width:768px) {
+  .flow-step__title {
+    font-size: 24px;
+    line-height: 34px; /* 141.667% */
+    letter-spacing: 2.4px;
+  }
+}
+
+.flow-step__description {
+  color: #242424;
+  /* SP_p_Zen Kaku Gothic New_Medium_15px */
+  font-family: "Zen Kaku Gothic New";
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 25px; /* 166.667% */
+  padding: 12px 17px;
+  border-radius: 4px;
+  background: #fff;
+  margin-top: 6px;
+}
+@media screen and (min-width:768px) {
+  .flow-step__description {
+    font-size: 16px;
+    line-height: 28px; /* 175% */
+    padding: 16px 24px;
+    margin-top: 10px;
+  }
 }

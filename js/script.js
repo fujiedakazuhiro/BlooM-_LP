@@ -2,62 +2,22 @@
 // jQuery("セレクタ").アニメーション名() アニメーションの指示
 // jQuery("セレクタ").on("イベント名",function(){}) イベント構文
 
-// TwentyTwenty 初期化用関数（改善版）
+// TwentyTwenty 初期化用関数（シンプルかつ安全な再初期化）
 function initTwentyTwenty() {
+  // プラグインのロード状態をチェック
   if (typeof jQuery === "undefined" || typeof jQuery.fn.twentytwenty === "undefined") {
-    console.error("jQuery or TwentyTwenty plugin is not loaded");
+    console.error("jQuery または TwentyTwenty プラグインが読み込まれていません。");
     return;
   }
 
+  // すべてのビフォーアフターコンテナに対して処理を実行
   jQuery(".twentytwenty-container").each(function () {
     const $container = jQuery(this);
 
-    // 既存の初期化をクリア
-    if ($container.hasClass("twentytwenty-container")) {
-      $container.find(".twentytwenty-overlay, .twentytwenty-handle, .twentytwenty-before-label, .twentytwenty-after-label").remove();
-      $container.removeClass("twentytwenty-container");
-    }
+    // 既存のTwentyTwenty要素を全て削除してリセット（再初期化の準備）
+    $container.find(".twentytwenty-overlay, .twentytwenty-handle, .twentytwenty-before-label, .twentytwenty-after-label").remove();
 
-    // 再度クラスを追加
-    $container.addClass("twentytwenty-container");
-
-    // 画像のスタイルをリセット
-    $container.find("img").each(function () {
-      jQuery(this).css({
-        position: "",
-        clip: "",
-        "clip-path": "",
-        "max-width": "100%",
-        display: "block",
-      });
-    });
-
-    // 画像が読み込まれるまで待つ
-    const images = $container.find("img");
-    let loadedCount = 0;
-    const totalImages = images.length;
-
-    images.each(function () {
-      if (this.complete) {
-        loadedCount++;
-      } else {
-        jQuery(this).on("load", function () {
-          loadedCount++;
-          if (loadedCount === totalImages) {
-            initializeTwentyTwenty($container);
-          }
-        });
-      }
-    });
-
-    if (loadedCount === totalImages) {
-      initializeTwentyTwenty($container);
-    }
-  });
-}
-
-function initializeTwentyTwenty($container) {
-  try {
+    // TwentyTwentyを再適用
     $container.twentytwenty({
       default_offset_pct: 0.5,
       orientation: "horizontal",
@@ -68,84 +28,81 @@ function initializeTwentyTwenty($container) {
       move_with_handle_only: true,
       click_to_move: false,
     });
-    console.log("TwentyTwenty initialized successfully");
-  } catch (error) {
-    console.error("TwentyTwenty initialization error:", error);
-  }
+  });
 }
 
-// Swiper初期化
-jQuery(document).ready(function () {
-  // すべてのリソースが読み込まれるまで待つ
-  jQuery(window).on("load", function () {
-    console.log("Window loaded, initializing Swiper...");
+// Swiper初期化の実行タイミングを window.load に変更 (最重要修正箇所)
+// 全てのCSS、画像、外部JS（TwentyTwenty含む）が完全に読み込まれるのを待ってから処理を開始します。
+jQuery(window).on("load", function () {
+  console.log("Window loaded, starting Swiper and TwentyTwenty initialization.");
 
-    const worksSwiper = new Swiper(".works__swiper", {
-      speed: 1000,
-      effect: "slide",
-      allowTouchMove: true,
-      loop: true,
-      centeredSlides: true,
-      slidesPerView: "auto",
-      spaceBetween: 30,
-      observer: true,
-      observeParents: true,
-      observeSlideChildren: true,
+  const worksSwiper = new Swiper(".works__swiper", {
+    speed: 1000,
+    effect: "slide",
+    allowTouchMove: true,
+    allowTouchMove: false,
+    simulateTouch: false,
+    loop: true,
+    centeredSlides: true,
+    slidesPerView: "auto",
+    spaceBetween: 30,
+    // TwentyTwentyのDOM変更をSwiperに通知するための設定
+    observer: true,
+    observeParents: true,
+    observeSlideChildren: true,
 
-      pagination: {
-        el: ".works__swiper-pagination",
-        clickable: true,
-        type: "bullets",
+    pagination: {
+      el: ".works__swiper-pagination",
+      clickable: true,
+      type: "bullets",
+    },
+
+    navigation: {
+      prevEl: ".works__swiper-button-prev",
+      nextEl: ".works__swiper-button-next",
+    },
+
+    breakpoints: {
+      375: {
+        slidesPerView: 1.0,
+        spaceBetween: 20,
+        centeredSlides: true,
       },
-
-      navigation: {
-        prevEl: ".works__swiper-button-prev",
-        nextEl: ".works__swiper-button-next",
+      768: {
+        slidesPerView: 1.2,
+        spaceBetween: 40,
+        centeredSlides: true,
       },
-
-      breakpoints: {
-        375: {
-          slidesPerView: 1.0,
-          spaceBetween: 20,
-          centeredSlides: true,
-        },
-        768: {
-          slidesPerView: 1.2,
-          spaceBetween: 40,
-          centeredSlides: true,
-        },
-        900: {
-          slidesPerView: 1.2,
-          spaceBetween: 60,
-          centeredSlides: true,
-        },
-        1200: {
-          slidesPerView: 1.35,
-          spaceBetween: 81,
-          centeredSlides: true,
-        },
+      900: {
+        slidesPerView: 1.2,
+        spaceBetween: 60,
+        centeredSlides: true,
       },
-
-      on: {
-        init: function () {
-          console.log("Swiper initialized");
-          // 初期化直後に実行
-          setTimeout(function () {
-            initTwentyTwenty();
-          }, 600);
-        },
-        slideChange: function () {
-          console.log("Slide changed");
-        },
-        slideChangeTransitionEnd: function () {
-          console.log("Transition ended, reinitializing TwentyTwenty");
-          // トランジション完了後に再初期化
-          setTimeout(function () {
-            initTwentyTwenty();
-          }, 100);
-        },
+      1200: {
+        slidesPerView: 1.35,
+        spaceBetween: 81,
+        centeredSlides: true,
       },
-    });
+    },
+
+    on: {
+      init: function () {
+        console.log("Swiper initialized, starting initial TwentyTwenty setup.");
+        // Swiper初期化後、DOM計算完了を待ってからTwentyTwentyを初期化
+        setTimeout(function () {
+          initTwentyTwenty();
+          // TwentyTwentyにサイズ変更を強制的に通知
+          jQuery(window).trigger("resize");
+        }, 300); // 念のため遅延時間を長めに設定
+      },
+      slideChangeTransitionEnd: function () {
+        console.log("Transition ended, reinitializing TwentyTwenty and triggering resize.");
+        // スライド切り替え完了後、TwentyTwentyを再初期化
+        initTwentyTwenty();
+        // 必ずリサイズをトリガーし、正確なサイズを再計算させる
+        jQuery(window).trigger("resize");
+      },
+    },
   });
 });
 
