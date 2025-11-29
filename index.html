@@ -24,7 +24,7 @@
             <div class="fv__image--pc"><img src="./img/fv_img-pc.png" alt="pcのFV画像" /></div>
             <div class="fv__image--sp"><img src="./img/sp/fv_img-sp.png" alt="spのFV画像" /></div>
           </div>
-          <div class="fv__header">
+          <header class="fv__header">
             <h1 class="fv__logo">
               <a class="fv__logo-link">
                 <div class="fv__logo-text">関西エリアで安心できる解体工事なら</div>
@@ -56,11 +56,50 @@
                   <div class="fv__line-text">公式LINEから<br />お問い合わせ</div>
                 </a>
               </div>
-              <div class="fv__drawer">
-                <a href=""><img src="./img/drawer-btn.png" alt="ドロワーボタン" /></a>
+              <button id="js-drawer-button--1" type="button" class="fv__drawer--1">
+                <!-- <img src="./img/drawer-btn.png" alt="ドロワーボタン" /> -->
+              </button>
+            </div>
+          </header>
+          <nav id="js-drawer-content--1" class="drawer__nav--1">
+            <ul class="drawer__lists">
+              <li class="drawer__list"><a href="#problem" class="drawer__link">こんなお悩みありませんか？</a></li>
+              <li class="drawer__list"><a href="#case" class="drawer__link">安いだけの業者に任せた失敗ケース</a></li>
+              <li class="drawer__list"><a href="#feature" class="drawer__link">BlooMが選ばれる6つの理由</a></li>
+              <li class="drawer__list"><a href="#service" class="drawer__link">サービスご提供エリア</a></li>
+              <li class="drawer__list"><a href="#works" class="drawer__link">施工事例</a></li>
+              <li class="drawer__list"><a href="#price" class="drawer__link">料金プラン</a></li>
+              <li class="drawer__list"><a href="#flow" class="drawer__link">契約から工事の流れ</a></li>
+              <li class="drawer__list"><a href="#review" class="drawer__link">お客様の声</a></li>
+              <li class="drawer__list">
+                <a href="" class="drawer__link"><img src="./img/fv/instagram-logo.svg" alt="Instagramのロゴ" /></a>
+              </li>
+            </ul>
+            <div class="drawer__sns-contents">
+              <div class="drawer__tel tel">
+                <a href="" class="drawer__tel-link tel-link">
+                  <div class="drawer__tel-number tel-number">
+                    <div class="drawer__tel-logo tel-logo">
+                      <img src="./img/tel-logo.svg" alt="受話器のマーク" />
+                    </div>
+                    <div class="drawer__tel-text tel-text">075-606-2755</div>
+                  </div>
+                  <div class="drawer__tel-reception tel-reception">
+                    <div class="drawer__tel-label tel-label">受付時間</div>
+                    <div class="drawer__tel-hour tel-hour">9:00〜17:00</div>
+                  </div>
+                </a>
+              </div>
+              <div class="drawer__line line">
+                <a href="" class="drawer__line-link line-link">
+                  <div class="drawer__line-logo line-logo">
+                    <img src="./img/line-logo.svg" alt="LINEのマーク" />
+                  </div>
+                  <div class="drawer__line-text line-text">公式LINEから<br />お問い合わせ</div>
+                </a>
               </div>
             </div>
-          </div>
+          </nav>
           <div class="fv__flower">
             <div class="fv__flower--left"><img src="./img/flower-left.png" alt="左側の桜の花" /></div>
             <div class="fv__flower--right">
@@ -108,6 +147,46 @@
           </h2>
         </div>
       </div>
+      <div class="gallery">
+        <div class="gallery__inner">
+          <div class="gallery__contents">
+            <div class="gallery__swiper-container">
+              <div id="js-gallery-swiper" class="swiper gallery__swiper">
+                <div class="swiper-wrapper gallery__swiper-wrapper">
+                  <div class="swiper-slide gallery__swiper-slide">
+                    <div class="gallery__image">
+                      <img src="./img/gallery/image-1.png" alt="イメージ画像" />
+                    </div>
+                  </div>
+                  <div class="swiper-slide gallery__swiper-slide">
+                    <div class="gallery__image">
+                      <img src="./img/gallery/image-1.png" alt="イメージ画像" />
+                    </div>
+                  </div>
+                  <div class="swiper-slide gallery__swiper-slide">
+                    <div class="gallery__image">
+                      <img src="./img/gallery/image-1.png" alt="イメージ画像" />
+                    </div>
+                  </div>
+                  <div class="swiper-slide gallery__swiper-slide">
+                    <div class="gallery__image">
+                      <img src="./img/gallery/image-1.png" alt="イメージ画像" />
+                    </div>
+                  </div>
+                  <div class="swiper-slide gallery__swiper-slide">
+                    <div class="gallery__image">
+                      <img src="./img/gallery/image-1.png" alt="イメージ画像" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="swiper-pagination"></div>
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div> -->
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <div class="fv__header-2">
@@ -142,11 +221,50 @@
             <div class="fv__line-text line-text">公式LINEから<br />お問い合わせ</div>
           </a>
         </div>
-        <div class="fv__drawer">
-          <a href=""><img src="./img/drawer-btn.png" alt="ドロワーボタン" /></a>
-        </div>
+        <button id="js-drawer-button--2" type="button" class="fv__drawer--2">
+          <!-- <img src="./img/drawer-btn.png" alt="ドロワーボタン" /> -->
+        </button>
       </div>
     </div>
+    <nav id="js-drawer-content--2" class="drawer__nav--2">
+      <ul class="drawer__lists">
+        <li class="drawer__list"><a href="#problem" class="drawer__link">こんなお悩みありませんか？</a></li>
+        <li class="drawer__list"><a href="#case" class="drawer__link">安いだけの業者に任せた失敗ケース</a></li>
+        <li class="drawer__list"><a href="#feature" class="drawer__link">BlooMが選ばれる6つの理由</a></li>
+        <li class="drawer__list"><a href="#service" class="drawer__link">サービスご提供エリア</a></li>
+        <li class="drawer__list"><a href="#works" class="drawer__link">施工事例</a></li>
+        <li class="drawer__list"><a href="#price" class="drawer__link">料金プラン</a></li>
+        <li class="drawer__list"><a href="#flow" class="drawer__link">契約から工事の流れ</a></li>
+        <li class="drawer__list"><a href="#review" class="drawer__link">お客様の声</a></li>
+        <li class="drawer__list">
+          <a href="" class="drawer__link"><img src="./img/fv/instagram-logo.svg" alt="Instagramのロゴ" /></a>
+        </li>
+      </ul>
+      <div class="drawer__sns-contents">
+        <div class="drawer__tel tel">
+          <a href="" class="drawer__tel-link tel-link">
+            <div class="drawer__tel-number tel-number">
+              <div class="drawer__tel-logo tel-logo">
+                <img src="./img/tel-logo.svg" alt="受話器のマーク" />
+              </div>
+              <div class="drawer__tel-text tel-text">075-606-2755</div>
+            </div>
+            <div class="drawer__tel-reception tel-reception">
+              <div class="drawer__tel-label tel-label">受付時間</div>
+              <div class="drawer__tel-hour tel-hour">9:00〜17:00</div>
+            </div>
+          </a>
+        </div>
+        <div class="drawer__line line">
+          <a href="" class="drawer__line-link line-link">
+            <div class="drawer__line-logo line-logo">
+              <img src="./img/line-logo.svg" alt="LINEのマーク" />
+            </div>
+            <div class="drawer__line-text line-text">公式LINEから<br />お問い合わせ</div>
+          </a>
+        </div>
+      </div>
+    </nav>
 
     <!-- <div class="fv__header2">
       <div class="fv__header2-inner">
@@ -164,7 +282,7 @@
       </div>
     </div> -->
 
-    <section class="problem">
+    <section id="problem" class="problem">
       <div class="problem__inner">
         <div class="problem__contents">
           <div class="problem__head section__head">
@@ -198,7 +316,7 @@
       </div>
     </section>
 
-    <section class="case">
+    <section id="case" class="case">
       <div class="case__inner">
         <div class="case__wrapper">
           <div class="case__title">
@@ -327,7 +445,7 @@
       </div>
     </section>
 
-    <section class="feature">
+    <section id="feature" class="feature">
       <div class="feature__inner">
         <div class="feature__contents">
           <div class="feature__head section__head">
@@ -444,7 +562,7 @@
       </div>
     </section>
 
-    <section class="service">
+    <section id="service" class="service">
       <div class="service__inner">
         <div class="service__contents">
           <div class="service__head section__head">
@@ -521,7 +639,7 @@
       </div>
     </section>
 
-    <section class="works">
+    <section id="works" class="works">
       <div class="works__inner">
         <div class="works__contents">
           <div class="works__head section__head">
@@ -759,7 +877,7 @@
       </div>
     </section>
 
-    <section class="price">
+    <section id="price" class="price">
       <div class="price__inner">
         <div class="price__contents">
           <div class="price__head section__head">
@@ -844,7 +962,7 @@
       </div>
     </section>
 
-    <section class="flow">
+    <section id="flow" class="flow">
       <div class="flow__inner">
         <div class="flow__contents">
           <div class="flow__head section__head">
@@ -901,7 +1019,7 @@
       </div>
     </section>
 
-    <section class="review">
+    <section id="review" class="review">
       <div class="review__inner">
         <div class="review__contents">
           <div class="review__head section__head">
@@ -997,6 +1115,103 @@
             <!-- <div class="swiper-pagination review__swiper-pagination"></div> -->
             <div class="swiper-button-prev review__swiper-button-prev"></div>
             <div class="swiper-button-next review__swiper-button-next"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="instagram">
+      <div class="instagram__inner">
+        <div class="instagram__contents">
+          <div class="instagram__title">
+            <div class="instagram__title--logo"><img src="./img/instagram/logo-img.png" alt="Instagramのロゴ" /></div>
+            <div class="instagram__title--text">Instagram</div>
+          </div>
+          <div class="instagram__posts">
+            <div class="instagram__post"><img src="./img/instagram/image-1.png" alt="投稿1" /></div>
+            <div class="instagram__post"><img src="./img/instagram/image-2.png" alt="投稿2" /></div>
+            <div class="instagram__post"><img src="./img/instagram/image-3.png" alt="投稿3" /></div>
+            <div class="instagram__post"><img src="./img/instagram/image-4.png" alt="投稿4" /></div>
+            <div class="instagram__post"><img src="./img/instagram/image-5.png" alt="投稿5" /></div>
+            <div class="instagram__post"><img src="./img/instagram/image-6.png" alt="投稿6" /></div>
+          </div>
+          <div class="instagram__button">
+            <div class="instagram__button-contents">
+              <a href="" class="instagram__link">
+                <div class="instagram__text">Instagramを見る</div>
+                <div class="instagram__arrow"><img src="./img/instagram/arrow-img.svg" alt="矢印の画像" /></div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="cta__inner">
+        <div class="cta__contents">
+          <div class="cta__text--large">お見積もりやその他ご相談など<br />お気軽にご連絡ください!!</div>
+          <div class="cta__text--small">無料相談・お問い合わせはこちら</div>
+          <div class="cta__sns-wrapper">
+            <div class="cta__line line">
+              <a href="" class="cta__line-link line-link">
+                <div class="cta__line-logo line-logo">
+                  <img src="./img/line-logo.svg" alt="LINEのマーク" />
+                </div>
+                <div class="cta__line-text line-text">公式LINEから<br />お問い合わせ</div>
+              </a>
+            </div>
+            <div class="cta__tel tel">
+              <a href="" class="cta__tel-link tel-link">
+                <div class="cta__tel-number tel-number">
+                  <div class="cta__tel-logo tel-logo">
+                    <img src="./img/tel-logo.svg" alt="受話器のマーク" />
+                  </div>
+                  <div class="cta__tel-text tel-text">075-606-2755</div>
+                </div>
+                <div class="cta__tel-reception tel-reception">
+                  <div class="cta__tel-label tel-label">受付時間</div>
+                  <div class="cta__tel-hour tel-hour">9:00〜17:00</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="footer">
+      <div class="footer__inner">
+        <div class="footer__contents">
+          <div class="footer__title">
+            <span class="footer__title--logo1">
+              <img src="./img/footer/text-logo1.svg" alt="未来" />
+            </span>
+            <div class="footer__title-text">をつくる</div>
+            <div class="footer__title--logo2">
+              <img src="./img/footer/text-logo2.svg" alt="解体屋" />
+            </div>
+          </div>
+          <div class="footer__logo"><img src="./img/footer/footer-logo.svg" alt="BlooM" /></div>
+          <div class="footer__address">
+            <div class="footer__address--number">〒601-1353</div>
+            <div class="footer__address--text">京都府京都市伏見区醍醐御園尾町32-1</div>
+          </div>
+          <div class="footer__contact">
+            <div class="footer__tel">TEL：075-606-2755</div>
+            <div class="footer__fax">FAX：050-3512-3412</div>
+          </div>
+          <div class="footer__business-hour">
+            <div class="footer__time">営業時間：9:00 – 17:00</div>
+            <div class="footer__holiday">定休日：土曜・日曜・祝日</div>
+          </div>
+          <div class="footer__instagram">
+            <a href="" class="footer__instagram-link">
+              <img src="./img/footer/instagram-logo.svg" alt="Instagramのロゴ" />
+            </a>
+          </div>
+          <div class="footer__copyright">
+            <small class="footer__copyright-text">© 2021 株式会社BlooM</small>
           </div>
         </div>
       </div>

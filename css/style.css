@@ -91,6 +91,8 @@ html {
 @media screen and (min-width:768px) {
   .fv {
     height: auto;
+    position: relative;
+    padding-bottom: 145px;
   }
 }
 
@@ -326,20 +328,145 @@ html {
   letter-spacing: 0.8px;
 }
 
-@media screen and (min-width:768px) {
-  .fv__drawer {
-    margin-left: 8px;
-  }
-}
-.fv__drawer a img {
+.fv__drawer--1,
+.fv__drawer--2 {
   width: 72px;
-  height: 100px;
+  height: 72px;
+  background: url(../img/fv/drawer-btn.png) no-repeat center center/cover;
+  z-index: 11;
+  -webkit-transition: 0.3s ease-out;
+  transition: 0.3s ease-out;
 }
 @media screen and (min-width:768px) {
-  .fv__drawer a img {
+  .fv__drawer--1,
+  .fv__drawer--2 {
+    margin-left: 8px;
     width: 100px;
     height: 100px;
   }
+}
+.fv__drawer--1.is-checked,
+.fv__drawer--2.is-checked {
+  background: url(../img/fv/drawer-close.svg) no-repeat center center/cover;
+  width: 73px;
+  height: 74px;
+}
+@media screen and (min-width:768px) {
+  .fv__drawer--1.is-checked,
+  .fv__drawer--2.is-checked {
+    width: 100px;
+    height: 100px;
+  }
+}
+.fv__drawer--1.is-closed,
+.fv__drawer--2.is-closed {
+  z-index: 1;
+}
+
+.drawer__nav--1,
+.drawer__nav--2 {
+  background: #f2f0ec;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  right: 0;
+  top: 0;
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+  -webkit-transition: -webkit-transform 1s;
+  transition: -webkit-transform 1s;
+  transition: transform 1s;
+  transition: transform 1s, -webkit-transform 1s;
+  z-index: 10;
+  padding: 106px 38px;
+}
+@media screen and (min-width:768px) {
+  .drawer__nav--1,
+  .drawer__nav--2 {
+    width: 552px;
+    padding: 140px 100px;
+  }
+}
+.drawer__nav--1.is-checked,
+.drawer__nav--2.is-checked {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+
+.drawer__lists {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  gap: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #242424;
+}
+@media screen and (min-width:768px) {
+  .drawer__lists {
+    gap: 24px;
+    padding-bottom: 32px;
+  }
+}
+
+.drawer__link {
+  color: #242424;
+  font-family: "Noto Sans JP";
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 1.7px;
+}
+@media screen and (min-width:768px) {
+  .drawer__link {
+    font-size: 20px;
+    letter-spacing: 2px;
+  }
+}
+.drawer__link img {
+  width: 40px;
+  height: 40px;
+}
+
+.drawer__sns-contents {
+  margin-top: 20px;
+}
+@media screen and (min-width:768px) {
+  .drawer__sns-contents {
+    margin-top: 32px;
+  }
+}
+
+.drawer__tel {
+  display: block;
+  border-radius: 28px;
+  background: #242424;
+  width: 100%;
+  height: 56px;
+}
+
+.drawer__tel-link {
+  padding-block: 5px;
+  height: 100%;
+}
+
+.drawer__line {
+  margin-top: 8px;
+  display: block;
+  width: 100%;
+  height: 56px;
+  border-radius: 28px;
+  background: #06c755;
+}
+
+.drawer__line-link {
+  padding-block: 5px;
+  height: 100%;
 }
 
 .fv__flower {
@@ -671,6 +798,33 @@ html {
     font-size: 40px;
     margin-inline: 6px;
   }
+}
+
+.gallery {
+  display: none;
+}
+@media screen and (min-width:768px) {
+  .gallery {
+    display: block;
+  }
+}
+
+.gallery__swiper {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 300px;
+}
+
+.gallery__swiper-wrapper {
+  -webkit-transition-timing-function: linear;
+          transition-timing-function: linear;
+}
+
+.gallery__swiper-slide {
+  margin-right: 40px;
+  width: 450px;
 }
 
 .fv__header2-contents {
@@ -3188,4 +3342,385 @@ html {
 .review__swiper-button-next {
   background: url(../img/review/review-next.svg) no-repeat center center/contain;
   right: 0;
+}
+
+.instagram {
+  padding-top: 110px;
+  margin-top: -110px;
+  position: relative;
+}
+@media screen and (min-width:768px) {
+  .instagram {
+    padding-top: 200px;
+    margin-top: -200px;
+  }
+}
+.instagram::after {
+  position: absolute;
+  content: "";
+  background: url(../img/instagram/sp/wave-sp.svg) no-repeat top center;
+  background-size: 100% auto;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 110px;
+}
+@media screen and (min-width:768px) {
+  .instagram::after {
+    background: url(../img/instagram/wave.svg) no-repeat top center;
+    height: 200px;
+  }
+}
+
+.instagram__inner {
+  padding-inline: 21px;
+  background: linear-gradient(184deg, #f9f7f3 17.8%, #efede9 158.13%);
+}
+@media screen and (min-width:768px) {
+  .instagram__inner {
+    padding-inline: 80px 50px;
+    background: linear-gradient(254deg, #f9f7f3 15.83%, #eeece8 84.81%);
+  }
+}
+
+.instagram__contents {
+  padding-bottom: 47px;
+}
+@media screen and (min-width:768px) {
+  .instagram__contents {
+    padding-bottom: 64px;
+  }
+}
+
+.instagram__title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.instagram__title--logo img {
+  width: 20px;
+  height: 20px;
+}
+@media screen and (min-width:768px) {
+  .instagram__title--logo img {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.instagram__title--text {
+  color: #231815;
+  font-family: "Zen Kaku Gothic New";
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 1.68px;
+}
+@media screen and (min-width:768px) {
+  .instagram__title--text {
+    font-size: 40px;
+    letter-spacing: 4px;
+  }
+}
+
+.instagram__posts {
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+@media screen and (min-width:768px) {
+  .instagram__posts {
+    margin-top: 38px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 16px;
+  }
+}
+
+.instagram__button {
+  margin-top: 24px;
+  text-align: center;
+}
+@media screen and (min-width:768px) {
+  .instagram__button {
+    text-align: right;
+  }
+}
+
+.instagram__button-contents {
+  display: inline-block;
+}
+
+.instagram__link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  border-radius: 56px;
+  background: #242424;
+  width: 230px;
+  height: 56px;
+}
+
+.instagram__text {
+  color: #fff;
+  font-family: "Zen Kaku Gothic New";
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.instagram__arrow img {
+  width: 10px;
+  height: 10px;
+}
+
+.footer {
+  padding-block: 72px 128px;
+  background: #f2f0ec;
+  text-align: center;
+}
+@media screen and (min-width:768px) {
+  .footer {
+    padding-block: 96px 64px;
+  }
+}
+
+.footer__inner {
+  padding-inline: 29px;
+}
+@media screen and (min-width:768px) {
+  .footer__inner {
+    padding-inline: 70px;
+  }
+}
+
+.footer__title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 13px;
+}
+@media screen and (min-width:768px) {
+  .footer__title {
+    gap: 16px;
+  }
+}
+
+.footer__title--logo1 img {
+  width: 53px;
+}
+@media screen and (min-width:768px) {
+  .footer__title--logo1 img {
+    width: 86px;
+  }
+}
+
+.footer__title-text {
+  color: #676767;
+  font-family: "Zen Kaku Gothic New";
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 18px; /* 100% */
+  letter-spacing: 0.9px;
+}
+@media screen and (min-width:768px) {
+  .footer__title-text {
+    font-size: 32px;
+    line-height: 32px;
+    letter-spacing: 2.24px;
+  }
+}
+
+.footer__title--logo2 img {
+  width: 83px;
+}
+@media screen and (min-width:768px) {
+  .footer__title--logo2 img {
+    width: 135px;
+  }
+}
+
+.footer__logo {
+  margin-top: 52px;
+}
+@media screen and (min-width:768px) {
+  .footer__logo {
+    margin-top: 72px;
+  }
+}
+.footer__logo img {
+  width: 170px;
+}
+@media screen and (min-width:768px) {
+  .footer__logo img {
+    width: 217px;
+  }
+}
+
+.footer__address {
+  margin-top: 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 8px;
+}
+@media screen and (min-width:768px) {
+  .footer__address {
+    margin-top: 24px;
+    gap: 12px;
+  }
+}
+
+.footer__address--number,
+.footer__address--text,
+.footer__tel,
+.footer__fax,
+.footer__time,
+.footer__holiday {
+  color: #242424;
+  font-family: "Noto Sans JP";
+  font-size: 13px;
+  font-weight: 500;
+}
+@media screen and (min-width:768px) {
+  .footer__address--number,
+  .footer__address--text,
+  .footer__tel,
+  .footer__fax,
+  .footer__time,
+  .footer__holiday {
+    font-family: "Zen Kaku Gothic New";
+    font-size: 14px;
+  }
+}
+
+.footer__address--text {
+  color: #242424;
+  font-family: Inter;
+  font-size: 13px;
+  font-weight: 500;
+}
+@media screen and (min-width:768px) {
+  .footer__address--text {
+    font-family: "Zen Kaku Gothic New";
+    font-size: 14px;
+  }
+}
+
+.footer__contact {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 5px;
+}
+@media screen and (min-width:768px) {
+  .footer__contact {
+    gap: 6px;
+  }
+}
+
+.footer__fax {
+  padding-left: 17px;
+  position: relative;
+}
+@media screen and (min-width:768px) {
+  .footer__fax {
+    padding-left: 20px;
+  }
+}
+.footer__fax::before {
+  position: absolute;
+  content: "／";
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  left: 0;
+}
+
+.footer__business-hour {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 5px;
+}
+
+.footer__holiday {
+  padding-left: 17px;
+  position: relative;
+}
+.footer__holiday::before {
+  position: absolute;
+  content: "／";
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  left: 0;
+}
+
+.footer__instagram {
+  margin-top: 6px;
+}
+@media screen and (min-width:768px) {
+  .footer__instagram {
+    margin-top: 8px;
+  }
+}
+
+.footer__instagram-link img {
+  width: 40px;
+  height: 40px;
+}
+
+.footer__copyright {
+  margin-top: 6px;
+}
+
+.footer__copyright-text {
+  color: #242424;
+  text-align: center;
+  font-family: "Noto Sans JP";
+  font-size: 11px;
+  font-weight: 500;
+}
+@media screen and (min-width:768px) {
+  .footer__copyright-text {
+    font-family: "Zen Kaku Gothic New";
+  }
 }

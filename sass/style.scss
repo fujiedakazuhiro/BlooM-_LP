@@ -108,6 +108,8 @@ html {
   @include mq(md) {
     // height: 768px;
     height: auto;
+    position: relative;
+    padding-bottom: 145px;
   }
 }
 
@@ -326,22 +328,167 @@ html {
   letter-spacing: 0.8px;
 }
 
-.fv__drawer {
+.fv__drawer--1,
+.fv__drawer--2 {
+  width: 72px;
+  height: 72px;
+  background: url(../img/fv/drawer-btn.png) no-repeat center center / cover;
+  z-index: 11;
+  transition: 0.3s ease-out;
+
   @include mq(md) {
     margin-left: 8px;
+    width: 100px;
+    height: 100px;
   }
 
-  a {
-    img {
-      width: 72px;
-      height: 100px;
+  &.is-checked {
+    background: url(../img/fv/drawer-close.svg) no-repeat center center / cover;
+    width: 73px;
+    height: 74px;
 
-      @include mq(md) {
-        width: 100px;
-        height: 100px;
-      }
+    @include mq(md) {
+      width: 100px;
+      height: 100px;
     }
   }
+
+  &.is-closed {
+    z-index: 1;
+  }
+
+  // a {
+  //   img {
+  //     width: 72px;
+  //     height: 100px;
+
+  //     @include mq(md) {
+  //       width: 100px;
+  //       height: 100px;
+  //     }
+  //   }
+  // }
+}
+
+.drawer__nav--1,
+.drawer__nav--2 {
+  background: #f2f0ec;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transform: translateX(100%);
+  transition: transform 1s;
+  z-index: 10;
+  padding: 106px 38px;
+
+  @include mq(md) {
+    width: 552px;
+    padding: 140px 100px;
+  }
+
+  &.is-checked {
+    transform: translateX(0);
+  }
+}
+
+.drawer__lists {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #242424;
+
+  @include mq(md) {
+    gap: 24px;
+    padding-bottom: 32px;
+  }
+}
+
+.drawer__list {
+}
+
+.drawer__link {
+  color: #242424;
+  font-family: "Noto Sans JP";
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 1.7px;
+
+  @include mq(md) {
+    font-size: 20px;
+    letter-spacing: 2px;
+  }
+
+  img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.drawer__sns-contents {
+  margin-top: 20px;
+
+  @include mq(md) {
+    margin-top: 32px;
+  }
+}
+
+.drawer__tel {
+  display: block;
+  border-radius: 28px;
+  background: #242424;
+  width: 100%;
+  height: 56px;
+}
+
+.drawer__tel-link {
+  padding-block: 5px;
+  height: 100%;
+}
+
+.drawer__tel-number {
+}
+
+.drawer__tel-logo {
+  img {
+  }
+}
+
+.drawer__tel-text {
+}
+
+.drawer__tel-reception {
+}
+
+.drawer__tel-label {
+}
+
+.drawer__tel-hour {
+}
+
+.drawer__line {
+  margin-top: 8px;
+  display: block;
+  width: 100%;
+  height: 56px;
+  border-radius: 28px;
+  background: #06c755;
+}
+
+.drawer__line-link {
+  padding-block: 5px;
+  height: 100%;
+}
+
+.drawer__line-logo {
+  img {
+  }
+}
+
+.drawer__line-text {
 }
 
 .fv__flower {
@@ -668,6 +815,45 @@ html {
   @include mq(md) {
     font-size: 40px;
     margin-inline: 6px;
+  }
+}
+
+.gallery {
+  display: none;
+
+  @include mq(md) {
+    display: block;
+  }
+}
+
+.gallery__inner {
+}
+
+.gallery__contents {
+}
+
+.gallery__swiper-container {
+}
+
+.gallery__swiper {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 300px;
+}
+
+.gallery__swiper-wrapper {
+  transition-timing-function: linear;
+}
+
+.gallery__swiper-slide {
+  margin-right: 40px;
+  width: 450px;
+}
+
+.gallery__image {
+  img {
   }
 }
 
@@ -3221,4 +3407,348 @@ html {
 .review__swiper-button-next {
   background: url(../img/review/review-next.svg) no-repeat center center / contain;
   right: 0;
+}
+
+.instagram {
+  padding-top: 110px;
+  margin-top: -110px;
+  position: relative;
+
+  @include mq(md) {
+    padding-top: 200px;
+    margin-top: -200px;
+  }
+
+  &::after {
+    position: absolute;
+    content: "";
+    background: url(../img/instagram/sp/wave-sp.svg) no-repeat top center;
+    background-size: 100% auto;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 110px;
+
+    @include mq(md) {
+      background: url(../img/instagram/wave.svg) no-repeat top center;
+      height: 200px;
+    }
+  }
+}
+
+.instagram__inner {
+  padding-inline: 21px;
+  background: linear-gradient(184deg, #f9f7f3 17.8%, #efede9 158.13%);
+
+  @include mq(md) {
+    padding-inline: 80px 50px;
+    background: linear-gradient(254deg, #f9f7f3 15.83%, #eeece8 84.81%);
+  }
+}
+
+.instagram__contents {
+  padding-bottom: 47px;
+
+  @include mq(md) {
+    padding-bottom: 64px;
+  }
+}
+
+.instagram__title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.instagram__title--logo {
+  img {
+    width: 20px;
+    height: 20px;
+
+    @include mq(md) {
+      width: 32px;
+      height: 32px;
+    }
+  }
+}
+
+.instagram__title--text {
+  color: #231815;
+  font-family: "Zen Kaku Gothic New";
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 1.68px;
+
+  @include mq(md) {
+    font-size: 40px;
+    letter-spacing: 4px;
+  }
+}
+
+.instagram__posts {
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+
+  @include mq(md) {
+    margin-top: 38px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 16px;
+  }
+}
+
+.instagram__post {
+}
+
+.instagram__button {
+  margin-top: 24px;
+  text-align: center;
+
+  @include mq(md) {
+    text-align: right;
+  }
+}
+
+.instagram__button-contents {
+  display: inline-block;
+}
+
+.instagram__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  border-radius: 56px;
+  background: #242424;
+  width: 230px;
+  height: 56px;
+}
+
+.instagram__text {
+  color: #fff;
+  font-family: "Zen Kaku Gothic New";
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.instagram__arrow {
+  img {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+.footer {
+  padding-block: 72px 128px;
+  background: #f2f0ec;
+  text-align: center;
+
+  @include mq(md) {
+    padding-block: 96px 64px;
+  }
+}
+
+.footer__inner {
+  padding-inline: 29px;
+
+  @include mq(md) {
+    padding-inline: 70px;
+  }
+}
+
+.footer__contents {
+}
+
+.footer__title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 13px;
+
+  @include mq(md) {
+    gap: 16px;
+  }
+}
+
+.footer__title--logo1 {
+  img {
+    width: 53px;
+
+    @include mq(md) {
+      width: 86px;
+    }
+  }
+}
+
+.footer__title-text {
+  color: #676767;
+  font-family: "Zen Kaku Gothic New";
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 18px; /* 100% */
+  letter-spacing: 0.9px;
+
+  @include mq(md) {
+    font-size: 32px;
+    line-height: 32px;
+    letter-spacing: 2.24px;
+  }
+}
+
+.footer__title--logo2 {
+  img {
+    width: 83px;
+
+    @include mq(md) {
+      width: 135px;
+    }
+  }
+}
+
+.footer__logo {
+  margin-top: 52px;
+
+  @include mq(md) {
+    margin-top: 72px;
+  }
+
+  img {
+    width: 170px;
+
+    @include mq(md) {
+      width: 217px;
+    }
+  }
+}
+
+.footer__address {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+
+  @include mq(md) {
+    margin-top: 24px;
+    gap: 12px;
+  }
+}
+
+.footer__address--number,
+.footer__address--text,
+.footer__tel,
+.footer__fax,
+.footer__time,
+.footer__holiday {
+  color: #242424;
+  font-family: "Noto Sans JP";
+  font-size: 13px;
+  font-weight: 500;
+
+  @include mq(md) {
+    font-family: "Zen Kaku Gothic New";
+    font-size: 14px;
+  }
+}
+
+.footer__address--number {
+}
+
+.footer__address--text {
+  color: #242424;
+  font-family: Inter;
+  font-size: 13px;
+  font-weight: 500;
+
+  @include mq(md) {
+    font-family: "Zen Kaku Gothic New";
+    font-size: 14px;
+  }
+}
+
+.footer__contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+
+  @include mq(md) {
+    gap: 6px;
+  }
+}
+
+.footer__tel {
+}
+
+.footer__fax {
+  padding-left: 17px;
+  position: relative;
+
+  @include mq(md) {
+    padding-left: 20px;
+  }
+
+  &::before {
+    position: absolute;
+    content: "／";
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+  }
+}
+
+.footer__business-hour {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.footer__time {
+}
+
+.footer__holiday {
+  padding-left: 17px;
+  position: relative;
+
+  &::before {
+    position: absolute;
+    content: "／";
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+  }
+}
+
+.footer__instagram {
+  margin-top: 6px;
+
+  @include mq(md) {
+    margin-top: 8px;
+  }
+}
+
+.footer__instagram-link {
+  img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.footer__copyright {
+  margin-top: 6px;
+}
+
+.footer__copyright-text {
+  color: #242424;
+  text-align: center;
+  font-family: "Noto Sans JP";
+  font-size: 11px;
+  font-weight: 500;
+
+  @include mq(md) {
+    font-family: "Zen Kaku Gothic New";
+  }
 }

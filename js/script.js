@@ -2,6 +2,64 @@
 // jQuery("セレクタ").アニメーション名() アニメーションの指示
 // jQuery("セレクタ").on("イベント名",function(){}) イベント構文
 
+//spでドロワーボタンをクリックした時にドロワーメニューを表示させる
+jQuery("#js-drawer-button--1").on("click", function (e) {
+  e.preventDefault();
+
+  jQuery("#js-drawer-button--1").toggleClass("is-checked");
+  jQuery("#js-drawer-content--1").toggleClass("is-checked");
+  jQuery("#js-drawer-button--2").toggleClass("is-closed");
+});
+
+//spでドロワーボタンをクリックした時にドロワーメニューを表示させる
+jQuery("#js-drawer-button--2").on("click", function (e) {
+  e.preventDefault();
+
+  jQuery("#js-drawer-button--2").toggleClass("is-checked");
+  jQuery("#js-drawer-content--2").toggleClass("is-checked");
+});
+
+//spでドロワーメニューの中のリンクをクリックした時にドロワーメニューを非表示にする
+jQuery('#js-drawer-content a[href^="#"]').on("click", function (e) {
+  // e.preventDefault();
+
+  jQuery("#js-drawer-button--1").removeClass("is-checked");
+  jQuery("#js-drawer-button--2").removeClass("is-checked");
+  jQuery("#js-drawer-content").removeClass("is-checked");
+});
+
+//スムーススクロール
+jQuery('a[href^="#"]').on("click", function (e) {
+  e.preventDefault();
+  const speed = 600;
+  const id = jQuery(this).attr("href");
+  const target = jQuery("#" == id ? "html" : id);
+  const position = jQuery(target).offset().top;
+  jQuery("html,body").animate(
+    {
+      scrollTop: position,
+    },
+    speed,
+    "swing" //swing or linear
+  );
+});
+
+//galleryスライダーの自動再生
+const gallerySwiper = new Swiper("#js-gallery-swiper", {
+  // Optional parameters
+  slidesPerView: "auto",
+  // loopSlides: 10,
+  // spaceBetween: 10,
+  loop: true,
+  speed: 3000,
+
+  autoplay: {
+    delay: 0,
+    pauseOnMouseEnter: true,
+    disableOnInteraction: false,
+  },
+});
+
 // TwentyTwenty 初期化用関数（シンプルかつ安全な再初期化）
 function initTwentyTwenty() {
   // プラグインのロード状態をチェック
