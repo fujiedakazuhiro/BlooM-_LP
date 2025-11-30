@@ -1243,8 +1243,6 @@ html {
   text-align: center;
 
   @include mq(md) {
-    color: var(--11, #231815);
-
     /* h2_Noto Sans JP_Bold_36px */
     font-family: "Noto Sans JP"; //要確認
     font-size: 36px;
@@ -1556,10 +1554,12 @@ html {
 .feature__inner {
   padding-inline: 15px;
   width: 100%;
-  background: #f9f9f9;
+  // background: #f9f9f9;
+  background: linear-gradient(180deg, #f9f9f9 3.77%, #e8e8e8 84.65%);
 
   @include mq(md) {
     padding-inline: 50px;
+    background: linear-gradient(211deg, #f9f9f9 9.85%, #e8e8e8 67.24%);
   }
 }
 
@@ -1751,7 +1751,8 @@ html {
 
 .feature__achievement {
   padding-top: 50px;
-  background: #f9f9f9;
+  // background: #f9f9f9;
+  background: linear-gradient(180deg, #f9f9f9 3.77%, #e8e8e8 84.65%);
 
   @include mq(md) {
     padding-top: 72px;
@@ -1764,7 +1765,7 @@ html {
 .feature-achievement__inner {
   padding-inline: 15px;
   padding-bottom: 103px;
-  background: #f9f9f9;
+  // background: #f9f9f9;
 
   @include mq(md) {
     padding-inline: 0;
@@ -1944,7 +1945,8 @@ html {
 .service__inner {
   padding-inline: 15px;
   // background: #f2efe7;
-  background: linear-gradient(145deg, #f2efe7 43.84%, #e9e4d7 92.64%);
+  // background: linear-gradient(145deg, #f2efe7 43.84%, #e9e4d7 92.64%);
+  background: linear-gradient(178deg, #f9f7f3 5.03%, #edebe7 142.52%);
 }
 
 .service__contents {
