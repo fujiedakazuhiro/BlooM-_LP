@@ -157,6 +157,21 @@ html {
   position: absolute;
 }
 
+.fv__header-2 {
+  background: #fff;
+}
+@media screen and (min-width:768px) {
+  .fv__header-2 {
+    background: transparent;
+  }
+}
+.fv__header-2.is-sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 20;
+}
+
 .fv__logo-text,
 .fv__logo-text2 {
   /* h1_Zen Kaku Gothic New_Bold_11px */
@@ -827,29 +842,11 @@ html {
   width: 450px;
 }
 
-.fv__header2-contents {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding-left: 20px;
-}
-
-.fv__header2-text {
-  color: #7d7d7d;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.55px;
-}
-
 .problem {
   padding-block: 55px 40px;
   background: #fff;
+  position: relative;
+  z-index: 1;
 }
 @media screen and (min-width:768px) {
   .problem {
@@ -875,6 +872,8 @@ html {
     margin-top: 24px;
     max-width: 1376px;
     height: 650px;
+    width: 100%;
+    margin: 0 auto;
   }
 }
 
@@ -1135,32 +1134,15 @@ html {
   margin-top: -105px;
   padding-top: 105px;
   position: relative;
+  background: url(../img/case/sp/wave-sp.svg) no-repeat center top/cover;
+  z-index: 2;
 }
 @media screen and (min-width:768px) {
   .case {
     margin-top: -400px;
     padding-top: 400px;
+    background: url(../img/case/wave.svg) no-repeat center top/cover;
   }
-}
-.case::before {
-  position: absolute;
-  content: "";
-  background: url(../img/case/sp/wave-sp.svg) no-repeat top center;
-  width: 100%;
-  height: 114px;
-  background-size: 100% auto;
-  top: 0;
-  left: 0;
-}
-@media screen and (min-width:768px) {
-  .case::before {
-    background: url(../img/case/wave.svg) no-repeat top center;
-    height: 400px;
-  }
-}
-
-.case__inner {
-  background: #f9f7f3;
 }
 
 .case__wrapper {
@@ -1188,6 +1170,7 @@ html {
             transform: translateX(-50%);
     padding-top: 0;
     width: 100%;
+    margin: 0 auto;
   }
 }
 
@@ -1272,6 +1255,7 @@ html {
     margin-top: 0;
     padding-top: 86px;
     gap: 32px;
+    margin-inline: auto;
   }
 }
 
@@ -1401,6 +1385,12 @@ html {
   }
 }
 
+@media screen and (min-width:768px) {
+  .case__worker-comment {
+    margin-top: 15px;
+  }
+}
+
 .case__worker-bubble {
   position: relative;
 }
@@ -1502,46 +1492,36 @@ html {
   line-height: 30px; /* 125% */
   letter-spacing: 1.68px;
 }
+@media screen and (min-width:768px) {
+  .text-pink-case {
+    font-size: 36px;
+    line-height: 48px; /* 133.333% */
+    letter-spacing: 3.6px;
+  }
+}
 
 .feature {
   position: relative;
-  padding-top: 150px;
-  margin-top: -150px;
+  padding-top: 108px;
+  margin-top: -175px;
+  background: url(../img/feature/sp/wave-sp.svg) no-repeat center top/cover;
+  z-index: 3;
 }
 @media screen and (min-width:768px) {
   .feature {
     padding-top: 368px;
     margin-top: -368px;
-  }
-}
-.feature::before {
-  position: absolute;
-  content: "";
-  background: url(../img/feature/sp/wave-sp.svg) no-repeat top center;
-  width: 100%;
-  height: 150px;
-  background-size: 100% auto;
-  top: 0;
-  left: 0;
-  z-index: 1;
-}
-@media screen and (min-width:768px) {
-  .feature::before {
-    background: url(../img/feature/wave.svg) no-repeat top center;
-    height: 368px;
+    background: url(../img/feature/wave.svg) no-repeat center top/cover;
   }
 }
 
 .feature__inner {
   padding-inline: 15px;
   width: 100%;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(3.77%, #f9f9f9), color-stop(84.65%, #e8e8e8));
-  background: linear-gradient(180deg, #f9f9f9 3.77%, #e8e8e8 84.65%);
 }
 @media screen and (min-width:768px) {
   .feature__inner {
     padding-inline: 50px;
-    background: linear-gradient(211deg, #f9f9f9 9.85%, #e8e8e8 67.24%);
   }
 }
 
@@ -1745,8 +1725,6 @@ html {
 
 .feature__achievement {
   padding-top: 50px;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(3.77%, #f9f9f9), color-stop(84.65%, #e8e8e8));
-  background: linear-gradient(180deg, #f9f9f9 3.77%, #e8e8e8 84.65%);
 }
 @media screen and (min-width:768px) {
   .feature__achievement {
@@ -1892,54 +1870,21 @@ html {
 
 .service {
   margin-top: -40px;
-  padding-block: 40px 37px;
+  padding-block: 86px 92px;
   position: relative;
+  background: url(../img/service/sp/wave-sp.svg) no-repeat center top/cover;
+  z-index: 6;
 }
 @media screen and (min-width:768px) {
   .service {
     margin-top: -107px;
-    padding-block: 107px 103px;
-  }
-}
-.service::before, .service::after {
-  position: absolute;
-  content: "";
-  background-size: 100% auto;
-  left: 0;
-  z-index: 1;
-  width: 100%;
-}
-.service::before {
-  background: url(../img/service/sp/wave-sp.svg) no-repeat top center;
-  height: 40px;
-  top: 0;
-}
-@media screen and (min-width:768px) {
-  .service::before {
-    background: url(../img/service/wave.svg) no-repeat top center;
-    height: 107px;
-  }
-}
-.service::after {
-  background: url(../img/service/sp/wave-sp.svg) no-repeat bottom center;
-  height: 37px;
-  bottom: 0;
-}
-@media screen and (min-width:768px) {
-  .service::after {
-    background: url(../img/service/wave.svg) no-repeat bottom center;
-    height: 103px;
+    padding-block: 138px 179px;
+    background: url(../img/service/wave.svg) no-repeat center top/cover;
   }
 }
 
 .service__inner {
   padding-inline: 15px;
-  background: linear-gradient(178deg, #f9f7f3 5.03%, #edebe7 142.52%);
-}
-
-.service__contents {
-  padding-top: 40px;
-  padding-bottom: 56px;
 }
 
 .service__area {
@@ -2094,7 +2039,7 @@ html {
 }
 
 .service-area__body-inner {
-  padding-inline: 16px;
+  padding-inline: 17px;
 }
 @media screen and (min-width:768px) {
   .service-area__body-inner {
@@ -2119,6 +2064,8 @@ html {
 .works {
   padding-top: 51px;
   padding-bottom: 72px;
+  position: relative;
+  z-index: 3;
 }
 @media screen and (min-width:768px) {
   .works {
@@ -2755,6 +2702,7 @@ html {
   padding-block: 63px 148px;
   position: relative;
   background: linear-gradient(135deg, #f9f7f3 21.75%, #edebe7 83.66%);
+  z-index: 1;
 }
 @media screen and (min-width:768px) {
   .price {
@@ -2833,7 +2781,7 @@ html {
 }
 @media screen and (min-width:768px) {
   .price-card__text--pink1 {
-    font-size: 44px;
+    font-size: 42px;
   }
 }
 
@@ -2894,52 +2842,23 @@ html {
   position: relative;
   margin-top: -97px;
   margin-bottom: -114px;
+  background: url(../img/flow/sp/wave-sp.svg) no-repeat center top/cover;
+  z-index: 3;
 }
 @media screen and (min-width:768px) {
   .flow {
-    padding-block: 0 200px;
-    margin-bottom: -200px;
-  }
-}
-.flow::before, .flow::after {
-  position: absolute;
-  content: "";
-  background-size: 100% auto;
-  left: 0;
-  z-index: 1;
-  width: 100%;
-}
-.flow::before {
-  height: 97px;
-  top: 0;
-  background: url(../img/flow/sp/wave-sp.svg) no-repeat top center;
-}
-@media screen and (min-width:768px) {
-  .flow::before {
-    background: none;
-  }
-}
-.flow::after {
-  height: 114px;
-  bottom: 0;
-  background: url(../img/flow/sp/wave-sp.svg) no-repeat bottom center;
-}
-@media screen and (min-width:768px) {
-  .flow::after {
-    height: 200px;
-    background: url(../img/flow/wave.svg) no-repeat bottom center;
+    padding-block: 0 224px;
+    margin-bottom: -224px;
+    background: url(../img/flow/wave.svg) no-repeat center top/cover;
   }
 }
 
 .flow__inner {
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(6.59%, #f9f9f9), color-stop(147.87%, #e8e8e8));
-  background: linear-gradient(180deg, #f9f9f9 6.59%, #e8e8e8 147.87%);
   padding-inline: 20px;
 }
 @media screen and (min-width:768px) {
   .flow__inner {
     padding-inline: none;
-    background: transparent;
     padding-inline: 0;
   }
 }
@@ -2949,16 +2868,6 @@ html {
     padding-top: 368px;
     margin-top: -368px;
     position: relative;
-  }
-  .flow__contents::before {
-    position: absolute;
-    content: "";
-    width: 100%;
-    height: 368px;
-    background: url(../img/flow/wave.svg) no-repeat top center;
-    background-size: 100% auto;
-    top: 0;
-    left: 0;
   }
 }
 
@@ -2979,8 +2888,6 @@ html {
   .flow__body {
     margin-top: 0;
     padding-inline: 100px;
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(6.59%, #f9f9f9), color-stop(147.87%, #e8e8e8));
-    background: linear-gradient(180deg, #f9f9f9 6.59%, #e8e8e8 147.87%);
   }
 }
 
@@ -3161,6 +3068,8 @@ html {
 .review {
   padding-block: 137px 143px;
   background: #fff;
+  position: relative;
+  z-index: 1;
 }
 @media screen and (min-width:768px) {
   .review {
@@ -3349,38 +3258,23 @@ html {
   padding-top: 110px;
   margin-top: -110px;
   position: relative;
+  background: url(../img/instagram/sp/wave-sp.svg) no-repeat center top/cover;
+  z-index: 3;
 }
 @media screen and (min-width:768px) {
   .instagram {
     padding-top: 200px;
     margin-top: -200px;
-  }
-}
-.instagram::after {
-  position: absolute;
-  content: "";
-  background: url(../img/instagram/sp/wave-sp.svg) no-repeat top center;
-  background-size: 100% auto;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 110px;
-}
-@media screen and (min-width:768px) {
-  .instagram::after {
-    background: url(../img/instagram/wave.svg) no-repeat top center;
-    height: 200px;
+    background: url(../img/instagram/wave.svg) no-repeat center top/cover;
   }
 }
 
 .instagram__inner {
   padding-inline: 21px;
-  background: linear-gradient(184deg, #f9f7f3 17.8%, #efede9 158.13%);
 }
 @media screen and (min-width:768px) {
   .instagram__inner {
     padding-inline: 80px 50px;
-    background: linear-gradient(254deg, #f9f7f3 15.83%, #eeece8 84.81%);
   }
 }
 

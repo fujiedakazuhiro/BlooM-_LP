@@ -169,6 +169,21 @@ html {
   position: absolute;
 }
 
+.fv__header-2 {
+  background: #fff;
+
+  @include mq(md) {
+    background: transparent;
+  }
+
+  &.is-sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 20;
+  }
+}
+
 .fv__logo {
 }
 
@@ -857,40 +872,42 @@ html {
   }
 }
 
-.fv__header2 {
-}
+// .fv__header2 {
+// }
 
-.fv__header2-inner {
-}
+// .fv__header2-inner {
+// }
 
-.fv__header2-contents {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-left: 20px;
-}
+// .fv__header2-contents {
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   padding-left: 20px;
+// }
 
-.fv__header2-logo {
-}
+// .fv__header2-logo {
+// }
 
-.fv__header2-link {
-}
+// .fv__header2-link {
+// }
 
-.fv__header2-text {
-  color: #7d7d7d;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.55px;
-}
+// .fv__header2-text {
+//   color: #7d7d7d;
+//   font-size: 11px;
+//   font-weight: 700;
+//   letter-spacing: 0.55px;
+// }
 
-.fv__header2-image {
-  img {
-  }
-}
+// .fv__header2-image {
+//   img {
+//   }
+// }
 
 .problem {
   padding-block: 55px 40px;
   background: #fff;
+  position: relative;
+  z-index: 1;
 
   @include mq(md) {
     padding-block: 26px 243px;
@@ -918,6 +935,8 @@ html {
     max-width: 1376px;
     // height: 892px;
     height: 650px;
+    width: 100%;
+    margin: 0 auto;
   }
 }
 
@@ -1180,32 +1199,37 @@ html {
   margin-top: -105px;
   padding-top: 105px;
   position: relative;
+  background: url(../img/case/sp/wave-sp.svg) no-repeat center top / cover;
+  z-index: 2;
 
   @include mq(md) {
     margin-top: -400px;
     padding-top: 400px;
+    background: url(../img/case/wave.svg) no-repeat center top / cover;
   }
 
-  &::before {
-    position: absolute;
-    content: "";
-    background: url(../img/case/sp/wave-sp.svg) no-repeat top center;
-    width: 100%;
-    height: 114px;
-    background-size: 100% auto;
-    // clip-path: inset(0 0 0 0); // 上部のみ表示
-    top: 0;
-    left: 0;
+  // 11/30コメントアウト
+  // &::before {
+  //   position: absolute;
+  //   content: "";
+  //   background: url(../img/case/sp/wave-sp.svg) no-repeat top center;
+  //   width: 100%;
+  //   height: 114px;
+  //   background-size: 100% auto;
+  //   // clip-path: inset(0 0 0 0); // 上部のみ表示
+  //   top: 0;
+  //   left: 0;
 
-    @include mq(md) {
-      background: url(../img/case/wave.svg) no-repeat top center;
-      height: 400px;
-    }
-  }
+  //   @include mq(md) {
+  //     background: url(../img/case/wave.svg) no-repeat top center;
+  //     height: 400px;
+  //   }
+  // }
 }
 
 .case__inner {
-  background: #f9f7f3;
+  // 11/30コメントアウト
+  // background: #f9f7f3;
 }
 
 .case__wrapper {
@@ -1230,6 +1254,7 @@ html {
     transform: translateX(-50%);
     padding-top: 0;
     width: 100%;
+    margin: 0 auto;
   }
 }
 
@@ -1300,6 +1325,7 @@ html {
     // padding-top: 70px;
     padding-top: 86px;
     gap: 32px;
+    margin-inline: auto;
   }
 }
 
@@ -1419,6 +1445,9 @@ html {
 }
 
 .case__worker-comment {
+  @include mq(md) {
+    margin-top: 15px;
+  }
 }
 
 .case__worker-bubble {
@@ -1520,46 +1549,61 @@ html {
   font-weight: 900;
   line-height: 30px; /* 125% */
   letter-spacing: 1.68px;
+
+  @include mq(md) {
+    font-size: 36px;
+    line-height: 48px; /* 133.333% */
+    letter-spacing: 3.6px;
+  }
 }
 
 .feature {
   position: relative;
-  padding-top: 150px;
-  margin-top: -150px;
+  // 11/30変更ここから
+  padding-top: 108px;
+  margin-top: -175px;
+  // 11/30変更ここまで
+  background: url(../img/feature/sp/wave-sp.svg) no-repeat center top / cover;
+  z-index: 3;
 
   @include mq(md) {
     padding-top: 368px;
     margin-top: -368px;
+    background: url(../img/feature/wave.svg) no-repeat center top / cover;
   }
 
-  &::before {
-    position: absolute;
-    content: "";
-    background: url(../img/feature/sp/wave-sp.svg) no-repeat top center;
-    width: 100%;
-    height: 150px;
-    background-size: 100% auto;
-    // clip-path: inset(0 0 0 0); // 上部のみ表示
-    top: 0;
-    left: 0;
-    z-index: 1;
+  // 11/30コメントアウト
+  // &::before {
+  //   position: absolute;
+  //   content: "";
+  //   background: url(../img/feature/sp/wave-sp.svg) no-repeat top center;
+  //   width: 100%;
+  //   height: 150px;
+  //   background-size: 100% auto;
+  //   // clip-path: inset(0 0 0 0); // 上部のみ表示
+  //   top: 0;
+  //   left: 0;
+  //   z-index: 1;
 
-    @include mq(md) {
-      background: url(../img/feature/wave.svg) no-repeat top center;
-      height: 368px;
-    }
-  }
+  //   @include mq(md) {
+  //     background: url(../img/feature/wave.svg) no-repeat top center;
+  //     height: 368px;
+  //   }
+  // }
 }
 
 .feature__inner {
   padding-inline: 15px;
   width: 100%;
   // background: #f9f9f9;
-  background: linear-gradient(180deg, #f9f9f9 3.77%, #e8e8e8 84.65%);
+
+  // 11/30コメントアウト
+  // background: linear-gradient(180deg, #f9f9f9 3.77%, #e8e8e8 84.65%);
 
   @include mq(md) {
     padding-inline: 50px;
-    background: linear-gradient(211deg, #f9f9f9 9.85%, #e8e8e8 67.24%);
+    // 11/30コメントアウト
+    // background: linear-gradient(211deg, #f9f9f9 9.85%, #e8e8e8 67.24%);
   }
 }
 
@@ -1752,7 +1796,9 @@ html {
 .feature__achievement {
   padding-top: 50px;
   // background: #f9f9f9;
-  background: linear-gradient(180deg, #f9f9f9 3.77%, #e8e8e8 84.65%);
+
+  // 11/30変更
+  // background: linear-gradient(180deg, #f9f9f9 3.77%, #e8e8e8 84.65%);
 
   @include mq(md) {
     padding-top: 72px;
@@ -1900,58 +1946,67 @@ html {
 
 .service {
   margin-top: -40px;
-  padding-block: 40px 37px;
+  padding-block: 86px 92px;
   position: relative;
+  background: url(../img/service/sp/wave-sp.svg) no-repeat center top / cover;
+  z-index: 6;
 
   @include mq(md) {
     margin-top: -107px;
-    padding-block: 107px 103px;
+    padding-block: 138px 179px;
+    background: url(../img/service/wave.svg) no-repeat center top / cover;
   }
 
-  &::before,
-  &::after {
-    position: absolute;
-    content: "";
-    background-size: 100% auto;
-    left: 0;
-    z-index: 1;
-    width: 100%;
-  }
+  // 11/30コメントアウト
+  // &::before,
+  // &::after {
+  //   position: absolute;
+  //   content: "";
+  //   background-size: 100% auto;
+  //   left: 0;
+  //   z-index: 1;
+  //   width: 100%;
+  // }
 
-  &::before {
-    background: url(../img/service/sp/wave-sp.svg) no-repeat top center;
-    height: 40px;
-    // clip-path: inset(0 0 0 0); // 上部のみ表示
-    top: 0;
+  // 11/30コメントアウト
+  // &::before {
+  //   background: url(../img/service/sp/wave-sp.svg) no-repeat top center;
+  //   height: 40px;
+  //   // clip-path: inset(0 0 0 0); // 上部のみ表示
+  //   top: 0;
 
-    @include mq(md) {
-      background: url(../img/service/wave.svg) no-repeat top center;
-      height: 107px;
-    }
-  }
+  //   @include mq(md) {
+  //     background: url(../img/service/wave.svg) no-repeat top center;
+  //     height: 107px;
+  //   }
+  // }
 
-  &::after {
-    background: url(../img/service/sp/wave-sp.svg) no-repeat bottom center;
-    height: 37px;
-    bottom: 0;
+  // 11/30コメントアウト
+  // &::after {
+  //   background: url(../img/service/sp/wave-sp.svg) no-repeat bottom center;
+  //   height: 37px;
+  //   bottom: 0;
 
-    @include mq(md) {
-      background: url(../img/service/wave.svg) no-repeat bottom center;
-      height: 103px;
-    }
-  }
+  //   @include mq(md) {
+  //     background: url(../img/service/wave.svg) no-repeat bottom center;
+  //     height: 103px;
+  //   }
+  // }
 }
 
 .service__inner {
   padding-inline: 15px;
   // background: #f2efe7;
   // background: linear-gradient(145deg, #f2efe7 43.84%, #e9e4d7 92.64%);
-  background: linear-gradient(178deg, #f9f7f3 5.03%, #edebe7 142.52%);
+
+  // 11/30コメントアウト
+  // background: linear-gradient(178deg, #f9f7f3 5.03%, #edebe7 142.52%);
 }
 
 .service__contents {
-  padding-top: 40px;
-  padding-bottom: 56px;
+  // 11/30変更
+  // padding-top: 40px;
+  // padding-bottom: 56px;
 }
 
 .service__head {
@@ -2089,7 +2144,7 @@ html {
 }
 
 .service-area__body-inner {
-  padding-inline: 16px;
+  padding-inline: 17px;
 
   @include mq(md) {
     padding-inline: 23px;
@@ -2112,6 +2167,8 @@ html {
 .works {
   padding-top: 51px;
   padding-bottom: 72px;
+  position: relative;
+  z-index: 3;
 
   @include mq(md) {
     padding-top: 73px;
@@ -2770,6 +2827,7 @@ html {
   // padding-bottom: 110px;
   position: relative;
   background: linear-gradient(135deg, #f9f7f3 21.75%, #edebe7 83.66%);
+  z-index: 1;
 
   @include mq(md) {
     // padding-block: 80px 360px;
@@ -2876,7 +2934,7 @@ html {
   font-weight: 600;
 
   @include mq(md) {
-    font-size: 44px;
+    font-size: 42px;
   }
 }
 
@@ -2929,55 +2987,63 @@ html {
   position: relative;
   margin-top: -97px;
   margin-bottom: -114px;
+  background: url(../img/flow/sp/wave-sp.svg) no-repeat center top / cover;
+  z-index: 3;
 
   @include mq(md) {
     // padding-block: 202px 212px;
-    padding-block: 0 200px;
-    margin-bottom: -200px;
+    padding-block: 0 224px;
+    margin-bottom: -224px;
+    background: url(../img/flow/wave.svg) no-repeat center top / cover;
   }
 
-  &::before,
-  &::after {
-    position: absolute;
-    content: "";
-    background-size: 100% auto;
-    left: 0;
-    z-index: 1;
-    width: 100%;
-  }
+  // 11/30コメントアウト
+  // &::before,
+  // &::after {
+  //   position: absolute;
+  //   content: "";
+  //   background-size: 100% auto;
+  //   left: 0;
+  //   z-index: 1;
+  //   width: 100%;
+  // }
 
-  &::before {
-    height: 97px;
-    // clip-path: inset(0 0 0 0); // 上部のみ表示
-    top: 0;
-    background: url(../img/flow/sp/wave-sp.svg) no-repeat top center;
+  // 11/30コメントアウト
+  // &::before {
+  //   height: 97px;
+  //   // clip-path: inset(0 0 0 0); // 上部のみ表示
+  //   top: 0;
+  //   background: url(../img/flow/sp/wave-sp.svg) no-repeat top center;
 
-    @include mq(md) {
-      // background: url(../img/flow/wave.svg) no-repeat top center;
-      // height: 202px;
-      background: none;
-    }
-  }
+  //   @include mq(md) {
+  //     // background: url(../img/flow/wave.svg) no-repeat top center;
+  //     // height: 202px;
+  //     background: none;
+  //   }
+  // }
 
-  &::after {
-    height: 114px;
-    bottom: 0;
-    background: url(../img/flow/sp/wave-sp.svg) no-repeat bottom center;
+  // 11/30コメントアウト
+  // &::after {
+  //   height: 114px;
+  //   bottom: 0;
+  //   background: url(../img/flow/sp/wave-sp.svg) no-repeat bottom center;
 
-    @include mq(md) {
-      height: 200px;
-      background: url(../img/flow/wave.svg) no-repeat bottom center;
-    }
-  }
+  //   @include mq(md) {
+  //     height: 200px;
+  //     background: url(../img/flow/wave.svg) no-repeat bottom center;
+  //   }
+  // }
 }
 
 .flow__inner {
-  background: linear-gradient(180deg, #f9f9f9 6.59%, #e8e8e8 147.87%);
+  // 11/30コメントアウト
+  // background: linear-gradient(180deg, #f9f9f9 6.59%, #e8e8e8 147.87%);
   padding-inline: 20px;
 
   @include mq(md) {
     padding-inline: none;
-    background: transparent;
+    // 11/30コメントアウト
+    // background: transparent;
     padding-inline: 0;
   }
 }
@@ -2990,16 +3056,17 @@ html {
     // padding-bottom: 200px;
     position: relative;
 
-    &::before {
-      position: absolute;
-      content: "";
-      width: 100%;
-      height: 368px;
-      background: url(../img/flow/wave.svg) no-repeat top center;
-      background-size: 100% auto;
-      top: 0;
-      left: 0;
-    }
+    // 11/30コメントアウト
+    // &::before {
+    //   position: absolute;
+    //   content: "";
+    //   width: 100%;
+    //   height: 368px;
+    //   background: url(../img/flow/wave.svg) no-repeat top center;
+    //   background-size: 100% auto;
+    //   top: 0;
+    //   left: 0;
+    // }
   }
 }
 
@@ -3024,7 +3091,10 @@ html {
   @include mq(md) {
     margin-top: 0;
     padding-inline: 100px;
-    background: linear-gradient(180deg, #f9f9f9 6.59%, #e8e8e8 147.87%);
+
+    // 11/30コメントアウト
+    // background: linear-gradient(180deg, #f9f9f9 6.59%, #e8e8e8 147.87%);
+
     // position: relative;
   }
 }
@@ -3218,6 +3288,8 @@ html {
 .review {
   padding-block: 137px 143px;
   background: #fff;
+  position: relative;
+  z-index: 1;
 
   @include mq(md) {
     padding-block: 237px 221px;
@@ -3415,36 +3487,42 @@ html {
   padding-top: 110px;
   margin-top: -110px;
   position: relative;
+  background: url(../img/instagram/sp/wave-sp.svg) no-repeat center top / cover;
+  z-index: 3;
 
   @include mq(md) {
     padding-top: 200px;
     margin-top: -200px;
+    background: url(../img/instagram/wave.svg) no-repeat center top / cover;
   }
 
-  &::after {
-    position: absolute;
-    content: "";
-    background: url(../img/instagram/sp/wave-sp.svg) no-repeat top center;
-    background-size: 100% auto;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 110px;
+  // 11/30コメントアウト
+  // &::after {
+  //   position: absolute;
+  //   content: "";
+  //   background: url(../img/instagram/sp/wave-sp.svg) no-repeat top center;
+  //   background-size: 100% auto;
+  //   top: 0;
+  //   left: 0;
+  //   width: 100%;
+  //   height: 110px;
 
-    @include mq(md) {
-      background: url(../img/instagram/wave.svg) no-repeat top center;
-      height: 200px;
-    }
-  }
+  //   @include mq(md) {
+  //     background: url(../img/instagram/wave.svg) no-repeat top center;
+  //     height: 200px;
+  //   }
+  // }
 }
 
 .instagram__inner {
   padding-inline: 21px;
-  background: linear-gradient(184deg, #f9f7f3 17.8%, #efede9 158.13%);
+  // 11/30コメントアウト
+  // background: linear-gradient(184deg, #f9f7f3 17.8%, #efede9 158.13%);
 
   @include mq(md) {
     padding-inline: 80px 50px;
-    background: linear-gradient(254deg, #f9f7f3 15.83%, #eeece8 84.81%);
+    // 11/30コメントアウト
+    // background: linear-gradient(254deg, #f9f7f3 15.83%, #eeece8 84.81%);
   }
 }
 

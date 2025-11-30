@@ -19,13 +19,24 @@ jQuery("#js-drawer-button--2").on("click", function (e) {
   jQuery("#js-drawer-content--2").toggleClass("is-checked");
 });
 
-//spでドロワーメニューの中のリンクをクリックした時にドロワーメニューを非表示にする
-jQuery('#js-drawer-content a[href^="#"]').on("click", function (e) {
+//ドロワーメニュー1の中のリンクをクリックした時にドロワーメニューを非表示にする
+jQuery('#js-drawer-content--1 a[href^="#"]').on("click", function (e) {
   // e.preventDefault();
 
   jQuery("#js-drawer-button--1").removeClass("is-checked");
   jQuery("#js-drawer-button--2").removeClass("is-checked");
-  jQuery("#js-drawer-content").removeClass("is-checked");
+  jQuery("#js-drawer-content--1").removeClass("is-checked");
+  jQuery("#js-drawer-content--2").removeClass("is-checked");
+});
+
+//ドロワーメニュー2の中のリンクをクリックした時にドロワーメニューを非表示にする
+jQuery('#js-drawer-content--2 a[href^="#"]').on("click", function (e) {
+  // e.preventDefault();
+
+  jQuery("#js-drawer-button--1").removeClass("is-checked");
+  jQuery("#js-drawer-button--2").removeClass("is-checked");
+  jQuery("#js-drawer-content--1").removeClass("is-checked");
+  jQuery("#js-drawer-content--2").removeClass("is-checked");
 });
 
 //スムーススクロール
@@ -59,6 +70,59 @@ const gallerySwiper = new Swiper("#js-gallery-swiper", {
     disableOnInteraction: false,
   },
 });
+
+// 2つ目のヘッダーがTOPに来たタイミングで上部固定
+// 1. 🚀 要素を取得 (変更なし)
+const stickyHeader = document.getElementById("fv__header-2");
+
+// 2. 📐 固定開始位置を格納する変数
+let originalOffset = 0;
+
+/**
+ * 固定開始位置 (originalOffset) を計算し、更新する関数
+ */
+function updateOffset() {
+  // 要素が存在する場合のみ処理
+  if (stickyHeader) {
+    // 現在のレイアウトでの正確な位置を取得して更新
+    originalOffset = stickyHeader.offsetTop;
+    console.log(`Original Offset Updated: ${originalOffset}px`);
+  }
+}
+
+// --- 3. イベントリスナーの設定 ---
+
+// A. スクロールイベント: 固定処理の実行
+window.addEventListener("scroll", () => {
+  // 要素が存在しない場合は処理を終了
+  if (!stickyHeader) return;
+
+  // 現在のスクロール位置（垂直方向）を取得
+  const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+
+  // スクロール位置が固定開始位置を超えたかチェック
+  if (scrollPosition >= originalOffset) {
+    // クラス名を変更（クラスが存在しないかチェックしてから追加するのがベスト）
+    if (!stickyHeader.classList.contains("is-sticky")) {
+      stickyHeader.classList.add("is-sticky");
+      // コンテンツのズレを防ぐための処理をここに追加
+    }
+  } else {
+    // 固定を解除
+    stickyHeader.classList.remove("is-sticky");
+  }
+});
+
+// B. 初期計算と再計算イベント
+
+// 1. ページ全体の読み込みが完了した時点 (画像などのロード後) で計算
+window.addEventListener("load", updateOffset);
+
+// 2. 画面サイズが変更された時点 (スマホの縦横切り替えなど) で再計算
+window.addEventListener("resize", updateOffset);
+
+// 3. (念のため) DOMがロードされた時点でも一度計算
+document.addEventListener("DOMContentLoaded", updateOffset);
 
 // TwentyTwenty 初期化用関数（シンプルかつ安全な再初期化）
 function initTwentyTwenty() {
