@@ -8,10 +8,13 @@ $font-base-2: "Josefin Sans", sans-serif; //仮のGoogleフォント
 
 //ブレークポイント
 $breakpoints: (
-  sm: "screen and (min-width:600px)",
-  md: "screen and (min-width:768px)",
-  lg: "screen and (min-width:900px)",
-  xl: "screen and (min-width:1200px)",
+  ss: "screen and (min-width:320px)",
+  st: "screen and (min-width:375px)",
+  sd: "screen and (min-width:600px)",
+  ms: "screen and (min-width:768px)",
+  mt: "screen and (min-width:900px)",
+  md: "screen and (min-width:1200px)",
+  ml: "screen and (min-width:1400px)",
 );
 
 //メディアクエリー
@@ -102,12 +105,17 @@ html {
 }
 
 .fv {
-  width: 100%;
-  height: 600px;
+  width: 100vw;
+  height: auto;
+
+  // /* 1. 動的ビューポート (dvh) をまず指定 */
+  // height: 100dvh;
+
+  // /* 2. 互換性のために、lvhとvhをフォールバックとして併記 */
+  // height: 100lvh; /* dvh非対応ブラウザ向けに最大高さを指定 */
+  // height: 100vh; /* 旧ブラウザ向けフォールバック */
 
   @include mq(md) {
-    // height: 768px;
-    height: auto;
     position: relative;
     padding-bottom: 145px;
   }
@@ -126,6 +134,7 @@ html {
 
 .fv__image {
   width: 100%;
+  height: 100%;
 }
 
 .fv__image--pc {
@@ -133,19 +142,27 @@ html {
 
   @include mq(md) {
     display: block;
-    height: auto;
+    // height: auto;
+    width: 100%;
+    height: 100%;
   }
 
   img {
+    width: 100%;
+    height: 100%;
   }
 }
 
 .fv__image--sp {
+  width: 100%;
+  height: 100%;
+
   @include mq(md) {
     display: none;
   }
   img {
     width: 100%;
+    height: 100%;
   }
 }
 
@@ -160,7 +177,7 @@ html {
   height: 72px;
   padding-left: 20px;
 
-  @include mq(md) {
+  @include mq(ms) {
     height: 100px;
   }
 }
@@ -209,6 +226,7 @@ html {
 
 .fv__logo-image {
   margin-top: 4px;
+  width: 140px;
 
   @include mq(md) {
     width: 175px;
@@ -218,7 +236,7 @@ html {
     width: 140px;
     height: 36px;
 
-    @include mq(md) {
+    @include mq(ms) {
       width: 175px;
       height: 45px;
     }
@@ -351,7 +369,7 @@ html {
   z-index: 11;
   transition: 0.3s ease-out;
 
-  @include mq(md) {
+  @include mq(ms) {
     margin-left: 8px;
     width: 100px;
     height: 100px;
@@ -389,8 +407,10 @@ html {
 .drawer__nav--2 {
   background: #f2f0ec;
   width: 100%;
-  height: 100%;
+  // height: 100%;
+  height: 100vh;
   position: fixed;
+  overflow-y: auto;
   right: 0;
   top: 0;
   transform: translateX(100%);
@@ -519,6 +539,10 @@ html {
   top: 39px;
   left: 0;
 
+  @include mq(ms) {
+    top: 70px;
+  }
+
   @include mq(md) {
     top: 250px;
     left: 22px;
@@ -526,6 +550,10 @@ html {
 
   img {
     width: 175px;
+
+    @include mq(ms) {
+      width: 400px;
+    }
 
     @include mq(md) {
       width: 326px;
@@ -546,6 +574,10 @@ html {
 
   img {
     width: 150px;
+
+    @include mq(ms) {
+      width: 360px;
+    }
 
     @include mq(md) {
       width: 356px;
@@ -631,12 +663,29 @@ html {
 }
 
 .fv__title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-end;
+  gap: 19px;
+
+  @include mq(md) {
+    flex-direction: column;
+    justify-content: center;
+    margin-top: -36px;
+    margin-left: -12px;
+    gap: 30px;
+    width: 100%;
+  }
 }
 
 .fv__title--main {
-  position: absolute;
-  top: 115px;
-  left: 189px;
+  // position: absolute;
+  // top: 115px;
+  // left: 189px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -644,9 +693,10 @@ html {
 
   @include mq(md) {
     flex-direction: row;
-    gap: 35px;
+    gap: 45px;
     top: 235px;
     left: 281px;
+    margin-inline: auto;
   }
 }
 
@@ -658,8 +708,13 @@ html {
   position: relative;
   z-index: 1;
 
+  @include mq(ms) {
+    gap: 7px;
+  }
+
   @include mq(md) {
     flex-direction: row;
+    gap: 0;
   }
 
   &::after {
@@ -672,6 +727,11 @@ html {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: -1;
+
+    @include mq(ms) {
+      width: 40px;
+      height: 110px;
+    }
 
     @include mq(md) {
       width: 168px;
@@ -690,6 +750,11 @@ html {
     width: 32px;
     height: 30px;
 
+    @include mq(ms) {
+      width: 60px;
+      height: 58px;
+    }
+
     @include mq(md) {
       width: 63px;
       height: 61px;
@@ -701,6 +766,11 @@ html {
   img {
     width: 32px;
     height: 30px;
+
+    @include mq(ms) {
+      width: 60px;
+      height: 58px;
+    }
 
     @include mq(md) {
       width: 63px;
@@ -714,6 +784,11 @@ html {
     width: 32px;
     height: 32px;
 
+    @include mq(ms) {
+      width: 60px;
+      height: 58px;
+    }
+
     @include mq(md) {
       width: 63px;
       height: 63px;
@@ -725,6 +800,11 @@ html {
   img {
     width: 20px;
     height: 26px;
+
+    @include mq(ms) {
+      width: 60px;
+      height: 58px;
+    }
 
     @include mq(md) {
       width: 40px;
@@ -743,10 +823,14 @@ html {
   line-height: 1.16;
   letter-spacing: 3.84px;
 
+  @include mq(ms) {
+    font-size: 60px;
+  }
+
   @include mq(md) {
     writing-mode: horizontal-tb;
     text-shadow: 0 0 32px rgba(121, 5, 16, 0.5);
-    font-size: 38px;
+    font-size: 48px;
     font-style: normal;
     font-weight: 700;
     line-height: 110%; /* 52.8px */
@@ -765,9 +849,9 @@ html {
 }
 
 .fv__title--sub {
-  position: absolute;
-  bottom: 75px;
-  left: 151px;
+  // position: absolute;
+  // bottom: 75px;
+  // left: 151px;
   writing-mode: vertical-rl;
   text-orientation: upright; /* 英数字も正立させる */
   color: #fff;
@@ -776,13 +860,20 @@ html {
   line-height: 1.04;
   letter-spacing: 2.86px;
   padding-inline: 44px;
+  position: relative;
+
+  @include mq(ms) {
+    font-size: 45px;
+    padding-inline: 60px;
+  }
 
   @include mq(md) {
     writing-mode: horizontal-tb;
-    font-size: 42px;
+    font-size: 48px;
     padding-inline: 92px;
-    left: 315px;
-    bottom: 410px;
+    margin-inline: auto;
+    // left: 315px;
+    // bottom: 410px;
   }
 
   &::before,
@@ -794,6 +885,10 @@ html {
     left: 50%;
     transform: translateX(-50%);
     background: #fff;
+
+    @include mq(ms) {
+      height: 46px;
+    }
 
     @include mq(md) {
       width: 80px;
@@ -826,6 +921,11 @@ html {
 .fv__title--sub-small {
   font-size: 18px;
   margin-inline: 2px;
+
+  @include mq(ms) {
+    font-size: 47px;
+    margin-inline: 10px;
+  }
 
   @include mq(md) {
     font-size: 40px;
@@ -926,6 +1026,8 @@ html {
 
 .problem__body {
   width: 100%;
+  max-width: 600px;
+  margin-inline: auto;
   height: 1005px;
   position: relative;
   margin-top: 36px;
@@ -1053,13 +1155,13 @@ html {
   height: 127px;
   background: url(../img/price-bubble.svg) no-repeat center center / contain;
   top: 289px;
-  right: 126px;
+  left: -9px;
 
   @include mq(md) {
     width: 375px;
     height: 185px;
     top: 100px;
-    right: 51px;
+    left: 950px;
 
     &::before {
       left: 177px;
@@ -1202,6 +1304,11 @@ html {
   background: url(../img/case/sp/wave-sp.svg) no-repeat center top / cover;
   z-index: 2;
 
+  @include mq(ms) {
+    margin-top: -130px;
+    padding-top: 130px;
+  }
+
   @include mq(md) {
     margin-top: -400px;
     padding-top: 400px;
@@ -1234,11 +1341,15 @@ html {
 
 .case__wrapper {
   padding-inline: 20px;
+  width: 100%;
+
+  @include mq(ms) {
+    margin: 0 auto;
+    max-width: 450px;
+  }
 
   @include mq(md) {
     max-width: 1080px;
-    width: 100%;
-    margin: 0 auto;
     position: relative;
   }
 }
@@ -1296,6 +1407,10 @@ html {
   position: absolute;
   top: 114px;
   left: 20px;
+
+  @include mq(ms) {
+    left: 143px;
+  }
 
   @include mq(md) {
     top: -40px;
@@ -1561,13 +1676,20 @@ html {
   position: relative;
   // 11/30変更ここから
   padding-top: 108px;
+  padding-bottom: 103px;
   margin-top: -175px;
   // 11/30変更ここまで
   background: url(../img/feature/sp/wave-sp.svg) no-repeat center top / cover;
   z-index: 3;
 
+  @include mq(ms) {
+    padding-top: 150px;
+    padding-bottom: 150px;
+  }
+
   @include mq(md) {
     padding-top: 368px;
+    padding-bottom: 170px;
     margin-top: -368px;
     background: url(../img/feature/wave.svg) no-repeat center top / cover;
   }
@@ -1600,6 +1722,10 @@ html {
   // 11/30コメントアウト
   // background: linear-gradient(180deg, #f9f9f9 3.77%, #e8e8e8 84.65%);
 
+  @include mq(ms) {
+    padding-inline: 30px;
+  }
+
   @include mq(md) {
     padding-inline: 50px;
     // 11/30コメントアウト
@@ -1612,10 +1738,15 @@ html {
   flex-direction: column;
   align-items: center;
   gap: 16px;
+  width: 100%;
+
+  @include mq(ms) {
+    max-width: 400px;
+    margin: 0 auto;
+  }
 
   @include mq(md) {
     max-width: 984px;
-    margin: 0 auto;
     position: relative;
   }
 }
@@ -1657,6 +1788,10 @@ html {
   display: flex;
   flex-direction: column;
   gap: 16px;
+
+  @include mq(md) {
+    gap: 24px;
+  }
 }
 
 .feature__card {
@@ -1768,7 +1903,7 @@ html {
   letter-spacing: -1.65px;
   position: absolute;
   left: 0;
-  top: -100%;
+  top: -75px;
 
   @include mq(md) {
     top: 50%;
@@ -1809,14 +1944,20 @@ html {
 }
 
 .feature-achievement__inner {
-  padding-inline: 15px;
-  padding-bottom: 103px;
+  // padding-inline: 15px;
+  // padding-bottom: 103px;
   // background: #f9f9f9;
 
+  @include mq(ms) {
+    max-width: 450px;
+    margin: 0 auto;
+  }
+
   @include mq(md) {
-    padding-inline: 0;
-    padding-bottom: 170px;
+    // padding-inline: 0;
+    // padding-bottom: 170px;
     text-align: center;
+    max-width: 1060px;
   }
 }
 
@@ -1880,6 +2021,10 @@ html {
   position: relative;
   text-align: center;
 
+  @include mq(ms) {
+    margin-top: 20px;
+  }
+
   @include mq(md) {
     margin-top: 40px;
     margin-left: auto;
@@ -1913,9 +2058,13 @@ html {
   background: #fff;
   width: 100%;
 
+  @include mq(ms) {
+    padding: 40px 28px 40px 13px;
+  }
+
   @include mq(md) {
     padding: 42px 65px 32px 65px;
-    width: 800px;
+    // width: 800px;
     height: 530px;
     margin: 0 auto;
   }
@@ -1951,10 +2100,14 @@ html {
   background: url(../img/service/sp/wave-sp.svg) no-repeat center top / cover;
   z-index: 6;
 
-  @include mq(md) {
+  @include mq(ms) {
     margin-top: -107px;
-    padding-block: 138px 179px;
+    padding-block: 138px 140px;
     background: url(../img/service/wave.svg) no-repeat center top / cover;
+  }
+
+  @include mq(md) {
+    padding-block: 138px 190px;
   }
 
   // 11/30コメントアウト
@@ -2001,12 +2154,24 @@ html {
 
   // 11/30コメントアウト
   // background: linear-gradient(178deg, #f9f7f3 5.03%, #edebe7 142.52%);
+  @include mq(ms) {
+    padding-inline: 50px;
+  }
 }
 
 .service__contents {
   // 11/30変更
   // padding-top: 40px;
   // padding-bottom: 56px;
+  @include mq(ms) {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  @include mq(md) {
+    max-width: 1326px;
+  }
 }
 
 .service__head {
@@ -2027,6 +2192,11 @@ html {
   flex-direction: column;
   gap: 13px;
   width: 100%;
+
+  @include mq(ms) {
+    margin-top: 30px;
+    gap: 30px;
+  }
 
   @include mq(md) {
     flex-direction: row-reverse;
@@ -2076,6 +2246,10 @@ html {
   flex-direction: column;
   gap: 16px;
   margin-top: -16px;
+
+  @include mq(ms) {
+    gap: 30px;
+  }
 
   @include mq(md) {
     flex-direction: row;
@@ -2138,6 +2312,10 @@ html {
   border-radius: 0 0 4px 4px;
 
   @include mq(md) {
+    height: 300px;
+  }
+
+  @include mq(ml) {
     padding-block: 24px;
     height: 264px;
   }
@@ -2177,6 +2355,7 @@ html {
 }
 
 .works__inner {
+  padding-inline: 8px;
 }
 
 .works__contents {
@@ -2198,6 +2377,8 @@ html {
 }
 
 .works__swiper {
+  padding-inline: 12px;
+
   @include mq(md) {
     padding-top: 67px;
   }
@@ -2208,7 +2389,7 @@ html {
 
 .works__swiper-slide {
   // transition: margin-bottom 0.5s ease;
-  padding-inline: 20px;
+  // padding-inline: 20px;
   padding-bottom: 35px;
   transition: transform 0.5s ease-out;
 
@@ -2290,11 +2471,19 @@ html {
   line-height: 28px; /* 155.556% */
   letter-spacing: 1.26px;
 
+  @include mq(mt) {
+    padding-block: 20px;
+  }
+
   @include mq(md) {
+    padding-block: 30px;
+  }
+
+  @include mq(ml) {
     font-size: 24px;
     line-height: 34px; /* 141.667% */
     letter-spacing: 2.4px;
-    padding-block: 60px;
+    padding-block: 54px;
   }
 }
 
@@ -2436,7 +2625,17 @@ html {
   position: absolute;
   width: 40px;
   height: 40px;
-  top: 280px !important;
+  top: 230px !important;
+
+  @include mq(ms) {
+    width: 50px;
+    height: 50px;
+    top: 350px !important;
+  }
+
+  @include mq(mt) {
+    top: 360px !important;
+  }
 
   @include mq(md) {
     width: 56px;
@@ -2450,7 +2649,15 @@ html {
 }
 .works__swiper-button-prev {
   background: url(../img/works/prev-arrow.svg) no-repeat center center / contain;
-  left: 8px !important;
+  left: 0 !important;
+
+  @include mq(ms) {
+    left: 65px !important;
+  }
+
+  @include mq(mt) {
+    left: 180px !important;
+  }
 
   @include mq(md) {
     left: 169px !important;
@@ -2458,7 +2665,15 @@ html {
 }
 .works__swiper-button-next {
   background: url(../img/works/next-arrow.svg) no-repeat center center / contain;
-  right: 8px !important;
+  right: 0 !important;
+
+  @include mq(ms) {
+    right: 65px !important;
+  }
+
+  @include mq(mt) {
+    right: 180px !important;
+  }
 
   @include mq(md) {
     right: 169px !important;
@@ -2669,25 +2884,60 @@ html {
 // TwentyTwentyのコード-ここまで
 
 .cta {
-  padding-block: 88px 32px;
-  background: linear-gradient(100deg, rgba(223, 10, 30, 0.3) 23.69%, rgba(130, 91, 1, 0.3) 109.57%), url(../img/cta/sp/cta-img-sp.png) no-repeat center center / cover;
-  text-align: center;
+  position: relative;
+  // padding-block: 88px 32px;
+  // text-align: center;
 
   @include mq(md) {
-    padding-block: 97px 98px;
-    background: linear-gradient(100deg, rgba(223, 10, 30, 0.3) 23.69%, rgba(130, 91, 1, 0.3) 109.57%), url(../img/cta/cta-img.png) no-repeat center center / cover;
+    // padding-block: 97px 98px;
   }
 }
 
 .cta__inner {
-  padding-inline: 27px;
+  // padding-inline: 27px;
+}
+
+.cta__image {
+  display: block;
+  position: relative;
+
+  &::after {
+    position: absolute;
+    content: "";
+    background: linear-gradient(100deg, rgba(223, 10, 30, 0.3) 23.69%, rgba(130, 91, 1, 0.3) 109.57%);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    @include mq(mt) {
+      background: linear-gradient(100deg, rgba(223, 10, 30, 0.3) 23.69%, rgba(130, 91, 1, 0.3) 109.57%);
+    }
+  }
+
+  img {
+    aspect-ratio: 375 / 359;
+    width: 100%;
+
+    @include mq(mt) {
+      aspect-ratio: 1440 / 425;
+    }
+  }
 }
 
 .cta__contents {
-  @include mq(md) {
-    max-width: 656px;
-    width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 303px;
+  margin: 18px auto 0;
+  text-align: center;
+
+  @include mq(ms) {
     margin: 0 auto;
+    max-width: 500px;
   }
 }
 
@@ -2700,7 +2950,7 @@ html {
   line-height: 32px; /* 160% */
   letter-spacing: 1.4px;
 
-  @include mq(md) {
+  @include mq(ms) {
     font-size: 32px;
     line-height: 42px; /* 131.25% */
     letter-spacing: 2.24px;
@@ -2719,7 +2969,7 @@ html {
   position: relative;
   display: inline-block;
 
-  @include mq(md) {
+  @include mq(ms) {
     margin-top: 32px;
     font-size: 18px;
     letter-spacing: 1.26px;
@@ -2735,7 +2985,7 @@ html {
     width: 17px;
     height: 23px;
 
-    @include mq(md) {
+    @include mq(ms) {
       width: 25px;
       height: 32px;
     }
@@ -2759,7 +3009,7 @@ html {
   align-items: center;
   gap: 8px;
 
-  @include mq(md) {
+  @include mq(mt) {
     margin-top: 27px;
     flex-direction: row;
     gap: 16px;
@@ -2774,9 +3024,6 @@ html {
   height: 56px;
   padding-block: 5px;
   width: 100%;
-
-  @include mq(md) {
-  }
 }
 
 .cta__tel-link {
@@ -2808,9 +3055,6 @@ html {
   background: #06c755;
   padding-block: 5px;
   width: 100%;
-
-  @include mq(md) {
-  }
 }
 
 .cta__line-link {
@@ -2828,6 +3072,10 @@ html {
   position: relative;
   background: linear-gradient(135deg, #f9f7f3 21.75%, #edebe7 83.66%);
   z-index: 1;
+
+  @include mq(ms) {
+    padding-block: 63px 170px;
+  }
 
   @include mq(md) {
     // padding-block: 80px 360px;
@@ -2857,11 +3105,16 @@ html {
 
 .price__contents {
   // padding-top: 63px;
+  max-width: 302px;
+  width: 100%;
+  margin: 0 auto;
+
+  @include mq(ms) {
+    max-width: 450px;
+  }
 
   @include mq(md) {
     max-width: 1280px;
-    width: 100%;
-    margin: 0 auto;
   }
 }
 
@@ -2883,10 +3136,13 @@ html {
   flex-direction: column;
   gap: 16px;
 
+  @include mq(ms) {
+    gap: 24px;
+  }
+
   @include mq(md) {
     margin-top: 48px;
     flex-direction: row;
-    gap: 24px;
   }
 }
 
@@ -2934,6 +3190,10 @@ html {
   font-weight: 600;
 
   @include mq(md) {
+    font-size: 35px;
+  }
+
+  @include mq(ml) {
     font-size: 42px;
   }
 }
@@ -2944,7 +3204,7 @@ html {
   font-size: 24px;
   font-weight: 700;
 
-  @include mq(md) {
+  @include mq(ml) {
     font-size: 26px;
   }
 }
@@ -2957,6 +3217,14 @@ html {
   font-size: 16px;
   font-weight: 500;
   line-height: 28px; /* 175% */
+
+  @include mq(md) {
+    font-size: 13px;
+  }
+
+  @include mq(ml) {
+    font-size: 16px;
+  }
 }
 
 .price-card__plan--label {
@@ -2990,11 +3258,20 @@ html {
   background: url(../img/flow/sp/wave-sp.svg) no-repeat center top / cover;
   z-index: 3;
 
+  @include mq(ms) {
+    padding-block: 200px 176px;
+    margin-top: -200px;
+    background: url(../img/flow/wave.svg) no-repeat center top / cover;
+  }
+
+  @include mq(mt) {
+    margin-top: -215px;
+  }
+
   @include mq(md) {
     // padding-block: 202px 212px;
     padding-block: 0 224px;
     margin-bottom: -224px;
-    background: url(../img/flow/wave.svg) no-repeat center top / cover;
   }
 
   // 11/30コメントアウト
@@ -3050,11 +3327,20 @@ html {
 
 .flow__contents {
   // padding-block: 97px 114px;
+  width: 100%;
+  max-width: 500px;
+  margin-top: 0;
+  margin-inline: auto;
+
   @include mq(md) {
     padding-top: 368px;
     margin-top: -368px;
     // padding-bottom: 200px;
     position: relative;
+
+    @include mq(md) {
+      max-width: 834px;
+    }
 
     // 11/30コメントアウト
     // &::before {
@@ -3071,6 +3357,8 @@ html {
 }
 
 .flow__head {
+  width: 100%;
+
   @include mq(md) {
     position: absolute;
     top: 202px;
@@ -3128,6 +3416,14 @@ html {
         height: 121px;
       }
 
+      @include mq(ms) {
+        padding-bottom: 80px;
+
+        &::after {
+          height: 72px;
+        }
+      }
+
       @include mq(md) {
         padding-bottom: 62px;
 
@@ -3144,6 +3440,14 @@ html {
 
       &::after {
         height: 269px;
+      }
+
+      @include mq(ms) {
+        padding-bottom: 180px;
+
+        &::after {
+          height: 172px;
+        }
       }
 
       @include mq(md) {
@@ -3164,6 +3468,14 @@ html {
         height: 145px;
       }
 
+      @include mq(ms) {
+        padding-bottom: 100px;
+
+        &::after {
+          height: 92px;
+        }
+      }
+
       @include mq(md) {
         padding-bottom: 62px;
 
@@ -3180,6 +3492,14 @@ html {
 
       &::after {
         height: 145px;
+      }
+
+      @include mq(ms) {
+        padding-bottom: 100px;
+
+        &::after {
+          height: 92px;
+        }
       }
 
       @include mq(md) {
@@ -3200,6 +3520,14 @@ html {
         height: 170px;
       }
 
+      @include mq(ms) {
+        padding-bottom: 100px;
+
+        &::after {
+          height: 92px;
+        }
+      }
+
       @include mq(md) {
         padding-bottom: 90px;
 
@@ -3216,6 +3544,10 @@ html {
   flex-shrink: 0;
   margin-top: 6px;
   position: relative;
+
+  @include mq(ms) {
+    width: calc(115px / 768px * 100%);
+  }
 
   @include mq(md) {
     width: calc(80px / 834px * 100%);
@@ -3237,6 +3569,11 @@ html {
   img {
     width: 56px;
     height: 73px;
+
+    @include mq(ms) {
+      width: 70px;
+      height: 85px;
+    }
 
     @include mq(md) {
       width: 80px;
@@ -3298,6 +3635,10 @@ html {
 
 .review__inner {
   padding-inline: 8px;
+
+  @include mq(ms) {
+    padding-inline: 0;
+  }
 }
 
 .review__contents {
@@ -3319,6 +3660,10 @@ html {
   max-width: 1280px !important;
   width: 100%;
   margin: 0 auto;
+
+  @include mq(ms) {
+    padding-inline: 0;
+  }
 
   @include mq(md) {
     margin-top: 62px !important;
@@ -3476,11 +3821,27 @@ html {
 .review__swiper-button-prev {
   background: url(../img/review/review-prev.svg) no-repeat center center / contain;
   left: 0;
+
+  @include mq(ms) {
+    left: 145px !important;
+  }
+
+  @include mq(md) {
+    left: 0 !important;
+  }
 }
 
 .review__swiper-button-next {
   background: url(../img/review/review-next.svg) no-repeat center center / contain;
   right: 0;
+
+  @include mq(ms) {
+    right: 145px !important;
+  }
+
+  @include mq(md) {
+    right: 0 !important;
+  }
 }
 
 .instagram {
@@ -3489,6 +3850,11 @@ html {
   position: relative;
   background: url(../img/instagram/sp/wave-sp.svg) no-repeat center top / cover;
   z-index: 3;
+
+  @include mq(ms) {
+    padding-top: 170px;
+    margin-top: -150px;
+  }
 
   @include mq(md) {
     padding-top: 200px;
@@ -3528,9 +3894,13 @@ html {
 
 .instagram__contents {
   padding-bottom: 47px;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
 
   @include mq(md) {
     padding-bottom: 64px;
+    max-width: 1310px;
   }
 }
 
@@ -3538,6 +3908,10 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @include mq(ms) {
+    gap: 10px;
+  }
 }
 
 .instagram__title--logo {
@@ -3545,7 +3919,7 @@ html {
     width: 20px;
     height: 20px;
 
-    @include mq(md) {
+    @include mq(ms) {
       width: 32px;
       height: 32px;
     }
@@ -3559,7 +3933,7 @@ html {
   font-weight: 700;
   letter-spacing: 1.68px;
 
-  @include mq(md) {
+  @include mq(ms) {
     font-size: 40px;
     letter-spacing: 4px;
   }
@@ -3584,6 +3958,10 @@ html {
 .instagram__button {
   margin-top: 24px;
   text-align: center;
+
+  @include mq(ms) {
+    margin-top: 50px;
+  }
 
   @include mq(md) {
     text-align: right;

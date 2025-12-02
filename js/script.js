@@ -64,11 +64,12 @@ const gallerySwiper = new Swiper("#js-gallery-swiper", {
   loop: true,
   speed: 3000,
 
-  autoplay: {
-    delay: 0,
-    pauseOnMouseEnter: true,
-    disableOnInteraction: false,
-  },
+  // 一旦ストップ
+  // autoplay: {
+  //   delay: 0,
+  //   pauseOnMouseEnter: true,
+  //   disableOnInteraction: false,
+  // },
 });
 
 // 2つ目のヘッダーがTOPに来たタイミングで上部固定
@@ -191,17 +192,17 @@ jQuery(window).on("load", function () {
         centeredSlides: true,
       },
       768: {
-        slidesPerView: 1.2,
+        slidesPerView: 1.3,
         spaceBetween: 40,
         centeredSlides: true,
       },
       900: {
-        slidesPerView: 1.2,
+        slidesPerView: 1.7,
         spaceBetween: 60,
         centeredSlides: true,
       },
       1200: {
-        slidesPerView: 1.35,
+        slidesPerView: 1.34,
         spaceBetween: 81,
         centeredSlides: true,
       },
@@ -271,7 +272,7 @@ const reviewSwiper = new Swiper(".review__swiper", {
   //ブレイクポイントによって変える
   breakpoints: {
     768: {
-      slidesPerView: 1.2,
+      slidesPerView: 1.7,
       spaceBetween: 40,
     },
     1200: {
