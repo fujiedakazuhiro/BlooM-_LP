@@ -17,6 +17,7 @@ jQuery("#js-drawer-button--2").on("click", function (e) {
 
   jQuery("#js-drawer-button--2").toggleClass("is-checked");
   jQuery("#js-drawer-content--2").toggleClass("is-checked");
+  jQuery("#js-drawer-button--1").toggleClass("is-closed");
 });
 
 //ドロワーメニュー1の中のリンクをクリックした時にドロワーメニューを非表示にする
@@ -284,6 +285,129 @@ const reviewSwiper = new Swiper(".review__swiper", {
       spaceBetween: 40,
     },
   },
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const fixedButton = document.querySelector(".to-top-button");
+
+  // デバイスごとのスクロールしきい値（ピクセル）を設定
+  const MOBILE_THRESHOLD = 600; // スマホでの表示トリガー（例: 500px）
+  const PC_THRESHOLD = 2000; // PCでの表示トリガー（例: 800px - FVが長い場合を想定）
+
+  // ブレイクポイントを設定 (例: 768px以上をPCとみなす)
+  const BREAKPOINT = 1200;
+
+  // スクロール位置を監視する関数
+  function handleScroll() {
+    // 現在のスクロール量を取得
+    const scrollY = window.scrollY || window.pageYOffset;
+    const windowWidth = window.innerWidth;
+    let currentThreshold;
+
+    // 現在の画面幅に応じて、使用するしきい値を決定
+    if (windowWidth >= BREAKPOINT) {
+      // PC幅の場合
+      currentThreshold = PC_THRESHOLD;
+    } else {
+      // スマホ幅の場合
+      currentThreshold = MOBILE_THRESHOLD;
+    }
+
+    // スクロール量が設定値を超えたかどうかを判定
+    if (scrollY >= currentThreshold) {
+      // 判定条件を満たしたら、表示用クラスを付与
+      fixedButton.classList.add("is-active");
+    } else {
+      // 判定条件を満たさなかったら、表示用クラスを削除
+      fixedButton.classList.remove("is-active");
+    }
+  }
+
+  // スクロールイベントに監視関数を登録
+  window.addEventListener("scroll", handleScroll);
+
+  // リサイズイベントにも監視関数を登録（画面幅が変わり、しきい値が変更される可能性があるため）
+  window.addEventListener("resize", handleScroll);
+
+  // ページ読み込み時の初期位置でもボタンの表示/非表示をチェック
+  handleScroll();
+});
+
+// スクロール時のアニメーション
+document.addEventListener("DOMContentLoaded", function () {
+  const topLink = document.querySelector(".to-top__arrow");
+
+  if (topLink) {
+    topLink.addEventListener("click", function (event) {
+      event.preventDefault();
+
+      // ターゲット（最上部）のY座標は 0 です
+      const targetY = 0;
+      // 現在のスクロール位置
+      const startY = window.pageYOffset;
+      // スクロール距離
+      const distance = Math.abs(targetY - startY);
+      // アニメーションにかける時間 (例: 500ミリ秒 = 0.5秒)
+      const duration = 500;
+
+      let startTime = null;
+
+      // requestAnimationFrameを使ったアニメーションループ
+      function animationStep(currentTime) {
+        if (startTime === null) {
+          startTime = currentTime;
+        }
+
+        // 経過時間
+        const elapsedTime = currentTime - startTime;
+
+        // 進行度 (0から1.0まで)
+        let progress = elapsedTime / duration;
+
+        // 1.0を超えないように制御
+        if (progress > 1) {
+          progress = 1;
+        }
+
+        // **等速（リニア）**のイージング関数を適用 (progressの値をそのまま使用)
+        const easing = progress;
+
+        // 現在のスクロール位置を計算
+        const newY = startY + (targetY - startY) * easing;
+
+        // スクロール実行
+        window.scrollTo(0, newY);
+
+        // アニメーションが終了していなければ、次のフレームを要求
+        if (elapsedTime < duration) {
+          window.requestAnimationFrame(animationStep);
+        }
+      }
+
+      // アニメーション開始
+      window.requestAnimationFrame(animationStep);
+    });
+  }
+  // ※ ここに、ボタン表示/非表示のスクロール監視コードが続きます
+});
+
+// フワッと表示の実装
+// 表示領域に監視対象が入ってきたら、is-in-viewクラスを付与
+const intersectionObserver = new IntersectionObserver(function (entries) {
+  entries.forEach(function (entry) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("is-in-view");
+    } else {
+      // entry.target.classList.remove("is-in-view");
+    }
+  });
+});
+
+// 監視対象を登録するためのコード
+// js-in-viewクラスを付与すると監視対象に登録される
+const inViewItems = document.querySelectorAll(".js-in-view");
+inViewItems.forEach(function (inViewItem) {
+  intersectionObserver.observe(inViewItem);
 });
 
 /* =================================================== 

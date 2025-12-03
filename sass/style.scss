@@ -24,17 +24,17 @@ $breakpoints: (
   }
 }
 
+body,
+html {
+  overflow-x: hidden;
+}
+
 body {
   font-family: $font-base-1;
   color: $text-color;
   font-size: 16px;
   line-height: 1.7;
   font-weight: 300;
-}
-
-body,
-html {
-  overflow-x: hidden;
 }
 
 .hidden-pc {
@@ -263,6 +263,16 @@ html {
 }
 
 .tel {
+  border-radius: 28px;
+  background-color: #242424;
+  width: 230px;
+  height: 56px;
+  padding-block: 5px;
+  transition: background-color 0.3s ease-out;
+
+  &:hover {
+    background-color: #454545;
+  }
 }
 
 .fv__tel-link,
@@ -334,6 +344,16 @@ html {
 }
 
 .line {
+  width: 230px;
+  height: 56px;
+  border-radius: 28px;
+  background-color: #06c755;
+  padding-block: 5px;
+  transition: background-color 0.3s ease-out;
+
+  &:hover {
+    background-color: #4ed887;
+  }
 }
 
 .fv__line-link,
@@ -365,25 +385,103 @@ html {
 .fv__drawer--2 {
   width: 72px;
   height: 72px;
-  background: url(../img/fv/drawer-btn.png) no-repeat center center / cover;
+  // background: url(../img/fv/drawer-btn.png) no-repeat center center / cover;
   z-index: 11;
-  transition: 0.3s ease-out;
+  background-color: #242424;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease-out;
+  padding: 28px 15px;
 
   @include mq(ms) {
     margin-left: 8px;
     width: 100px;
     height: 100px;
+    padding: 37px 24px;
+  }
+
+  &:hover {
+    background-color: #454545;
+  }
+
+  .drawer-button__bar {
+    &:nth-child(1) {
+      top: 50%;
+      transform: translateY(-8px);
+      right: 0;
+      width: 42px;
+
+      @include mq(ms) {
+        width: 52px;
+      }
+    }
+
+    &:nth-child(2) {
+      top: 50%;
+      transform: translateY(-50%);
+      right: 0;
+      width: 30px;
+
+      @include mq(ms) {
+        width: 37px;
+      }
+    }
+
+    &:nth-child(3) {
+      top: 50%;
+      transform: translateY(6px);
+      right: 0;
+      width: 18px;
+
+      @include mq(ms) {
+        width: 22px;
+      }
+    }
   }
 
   &.is-checked {
-    background: url(../img/fv/drawer-close.svg) no-repeat center center / cover;
+    // background: url(../img/fv/drawer-close.svg) no-repeat center center / cover;
     width: 73px;
     height: 74px;
 
-    @include mq(md) {
+    @include mq(ms) {
       width: 100px;
       height: 100px;
     }
+
+    .drawer-button__bar {
+      &:nth-child(1),
+      &:nth-child(2),
+      &:nth-child(3) {
+        top: 50%;
+        right: unset;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 23px;
+
+        @include mq(ms) {
+          width: 34px;
+        }
+      }
+
+      &:nth-child(1) {
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+
+      &:nth-child(2) {
+        opacity: 0;
+      }
+
+      &:nth-child(3) {
+        transform: translate(-50%, -50%) rotate(-45deg);
+      }
+    }
+
+    // @include mq(md) {
+    //   width: 100px;
+    //   height: 100px;
+    // }
   }
 
   &.is-closed {
@@ -401,6 +499,23 @@ html {
   //     }
   //   }
   // }
+}
+
+.drawer-button__contents {
+  // display: flex;
+  // flex-direction: column;
+  // gap: 8px;
+  // align-items: flex-end;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.drawer-button__bar {
+  background: #fff;
+  height: 2px;
+  transition: all 0.3s ease-out;
+  position: absolute;
 }
 
 .drawer__nav--1,
@@ -1356,7 +1471,6 @@ html {
 
 .case__title {
   padding-top: 40px;
-  text-align: center;
 
   @include mq(md) {
     position: absolute;
@@ -1394,19 +1508,21 @@ html {
   font-weight: 700;
   line-height: 26px;
   letter-spacing: 1.12px;
+  text-align: left;
 
   @include mq(md) {
     margin-top: 16px;
     font-size: 18px;
     line-height: 30px;
     letter-spacing: 1.26px;
+    text-align: center;
   }
 }
 
 .case__title-label {
   position: absolute;
-  top: 114px;
-  left: 20px;
+  top: 110px;
+  left: 15px;
 
   @include mq(ms) {
     left: 143px;
@@ -1688,7 +1804,7 @@ html {
   }
 
   @include mq(md) {
-    padding-top: 368px;
+    padding-top: 230px;
     padding-bottom: 170px;
     margin-top: -368px;
     background: url(../img/feature/wave.svg) no-repeat center top / cover;
@@ -1743,6 +1859,7 @@ html {
   @include mq(ms) {
     max-width: 400px;
     margin: 0 auto;
+    gap: 40px;
   }
 
   @include mq(md) {
@@ -1753,9 +1870,9 @@ html {
 
 .feature__head {
   @include mq(md) {
-    position: absolute;
-    top: -176px;
-    left: 50%;
+    // position: absolute;
+    // top: -176px;
+    // left: 50%;
     transform: translateX(-50%);
     z-index: 1;
     width: 100%;
@@ -2625,7 +2742,7 @@ html {
   position: absolute;
   width: 40px;
   height: 40px;
-  top: 230px !important;
+  top: 280px !important;
 
   @include mq(ms) {
     width: 50px;
@@ -2640,6 +2757,11 @@ html {
   @include mq(md) {
     width: 56px;
     height: 56px;
+    top: 200px !important;
+  }
+
+  @include mq(ml) {
+    top: 230px !important;
   }
 
   svg {
@@ -2660,6 +2782,10 @@ html {
   }
 
   @include mq(md) {
+    left: 130px !important;
+  }
+
+  @include mq(ml) {
     left: 169px !important;
   }
 }
@@ -2676,6 +2802,10 @@ html {
   }
 
   @include mq(md) {
+    right: 130px !important;
+  }
+
+  @include mq(ml) {
     right: 169px !important;
   }
 }
@@ -3190,7 +3320,7 @@ html {
   font-weight: 600;
 
   @include mq(md) {
-    font-size: 35px;
+    font-size: 30px;
   }
 
   @include mq(ml) {
@@ -3219,7 +3349,7 @@ html {
   line-height: 28px; /* 175% */
 
   @include mq(md) {
-    font-size: 13px;
+    font-size: 12px;
   }
 
   @include mq(ml) {
@@ -3333,8 +3463,8 @@ html {
   margin-inline: auto;
 
   @include mq(md) {
-    padding-top: 368px;
-    margin-top: -368px;
+    padding-top: 220px;
+    margin-top: -400px;
     // padding-bottom: 200px;
     position: relative;
 
@@ -3360,10 +3490,10 @@ html {
   width: 100%;
 
   @include mq(md) {
-    position: absolute;
-    top: 202px;
-    left: 50%;
-    transform: translateX(-50%);
+    // position: absolute;
+    // top: 202px;
+    // left: 50%;
+    // transform: translateX(-50%);
   }
 }
 
@@ -3377,7 +3507,7 @@ html {
   margin-top: 32px;
 
   @include mq(md) {
-    margin-top: 0;
+    margin-top: 48px;
     padding-inline: 100px;
 
     // 11/30コメントアウト
@@ -3979,9 +4109,14 @@ html {
   gap: 10px;
   padding: 12px 24px;
   border-radius: 56px;
-  background: #242424;
+  background-color: #242424;
   width: 230px;
   height: 56px;
+  transition: background-color 0.3s ease-out;
+
+  &:hover {
+    background-color: #454545;
+  }
 }
 
 .instagram__text {
@@ -4208,5 +4343,173 @@ html {
 
   @include mq(md) {
     font-family: "Zen Kaku Gothic New";
+  }
+}
+
+.to-top-button {
+  width: 100%;
+  height: 72px;
+  padding-block: 8px;
+  position: fixed;
+  bottom: 40px;
+  left: 0;
+  background: #fff;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(100%);
+  transition: opacity 0.5s, visibility 0.5s, transform 0.5s ease;
+
+  @include mq(md) {
+    bottom: 10px;
+    left: unset;
+    right: 10px;
+    width: 80px;
+    height: 80px;
+    padding-block: 0;
+    background: transparent;
+  }
+
+  &.is-active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+
+.to-top-button__inner {
+  padding-inline: 12px;
+
+  @include mq(md) {
+    padding-inline: 0;
+  }
+}
+
+.to-top-button__contents {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.to-top__contact {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1fr 1fr;
+  gap: 4px;
+  flex-grow: 1;
+
+  @include mq(md) {
+    display: none;
+  }
+}
+
+.line.to-top__line {
+  width: 100%;
+  height: 56px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.line-link.to-top__line-link {
+  width: 100%;
+  height: 100%;
+  gap: 4px;
+}
+
+.line-logo.to-top__line-logo {
+  width: 23px;
+
+  img {
+    width: 100%;
+  }
+}
+
+.line-text.to-top__line-text {
+  font-size: 14px;
+  font-family: Inter;
+  font-weight: 500;
+}
+
+.tel.to-top__tel {
+  width: 100%;
+  height: 56px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.to-top__tel-link {
+}
+
+.tel-number.to-top__tel-number {
+}
+
+.to-top__tel-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 9px;
+    height: 12px;
+  }
+}
+
+.tel-text.to-top__tel-text {
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0.32px;
+}
+
+.to-top__tel-reception {
+}
+
+.to-top__tel-label,
+.to-top__tel-hour {
+  color: #fff;
+  font-family: Roboto;
+  font-size: 11px;
+}
+
+.to-top__tel-label {
+}
+
+.to-top__tel-hour {
+}
+
+.to-top__arrow {
+  flex-shrink: 0;
+
+  img {
+    width: 56px;
+    height: 56px;
+
+    @include mq(md) {
+      width: 80px;
+      height: 80px;
+    }
+  }
+}
+
+.to-top__arrow-bg {
+  opacity: 1;
+  transition: opacity 0.3s ease-out;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 1s, transform 1s;
+
+  &.is-in-view {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
