@@ -21,8 +21,8 @@
       <div class="fv__inner">
         <div class="fv__body">
           <div class="fv__image">
-            <div class="fv__image--pc"><img src="./img/fv_img-pc.png" alt="pcのFV画像" /></div>
-            <div class="fv__image--sp"><img src="./img/sp/fv_img-sp.png" alt="spのFV画像" /></div>
+            <div class="fv__image--pc"><img src="./img/fv/fv-img.png" alt="pcのFV画像" /></div>
+            <div class="fv__image--sp"><img src="./img/fv/sp/fv_img-sp.png" alt="spのFV画像" /></div>
           </div>
           <header class="fv__header">
             <h1 class="fv__logo">
@@ -56,15 +56,15 @@
                   <div class="fv__line-text">公式LINEから<br />お問い合わせ</div>
                 </a>
               </div>
-              <button id="js-drawer-button--1" type="button" class="fv__drawer--1">
-                <div class="drawer-button__contents">
-                  <div class="drawer-button__bar"></div>
-                  <div class="drawer-button__bar"></div>
-                  <div class="drawer-button__bar"></div>
-                  <!-- <img src="./img/drawer-btn.png" alt="ドロワーボタン" /> -->
-                </div>
-              </button>
             </div>
+            <button id="js-drawer-button--1" type="button" class="fv__drawer--1">
+              <div class="drawer-button__contents">
+                <div class="drawer-button__bar"></div>
+                <div class="drawer-button__bar"></div>
+                <div class="drawer-button__bar"></div>
+                <!-- <img src="./img/drawer-btn.png" alt="ドロワーボタン" /> -->
+              </div>
+            </button>
           </header>
           <nav id="js-drawer-content--1" class="drawer__nav--1">
             <ul class="drawer__lists">
@@ -105,89 +105,101 @@
               </div>
             </div>
           </nav>
-          <div class="fv__flower">
-            <div class="fv__flower--left"><img src="./img/flower-left.png" alt="左側の桜の花" /></div>
-            <div class="fv__flower--right">
-              <picture>
-                <!-- スマホ用（最大幅767px） -->
-                <source srcset="./img/sp/flower-right-sp.png" media="(max-width: 1199px)" />
-
-                <!-- PC用（768px以上） -->
-                <source srcset="./img/flower-right.png" media="(min-width: 1200px)" />
-
-                <!-- フォールバック画像（ブラウザがpicture非対応の場合） -->
-                <img src="./img/flower-right.png" alt="右側の桜の花" />
-              </picture>
-            </div>
-            <div class="fv__flower--1"><img src="./img/flower-1.png" alt="桜の花びら1" /></div>
-            <div class="fv__flower--2"><img src="./img/flower-2.png" alt="桜の花びら2" /></div>
-            <div class="fv__flower--3"><img src="./img/flower-3.png" alt="桜の花びら3" /></div>
-            <div class="fv__flower--4"><img src="" alt="" /></div>
-            <div class="fv__flower--5"><img src="" alt="" /></div>
-            <div class="fv__flower--6"><img src="" alt="" /></div>
-            <div class="fv__flower--7"><img src="" alt="" /></div>
-          </div>
           <h2 class="fv__title">
-            <div class="fv__title--main">
+            <div class="fv__title--main js-fv-target">
               <div class="fv__title--logo-wrapper1">
-                <span class="fv__title--logo1">
+                <span class="fv__title--logo1 animate-char">
                   <img src="./img/fv-logo-kai.svg" alt="解" />
                 </span>
-                <span class="fv__title--logo2">
+                <span class="fv__title--logo2 animate-char">
                   <img src="./img/fv-logo-tai.svg" alt="体" />
                 </span>
               </div>
               <div class="fv__title--text1">は</div>
               <div class="fv__title--logo-wrapper2">
-                <span class="fv__title--logo3">
-                  <img src="./img/fv-logo-kowa.svg" alt="壊" />
+                <span class="fv__title--logo3 animate-char">
+                  <img src="./img/fv-logo-kowa.svg " alt="壊" />
                 </span>
-                <span class="fv__title--logo4">
-                  <img src="./img/fv-logo-su.svg" alt="す" />
+                <span class="fv__title--logo4 animate-char">
+                  <img src="./img/fv-logo-su.svg " alt="す" />
                 </span>
               </div>
               <div class="fv__title--text2">ことじゃない</div>
             </div>
             <div class="fv__title--sub">未来<span class="fv__title--sub-small">を</span>つくる解体屋</div>
           </h2>
-        </div>
-      </div>
-      <div class="gallery">
-        <div class="gallery__inner">
-          <div class="gallery__contents">
-            <div class="gallery__swiper-container">
-              <div id="js-gallery-swiper" class="swiper gallery__swiper">
-                <div class="swiper-wrapper gallery__swiper-wrapper">
-                  <div class="swiper-slide gallery__swiper-slide">
-                    <div class="gallery__image">
-                      <img src="./img/gallery/image-1.png" alt="イメージ画像" />
+          <div class="fv__flower-wrapper">
+            <div class="fv__cherry-tree--left">
+              <picture>
+                <!-- スマホ用（最大幅899px） -->
+                <source srcset="./img/flower/sp/cherry-tree-1.svg" media="(max-width: 899px)" />
+
+                <!-- PC用（900px以上） -->
+                <source srcset="./img/flower/cherry-tree-1.svg" media="(min-width: 900px)" />
+
+                <!-- フォールバック画像（ブラウザがpicture非対応の場合） -->
+                <img src="./img/flower/cherry-tree-1.svg" alt="左側の桜の枝" />
+              </picture>
+            </div>
+            <div class="fv__cherry-tree--right">
+              <picture>
+                <!-- スマホ用（最大幅899px） -->
+                <source srcset="./img/flower/sp/cherry-tree-2.svg" media="(max-width: 899px)" />
+
+                <!-- PC用（900px以上） -->
+                <source srcset="./img/flower/cherry-tree-2.svg" media="(min-width: 900px)" />
+
+                <!-- フォールバック画像（ブラウザがpicture非対応の場合） -->
+                <img src="./img/flower/cherry-tree-2.svg" alt="右側の桜の枝" />
+              </picture>
+            </div>
+            <img src="./img/flower/flower-1.svg" class="fv__flower--1" alt="花びら1" />
+            <img src="./img/flower/flower-2.svg" class="fv__flower--2" alt="花びら2" />
+            <img src="./img/flower/flower-2.svg" class="fv__flower--3" alt="花びら3" />
+            <!-- 以下、PCのみ表示 -->
+            <img src="./img/flower/flower-1.svg" class="fv__flower--4" alt="花びら4" />
+            <img src="./img/flower/flower-3.svg" class="fv__flower--5" alt="花びら5" />
+            <img src="./img/flower/cherry-2.svg" class="fv__flower--6" alt="花びら6" />
+            <img src="./img/flower/cherry-3.svg" class="fv__flower--7" alt="花びら7" />
+          </div>
+          <div class="gallery">
+            <div class="gallery__inner">
+              <div class="gallery__contents">
+                <div class="gallery__swiper-container">
+                  <div id="js-gallery-swiper" class="swiper gallery__swiper">
+                    <div class="swiper-wrapper gallery__swiper-wrapper">
+                      <div class="swiper-slide gallery__swiper-slide">
+                        <div class="gallery__image">
+                          <img src="./img/gallery/image-1.png" alt="イメージ画像" />
+                        </div>
+                      </div>
+                      <div class="swiper-slide gallery__swiper-slide">
+                        <div class="gallery__image">
+                          <img src="./img/gallery/image-1.png" alt="イメージ画像" />
+                        </div>
+                      </div>
+                      <div class="swiper-slide gallery__swiper-slide">
+                        <div class="gallery__image">
+                          <img src="./img/gallery/image-1.png" alt="イメージ画像" />
+                        </div>
+                      </div>
+                      <div class="swiper-slide gallery__swiper-slide">
+                        <div class="gallery__image">
+                          <img src="./img/gallery/image-1.png" alt="イメージ画像" />
+                        </div>
+                      </div>
+                      <div class="swiper-slide gallery__swiper-slide">
+                        <div class="gallery__image">
+                          <img src="./img/gallery/image-1.png" alt="イメージ画像" />
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <div class="swiper-slide gallery__swiper-slide">
-                    <div class="gallery__image">
-                      <img src="./img/gallery/image-1.png" alt="イメージ画像" />
-                    </div>
-                  </div>
-                  <div class="swiper-slide gallery__swiper-slide">
-                    <div class="gallery__image">
-                      <img src="./img/gallery/image-1.png" alt="イメージ画像" />
-                    </div>
-                  </div>
-                  <div class="swiper-slide gallery__swiper-slide">
-                    <div class="gallery__image">
-                      <img src="./img/gallery/image-1.png" alt="イメージ画像" />
-                    </div>
-                  </div>
-                  <div class="swiper-slide gallery__swiper-slide">
-                    <div class="gallery__image">
-                      <img src="./img/gallery/image-1.png" alt="イメージ画像" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- <div class="swiper-pagination"></div>
+                  <!-- <div class="swiper-pagination"></div>
               <div class="swiper-button-prev"></div>
               <div class="swiper-button-next"></div> -->
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -275,6 +287,14 @@
         </nav>
       </div>
     </nav>
+    <button id="js-drawer-button--3" type="button" class="fv__drawer--3">
+      <div class="drawer-button__contents">
+        <div class="drawer-button__bar"></div>
+        <div class="drawer-button__bar"></div>
+        <div class="drawer-button__bar"></div>
+        <!-- <img src="./img/drawer-btn.png" alt="ドロワーボタン" /> -->
+      </div>
+    </button>
 
     <!-- <div class="fv__header2">
       <div class="fv__header2-inner">
@@ -452,6 +472,15 @@
             <div class="case__worker-human"><img src="./img/case/human-img.png" alt="人物の切り抜き" /></div>
           </div>
         </div>
+        <div class="case-flower__wrapper">
+          <img src="./img/flower/leaf-1.svg" class="case__flower--1" alt="caseセクションの花1" />
+          <img src="./img/flower/cherry-3-pink.svg" class="case__flower--2" alt="caseセクションの花2" />
+          <img src="./img/flower/cherry-5-pink.svg" class="case__flower--3" alt="caseセクションの花びら3" />
+          <!-- 以下、PCのみ表示 -->
+          <img src="./img/flower/flower-3-pink.svg" class="case__flower--4" alt="caseセクションの花4" />
+          <img src="./img/flower/flower-1-pink.svg" class="case__flower--5" alt="caseセクションの花5" />
+          <img src="./img/flower/cherry-3-pink.svg" class="case__flower--6" alt="caseセクションの花6" />
+        </div>
       </div>
     </section>
 
@@ -569,6 +598,24 @@
             <div class="feature-achievement__date">2025年11月時点</div>
           </div>
         </div>
+        <div class="feature-flower__wrapper">
+          <img src="./img/flower/flower-2-pink.svg" class="feature__flower--1" alt="featureセクションの花1" />
+          <img src="./img/flower/flower-3-pink.svg" class="feature__flower--2" alt="featureセクションの花2" />
+          <img src="./img/flower/flower-2-pink.svg" class="feature__flower--3" alt="featureセクションの花3" />
+          <img src="./img/flower/cherry-5-pink.svg" class="feature__flower--4" alt="featureセクションの花4" />
+          <!-- 以下、PCのみ表示 -->
+          <img src="./img/flower/cherry-4-pink.svg" class="feature__flower--5" alt="featureセクションの花5" />
+          <img src="./img/flower/cherry-3-pink.svg" class="feature__flower--6" alt="featureセクションの花6" />
+          <img src="./img/flower/cherry-1-pink.svg" class="feature__flower--7" alt="featureセクションの花7" />
+          <img src="./img/flower/flower-3-pink.svg" class="feature__flower--8" alt="featureセクションの花8" />
+          <img src="./img/flower/cherry-3-pink.svg" class="feature__flower--9" alt="featureセクションの花9" />
+          <img src="./img/flower/flower-2-pink.svg" class="feature__flower--10" alt="featureセクションの花10" />
+          <img src="./img/flower/flower-2-pink.svg" class="feature__flower--11" alt="featureセクションの花11" />
+          <img src="./img/flower/leaf-2.svg" class="feature__flower--12" alt="featureセクションの花12" />
+          <img src="./img/flower/flower-1-pink.svg" class="feature__flower--13" alt="featureセクションの花13" />
+          <img src="./img/flower/flower-2-pink.svg" class="feature__flower--14" alt="featureセクションの花14" />
+          <img src="./img/flower/cherry-5-pink.svg" class="feature__flower--15" alt="featureセクションの花15" />
+        </div>
       </div>
     </section>
 
@@ -645,6 +692,15 @@
               </div>
             </div>
           </div>
+        </div>
+        <div class="service-flower__wrapper">
+          <img src="./img/flower/flower-2-pink.svg" class="service__flower--1" alt="serviceセクションの花1" />
+          <img src="./img/flower/cherry-6-pink.svg" class="service__flower--2" alt="serviceセクションの花2" />
+          <img src="./img/flower/cherry-4-pink.svg" class="service__flower--3" alt="serviceセクションの花3" />
+          <!-- 以下、PCのみ表示 -->
+          <img src="./img/flower/leaf-1.svg" class="service__flower--4" alt="serviceセクションの花4" />
+          <img src="./img/flower/flower-2-pink.svg" class="service__flower--5" alt="serviceセクションの花5" />
+          <img src="./img/flower/flower-2-pink.svg" class="service__flower--6" alt="serviceセクションの花6" />
         </div>
       </div>
     </section>
@@ -851,6 +907,14 @@
             <div class="swiper-button-next works__swiper-button-next"></div>
           </div>
         </div>
+        <div class="works-flower__wrapper">
+          <img src="./img/flower/flower-1-pink.svg" class="works__flower--1" alt="worksセクションの花1" />
+          <img src="./img/flower/leaf-2.svg" class="works__flower--2" alt="worksセクションの花2" />
+          <img src="./img/flower/flower-1-pink.svg" class="works__flower--3" alt="worksセクションの花3" />
+          <img src="./img/flower/cherry-7-pink.svg" class="works__flower--4" alt="worksセクションの花4" />
+          <!-- 以下、PCのみ表示 -->
+          <img src="./img/flower/cherry-7-pink.svg" class="works__flower--5" alt="worksセクションの花5" />
+        </div>
       </div>
     </section>
 
@@ -981,6 +1045,11 @@
             </div>
           </div>
         </div>
+        <div class="price-flower__wrapper">
+          <img src="./img/flower/flower-3-pink.svg" class="price__flower--1" alt="priceセクションの花1" />
+          <img src="./img/flower/flower-1-pink.svg" class="price__flower--2" alt="priceセクションの花2" />
+          <img src="./img/flower/cherry-4-pink.svg" class="price__flower--3" alt="priceセクションの花3" />
+        </div>
       </div>
     </section>
 
@@ -1037,6 +1106,17 @@
               </div>
             </div>
           </div>
+        </div>
+        <div class="flow-flower__wrapper">
+          <img src="./img/flower/flower-3-pink.svg" class="flow__flower--1" alt="flowセクションの花1" />
+          <img src="./img/flower/flower-3-pink.svg" class="flow__flower--2" alt="flowセクションの花2" />
+          <img src="./img/flower/flower-1-pink.svg" class="flow__flower--3" alt="flowセクションの花3" />
+          <!-- 以下、PCのみ表示 -->
+          <img src="./img/flower/flower-6-pink.svg" class="flow__flower--4" alt="flowセクションの花4" />
+          <img src="./img/flower/flower-1-pink.svg" class="flow__flower--5" alt="flowセクションの花5" />
+          <img src="./img/flower/cherry-7-pink.svg" class="flow__flower--6" alt="flowセクションの花6" />
+          <img src="./img/flower/flower-3-pink.svg" class="flow__flower--7" alt="flowセクションの花7" />
+          <img src="./img/flower/cherry-4-pink.svg" class="flow__flower--8" alt="flowセクションの花8" />
         </div>
       </div>
     </section>
@@ -1138,6 +1218,13 @@
             <div class="swiper-button-prev review__swiper-button-prev"></div>
             <div class="swiper-button-next review__swiper-button-next"></div>
           </div>
+        </div>
+        <div class="review-flower__wrapper">
+          <img src="./img/flower/cherry-7-pink.svg" class="review__flower--1" alt="reviewセクションの花1" />
+          <img src="./img/flower/flower-3-pink.svg" class="review__flower--2" alt="reviewセクションの花2" />
+          <!-- 以後、PCのみ表示 -->
+          <img src="./img/flower/cherry-6-pink.svg" class="review__flower--3" alt="reviewセクションの花3" />
+          <img src="./img/flower/flower-1-pink.svg" class="review__flower--4" alt="reviewセクションの花4" />
         </div>
       </div>
     </section>

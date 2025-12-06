@@ -2,7 +2,7 @@
 // jQuery("セレクタ").アニメーション名() アニメーションの指示
 // jQuery("セレクタ").on("イベント名",function(){}) イベント構文
 
-//spでドロワーボタンをクリックした時にドロワーメニューを表示させる
+//ドロワーボタン1をクリックした時にドロワーメニューを表示させる
 jQuery("#js-drawer-button--1").on("click", function (e) {
   e.preventDefault();
 
@@ -11,13 +11,22 @@ jQuery("#js-drawer-button--1").on("click", function (e) {
   jQuery("#js-drawer-button--2").toggleClass("is-closed");
 });
 
-//spでドロワーボタンをクリックした時にドロワーメニューを表示させる
+//ドロワーボタン2をクリックした時にドロワーメニューを表示させる
 jQuery("#js-drawer-button--2").on("click", function (e) {
   e.preventDefault();
 
-  jQuery("#js-drawer-button--2").toggleClass("is-checked");
-  jQuery("#js-drawer-content--2").toggleClass("is-checked");
+  jQuery("#js-drawer-button--3").toggleClass("is-checked");
+  jQuery("#js-drawer-content--1").toggleClass("is-checked");
   jQuery("#js-drawer-button--1").toggleClass("is-closed");
+});
+
+//ドロワーボタン3をクリックした時にドロワーメニューを表示させる
+jQuery("#js-drawer-button--3").on("click", function (e) {
+  e.preventDefault();
+
+  jQuery("#js-drawer-button--3").toggleClass("is-checked");
+  jQuery("#js-drawer-content--1").toggleClass("is-checked");
+  // jQuery("#js-drawer-button--1").toggleClass("is-closed");
 });
 
 //ドロワーメニュー1の中のリンクをクリックした時にドロワーメニューを非表示にする
@@ -408,6 +417,38 @@ const intersectionObserver = new IntersectionObserver(function (entries) {
 const inViewItems = document.querySelectorAll(".js-in-view");
 inViewItems.forEach(function (inViewItem) {
   intersectionObserver.observe(inViewItem);
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const fvTarget = document.querySelector(".js-fv-target");
+
+  if (!fvTarget) return;
+
+  const observer = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        // 要素が画面に入ってきた（交差した）ら
+        if (entry.isIntersecting) {
+          // アニメーション対象の全ての子要素を取得し、クラスを付与
+          const chars = entry.target.querySelectorAll(".animate-char");
+          chars.forEach((char) => {
+            char.classList.add("is-visible");
+          });
+
+          // 一度アニメーションを開始したら監視を終了
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      // 画面に入ってきたと判定するしきい値
+      rootMargin: "0px",
+      threshold: 0.1,
+    }
+  );
+
+  // 監視を開始
+  observer.observe(fvTarget);
 });
 
 /* =================================================== 
