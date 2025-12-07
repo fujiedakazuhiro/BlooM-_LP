@@ -6,34 +6,54 @@
 jQuery("#js-drawer-button--1").on("click", function (e) {
   e.preventDefault();
 
-  jQuery("#js-drawer-button--1").toggleClass("is-checked");
+  jQuery("#js-drawer-button--1").toggleClass("is-checked is-fixed");
   jQuery("#js-drawer-content--1").toggleClass("is-checked");
-  jQuery("#js-drawer-button--2").toggleClass("is-closed");
+  // jQuery("#js-drawer-button--2").toggleClass("is-closed");
 });
 
 //ドロワーボタン2をクリックした時にドロワーメニューを表示させる
 jQuery("#js-drawer-button--2").on("click", function (e) {
   e.preventDefault();
 
-  jQuery("#js-drawer-button--3").toggleClass("is-checked");
+  jQuery("#js-drawer-button--1").toggleClass("is-checked is-fixed");
   jQuery("#js-drawer-content--1").toggleClass("is-checked");
-  jQuery("#js-drawer-button--1").toggleClass("is-closed");
 });
 
-//ドロワーボタン3をクリックした時にドロワーメニューを表示させる
-jQuery("#js-drawer-button--3").on("click", function (e) {
-  e.preventDefault();
+// 💡 bodyの任意の部分をクリックしたときにドロワーメニューを閉じる処理
+jQuery("body").on("click", function (e) {
+  // クリックされた要素がドロワーメニューの要素、またはドロワーボタンの要素である場合は、何もしない
+  if (
+    jQuery(e.target).closest("#js-drawer-content--1").length || // クリックがドロワーメニュー内
+    jQuery(e.target).closest("#js-drawer-button--1").length || // クリックがボタン1
+    jQuery(e.target).closest("#js-drawer-button--2").length // クリックがボタン2
+  ) {
+    return; // 処理を終了
+  }
 
-  jQuery("#js-drawer-button--3").toggleClass("is-checked");
-  jQuery("#js-drawer-content--1").toggleClass("is-checked");
-  // jQuery("#js-drawer-button--1").toggleClass("is-closed");
+  // それ以外（ドロワー外）がクリックされ、かつドロワーが開いている場合
+  if (jQuery("#js-drawer-content--1").hasClass("is-checked")) {
+    // ドロワーを閉じるために必要なクラスを全て外す (removeClass)
+    // 重要な点: ここは toggleClass ではなく removeClass を使います。
+    jQuery("#js-drawer-button--1").removeClass("is-checked is-fixed");
+    jQuery("#js-drawer-content--1").removeClass("is-checked");
+    jQuery("#js-drawer-button--2").removeClass("is-checked");
+  }
 });
+
+// //ドロワーボタン3をクリックした時にドロワーメニューを表示させる
+// jQuery("#js-drawer-button--3").on("click", function (e) {
+//   e.preventDefault();
+
+//   jQuery("#js-drawer-button--3").toggleClass("is-checked");
+//   jQuery("#js-drawer-content--1").toggleClass("is-checked");
+//   // jQuery("#js-drawer-button--1").toggleClass("is-closed");
+// });
 
 //ドロワーメニュー1の中のリンクをクリックした時にドロワーメニューを非表示にする
 jQuery('#js-drawer-content--1 a[href^="#"]').on("click", function (e) {
   // e.preventDefault();
 
-  jQuery("#js-drawer-button--1").removeClass("is-checked");
+  jQuery("#js-drawer-button--1").removeClass("is-checked is-fixed");
   jQuery("#js-drawer-button--2").removeClass("is-checked");
   jQuery("#js-drawer-content--1").removeClass("is-checked");
   jQuery("#js-drawer-content--2").removeClass("is-checked");
@@ -474,86 +494,93 @@ custom：自由にカスタマイズ
 
 =====================================================*/
 
-// ここからTwentyTwentyのコード(不要)
-// // TwentyTwenty 初期化用関数
-// function initTwentyTwenty() {
-//   $(".twentytwenty-container").each(function () {
-//     const $container = $(this);
+// jQuery(function ($) {
+//   // --- セレクタの定義 ---
+//   const $body = $("body");
+//   const $html = $("html"); // <html>要素
+//   const $drawerContent = $("#js-drawer-content--1");
+//   const $drawerButton1 = $("#js-drawer-button--1");
+//   const $drawerButton2 = $("#js-drawer-button--2");
+//   const $allDrawerButtons = $drawerButton1.add($drawerButton2);
+//   const $drawerLinks = $drawerContent.find("a");
 
-//     // 二重初期化防止
-//     if ($container.data("twentytwenty-initialized")) return;
+//   // 開閉状態を示す共通クラス
+//   const CHECKED_CLASS = "is-checked";
+//   const NO_SCROLL_CLASS = "is-no-scroll";
 
-//     $container.twentytwenty({
-//       default_offset_pct: 0.5,
-//     });
+//   let scrollPosition = 0; // スクロール位置を保持する変数
 
-//     $container.data("twentytwenty-initialized", true);
+//   /**
+//    * ドロワーメニューの開閉状態を切り替える共通関数
+//    * @param {boolean} forceOpen - true: 開く, false: 閉じる, undefined: トグル
+//    */
+//   function toggleDrawer(forceOpen) {
+//     const isOpening = $drawerContent.hasClass(CHECKED_CLASS);
+//     const shouldOpen = forceOpen !== undefined ? forceOpen : !isOpening;
+
+//     // 1. 各要素の状態を同期して操作
+//     $drawerContent.toggleClass(CHECKED_CLASS, shouldOpen);
+//     $drawerButton1.toggleClass(CHECKED_CLASS, shouldOpen);
+//     $drawerButton2.toggleClass(CHECKED_CLASS, shouldOpen);
+
+//     if (shouldOpen) {
+//       // 🔷 開く時：現在のスクロール位置を記録し、その位置を基準に固定する
+//       scrollPosition = $(window).scrollTop(); // 現在のスクロール位置を記録 (例: 500px)
+
+//       // bodyを上方向にずらすことで、見た目を固定する
+//       // (例: top: -500px; とすることで、500pxスクロールした位置が画面のトップに来る)
+//       $body.css("top", -scrollPosition + "px");
+
+//       $body.addClass(NO_SCROLL_CLASS);
+//       $html.addClass(NO_SCROLL_CLASS);
+//     } else {
+//       // 🔷 閉じる時：固定を解除し、元のスクロール位置に戻す
+//       $body.removeClass(NO_SCROLL_CLASS);
+//       $html.removeClass(NO_SCROLL_CLASS);
+
+//       $body.css("top", ""); // bodyのtopプロパティをリセット
+//       // クラス解除後に、記録したスクロール位置に戻す
+//       $(window).scrollTop(scrollPosition);
+//     }
+//   }
+
+//   // --- イベントハンドラ ---
+
+//   // 1. ドロワーボタン1と2をクリックした時の処理（共通）
+//   $allDrawerButtons.on("click", function (e) {
+//     e.preventDefault();
+//     const clickedButton = $(this); // クリックされたボタンを特定
+
+//     // 1-1. 共通の開閉処理を実行 (ドロワーを開閉し、スクロールをロック/解除する)
+//     toggleDrawer();
+
+//     // ドロワーの開閉状態をチェック (toggleDrawer実行後なので、CHECKED_CLASSがあるなら開いている)
+//     const isDrawerOpen = $drawerContent.hasClass(CHECKED_CLASS);
+
+//     // 1-2. ✨ ボタン2がクリックされた場合にのみ、ボタン1に is-fixed クラスを付与/削除
+//     if (clickedButton.is($drawerButton2)) {
+//       // ドロワーが開いている状態に合わせて、ボタン1に 'is-fixed' クラスを付与/削除
+//       $drawerButton1.toggleClass("is-fixed", isDrawerOpen);
+//     }
 //   });
-// }
 
-// // DOM 読み込み時
-// $(window).on("load", function () {
-//   initTwentyTwenty();
-// });
+//   // 2. メニュー外クリックで閉じる処理
+//   $body.on("click", function (e) {
+//     if (!$drawerContent.hasClass(CHECKED_CLASS)) {
+//       return;
+//     }
+//     const $target = $(e.target);
+//     if (!$target.closest($allDrawerButtons).length && !$target.closest($drawerContent).length) {
+//       toggleDrawer(false);
+//     }
+//   });
 
-// //worksセクションのスライダー
-// document.addEventListener("DOMContentLoaded", function () {
-//   const worksSwiper = new Swiper(".works__swiper", {
-//     //swiperの名前
-//     //切り替えのモーション
-//     speed: 1000, //表示切り替えのスピード
-//     effect: "slide", //切り替えのmotion (※1)
-//     allowTouchMove: true, // スワイプで表示の切り替えを有効に
-
-//     //最後→最初に戻るループ再生を有効に
-//     loop: true,
-
-//     //表示について
-//     centeredSlides: true, //中央寄せにする
-//     slidesPerView: "auto",
-//     spaceBetween: 30,
-
-//     //ページネーション
-//     pagination: {
-//       el: ".works__swiper-pagination", //paginationのclass
-//       clickable: true, //クリックでの切り替えを有効に
-//       type: "bullets", //paginationのタイプ (※2)
-//     },
-//     //ナビゲーション
-//     navigation: {
-//       prevEl: ".works__swiper-button-prev", //戻るボタンのclass
-//       nextEl: ".works__swiper-button-next", //進むボタンのclass
-//     },
-
-//     //ブレイクポイントによって変える
-//     breakpoints: {
-//       375: {
-//         slidesPerView: 1.0,
-//         spaceBetween: 20,
-//         centeredSlides: true, //中央寄せにする
-//       },
-//       768: {
-//         slidesPerView: 1.2,
-//         spaceBetween: 40,
-//         centeredSlides: true, //中央寄せにする
-//       },
-//       900: {
-//         slidesPerView: 1.2,
-//         spaceBetween: 60,
-//         centeredSlides: true, //中央寄せにする
-//       },
-//       1200: {
-//         slidesPerView: 1.35,
-//         spaceBetween: 81,
-//         centeredSlides: true, //中央寄せにする
-//       },
-//     },
-
-//     // ここが重要
-//     on: {
-//       slideChange: function () {
-//         initTwentyTwenty();
-//       },
-//     },
+//   // 3. ドロワーメニュー内のリンクをクリックした時の閉じる処理
+//   $drawerLinks.on("click", function (e) {
+//     const href = $(this).attr("href");
+//     if (href === "" || href.startsWith("#")) {
+//       // ページ内リンクで遷移する場合、閉じる処理を実行
+//       toggleDrawer(false);
+//     }
 //   });
 // });

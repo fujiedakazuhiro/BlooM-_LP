@@ -29,12 +29,28 @@ html {
   overflow-x: hidden;
 }
 
+html {
+  /* ... htmlの他のスタイル ... */
+
+  &.is-no-scroll {
+    overflow: hidden;
+    height: 100vh;
+  }
+}
+
 body {
   font-family: $font-base-1;
   color: $text-color;
   font-size: 16px;
   line-height: 1.7;
   font-weight: 300;
+
+  &.is-no-scroll {
+    overflow: hidden;
+    // height: 100vh; /* 高さ100%に固定 */
+    position: fixed; /* iOSで背景スクロールを止めるための重要設定 */
+    width: 100%; /* position: fixedにした際に幅が崩れないようにする */
+  }
 }
 
 .hidden-pc {
@@ -394,7 +410,7 @@ body {
   width: 72px;
   height: 72px;
   // background: url(../img/fv/drawer-btn.png) no-repeat center center / cover;
-  z-index: 11;
+  z-index: 1000;
   background-color: #242424;
   display: flex;
   justify-content: center;
@@ -509,6 +525,32 @@ body {
   // }
 }
 
+.fv__drawer--1 {
+  z-index: 1000;
+
+  &.is-fixed {
+    position: fixed;
+    top: 0;
+    right: 0;
+
+    + .drawer__button-spacer {
+      display: block;
+    }
+  }
+}
+
+.drawer__button-spacer {
+  display: none;
+  width: 72px;
+  height: 72px;
+
+  @include mq(ms) {
+    width: 100px;
+    height: 100px;
+    margin-left: 8px;
+  }
+}
+
 .fv__drawer--3 {
   position: fixed;
   top: 0;
@@ -554,7 +596,7 @@ body {
   top: 0;
   transform: translateX(100%);
   transition: transform 1s;
-  z-index: 10;
+  z-index: 990;
   padding: 106px 38px;
 
   @include mq(md) {
