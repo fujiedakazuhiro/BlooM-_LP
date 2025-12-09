@@ -1,13 +1,10 @@
-// jQuery("セレクタ").メソッド("パラメーター") 基本構文
-// jQuery("セレクタ").アニメーション名() アニメーションの指示
-// jQuery("セレクタ").on("イベント名",function(){}) イベント構文
-
 //ドロワーボタン1をクリックした時にドロワーメニューを表示させる
 jQuery("#js-drawer-button--1").on("click", function (e) {
   e.preventDefault();
 
   jQuery("#js-drawer-button--1").toggleClass("is-checked is-fixed");
   jQuery("#js-drawer-content--1").toggleClass("is-checked");
+  jQuery("html").toggleClass("no-scroll");
   // jQuery("#js-drawer-button--2").toggleClass("is-closed");
 });
 
@@ -17,6 +14,7 @@ jQuery("#js-drawer-button--2").on("click", function (e) {
 
   jQuery("#js-drawer-button--1").toggleClass("is-checked is-fixed");
   jQuery("#js-drawer-content--1").toggleClass("is-checked");
+  jQuery("html").toggleClass("no-scroll");
 });
 
 // 💡 bodyの任意の部分をクリックしたときにドロワーメニューを閉じる処理
@@ -26,6 +24,7 @@ jQuery("body").on("click", function (e) {
     jQuery(e.target).closest("#js-drawer-content--1").length || // クリックがドロワーメニュー内
     jQuery(e.target).closest("#js-drawer-button--1").length || // クリックがボタン1
     jQuery(e.target).closest("#js-drawer-button--2").length // クリックがボタン2
+    // jQuery(e.target).closest("html").length //htmlにスクロールしない
   ) {
     return; // 処理を終了
   }
@@ -37,17 +36,9 @@ jQuery("body").on("click", function (e) {
     jQuery("#js-drawer-button--1").removeClass("is-checked is-fixed");
     jQuery("#js-drawer-content--1").removeClass("is-checked");
     jQuery("#js-drawer-button--2").removeClass("is-checked");
+    jQuery("html").removeClass("no-scroll");
   }
 });
-
-// //ドロワーボタン3をクリックした時にドロワーメニューを表示させる
-// jQuery("#js-drawer-button--3").on("click", function (e) {
-//   e.preventDefault();
-
-//   jQuery("#js-drawer-button--3").toggleClass("is-checked");
-//   jQuery("#js-drawer-content--1").toggleClass("is-checked");
-//   // jQuery("#js-drawer-button--1").toggleClass("is-closed");
-// });
 
 //ドロワーメニュー1の中のリンクをクリックした時にドロワーメニューを非表示にする
 jQuery('#js-drawer-content--1 a[href^="#"]').on("click", function (e) {
