@@ -155,14 +155,14 @@
                 <img src="./img/flower/cherry-tree-2.svg" alt="右側の桜の枝" />
               </picture>
             </div>
-            <img src="./img/flower/flower-1.svg" class="fv__flower--1" alt="花びら1" />
-            <img src="./img/flower/flower-2.svg" class="fv__flower--2" alt="花びら2" />
-            <img src="./img/flower/flower-2.svg" class="fv__flower--3" alt="花びら3" />
+            <img src="./img/flower/flower-1.svg" class="fv__flower--1 sec-1" alt="花びら1" />
+            <img src="./img/flower/flower-2.svg" class="fv__flower--2 sec-2" alt="花びら2" />
+            <img src="./img/flower/flower-2.svg" class="fv__flower--3 sec-3" alt="花びら3" />
             <!-- 以下、PCのみ表示 -->
-            <img src="./img/flower/flower-1.svg" class="fv__flower--4" alt="花びら4" />
-            <img src="./img/flower/flower-3.svg" class="fv__flower--5" alt="花びら5" />
-            <img src="./img/flower/cherry-2.svg" class="fv__flower--6" alt="花びら6" />
-            <img src="./img/flower/cherry-3.svg" class="fv__flower--7" alt="花びら7" />
+            <img src="./img/flower/flower-1.svg" class="fv__flower--4 sec-4" alt="花びら4" />
+            <img src="./img/flower/flower-3.svg" class="fv__flower--5 sec-5" alt="花びら5" />
+            <img src="./img/flower/cherry-2.svg" class="fv__flower--6 sec-6" alt="花びら6" />
+            <img src="./img/flower/cherry-3.svg" class="fv__flower--7 sec-7" alt="花びら7" />
           </div>
           <div class="gallery">
             <div class="gallery__inner">
@@ -208,7 +208,8 @@
       </div>
     </section>
 
-    <nav id="fv__header-2" class="fv__header-2">
+    <div id="header-spacer" style="display: none"></div>
+    <nav id="fv__header-2" class="fv__header-2 js-in-view fade-in-up">
       <h1 class="fv__logo">
         <a class="fv__logo-link">
           <div class="fv__logo-text2">関西エリアで安心できる解体工事なら</div>
@@ -322,22 +323,22 @@
             <!--pp-->
           </div>
           <div class="problem__body">
-            <div class="problem__inheritance">
+            <div class="problem__inheritance problem__item">
               <p class="problem__inheritance-text"><span class="problem__text-pink--2">相続</span>した家を<br />どうすればいいか分からない…</p>
             </div>
-            <div class="problem__demolish">
+            <div class="problem__demolish problem__item">
               <p class="problem__demolish-text"><span class="problem__text-pink--2">解体</span>ってどこに頼めばいいのか<br />分からない…</p>
             </div>
-            <div class="problem__price">
+            <div class="problem__price problem__item">
               <p class="problem__price-text"><span class="problem__text-pink--2">費用</span>がどれくらい<br />かかるのか不安…</p>
             </div>
-            <div class="problem__contract">
+            <div class="problem__contract problem__item">
               <p class="problem__contract-text">業者が<span class="problem__text-pink--2">強引</span>に<br /><span class="problem__text-pink--2">契約</span>してこないか不安…</p>
             </div>
-            <div class="problem__trouble">
+            <div class="problem__trouble problem__item">
               <p class="problem__trouble-text">近隣への<br /><span class="problem__text-pink--2">騒音</span>や<span class="problem__text-pink--2">トラブル</span>が心配…</p>
             </div>
-            <div class="problem__valuables">
+            <div class="problem__valuables problem__item">
               <p class="problem__valuables-text">屋内に<span class="problem__text-pink--2">貴重品</span>などがあるかもしれず、<br />一緒に探して欲しい…</p>
             </div>
             <div class="problem__image">
@@ -357,7 +358,7 @@
             <div class="case__title-label"><img src="./img/case/label.png" alt="実際にあった！のラベル" /></div>
           </div>
           <div class="case__contents">
-            <div class="case__card case-card">
+            <div class="case__card case-card case-1">
               <div class="case-card__head">
                 <div class="case-card__head-number">Case 01</div>
               </div>
@@ -378,7 +379,7 @@
                 </div>
               </div>
             </div>
-            <div class="case__card case-card">
+            <div class="case__card case-card case-2">
               <div class="case-card__head">
                 <div class="case-card__head-number">Case 02</div>
               </div>
@@ -397,7 +398,7 @@
                 </div>
               </div>
             </div>
-            <div class="case__card case-card">
+            <div class="case__card case-card case-3">
               <div class="case-card__head">
                 <div class="case-card__head-number">Case 03</div>
               </div>
@@ -416,7 +417,7 @@
                 </div>
               </div>
             </div>
-            <div class="case__card case-card">
+            <div class="case__card case-card case-4">
               <div class="case-card__head">
                 <div class="case-card__head-number">Case 04</div>
               </div>
@@ -435,7 +436,7 @@
                 </div>
               </div>
             </div>
-            <div class="case__card case-card">
+            <div class="case__card case-card case-5">
               <div class="case-card__head">
                 <div class="case-card__head-number">Case 05</div>
               </div>
@@ -475,13 +476,13 @@
           </div>
         </div>
         <div class="case-flower__wrapper">
-          <img src="./img/flower/leaf-1.svg" class="case__flower--1" alt="caseセクションの花1" />
-          <img src="./img/flower/cherry-3-pink.svg" class="case__flower--2" alt="caseセクションの花2" />
-          <img src="./img/flower/cherry-5-pink.svg" class="case__flower--3" alt="caseセクションの花びら3" />
+          <img src="./img/flower/leaf-1.svg" class="case__flower--1 sec-1" alt="caseセクションの花1" />
+          <img src="./img/flower/cherry-3-pink.svg" class="case__flower--2 sec-2" alt="caseセクションの花2" />
+          <img src="./img/flower/cherry-5-pink.svg" class="case__flower--3 sec-3" alt="caseセクションの花びら3" />
           <!-- 以下、PCのみ表示 -->
-          <img src="./img/flower/flower-3-pink.svg" class="case__flower--4" alt="caseセクションの花4" />
-          <img src="./img/flower/flower-1-pink.svg" class="case__flower--5" alt="caseセクションの花5" />
-          <img src="./img/flower/cherry-3-pink.svg" class="case__flower--6" alt="caseセクションの花6" />
+          <img src="./img/flower/flower-3-pink.svg" class="case__flower--4 sec-4" alt="caseセクションの花4" />
+          <img src="./img/flower/flower-1-pink.svg" class="case__flower--5 sec-5" alt="caseセクションの花5" />
+          <img src="./img/flower/cherry-3-pink.svg" class="case__flower--6 sec-6" alt="caseセクションの花6" />
         </div>
       </div>
     </section>
@@ -601,27 +602,29 @@
           </div>
         </div>
         <div class="feature-flower__wrapper">
-          <img src="./img/flower/flower-2-pink.svg" class="feature__flower--1" alt="featureセクションの花1" />
-          <img src="./img/flower/flower-3-pink.svg" class="feature__flower--2" alt="featureセクションの花2" />
-          <img src="./img/flower/flower-2-pink.svg" class="feature__flower--3" alt="featureセクションの花3" />
-          <img src="./img/flower/cherry-5-pink.svg" class="feature__flower--4" alt="featureセクションの花4" />
+          <img src="./img/flower/flower-2-pink.svg" class="feature__flower--1 sec-1" alt="featureセクションの花1" />
+          <img src="./img/flower/flower-3-pink.svg" class="feature__flower--2 sec-2" alt="featureセクションの花2" />
+          <img src="./img/flower/flower-2-pink.svg" class="feature__flower--3 sec-3" alt="featureセクションの花3" />
+          <img src="./img/flower/cherry-5-pink.svg" class="feature__flower--4 sec-4" alt="featureセクションの花4" />
           <!-- 以下、PCのみ表示 -->
-          <img src="./img/flower/cherry-4-pink.svg" class="feature__flower--5" alt="featureセクションの花5" />
-          <img src="./img/flower/cherry-3-pink.svg" class="feature__flower--6" alt="featureセクションの花6" />
-          <img src="./img/flower/cherry-1-pink.svg" class="feature__flower--7" alt="featureセクションの花7" />
-          <img src="./img/flower/flower-3-pink.svg" class="feature__flower--8" alt="featureセクションの花8" />
-          <img src="./img/flower/cherry-3-pink.svg" class="feature__flower--9" alt="featureセクションの花9" />
-          <img src="./img/flower/flower-2-pink.svg" class="feature__flower--10" alt="featureセクションの花10" />
-          <img src="./img/flower/flower-2-pink.svg" class="feature__flower--11" alt="featureセクションの花11" />
-          <img src="./img/flower/leaf-2.svg" class="feature__flower--12" alt="featureセクションの花12" />
-          <img src="./img/flower/flower-1-pink.svg" class="feature__flower--13" alt="featureセクションの花13" />
-          <img src="./img/flower/flower-2-pink.svg" class="feature__flower--14" alt="featureセクションの花14" />
-          <img src="./img/flower/cherry-5-pink.svg" class="feature__flower--15" alt="featureセクションの花15" />
+          <img src="./img/flower/cherry-4-pink.svg" class="feature__flower--5 sec-5" alt="featureセクションの花5" />
+          <img src="./img/flower/cherry-3-pink.svg" class="feature__flower--6 sec-6" alt="featureセクションの花6" />
+          <img src="./img/flower/cherry-1-pink.svg" class="feature__flower--7 sec-7" alt="featureセクションの花7" />
+          <img src="./img/flower/flower-3-pink.svg" class="feature__flower--8 sec-8" alt="featureセクションの花8" />
+          <img src="./img/flower/cherry-3-pink.svg" class="feature__flower--9 sec-9" alt="featureセクションの花9" />
+          <img src="./img/flower/flower-2-pink.svg" class="feature__flower--10 sec-10" alt="featureセクションの花10" />
+          <img src="./img/flower/flower-2-pink.svg" class="feature__flower--11 sec-11" alt="featureセクションの花11" />
+          <img src="./img/flower/leaf-2.svg" class="feature__flower--12 sec-12" alt="featureセクションの花12" />
+          <img src="./img/flower/flower-1-pink.svg" class="feature__flower--13 sec-13" alt="featureセクションの花13" />
+          <img src="./img/flower/flower-2-pink.svg" class="feature__flower--14 sec-14" alt="featureセクションの花14" />
+          <img src="./img/flower/cherry-5-pink.svg" class="feature__flower--15 sec-15" alt="featureセクションの花15" />
         </div>
       </div>
     </section>
 
     <section id="service" class="service">
+      <img class="service__wave--sp" src="./img/service/sp/wave-sp.svg" alt="背景の波型の画像(sp)" />
+      <img class="service__wave--pc" src="./img/service/wave.svg" alt="背景の波型の画像(pc)" />
       <div class="service__inner">
         <div class="service__contents">
           <div class="service__head section__head js-in-view fade-in-up">
@@ -696,13 +699,13 @@
           </div>
         </div>
         <div class="service-flower__wrapper">
-          <img src="./img/flower/flower-2-pink.svg" class="service__flower--1" alt="serviceセクションの花1" />
-          <img src="./img/flower/cherry-6-pink.svg" class="service__flower--2" alt="serviceセクションの花2" />
-          <img src="./img/flower/cherry-4-pink.svg" class="service__flower--3" alt="serviceセクションの花3" />
+          <img src="./img/flower/flower-2-pink.svg" class="service__flower--1 sec-1" alt="serviceセクションの花1" />
+          <img src="./img/flower/cherry-6-pink.svg" class="service__flower--2 sec-2" alt="serviceセクションの花2" />
+          <img src="./img/flower/cherry-4-pink.svg" class="service__flower--3 sec-3" alt="serviceセクションの花3" />
           <!-- 以下、PCのみ表示 -->
-          <img src="./img/flower/leaf-1.svg" class="service__flower--4" alt="serviceセクションの花4" />
-          <img src="./img/flower/flower-2-pink.svg" class="service__flower--5" alt="serviceセクションの花5" />
-          <img src="./img/flower/flower-2-pink.svg" class="service__flower--6" alt="serviceセクションの花6" />
+          <img src="./img/flower/leaf-1.svg" class="service__flower--4 sec-4" alt="serviceセクションの花4" />
+          <img src="./img/flower/flower-2-pink.svg" class="service__flower--5 sec-5" alt="serviceセクションの花5" />
+          <img src="./img/flower/flower-2-pink.svg" class="service__flower--6 sec-6" alt="serviceセクションの花6" />
         </div>
       </div>
     </section>
@@ -723,8 +726,8 @@
                       <div class="works-card__contents">
                         <div class="works-card__image">
                           <div class="twentytwenty-container">
-                            <img src="./img/works/before-img.png" alt="" />
-                            <img src="./img/works/after-img.png" alt="" />
+                            <img src="./img/works/before-img1.jpg" alt="店舗解体前の写真" />
+                            <img src="./img/works/after-img1.jpg" alt="店舗解体後の写真" />
                           </div>
                         </div>
                         <div class="works-card__description">
@@ -746,7 +749,7 @@
                             </ul>
                             <div class="works-card__point">
                               <div class="works-card__point--title">工事の特徴・こだわりポイント</div>
-                              <div class="works-card__point--text">狭小地での作業でしたが、重機を工夫して安全に解体しました。</div>
+                              <div class="works-card__point--text">交通量の多いエリアでの施工でしたが、安全確保のための導線管理と近隣への騒音対策を徹底。重機を効率的に活用し、短期間での解体を実現しました。</div>
                             </div>
                           </div>
                         </div>
@@ -754,27 +757,28 @@
                     </div>
                   </div>
                 </div>
+
                 <div class="swiper-slide works__swiper-slide">
                   <div class="works__card works-card">
                     <div class="works-card__inner">
                       <div class="works-card__contents">
                         <div class="works-card__image">
                           <div class="twentytwenty-container">
-                            <img src="./img/works/before-img.png" alt="" />
-                            <img src="./img/works/after-img.png" alt="" />
+                            <img src="./img/works/before-img2.jpg" alt="物流倉庫解体前の写真" />
+                            <img src="./img/works/after-img2.jpg" alt="物流倉庫解体後の写真" />
                           </div>
                         </div>
                         <div class="works-card__description">
                           <div class="works-card__wrapper">
-                            <div class="works-card__title">（株）リバティ様より店舗解体工事のご依頼</div>
+                            <div class="works-card__title">（株）リバティ様より物流倉庫解体工事のご依頼</div>
                             <ul class="works-card__info">
                               <li>
                                 <span class="label">工事内容</span>
-                                <span class="value">店舗（鉄骨造）解体</span>
+                                <span class="value">物流倉庫（鉄骨造）解体</span>
                               </li>
                               <li>
                                 <span class="label">工事期間</span>
-                                <span class="value">約2週間</span>
+                                <span class="value">約1ヶ月</span>
                               </li>
                               <li>
                                 <span class="label">依 頼 主</span>
@@ -783,7 +787,7 @@
                             </ul>
                             <div class="works-card__point">
                               <div class="works-card__point--title">工事の特徴・こだわりポイント</div>
-                              <div class="works-card__point--text">狭小地での作業でしたが、重機を工夫して安全に解体しました。</div>
+                              <div class="works-card__point--text">広い敷地を効率よく分割しながら工程管理することで、約1ヶ月という限られた期間内で完工いたしました。</div>
                             </div>
                           </div>
                         </div>
@@ -791,14 +795,15 @@
                     </div>
                   </div>
                 </div>
+
                 <div class="swiper-slide works__swiper-slide">
                   <div class="works__card works-card">
                     <div class="works-card__inner">
                       <div class="works-card__contents">
                         <div class="works-card__image">
                           <div class="twentytwenty-container">
-                            <img src="./img/works/before-img.png" alt="" />
-                            <img src="./img/works/after-img.png" alt="" />
+                            <img src="./img/works/before-img1.jpg" alt="店舗解体前の写真" />
+                            <img src="./img/works/after-img1.jpg" alt="店舗解体後の写真" />
                           </div>
                         </div>
                         <div class="works-card__description">
@@ -820,7 +825,7 @@
                             </ul>
                             <div class="works-card__point">
                               <div class="works-card__point--title">工事の特徴・こだわりポイント</div>
-                              <div class="works-card__point--text">狭小地での作業でしたが、重機を工夫して安全に解体しました。</div>
+                              <div class="works-card__point--text">交通量の多いエリアでの施工でしたが、安全確保のための導線管理と近隣への騒音対策を徹底。重機を効率的に活用し、短期間での解体を実現しました。</div>
                             </div>
                           </div>
                         </div>
@@ -828,27 +833,28 @@
                     </div>
                   </div>
                 </div>
+
                 <div class="swiper-slide works__swiper-slide">
                   <div class="works__card works-card">
                     <div class="works-card__inner">
                       <div class="works-card__contents">
                         <div class="works-card__image">
                           <div class="twentytwenty-container">
-                            <img src="./img/works/before-img.png" alt="" />
-                            <img src="./img/works/after-img.png" alt="" />
+                            <img src="./img/works/before-img2.jpg" alt="物流倉庫解体前の写真" />
+                            <img src="./img/works/after-img2.jpg" alt="物流倉庫解体後の写真" />
                           </div>
                         </div>
                         <div class="works-card__description">
                           <div class="works-card__wrapper">
-                            <div class="works-card__title">（株）リバティ様より店舗解体工事のご依頼</div>
+                            <div class="works-card__title">（株）リバティ様より物流倉庫解体工事のご依頼</div>
                             <ul class="works-card__info">
                               <li>
                                 <span class="label">工事内容</span>
-                                <span class="value">店舗（鉄骨造）解体</span>
+                                <span class="value">物流倉庫（鉄骨造）解体</span>
                               </li>
                               <li>
                                 <span class="label">工事期間</span>
-                                <span class="value">約2週間</span>
+                                <span class="value">約1ヶ月</span>
                               </li>
                               <li>
                                 <span class="label">依 頼 主</span>
@@ -857,7 +863,7 @@
                             </ul>
                             <div class="works-card__point">
                               <div class="works-card__point--title">工事の特徴・こだわりポイント</div>
-                              <div class="works-card__point--text">狭小地での作業でしたが、重機を工夫して安全に解体しました。</div>
+                              <div class="works-card__point--text">広い敷地を効率よく分割しながら工程管理することで、約1ヶ月という限られた期間内で完工いたしました。</div>
                             </div>
                           </div>
                         </div>
@@ -865,14 +871,15 @@
                     </div>
                   </div>
                 </div>
+
                 <div class="swiper-slide works__swiper-slide">
                   <div class="works__card works-card">
                     <div class="works-card__inner">
                       <div class="works-card__contents">
                         <div class="works-card__image">
                           <div class="twentytwenty-container">
-                            <img src="./img/works/before-img.png" alt="" />
-                            <img src="./img/works/after-img.png" alt="" />
+                            <img src="./img/works/before-img1.jpg" alt="店舗解体前の写真" />
+                            <img src="./img/works/after-img1.jpg" alt="店舗解体後の写真" />
                           </div>
                         </div>
                         <div class="works-card__description">
@@ -894,7 +901,45 @@
                             </ul>
                             <div class="works-card__point">
                               <div class="works-card__point--title">工事の特徴・こだわりポイント</div>
-                              <div class="works-card__point--text">狭小地での作業でしたが、重機を工夫して安全に解体しました。</div>
+                              <div class="works-card__point--text">交通量の多いエリアでの施工でしたが、安全確保のための導線管理と近隣への騒音対策を徹底。重機を効率的に活用し、短期間での解体を実現しました。</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="swiper-slide works__swiper-slide">
+                  <div class="works__card works-card">
+                    <div class="works-card__inner">
+                      <div class="works-card__contents">
+                        <div class="works-card__image">
+                          <div class="twentytwenty-container">
+                            <img src="./img/works/before-img2.jpg" alt="物流倉庫解体前の写真" />
+                            <img src="./img/works/after-img2.jpg" alt="物流倉庫解体後の写真" />
+                          </div>
+                        </div>
+                        <div class="works-card__description">
+                          <div class="works-card__wrapper">
+                            <div class="works-card__title">（株）リバティ様より物流倉庫解体工事のご依頼</div>
+                            <ul class="works-card__info">
+                              <li>
+                                <span class="label">工事内容</span>
+                                <span class="value">物流倉庫（鉄骨造）解体</span>
+                              </li>
+                              <li>
+                                <span class="label">工事期間</span>
+                                <span class="value">約1ヶ月</span>
+                              </li>
+                              <li>
+                                <span class="label">依 頼 主</span>
+                                <span class="value">大阪府大阪市<br class="hidden-pc" />（株）リバティ様</span>
+                              </li>
+                            </ul>
+                            <div class="works-card__point">
+                              <div class="works-card__point--title">工事の特徴・こだわりポイント</div>
+                              <div class="works-card__point--text">広い敷地を効率よく分割しながら工程管理することで、約1ヶ月という限られた期間内で完工いたしました。</div>
                             </div>
                           </div>
                         </div>
@@ -910,12 +955,12 @@
           </div>
         </div>
         <div class="works-flower__wrapper">
-          <img src="./img/flower/flower-1-pink.svg" class="works__flower--1" alt="worksセクションの花1" />
-          <img src="./img/flower/leaf-2.svg" class="works__flower--2" alt="worksセクションの花2" />
-          <img src="./img/flower/flower-1-pink.svg" class="works__flower--3" alt="worksセクションの花3" />
-          <img src="./img/flower/cherry-7-pink.svg" class="works__flower--4" alt="worksセクションの花4" />
+          <img src="./img/flower/flower-1-pink.svg" class="works__flower--1 sec-1" alt="worksセクションの花1" />
+          <img src="./img/flower/leaf-2.svg" class="works__flower--2 sec-2" alt="worksセクションの花2" />
+          <img src="./img/flower/flower-1-pink.svg" class="works__flower--3 sec-3" alt="worksセクションの花3" />
+          <img src="./img/flower/cherry-7-pink.svg" class="works__flower--4 sec-4" alt="worksセクションの花4" />
           <!-- 以下、PCのみ表示 -->
-          <img src="./img/flower/cherry-7-pink.svg" class="works__flower--5" alt="worksセクションの花5" />
+          <img src="./img/flower/cherry-7-pink.svg" class="works__flower--5 sec-5" alt="worksセクションの花5" />
         </div>
       </div>
     </section>
@@ -1048,14 +1093,16 @@
           </div>
         </div>
         <div class="price-flower__wrapper">
-          <img src="./img/flower/flower-3-pink.svg" class="price__flower--1" alt="priceセクションの花1" />
-          <img src="./img/flower/flower-1-pink.svg" class="price__flower--2" alt="priceセクションの花2" />
-          <img src="./img/flower/cherry-4-pink.svg" class="price__flower--3" alt="priceセクションの花3" />
+          <img src="./img/flower/flower-3-pink.svg" class="price__flower--1 sec-1" alt="priceセクションの花1" />
+          <img src="./img/flower/flower-1-pink.svg" class="price__flower--2 sec-2" alt="priceセクションの花2" />
+          <img src="./img/flower/cherry-4-pink.svg" class="price__flower--3 sec-3" alt="priceセクションの花3" />
         </div>
       </div>
     </section>
 
     <section id="flow" class="flow">
+      <img class="flow__wave--sp" src="./img/flow/sp/wave-sp.svg" alt="波型の背景画像(sp)" />
+      <img class="flow__wave--pc" src="./img/flow/wave.svg" alt="波型の背景画像(pc)" />
       <div class="flow__inner">
         <div class="flow__contents">
           <div class="flow__head section__head js-in-view fade-in-up">
@@ -1110,15 +1157,15 @@
           </div>
         </div>
         <div class="flow-flower__wrapper">
-          <img src="./img/flower/flower-3-pink.svg" class="flow__flower--1" alt="flowセクションの花1" />
-          <img src="./img/flower/flower-3-pink.svg" class="flow__flower--2" alt="flowセクションの花2" />
-          <img src="./img/flower/flower-1-pink.svg" class="flow__flower--3" alt="flowセクションの花3" />
+          <img src="./img/flower/flower-3-pink.svg" class="flow__flower--1 sec-1" alt="flowセクションの花1" />
+          <img src="./img/flower/flower-3-pink.svg" class="flow__flower--2 sec-2" alt="flowセクションの花2" />
+          <img src="./img/flower/flower-1-pink.svg" class="flow__flower--3 sec-3" alt="flowセクションの花3" />
           <!-- 以下、PCのみ表示 -->
-          <img src="./img/flower/flower-6-pink.svg" class="flow__flower--4" alt="flowセクションの花4" />
-          <img src="./img/flower/flower-1-pink.svg" class="flow__flower--5" alt="flowセクションの花5" />
-          <img src="./img/flower/cherry-7-pink.svg" class="flow__flower--6" alt="flowセクションの花6" />
-          <img src="./img/flower/flower-3-pink.svg" class="flow__flower--7" alt="flowセクションの花7" />
-          <img src="./img/flower/cherry-4-pink.svg" class="flow__flower--8" alt="flowセクションの花8" />
+          <img src="./img/flower/flower-6-pink.svg" class="flow__flower--4 sec-4" alt="flowセクションの花4" />
+          <img src="./img/flower/flower-1-pink.svg" class="flow__flower--5 sec-5" alt="flowセクションの花5" />
+          <img src="./img/flower/cherry-7-pink.svg" class="flow__flower--6 sec-6" alt="flowセクションの花6" />
+          <img src="./img/flower/flower-3-pink.svg" class="flow__flower--7 sec-7" alt="flowセクションの花7" />
+          <img src="./img/flower/cherry-4-pink.svg" class="flow__flower--8 sec-8" alt="flowセクションの花8" />
         </div>
       </div>
     </section>
@@ -1134,15 +1181,6 @@
             <div class="swiper review__swiper">
               <div class="swiper-wrapper review__swiper-wrapper">
                 <div class="swiper-slide review__swiper-slide">
-                  <div class="review__title">「近隣対応がとても丁寧で安心でした」</div>
-                  <div class="review__type">
-                    <div class="review__type--label">依頼内容</div>
-                    <div class="review__type--text">空き家の解体</div>
-                  </div>
-                  <div class="review__message">お客様への引き渡し前で時間が限られていましたが、迅速に現地調査を行ってくださり助かりました。<br />近隣へのご挨拶や養生がきめ細やかで、トラブルもなくスムーズに完了。今後も引き続きお願いしたいと思っています。</div>
-                  <div class="review__person">京都府京都市　不動産会社 A社様</div>
-                </div>
-                <div class="swiper-slide review__swiper-slide">
                   <div class="review__title">「不安だった気持ちが安心に変わりました」</div>
                   <div class="review__type">
                     <div class="review__type--label">依頼内容</div>
@@ -1213,6 +1251,15 @@
                   </div>
                   <div class="review__message">小規模な相談にも丁寧に応じていただき、作業も手早くキレイでした。<br />ご近所の方からも評判が良かったです。</div>
                   <div class="review__person">兵庫県西宮市　Y様</div>
+                </div>
+                <div class="swiper-slide review__swiper-slide">
+                  <div class="review__title">「近隣対応がとても丁寧で安心でした」</div>
+                  <div class="review__type">
+                    <div class="review__type--label">依頼内容</div>
+                    <div class="review__type--text">空き家の解体</div>
+                  </div>
+                  <div class="review__message">お客様への引き渡し前で時間が限られていましたが、迅速に現地調査を行ってくださり助かりました。<br />近隣へのご挨拶や養生がきめ細やかで、トラブルもなくスムーズに完了。今後も引き続きお願いしたいと思っています。</div>
+                  <div class="review__person">京都府京都市　不動産会社 A社様</div>
                 </div>
               </div>
             </div>
@@ -1222,11 +1269,11 @@
           </div>
         </div>
         <div class="review-flower__wrapper">
-          <img src="./img/flower/cherry-7-pink.svg" class="review__flower--1" alt="reviewセクションの花1" />
-          <img src="./img/flower/flower-3-pink.svg" class="review__flower--2" alt="reviewセクションの花2" />
+          <img src="./img/flower/cherry-7-pink.svg" class="review__flower--1 sec-1" alt="reviewセクションの花1" />
+          <img src="./img/flower/flower-3-pink.svg" class="review__flower--2 sec-2" alt="reviewセクションの花2" />
           <!-- 以後、PCのみ表示 -->
-          <img src="./img/flower/cherry-6-pink.svg" class="review__flower--3" alt="reviewセクションの花3" />
-          <img src="./img/flower/flower-1-pink.svg" class="review__flower--4" alt="reviewセクションの花4" />
+          <img src="./img/flower/cherry-6-pink.svg" class="review__flower--3 sec-3" alt="reviewセクションの花3" />
+          <img src="./img/flower/flower-1-pink.svg" class="review__flower--4 sec-4" alt="reviewセクションの花4" />
         </div>
       </div>
     </section>

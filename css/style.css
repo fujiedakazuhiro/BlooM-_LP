@@ -180,6 +180,13 @@ body.is-no-scroll {
   position: absolute;
 }
 
+/* スペーサーのCSS */
+#header-spacer {
+  /* 固定解除時にチラつきを防ぐため、透明な状態を維持 */
+  visibility: hidden;
+  /* display: none/block で制御するため、高さのみを調整 */
+}
+
 .fv__header-2 {
   background: #fff;
 }
@@ -187,6 +194,12 @@ body.is-no-scroll {
   .fv__header-2 {
     background: transparent;
   }
+}
+.fv__header-2.is-sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 20;
 }
 
 .fv__logo-text,
@@ -287,10 +300,18 @@ body.is-no-scroll {
   display: flex;
 }
 
+.fv__tel-number {
+  gap: 2px;
+}
+
 .fv__tel-logo,
 .tel-logo {
   width: 12px;
   height: 15px;
+}
+
+.fv__tel-logo img {
+  vertical-align: baseline;
 }
 
 .fv__tel-text,
@@ -299,7 +320,7 @@ body.is-no-scroll {
   font-family: Roboto;
   font-size: 20px;
   font-style: normal;
-  font-weight: 900;
+  font-weight: 800;
   line-height: normal;
   letter-spacing: 1px;
 }
@@ -473,8 +494,8 @@ body.is-no-scroll {
   .fv__drawer--2 .drawer-button__bar:nth-child(3),
   .fv__drawer--3 .drawer-button__bar:nth-child(3) {
     width: 22px;
-    -webkit-transform: translateY(13px);
-            transform: translateY(13px);
+    -webkit-transform: translateY(11px);
+            transform: translateY(11px);
   }
 }
 .fv__drawer--1.is-checked,
@@ -542,8 +563,8 @@ body.is-no-scroll {
 .fv__drawer--1 {
   z-index: 1000;
   right: -100%;
-  -webkit-transition: right 0.5s ease;
-  transition: right 0.5s ease;
+  -webkit-transition: right 0.3s ease;
+  transition: right 0.3s ease;
 }
 @media screen and (min-width:768px) {
   .fv__drawer--1 {
@@ -695,6 +716,14 @@ body.is-no-scroll {
 .drawer__tel-link {
   padding-block: 5px;
   height: 100%;
+}
+
+.drawer__tel-number {
+  gap: 2px;
+}
+
+.drawer__tel-logo img {
+  vertical-align: baseline;
 }
 
 .drawer__line {
@@ -1442,11 +1471,11 @@ body.is-no-scroll {
 }
 
 .problem__demolish {
-  width: 377px;
-  height: 160px;
+  width: 400px;
+  height: 170px;
   background: url(../img/demolish-bubble.svg) no-repeat center center/contain;
   top: 146px;
-  right: -26px;
+  right: -35px;
 }
 @media screen and (min-width:1200px) {
   .problem__demolish {
@@ -1465,6 +1494,9 @@ body.is-no-scroll {
   }
 }
 
+.problem__demolish-text {
+  margin-top: 15px;
+}
 @media screen and (min-width:1200px) {
   .problem__demolish-text {
     margin-top: 10px;
@@ -2135,6 +2167,11 @@ body.is-no-scroll {
   background: url(../img/feature/sp/wave-sp.svg) no-repeat center top/cover;
   z-index: 3;
 }
+@media screen and (min-width:600px) {
+  .feature {
+    padding-bottom: 130px;
+  }
+}
 @media screen and (min-width:768px) {
   .feature {
     padding-top: 150px;
@@ -2147,6 +2184,11 @@ body.is-no-scroll {
     padding-bottom: 170px;
     margin-top: -437px;
     background: url(../img/feature/wave.svg) no-repeat center top/cover;
+  }
+}
+@media screen and (min-width:1450px) {
+  .feature {
+    padding-bottom: 200px;
   }
 }
 
@@ -2581,6 +2623,16 @@ body.is-no-scroll {
   -webkit-transform: rotate(-80deg);
           transform: rotate(-80deg);
 }
+@media screen and (min-width:600px) {
+  .feature__flower--4 {
+    bottom: 60px;
+  }
+}
+@media screen and (min-width:768px) {
+  .feature__flower--4 {
+    bottom: 100px;
+  }
+}
 @media screen and (min-width:1200px) {
   .feature__flower--4 {
     bottom: 2000px;
@@ -2887,20 +2939,78 @@ body.is-no-scroll {
   margin-top: -40px;
   padding-block: 86px 92px;
   position: relative;
-  background: url(../img/service/sp/wave-sp.svg) no-repeat center top/cover;
   z-index: 6;
+}
+@media screen and (min-width:600px) {
+  .service {
+    margin-top: -60px;
+    padding-block: 130px 140px;
+  }
 }
 @media screen and (min-width:768px) {
   .service {
     margin-top: -107px;
     padding-block: 138px 140px;
-    background: url(../img/service/wave.svg) no-repeat center top/cover;
   }
 }
 @media screen and (min-width:1200px) {
   .service {
     padding-block: 146px 172px;
     margin-top: -98px;
+  }
+}
+@media screen and (min-width:1450px) {
+  .service {
+    padding-block: 170px 172px;
+  }
+}
+@media screen and (min-width:1500px) {
+  .service {
+    padding-block: 210px 172px;
+  }
+}
+@media screen and (min-width:1600px) {
+  .service {
+    padding-block: 310px 172px;
+    margin-top: -180px;
+  }
+}
+
+.service__wave--sp {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  z-index: -1;
+}
+@media screen and (min-width:600px) {
+  .service__wave--sp {
+    display: none;
+  }
+}
+
+.service__wave--pc {
+  display: none;
+  z-index: -1;
+}
+@media screen and (min-width:600px) {
+  .service__wave--pc {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
+@media screen and (min-width:1600px) {
+  .service__wave--pc {
+    top: 80px;
   }
 }
 
@@ -3251,9 +3361,14 @@ body.is-no-scroll {
     padding-bottom: 75px;
   }
 }
+@media screen and (min-width:1600px) {
+  .works {
+    padding-top: 160px;
+  }
+}
 
 .works__inner {
-  padding-inline: 8px;
+  padding-inline: 3px;
 }
 
 .works-flower__wrapper {
@@ -3391,7 +3506,7 @@ body.is-no-scroll {
 }
 
 .works__swiper {
-  padding-inline: 12px;
+  padding-inline: 17px;
 }
 @media screen and (min-width:1200px) {
   .works__swiper {
@@ -3674,7 +3789,7 @@ body.is-no-scroll {
   .works__swiper-button-next {
     width: 56px;
     height: 56px;
-    top: 200px !important;
+    top: 220px !important;
   }
 }
 @media screen and (min-width:1400px) {
@@ -3700,17 +3815,32 @@ body.is-no-scroll {
 }
 @media screen and (min-width:900px) {
   .works__swiper-button-prev {
-    left: 180px !important;
+    left: 170px !important;
   }
 }
 @media screen and (min-width:1200px) {
   .works__swiper-button-prev {
-    left: 130px !important;
+    left: 80px !important;
   }
 }
 @media screen and (min-width:1400px) {
   .works__swiper-button-prev {
-    left: 169px !important;
+    left: 162px !important;
+  }
+}
+@media screen and (min-width:1450px) {
+  .works__swiper-button-prev {
+    left: 165px !important;
+  }
+}
+@media screen and (min-width:1500px) {
+  .works__swiper-button-prev {
+    left: 175px !important;
+  }
+}
+@media screen and (min-width:1600px) {
+  .works__swiper-button-prev {
+    left: 185px !important;
   }
 }
 
@@ -3725,17 +3855,32 @@ body.is-no-scroll {
 }
 @media screen and (min-width:900px) {
   .works__swiper-button-next {
-    right: 180px !important;
+    right: 170px !important;
   }
 }
 @media screen and (min-width:1200px) {
   .works__swiper-button-next {
-    right: 130px !important;
+    right: 80px !important;
   }
 }
 @media screen and (min-width:1400px) {
   .works__swiper-button-next {
-    right: 169px !important;
+    right: 162px !important;
+  }
+}
+@media screen and (min-width:1450px) {
+  .works__swiper-button-next {
+    right: 165px !important;
+  }
+}
+@media screen and (min-width:1500px) {
+  .works__swiper-button-next {
+    right: 175px !important;
+  }
+}
+@media screen and (min-width:1600px) {
+  .works__swiper-button-next {
+    right: 185px !important;
   }
 }
 
@@ -4082,6 +4227,14 @@ body.is-no-scroll {
   margin-top: 7px;
 }
 
+.cta__tel-number {
+  gap: 2px;
+}
+
+.cta__tel-logo img {
+  vertical-align: baseline;
+}
+
 .cta__line {
   display: block;
   width: 230px;
@@ -4107,6 +4260,11 @@ body.is-no-scroll {
 @media screen and (min-width:768px) {
   .price {
     padding-block: 63px 170px;
+  }
+}
+@media screen and (min-width:900px) {
+  .price {
+    padding-block: 63px 220px;
   }
 }
 @media screen and (min-width:1200px) {
@@ -4248,6 +4406,7 @@ body.is-no-scroll {
 .price-card__image img {
   width: 100%;
   aspect-ratio: 302/232;
+  border-radius: 4px 4px 0 0;
 }
 
 .price-card__description {
@@ -4349,14 +4508,18 @@ body.is-no-scroll {
   position: relative;
   margin-top: -97px;
   margin-bottom: -114px;
-  background: url(../img/flow/sp/wave-sp.svg) no-repeat center top/cover;
   z-index: 3;
+}
+@media screen and (min-width:600px) {
+  .flow {
+    padding-block: 205px 185px;
+    margin-top: -195px;
+  }
 }
 @media screen and (min-width:768px) {
   .flow {
     padding-block: 200px 176px;
     margin-top: -200px;
-    background: url(../img/flow/wave.svg) no-repeat center top/cover;
   }
 }
 @media screen and (min-width:900px) {
@@ -4366,8 +4529,58 @@ body.is-no-scroll {
 }
 @media screen and (min-width:1200px) {
   .flow {
-    padding-block: 0 224px;
+    padding-block: 220px 224px;
     margin-bottom: -224px;
+    margin-top: -400px;
+  }
+}
+@media screen and (min-width:1500px) {
+  .flow {
+    padding-block: 290px 224px;
+  }
+}
+@media screen and (min-width:1600px) {
+  .flow {
+    padding-block: 400px 224px;
+    margin-top: -480px;
+  }
+}
+
+.flow__wave--sp {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  z-index: -1;
+}
+@media screen and (min-width:600px) {
+  .flow__wave--sp {
+    display: none;
+  }
+}
+
+.flow__wave--pc {
+  display: none;
+}
+@media screen and (min-width:600px) {
+  .flow__wave--pc {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    z-index: -1;
+  }
+}
+@media screen and (min-width:1600px) {
+  .flow__wave--pc {
+    top: 90px;
   }
 }
 
@@ -4521,13 +4734,7 @@ body.is-no-scroll {
 }
 @media screen and (min-width:1200px) {
   .flow__contents {
-    padding-top: 220px;
-    margin-top: -400px;
     position: relative;
-  }
-}
-@media screen and (min-width:1200px) and (min-width:1200px) {
-  .flow__contents {
     max-width: 834px;
   }
 }
@@ -4780,14 +4987,24 @@ body.is-no-scroll {
   position: relative;
   z-index: 1;
 }
+@media screen and (min-width:900px) {
+  .review {
+    padding-block: 120px 143px;
+  }
+}
 @media screen and (min-width:1200px) {
   .review {
     padding-block: 237px 221px;
   }
 }
+@media screen and (min-width:1600px) {
+  .review {
+    padding-block: 320px 221px;
+  }
+}
 
 .review__inner {
-  padding-inline: 8px;
+  padding-inline: 3px;
 }
 @media screen and (min-width:768px) {
   .review__inner {
@@ -4883,13 +5100,13 @@ body.is-no-scroll {
 
 .review__swiper-container {
   margin-top: 38px !important;
-  padding-inline: 12px;
+  padding-inline: 17px;
   position: relative;
   max-width: 1280px !important;
   width: 100%;
   margin: 0 auto;
 }
-@media screen and (min-width:768px) {
+@media screen and (min-width:600px) {
   .review__swiper-container {
     padding-inline: 0;
   }
@@ -4897,7 +5114,7 @@ body.is-no-scroll {
 @media screen and (min-width:1200px) {
   .review__swiper-container {
     margin-top: 62px !important;
-    padding-inline: 36px;
+    padding-inline: 40px;
   }
 }
 
@@ -5053,9 +5270,19 @@ body.is-no-scroll {
   background: url(../img/review/review-prev.svg) no-repeat center center/contain;
   left: 0;
 }
+@media screen and (min-width:600px) {
+  .review__swiper-button-prev {
+    left: 80px !important;
+  }
+}
 @media screen and (min-width:768px) {
   .review__swiper-button-prev {
-    left: 145px !important;
+    left: 140px !important;
+  }
+}
+@media screen and (min-width:900px) {
+  .review__swiper-button-prev {
+    left: 165px !important;
   }
 }
 @media screen and (min-width:1200px) {
@@ -5068,9 +5295,19 @@ body.is-no-scroll {
   background: url(../img/review/review-next.svg) no-repeat center center/contain;
   right: 0;
 }
+@media screen and (min-width:600px) {
+  .review__swiper-button-next {
+    right: 80px !important;
+  }
+}
 @media screen and (min-width:768px) {
   .review__swiper-button-next {
-    right: 145px !important;
+    right: 140px !important;
+  }
+}
+@media screen and (min-width:900px) {
+  .review__swiper-button-next {
+    right: 165px !important;
   }
 }
 @media screen and (min-width:1200px) {
@@ -5086,10 +5323,20 @@ body.is-no-scroll {
   background: url(../img/instagram/sp/wave-sp.svg) no-repeat center top/cover;
   z-index: 3;
 }
+@media screen and (min-width:600px) {
+  .instagram {
+    padding-top: 160px;
+  }
+}
 @media screen and (min-width:768px) {
   .instagram {
     padding-top: 170px;
     margin-top: -150px;
+  }
+}
+@media screen and (min-width:900px) {
+  .instagram {
+    padding-top: 200px;
   }
 }
 @media screen and (min-width:1200px) {
@@ -5114,6 +5361,11 @@ body.is-no-scroll {
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
+}
+@media screen and (min-width:900px) {
+  .instagram__contents {
+    padding-bottom: 70px;
+  }
 }
 @media screen and (min-width:1200px) {
   .instagram__contents {
@@ -5144,6 +5396,12 @@ body.is-no-scroll {
   width: 20px;
   height: 20px;
 }
+@media screen and (min-width:600px) {
+  .instagram__title--logo img {
+    width: 25px;
+    height: 25px;
+  }
+}
 @media screen and (min-width:768px) {
   .instagram__title--logo img {
     width: 32px;
@@ -5157,6 +5415,11 @@ body.is-no-scroll {
   font-size: 24px;
   font-weight: 700;
   letter-spacing: 1.68px;
+}
+@media screen and (min-width:600px) {
+  .instagram__title--text {
+    font-size: 30px;
+  }
 }
 @media screen and (min-width:768px) {
   .instagram__title--text {
@@ -5182,6 +5445,11 @@ body.is-no-scroll {
 .instagram__button {
   margin-top: 24px;
   text-align: center;
+}
+@media screen and (min-width:600px) {
+  .instagram__button {
+    margin-top: 40px;
+  }
 }
 @media screen and (min-width:768px) {
   .instagram__button {
@@ -5271,6 +5539,28 @@ body.is-no-scroll {
   }
 }
 
+.footer__title--logo1 {
+  position: relative;
+  z-index: 1;
+}
+.footer__title--logo1::after {
+  position: absolute;
+  content: "";
+  background: #fff;
+  width: 64px;
+  height: 27px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: -1;
+}
+@media screen and (min-width:1200px) {
+  .footer__title--logo1::after {
+    width: 105px;
+    height: 45px;
+  }
+}
 .footer__title--logo1 img {
   width: 53px;
 }
@@ -5297,6 +5587,28 @@ body.is-no-scroll {
   }
 }
 
+.footer__title--logo2 {
+  position: relative;
+  z-index: 1;
+}
+.footer__title--logo2::after {
+  position: absolute;
+  content: "";
+  background: #fff;
+  width: 106px;
+  height: 27px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: -1;
+}
+@media screen and (min-width:1200px) {
+  .footer__title--logo2::after {
+    width: 172px;
+    height: 44px;
+  }
+}
 .footer__title--logo2 img {
   width: 83px;
 }
@@ -5502,6 +5814,12 @@ body.is-no-scroll {
     background: transparent;
   }
 }
+.to-top-button.is-active {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
 
 .to-top-button__inner {
   padding-inline: 12px;
@@ -5594,6 +5912,12 @@ body.is-no-scroll {
           align-items: center;
 }
 
+.tel-number.to-top__tel-number {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .to-top__tel-logo {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -5612,7 +5936,6 @@ body.is-no-scroll {
 
 .tel-text.to-top__tel-text {
   font-size: 16px;
-  font-weight: 800;
   letter-spacing: 0.32px;
 }
 
@@ -5660,4 +5983,711 @@ body.is-no-scroll {
   opacity: 1;
   -webkit-transform: translateY(0);
           transform: translateY(0);
+}
+
+/* =======================================================
+   花びらアニメーション設定 (競合回避のための最小限の設定)
+   ======================================================= */
+/* 1. Keyframes定義：落下と揺らぎ (transform: translateY で落下させる) */
+@-webkit-keyframes fall-and-sway {
+  0% {
+    opacity: 1;
+    /* 既存の bottom/right で設定された初期位置からスタート */
+    -webkit-transform: translateY(0) translateX(0) rotate(0deg);
+            transform: translateY(0) translateX(0) rotate(0deg);
+  }
+  50% {
+    /* 途中の揺らぎ */
+    -webkit-transform: translateY(45%) translateX(5vw) rotate(180deg);
+            transform: translateY(45%) translateX(5vw) rotate(180deg);
+  }
+  100% {
+    opacity: 0;
+    /* 画面の下端（110%）まで落とす */
+    -webkit-transform: translateY(110%) translateX(10vw) rotate(360deg);
+            transform: translateY(110%) translateX(10vw) rotate(360deg);
+  }
+}
+@keyframes fall-and-sway {
+  0% {
+    opacity: 1;
+    /* 既存の bottom/right で設定された初期位置からスタート */
+    -webkit-transform: translateY(0) translateX(0) rotate(0deg);
+            transform: translateY(0) translateX(0) rotate(0deg);
+  }
+  50% {
+    /* 途中の揺らぎ */
+    -webkit-transform: translateY(45%) translateX(5vw) rotate(180deg);
+            transform: translateY(45%) translateX(5vw) rotate(180deg);
+  }
+  100% {
+    opacity: 0;
+    /* 画面の下端（110%）まで落とす */
+    -webkit-transform: translateY(110%) translateX(10vw) rotate(360deg);
+            transform: translateY(110%) translateX(10vw) rotate(360deg);
+  }
+}
+/* 2. 変数定義 */
+/* 3. ループ処理：sec-1 から sec-15 までの個別設定 */
+/* セレクタは .sec-1 のままでOK */
+.sec-1 {
+  /* 共通アニメーション設定 */
+  -webkit-animation-name: fall-and-sway;
+          animation-name: fall-and-sway;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  /* -------------------------------------
+     アニメーションの速度と遅延をランダムに設定
+  ------------------------------------- */
+  -webkit-animation-duration: 25s;
+          animation-duration: 25s;
+  -webkit-animation-delay: 0.5600279188s;
+          animation-delay: 0.5600279188s;
+  /* -------------------------------------
+     ★重要：既存のCSSとの競合を防ぐため、
+     top/left/width/height の設定はすべて削除しました。
+     既存の .fv__flower--X クラスの設定が優先されます。
+  ------------------------------------- */
+  position: absolute; /* 念のため再度設定 */
+  z-index: 10;
+}
+
+/* セレクタは .sec-2 のままでOK */
+.sec-2 {
+  /* 共通アニメーション設定 */
+  -webkit-animation-name: fall-and-sway;
+          animation-name: fall-and-sway;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  /* -------------------------------------
+     アニメーションの速度と遅延をランダムに設定
+  ------------------------------------- */
+  -webkit-animation-duration: 16s;
+          animation-duration: 16s;
+  -webkit-animation-delay: 9.8853432472s;
+          animation-delay: 9.8853432472s;
+  /* -------------------------------------
+     ★重要：既存のCSSとの競合を防ぐため、
+     top/left/width/height の設定はすべて削除しました。
+     既存の .fv__flower--X クラスの設定が優先されます。
+  ------------------------------------- */
+  position: absolute; /* 念のため再度設定 */
+  z-index: 10;
+}
+
+/* セレクタは .sec-3 のままでOK */
+.sec-3 {
+  /* 共通アニメーション設定 */
+  -webkit-animation-name: fall-and-sway;
+          animation-name: fall-and-sway;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  /* -------------------------------------
+     アニメーションの速度と遅延をランダムに設定
+  ------------------------------------- */
+  -webkit-animation-duration: 24s;
+          animation-duration: 24s;
+  -webkit-animation-delay: 0.0252169954s;
+          animation-delay: 0.0252169954s;
+  /* -------------------------------------
+     ★重要：既存のCSSとの競合を防ぐため、
+     top/left/width/height の設定はすべて削除しました。
+     既存の .fv__flower--X クラスの設定が優先されます。
+  ------------------------------------- */
+  position: absolute; /* 念のため再度設定 */
+  z-index: 10;
+}
+
+/* セレクタは .sec-4 のままでOK */
+.sec-4 {
+  /* 共通アニメーション設定 */
+  -webkit-animation-name: fall-and-sway;
+          animation-name: fall-and-sway;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  /* -------------------------------------
+     アニメーションの速度と遅延をランダムに設定
+  ------------------------------------- */
+  -webkit-animation-duration: 17s;
+          animation-duration: 17s;
+  -webkit-animation-delay: 4.2821262186s;
+          animation-delay: 4.2821262186s;
+  /* -------------------------------------
+     ★重要：既存のCSSとの競合を防ぐため、
+     top/left/width/height の設定はすべて削除しました。
+     既存の .fv__flower--X クラスの設定が優先されます。
+  ------------------------------------- */
+  position: absolute; /* 念のため再度設定 */
+  z-index: 10;
+}
+
+/* セレクタは .sec-5 のままでOK */
+.sec-5 {
+  /* 共通アニメーション設定 */
+  -webkit-animation-name: fall-and-sway;
+          animation-name: fall-and-sway;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  /* -------------------------------------
+     アニメーションの速度と遅延をランダムに設定
+  ------------------------------------- */
+  -webkit-animation-duration: 27s;
+          animation-duration: 27s;
+  -webkit-animation-delay: 9.7263719468s;
+          animation-delay: 9.7263719468s;
+  /* -------------------------------------
+     ★重要：既存のCSSとの競合を防ぐため、
+     top/left/width/height の設定はすべて削除しました。
+     既存の .fv__flower--X クラスの設定が優先されます。
+  ------------------------------------- */
+  position: absolute; /* 念のため再度設定 */
+  z-index: 10;
+}
+
+/* セレクタは .sec-6 のままでOK */
+.sec-6 {
+  /* 共通アニメーション設定 */
+  -webkit-animation-name: fall-and-sway;
+          animation-name: fall-and-sway;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  /* -------------------------------------
+     アニメーションの速度と遅延をランダムに設定
+  ------------------------------------- */
+  -webkit-animation-duration: 20s;
+          animation-duration: 20s;
+  -webkit-animation-delay: 9.8296849542s;
+          animation-delay: 9.8296849542s;
+  /* -------------------------------------
+     ★重要：既存のCSSとの競合を防ぐため、
+     top/left/width/height の設定はすべて削除しました。
+     既存の .fv__flower--X クラスの設定が優先されます。
+  ------------------------------------- */
+  position: absolute; /* 念のため再度設定 */
+  z-index: 10;
+}
+
+/* セレクタは .sec-7 のままでOK */
+.sec-7 {
+  /* 共通アニメーション設定 */
+  -webkit-animation-name: fall-and-sway;
+          animation-name: fall-and-sway;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  /* -------------------------------------
+     アニメーションの速度と遅延をランダムに設定
+  ------------------------------------- */
+  -webkit-animation-duration: 19s;
+          animation-duration: 19s;
+  -webkit-animation-delay: 5.9308817945s;
+          animation-delay: 5.9308817945s;
+  /* -------------------------------------
+     ★重要：既存のCSSとの競合を防ぐため、
+     top/left/width/height の設定はすべて削除しました。
+     既存の .fv__flower--X クラスの設定が優先されます。
+  ------------------------------------- */
+  position: absolute; /* 念のため再度設定 */
+  z-index: 10;
+}
+
+/* セレクタは .sec-8 のままでOK */
+.sec-8 {
+  /* 共通アニメーション設定 */
+  -webkit-animation-name: fall-and-sway;
+          animation-name: fall-and-sway;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  /* -------------------------------------
+     アニメーションの速度と遅延をランダムに設定
+  ------------------------------------- */
+  -webkit-animation-duration: 18s;
+          animation-duration: 18s;
+  -webkit-animation-delay: 1.8114840622s;
+          animation-delay: 1.8114840622s;
+  /* -------------------------------------
+     ★重要：既存のCSSとの競合を防ぐため、
+     top/left/width/height の設定はすべて削除しました。
+     既存の .fv__flower--X クラスの設定が優先されます。
+  ------------------------------------- */
+  position: absolute; /* 念のため再度設定 */
+  z-index: 10;
+}
+
+/* セレクタは .sec-9 のままでOK */
+.sec-9 {
+  /* 共通アニメーション設定 */
+  -webkit-animation-name: fall-and-sway;
+          animation-name: fall-and-sway;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  /* -------------------------------------
+     アニメーションの速度と遅延をランダムに設定
+  ------------------------------------- */
+  -webkit-animation-duration: 30s;
+          animation-duration: 30s;
+  -webkit-animation-delay: 8.1971424441s;
+          animation-delay: 8.1971424441s;
+  /* -------------------------------------
+     ★重要：既存のCSSとの競合を防ぐため、
+     top/left/width/height の設定はすべて削除しました。
+     既存の .fv__flower--X クラスの設定が優先されます。
+  ------------------------------------- */
+  position: absolute; /* 念のため再度設定 */
+  z-index: 10;
+}
+
+/* セレクタは .sec-10 のままでOK */
+.sec-10 {
+  /* 共通アニメーション設定 */
+  -webkit-animation-name: fall-and-sway;
+          animation-name: fall-and-sway;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  /* -------------------------------------
+     アニメーションの速度と遅延をランダムに設定
+  ------------------------------------- */
+  -webkit-animation-duration: 19s;
+          animation-duration: 19s;
+  -webkit-animation-delay: 4.5138520968s;
+          animation-delay: 4.5138520968s;
+  /* -------------------------------------
+     ★重要：既存のCSSとの競合を防ぐため、
+     top/left/width/height の設定はすべて削除しました。
+     既存の .fv__flower--X クラスの設定が優先されます。
+  ------------------------------------- */
+  position: absolute; /* 念のため再度設定 */
+  z-index: 10;
+}
+
+/* セレクタは .sec-11 のままでOK */
+.sec-11 {
+  /* 共通アニメーション設定 */
+  -webkit-animation-name: fall-and-sway;
+          animation-name: fall-and-sway;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  /* -------------------------------------
+     アニメーションの速度と遅延をランダムに設定
+  ------------------------------------- */
+  -webkit-animation-duration: 20s;
+          animation-duration: 20s;
+  -webkit-animation-delay: 2.5442339178s;
+          animation-delay: 2.5442339178s;
+  /* -------------------------------------
+     ★重要：既存のCSSとの競合を防ぐため、
+     top/left/width/height の設定はすべて削除しました。
+     既存の .fv__flower--X クラスの設定が優先されます。
+  ------------------------------------- */
+  position: absolute; /* 念のため再度設定 */
+  z-index: 10;
+}
+
+/* セレクタは .sec-12 のままでOK */
+.sec-12 {
+  /* 共通アニメーション設定 */
+  -webkit-animation-name: fall-and-sway;
+          animation-name: fall-and-sway;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  /* -------------------------------------
+     アニメーションの速度と遅延をランダムに設定
+  ------------------------------------- */
+  -webkit-animation-duration: 27s;
+          animation-duration: 27s;
+  -webkit-animation-delay: 5.5036905588s;
+          animation-delay: 5.5036905588s;
+  /* -------------------------------------
+     ★重要：既存のCSSとの競合を防ぐため、
+     top/left/width/height の設定はすべて削除しました。
+     既存の .fv__flower--X クラスの設定が優先されます。
+  ------------------------------------- */
+  position: absolute; /* 念のため再度設定 */
+  z-index: 10;
+}
+
+/* セレクタは .sec-13 のままでOK */
+.sec-13 {
+  /* 共通アニメーション設定 */
+  -webkit-animation-name: fall-and-sway;
+          animation-name: fall-and-sway;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  /* -------------------------------------
+     アニメーションの速度と遅延をランダムに設定
+  ------------------------------------- */
+  -webkit-animation-duration: 19s;
+          animation-duration: 19s;
+  -webkit-animation-delay: 0.7961351072s;
+          animation-delay: 0.7961351072s;
+  /* -------------------------------------
+     ★重要：既存のCSSとの競合を防ぐため、
+     top/left/width/height の設定はすべて削除しました。
+     既存の .fv__flower--X クラスの設定が優先されます。
+  ------------------------------------- */
+  position: absolute; /* 念のため再度設定 */
+  z-index: 10;
+}
+
+/* セレクタは .sec-14 のままでOK */
+.sec-14 {
+  /* 共通アニメーション設定 */
+  -webkit-animation-name: fall-and-sway;
+          animation-name: fall-and-sway;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  /* -------------------------------------
+     アニメーションの速度と遅延をランダムに設定
+  ------------------------------------- */
+  -webkit-animation-duration: 25s;
+          animation-duration: 25s;
+  -webkit-animation-delay: 0.6433828757s;
+          animation-delay: 0.6433828757s;
+  /* -------------------------------------
+     ★重要：既存のCSSとの競合を防ぐため、
+     top/left/width/height の設定はすべて削除しました。
+     既存の .fv__flower--X クラスの設定が優先されます。
+  ------------------------------------- */
+  position: absolute; /* 念のため再度設定 */
+  z-index: 10;
+}
+
+/* セレクタは .sec-15 のままでOK */
+.sec-15 {
+  /* 共通アニメーション設定 */
+  -webkit-animation-name: fall-and-sway;
+          animation-name: fall-and-sway;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  /* -------------------------------------
+     アニメーションの速度と遅延をランダムに設定
+  ------------------------------------- */
+  -webkit-animation-duration: 30s;
+          animation-duration: 30s;
+  -webkit-animation-delay: 5.4000256345s;
+          animation-delay: 5.4000256345s;
+  /* -------------------------------------
+     ★重要：既存のCSSとの競合を防ぐため、
+     top/left/width/height の設定はすべて削除しました。
+     既存の .fv__flower--X クラスの設定が優先されます。
+  ------------------------------------- */
+  position: absolute; /* 念のため再度設定 */
+  z-index: 10;
+}
+
+/* ---------------------------------------------------- */
+/* Keyframes: 「ぽわっとフワッと出現」を定義 */
+/* ---------------------------------------------------- */
+@-webkit-keyframes soft-float-in {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(20px) scale(0.8);
+            transform: translateY(20px) scale(0.8); /* 20px下から、少し縮小した状態でスタート */
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0) scale(1);
+            transform: translateY(0) scale(1); /* 最終的に所定の位置とサイズに、滑らかに到達 */
+  }
+}
+@keyframes soft-float-in {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(20px) scale(0.8);
+            transform: translateY(20px) scale(0.8); /* 20px下から、少し縮小した状態でスタート */
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0) scale(1);
+            transform: translateY(0) scale(1); /* 最終的に所定の位置とサイズに、滑らかに到達 */
+  }
+}
+/* ---------------------------------------------------- */
+/* 共通アニメーション設定 */
+/* ---------------------------------------------------- */
+.problem__item {
+  opacity: 0; /* 初期状態では非表示 */
+}
+
+/* 親に.is-animatedが付いた時にアニメーションを適用 */
+.is-animated .problem__item {
+  -webkit-animation-name: soft-float-in;
+          animation-name: soft-float-in;
+  -webkit-animation-duration: 0.7s;
+          animation-duration: 0.7s; /* アニメーションの時間（フワッと見せるため少し長め） */
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-timing-function: ease-out;
+          animation-timing-function: ease-out; /* 緩やかな動き */
+}
+
+/* ---------------------------------------------------- */
+/* 個別ディレイの設定（ポコポコ出現） */
+/* ---------------------------------------------------- */
+.is-animated .problem__inheritance {
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+}
+
+.is-animated .problem__demolish {
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+}
+
+.is-animated .problem__price {
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+}
+
+.is-animated .problem__contract {
+  -webkit-animation-delay: 1.5s;
+          animation-delay: 1.5s;
+}
+
+.is-animated .problem__trouble {
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
+}
+
+.is-animated .problem__valuables {
+  -webkit-animation-delay: 2.5s;
+          animation-delay: 2.5s;
+}
+
+/* ---------------------------------------------------- */
+/* Keyframes: フワッと浮かぶ動きを定義 */
+/* ---------------------------------------------------- */
+@-webkit-keyframes soft-float-in-subtle {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(10px);
+            transform: translateY(10px); /* わずか10px下からスタート（小さな動き） */
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+@keyframes soft-float-in-subtle {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(10px);
+            transform: translateY(10px); /* わずか10px下からスタート（小さな動き） */
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+/* ---------------------------------------------------- */
+/* カードの初期状態とアニメーションの共通設定 */
+/* ---------------------------------------------------- */
+.case__card {
+  /* アニメーション開始前の初期状態（非表示・少し下に移動） */
+  opacity: 0;
+  -webkit-transform: translateY(10px);
+          transform: translateY(10px);
+  /* 念のため、アニメーション中に要素が飛び出すのを防ぐ */
+  /* transition: none !important; */
+}
+
+/* 親要素に.is-loadedクラスが付与されたらアニメーションを適用 */
+.is-loaded .case__card {
+  -webkit-animation-name: soft-float-in-subtle;
+          animation-name: soft-float-in-subtle;
+  -webkit-animation-duration: 0.6s;
+          animation-duration: 0.6s; /* アニメーションの時間 */
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards; /* 終了後、最終状態を維持 */
+  -webkit-animation-timing-function: ease-out;
+          animation-timing-function: ease-out; /* 緩やかな動き */
+}
+
+/* ---------------------------------------------------- */
+/* Keyframes: フワッと浮かぶ動き (再定義) */
+/* ---------------------------------------------------- */
+@keyframes soft-float-in-subtle {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(10px);
+            transform: translateY(10px); /* わずか10px下からスタート（小さな動き） */
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+/* ---------------------------------------------------- */
+/* カードの初期状態とアニメーションの共通設定 */
+/* ---------------------------------------------------- */
+.feature__card {
+  /* アニメーション開始前の初期状態 */
+  opacity: 0;
+  -webkit-transform: translateY(10px);
+          transform: translateY(10px);
+}
+
+/* JavaScriptで付与するトリガークラス */
+.feature__card.is-visible {
+  -webkit-animation-name: soft-float-in-subtle;
+          animation-name: soft-float-in-subtle;
+  -webkit-animation-duration: 0.6s;
+          animation-duration: 0.6s; /* アニメーションの時間 */
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-timing-function: ease-out;
+          animation-timing-function: ease-out; /* 緩やかな動き */
+}
+
+/* ---------------------------------------------------- */
+/* Keyframes: フワッと浮かぶ動き */
+/* ---------------------------------------------------- */
+@keyframes soft-float-in-subtle {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(10px);
+            transform: translateY(10px); /* わずか10px下からスタート */
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+/* ---------------------------------------------------- */
+/* サービスエリアカードの初期状態とアニメーション設定 */
+/* ---------------------------------------------------- */
+.service__area-card {
+  /* アニメーション開始前の初期状態 */
+  opacity: 0;
+  -webkit-transform: translateY(10px);
+          transform: translateY(10px);
+}
+
+/* JavaScriptで付与するトリガークラス */
+.service__area-card.is-area-visible {
+  -webkit-animation-name: soft-float-in-subtle;
+          animation-name: soft-float-in-subtle;
+  -webkit-animation-duration: 0.6s;
+          animation-duration: 0.6s; /* アニメーションの時間 */
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-timing-function: ease-out;
+          animation-timing-function: ease-out; /* 緩やかな動き */
+}
+
+/* ---------------------------------------------------- */
+/* Keyframes: フワッと浮かぶ動き (再確認) */
+/* ---------------------------------------------------- */
+@keyframes soft-float-in-subtle {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(10px);
+            transform: translateY(10px); /* わずか10px下からスタート */
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+/* ---------------------------------------------------- */
+/* 料金カードの初期状態とアニメーション設定 */
+/* ---------------------------------------------------- */
+.price__card {
+  /* アニメーション開始前の初期状態 */
+  opacity: 0;
+  -webkit-transform: translateY(10px);
+          transform: translateY(10px);
+}
+
+/* JavaScriptで付与するトリガークラス */
+.price__card.is-price-visible {
+  -webkit-animation-name: soft-float-in-subtle;
+          animation-name: soft-float-in-subtle;
+  -webkit-animation-duration: 0.6s;
+          animation-duration: 0.6s; /* アニメーションの時間 */
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-timing-function: ease-out;
+          animation-timing-function: ease-out; /* 緩やかな動き */
+}
+
+@-webkit-keyframes bounce-in {
+  0% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+    opacity: 0;
+  }
+  60% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes bounce-in {
+  0% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+    opacity: 0;
+  }
+  60% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 1;
+  }
+}
+.feature-achievement__image.is-visible::before {
+  -webkit-animation: bounce-in 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+          animation: bounce-in 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+.feature-achievement__image::before {
+  -webkit-transform: scale(0.5);
+          transform: scale(0.5);
+  opacity: 0;
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
 }

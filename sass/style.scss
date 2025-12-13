@@ -1,3 +1,4 @@
+@use "sass:math";
 @use "sass:map";
 
 $main-color: blue; //仮の色
@@ -15,6 +16,9 @@ $breakpoints: (
   mt: "screen and (min-width:900px)",
   md: "screen and (min-width:1200px)",
   ml: "screen and (min-width:1400px)",
+  mm: "screen and (min-width:1450px)",
+  mn: "screen and (min-width:1500px)",
+  mo: "screen and (min-width:1600px)",
 );
 
 //メディアクエリー
@@ -206,6 +210,13 @@ body {
   position: absolute;
 }
 
+/* スペーサーのCSS */
+#header-spacer {
+  /* 固定解除時にチラつきを防ぐため、透明な状態を維持 */
+  visibility: hidden;
+  /* display: none/block で制御するため、高さのみを調整 */
+}
+
 .fv__header-2 {
   background: #fff;
 
@@ -214,12 +225,12 @@ body {
   }
 
   // 一旦ストップ
-  // &.is-sticky {
-  //   position: fixed;
-  //   top: 0;
-  //   width: 100%;
-  //   z-index: 20;
-  // }
+  &.is-sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 20;
+  }
 }
 
 .fv__logo {
@@ -311,10 +322,20 @@ body {
   display: flex;
 }
 
+.fv__tel-number {
+  gap: 2px;
+}
+
 .fv__tel-logo,
 .tel-logo {
   width: 12px;
   height: 15px;
+}
+
+.fv__tel-logo {
+  img {
+    vertical-align: baseline;
+  }
 }
 
 .fv__tel-text,
@@ -323,7 +344,7 @@ body {
   font-family: Roboto;
   font-size: 20px;
   font-style: normal;
-  font-weight: 900;
+  font-weight: 800;
   line-height: normal;
   letter-spacing: 1px;
 }
@@ -462,7 +483,7 @@ body {
 
       @include mq(ms) {
         width: 22px;
-        transform: translateY(13px); //pp
+        transform: translateY(11px); //pp
       }
     }
   }
@@ -532,7 +553,7 @@ body {
   z-index: 1000;
 
   right: -100%;
-  transition: right 0.5s ease;
+  transition: right 0.3s ease;
 
   @include mq(ms) {
     margin-left: 18px; //pp
@@ -676,10 +697,12 @@ body {
 }
 
 .drawer__tel-number {
+  gap: 2px;
 }
 
 .drawer__tel-logo {
   img {
+    vertical-align: baseline;
   }
 }
 
@@ -1431,11 +1454,11 @@ body {
 }
 
 .problem__demolish {
-  width: 377px;
-  height: 160px;
+  width: 400px;
+  height: 170px;
   background: url(../img/demolish-bubble.svg) no-repeat center center / contain;
   top: 146px;
-  right: -26px;
+  right: -35px;
 
   @include mq(md) {
     width: 405px;
@@ -1456,6 +1479,8 @@ body {
 }
 
 .problem__demolish-text {
+  margin-top: 15px;
+
   @include mq(md) {
     margin-top: 10px; //pp
   }
@@ -2131,6 +2156,10 @@ body {
   background: url(../img/feature/sp/wave-sp.svg) no-repeat center top / cover;
   z-index: 3;
 
+  @include mq(sd) {
+    padding-bottom: 130px;
+  }
+
   @include mq(ms) {
     padding-top: 150px;
     padding-bottom: 150px;
@@ -2143,6 +2172,10 @@ body {
     // margin-top: -368px;
     margin-top: -437px; //pp
     background: url(../img/feature/wave.svg) no-repeat center top / cover;
+  }
+
+  @include mq(mm) {
+    padding-bottom: 200px;
   }
 
   // 11/30コメントアウト
@@ -2603,6 +2636,14 @@ body {
   height: 84px;
   transform: rotate(-80deg);
 
+  @include mq(sd) {
+    bottom: 60px;
+  }
+
+  @include mq(ms) {
+    bottom: 100px;
+  }
+
   @include mq(md) {
     bottom: 2000px;
     right: 150px;
@@ -2916,19 +2957,37 @@ body {
   margin-top: -40px;
   padding-block: 86px 92px;
   position: relative;
-  background: url(../img/service/sp/wave-sp.svg) no-repeat center top / cover;
+  // background: url(../img/service/sp/wave-sp.svg) no-repeat center top / cover;
   z-index: 6;
+
+  @include mq(sd) {
+    margin-top: -60px;
+    padding-block: 130px 140px;
+  }
 
   @include mq(ms) {
     margin-top: -107px;
     padding-block: 138px 140px;
-    background: url(../img/service/wave.svg) no-repeat center top / cover;
+    // background: url(../img/service/wave.svg) no-repeat center top / cover;
   }
 
   @include mq(md) {
     // padding-block: 138px 190px;
     padding-block: 146px 172px; //pp
     margin-top: -98px; //pp
+  }
+
+  @include mq(mm) {
+    padding-block: 170px 172px;
+  }
+
+  @include mq(mn) {
+    padding-block: 210px 172px;
+  }
+
+  @include mq(mo) {
+    padding-block: 310px 172px;
+    margin-top: -180px;
   }
 
   // 11/30コメントアウト
@@ -2966,6 +3025,39 @@ body {
   //     height: 103px;
   //   }
   // }
+}
+
+.service__wave--sp {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+
+  @include mq(sd) {
+    display: none;
+  }
+}
+
+.service__wave--pc {
+  display: none;
+  z-index: -1;
+
+  @include mq(sd) {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @include mq(mo) {
+    top: 80px;
+  }
 }
 
 .service__inner {
@@ -3290,10 +3382,14 @@ body {
     // padding-bottom: 80px;
     padding-bottom: 75px; //pp
   }
+
+  @include mq(mo) {
+    padding-top: 160px;
+  }
 }
 
 .works__inner {
-  padding-inline: 8px;
+  padding-inline: 3px;
 }
 
 .works-flower__wrapper {
@@ -3430,7 +3526,7 @@ body {
 }
 
 .works__swiper {
-  padding-inline: 12px;
+  padding-inline: 17px;
 
   @include mq(md) {
     padding-top: 67px;
@@ -3696,7 +3792,7 @@ body {
   @include mq(md) {
     width: 56px;
     height: 56px;
-    top: 200px !important;
+    top: 220px !important;
   }
 
   @include mq(ml) {
@@ -3708,6 +3804,7 @@ body {
     display: none !important;
   }
 }
+
 .works__swiper-button-prev {
   background: url(../img/works/prev-arrow.svg) no-repeat center center / contain;
   left: 0 !important;
@@ -3717,17 +3814,30 @@ body {
   }
 
   @include mq(mt) {
-    left: 180px !important;
+    left: 170px !important;
   }
 
   @include mq(md) {
-    left: 130px !important;
+    left: 80px !important;
   }
 
   @include mq(ml) {
-    left: 169px !important;
+    left: 162px !important;
+  }
+
+  @include mq(mm) {
+    left: 165px !important;
+  }
+
+  @include mq(mn) {
+    left: 175px !important;
+  }
+
+  @include mq(mo) {
+    left: 185px !important;
   }
 }
+
 .works__swiper-button-next {
   background: url(../img/works/next-arrow.svg) no-repeat center center / contain;
   right: 0 !important;
@@ -3737,15 +3847,27 @@ body {
   }
 
   @include mq(mt) {
-    right: 180px !important;
+    right: 170px !important;
   }
 
   @include mq(md) {
-    right: 130px !important;
+    right: 80px !important;
   }
 
   @include mq(ml) {
-    right: 169px !important;
+    right: 162px !important;
+  }
+
+  @include mq(mm) {
+    right: 165px !important;
+  }
+
+  @include mq(mn) {
+    right: 175px !important;
+  }
+
+  @include mq(mo) {
+    right: 185px !important;
   }
 }
 
@@ -4106,9 +4228,13 @@ body {
 }
 
 .cta__tel-number {
+  gap: 2px;
 }
 
 .cta__tel-logo {
+  img {
+    vertical-align: baseline;
+  }
 }
 
 .cta__tel-text {
@@ -4157,6 +4283,10 @@ body {
 
   @include mq(ms) {
     padding-block: 63px 170px;
+  }
+
+  @include mq(mt) {
+    padding-block: 63px 220px;
   }
 
   @include mq(md) {
@@ -4313,6 +4443,7 @@ body {
     width: 100%;
     // aspect-ratio: 302 / 227;
     aspect-ratio: 302 / 232; //pp
+    border-radius: 4px 4px 0 0;
   }
 }
 
@@ -4406,13 +4537,18 @@ body {
   position: relative;
   margin-top: -97px;
   margin-bottom: -114px;
-  background: url(../img/flow/sp/wave-sp.svg) no-repeat center top / cover;
+  // background: url(../img/flow/sp/wave-sp.svg) no-repeat center top / cover;
   z-index: 3;
+
+  @include mq(sd) {
+    padding-block: 205px 185px;
+    margin-top: -195px;
+  }
 
   @include mq(ms) {
     padding-block: 200px 176px;
     margin-top: -200px;
-    background: url(../img/flow/wave.svg) no-repeat center top / cover;
+    // background: url(../img/flow/wave.svg) no-repeat center top / cover;
   }
 
   @include mq(mt) {
@@ -4421,8 +4557,18 @@ body {
 
   @include mq(md) {
     // padding-block: 202px 212px;
-    padding-block: 0 224px;
+    padding-block: 220px 224px;
     margin-bottom: -224px;
+    margin-top: -400px;
+  }
+
+  @include mq(mn) {
+    padding-block: 290px 224px;
+  }
+
+  @include mq(mo) {
+    padding-block: 400px 224px;
+    margin-top: -480px;
   }
 
   // 11/30コメントアウト
@@ -4461,6 +4607,39 @@ body {
   //     background: url(../img/flow/wave.svg) no-repeat bottom center;
   //   }
   // }
+}
+
+.flow__wave--sp {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+
+  @include mq(sd) {
+    display: none;
+  }
+}
+
+.flow__wave--pc {
+  display: none;
+
+  @include mq(sd) {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+
+  @include mq(mo) {
+    top: 90px;
+  }
 }
 
 .flow__inner {
@@ -4606,14 +4785,11 @@ body {
   margin-inline: auto;
 
   @include mq(md) {
-    padding-top: 220px;
-    margin-top: -400px;
     // padding-bottom: 200px;
+    // padding-top: 220px;
+    // margin-top: -400px;
     position: relative;
-
-    @include mq(md) {
-      max-width: 834px;
-    }
+    max-width: 834px;
 
     // 11/30コメントアウト
     // &::before {
@@ -4904,13 +5080,21 @@ body {
   position: relative;
   z-index: 1;
 
+  @include mq(mt) {
+    padding-block: 120px 143px;
+  }
+
   @include mq(md) {
     padding-block: 237px 221px;
+  }
+
+  @include mq(mo) {
+    padding-block: 320px 221px;
   }
 }
 
 .review__inner {
-  padding-inline: 8px;
+  padding-inline: 3px;
 
   @include mq(ms) {
     padding-inline: 0;
@@ -5011,19 +5195,19 @@ body {
 .review__swiper-container {
   // margin-top: 32px !important;
   margin-top: 38px !important; //pp
-  padding-inline: 12px;
+  padding-inline: 17px;
   position: relative;
   max-width: 1280px !important;
   width: 100%;
   margin: 0 auto;
 
-  @include mq(ms) {
+  @include mq(sd) {
     padding-inline: 0;
   }
 
   @include mq(md) {
     margin-top: 62px !important;
-    padding-inline: 36px;
+    padding-inline: 40px;
   }
 }
 
@@ -5178,8 +5362,16 @@ body {
   background: url(../img/review/review-prev.svg) no-repeat center center / contain;
   left: 0;
 
+  @include mq(sd) {
+    left: 80px !important;
+  }
+
   @include mq(ms) {
-    left: 145px !important;
+    left: 140px !important;
+  }
+
+  @include mq(mt) {
+    left: 165px !important;
   }
 
   @include mq(md) {
@@ -5191,8 +5383,16 @@ body {
   background: url(../img/review/review-next.svg) no-repeat center center / contain;
   right: 0;
 
+  @include mq(sd) {
+    right: 80px !important;
+  }
+
   @include mq(ms) {
-    right: 145px !important;
+    right: 140px !important;
+  }
+
+  @include mq(mt) {
+    right: 165px !important;
   }
 
   @include mq(md) {
@@ -5208,9 +5408,17 @@ body {
   background: url(../img/instagram/sp/wave-sp.svg) no-repeat center top / cover;
   z-index: 3;
 
+  @include mq(sd) {
+    padding-top: 160px;
+  }
+
   @include mq(ms) {
     padding-top: 170px;
     margin-top: -150px;
+  }
+
+  @include mq(mt) {
+    padding-top: 200px;
   }
 
   @include mq(md) {
@@ -5255,6 +5463,10 @@ body {
   max-width: 600px;
   margin: 0 auto;
 
+  @include mq(mt) {
+    padding-bottom: 70px;
+  }
+
   @include mq(md) {
     padding-bottom: 64px;
     max-width: 1310px;
@@ -5277,6 +5489,11 @@ body {
     width: 20px;
     height: 20px;
 
+    @include mq(sd) {
+      width: 25px;
+      height: 25px;
+    }
+
     @include mq(ms) {
       width: 32px;
       height: 32px;
@@ -5290,6 +5507,10 @@ body {
   font-size: 24px;
   font-weight: 700;
   letter-spacing: 1.68px;
+
+  @include mq(sd) {
+    font-size: 30px;
+  }
 
   @include mq(ms) {
     font-size: 40px;
@@ -5317,6 +5538,10 @@ body {
 .instagram__button {
   margin-top: 24px;
   text-align: center;
+
+  @include mq(sd) {
+    margin-top: 40px;
+  }
 
   @include mq(ms) {
     margin-top: 50px;
@@ -5397,6 +5622,26 @@ body {
 }
 
 .footer__title--logo1 {
+  position: relative;
+  z-index: 1;
+
+  &::after {
+    position: absolute;
+    content: "";
+    background: #fff;
+    width: 64px;
+    height: 27px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+
+    @include mq(md) {
+      width: 105px;
+      height: 45px;
+    }
+  }
+
   img {
     width: 53px;
 
@@ -5423,6 +5668,26 @@ body {
 }
 
 .footer__title--logo2 {
+  position: relative;
+  z-index: 1;
+
+  &::after {
+    position: absolute;
+    content: "";
+    background: #fff;
+    width: 106px;
+    height: 27px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+
+    @include mq(md) {
+      width: 172px;
+      height: 44px;
+    }
+  }
+
   img {
     width: 83px;
 
@@ -5607,11 +5872,11 @@ body {
   }
 
   // 一旦ストップ
-  // &.is-active {
-  //   opacity: 1;
-  //   visibility: visible;
-  //   transform: translateY(0);
-  // }
+  &.is-active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
 }
 
 .to-top-button__inner {
@@ -5682,6 +5947,7 @@ body {
 }
 
 .tel-number.to-top__tel-number {
+  align-items: center;
 }
 
 .to-top__tel-logo {
@@ -5697,7 +5963,6 @@ body {
 
 .tel-text.to-top__tel-text {
   font-size: 16px;
-  font-weight: 800;
   letter-spacing: 0.32px;
 }
 
@@ -5748,5 +6013,293 @@ body {
   &.is-in-view {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* =======================================================
+   花びらアニメーション設定 (競合回避のための最小限の設定)
+   ======================================================= */
+
+/* 1. Keyframes定義：落下と揺らぎ (transform: translateY で落下させる) */
+@keyframes fall-and-sway {
+  0% {
+    opacity: 1;
+    /* 既存の bottom/right で設定された初期位置からスタート */
+    transform: translateY(0) translateX(0) rotate(0deg);
+  }
+  50% {
+    /* 途中の揺らぎ */
+    transform: translateY(45%) translateX(5vw) rotate(180deg);
+  }
+  100% {
+    opacity: 0;
+    /* 画面の下端（110%）まで落とす */
+    transform: translateY(110%) translateX(10vw) rotate(360deg);
+  }
+}
+
+/* 2. 変数定義 */
+$petal-count: 15;
+$min-duration: 15;
+$max-duration: 30;
+$max-delay: 10;
+
+/* 3. ループ処理：sec-1 から sec-15 までの個別設定 */
+@for $i from 1 through $petal-count {
+  /* セレクタは .sec-#{$i} のままでOK */
+  .sec-#{$i} {
+    /* 共通アニメーション設定 */
+    animation-name: fall-and-sway;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+
+    /* -------------------------------------
+       アニメーションの速度と遅延をランダムに設定
+    ------------------------------------- */
+    $duration: math.random($max-duration - $min-duration) + $min-duration;
+    animation-duration: #{$duration}s;
+
+    $delay: math.random() * $max-delay;
+    animation-delay: #{$delay}s;
+
+    /* -------------------------------------
+       ★重要：既存のCSSとの競合を防ぐため、
+       top/left/width/height の設定はすべて削除しました。
+       既存の .fv__flower--X クラスの設定が優先されます。
+    ------------------------------------- */
+    position: absolute; /* 念のため再度設定 */
+    z-index: 10;
+  }
+}
+
+// お悩みセクションのアニメーション
+/* ---------------------------------------------------- */
+/* Keyframes: 「ぽわっとフワッと出現」を定義 */
+/* ---------------------------------------------------- */
+@keyframes soft-float-in {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.8); /* 20px下から、少し縮小した状態でスタート */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1); /* 最終的に所定の位置とサイズに、滑らかに到達 */
+  }
+}
+
+/* ---------------------------------------------------- */
+/* 共通アニメーション設定 */
+/* ---------------------------------------------------- */
+.problem__item {
+  opacity: 0; /* 初期状態では非表示 */
+}
+
+/* 親に.is-animatedが付いた時にアニメーションを適用 */
+.is-animated .problem__item {
+  animation-name: soft-float-in;
+  animation-duration: 0.7s; /* アニメーションの時間（フワッと見せるため少し長め） */
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out; /* 緩やかな動き */
+}
+
+/* ---------------------------------------------------- */
+/* 個別ディレイの設定（ポコポコ出現） */
+/* ---------------------------------------------------- */
+.is-animated .problem__inheritance {
+  animation-delay: 0s;
+}
+.is-animated .problem__demolish {
+  animation-delay: 0.5s;
+}
+.is-animated .problem__price {
+  animation-delay: 1s;
+}
+.is-animated .problem__contract {
+  animation-delay: 1.5s;
+}
+.is-animated .problem__trouble {
+  animation-delay: 2s;
+}
+.is-animated .problem__valuables {
+  animation-delay: 2.5s;
+}
+
+// caseセクションのカード型コンテンツのアニメーション
+/* ---------------------------------------------------- */
+/* Keyframes: フワッと浮かぶ動きを定義 */
+/* ---------------------------------------------------- */
+@keyframes soft-float-in-subtle {
+  0% {
+    opacity: 0;
+    transform: translateY(10px); /* わずか10px下からスタート（小さな動き） */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------------------------------------------------- */
+/* カードの初期状態とアニメーションの共通設定 */
+/* ---------------------------------------------------- */
+.case__card {
+  /* アニメーション開始前の初期状態（非表示・少し下に移動） */
+  opacity: 0;
+  transform: translateY(10px);
+  /* 念のため、アニメーション中に要素が飛び出すのを防ぐ */
+  /* transition: none !important; */
+}
+
+/* 親要素に.is-loadedクラスが付与されたらアニメーションを適用 */
+.is-loaded .case__card {
+  animation-name: soft-float-in-subtle;
+  animation-duration: 0.6s; /* アニメーションの時間 */
+  animation-fill-mode: forwards; /* 終了後、最終状態を維持 */
+  animation-timing-function: ease-out; /* 緩やかな動き */
+}
+
+// featureセクションのアニメーション
+/* ---------------------------------------------------- */
+/* Keyframes: フワッと浮かぶ動き (再定義) */
+/* ---------------------------------------------------- */
+@keyframes soft-float-in-subtle {
+  0% {
+    opacity: 0;
+    transform: translateY(10px); /* わずか10px下からスタート（小さな動き） */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------------------------------------------------- */
+/* カードの初期状態とアニメーションの共通設定 */
+/* ---------------------------------------------------- */
+.feature__card {
+  /* アニメーション開始前の初期状態 */
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+/* JavaScriptで付与するトリガークラス */
+.feature__card.is-visible {
+  animation-name: soft-float-in-subtle;
+  animation-duration: 0.6s; /* アニメーションの時間 */
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out; /* 緩やかな動き */
+}
+
+// serviceセクションのアニメーション
+/* ---------------------------------------------------- */
+/* Keyframes: フワッと浮かぶ動き */
+/* ---------------------------------------------------- */
+@keyframes soft-float-in-subtle {
+  0% {
+    opacity: 0;
+    transform: translateY(10px); /* わずか10px下からスタート */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------------------------------------------------- */
+/* サービスエリアカードの初期状態とアニメーション設定 */
+/* ---------------------------------------------------- */
+.service__area-card {
+  /* アニメーション開始前の初期状態 */
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+/* JavaScriptで付与するトリガークラス */
+.service__area-card.is-area-visible {
+  animation-name: soft-float-in-subtle;
+  animation-duration: 0.6s; /* アニメーションの時間 */
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out; /* 緩やかな動き */
+}
+
+// priceセクションのアニメーション
+/* ---------------------------------------------------- */
+/* Keyframes: フワッと浮かぶ動き (再確認) */
+/* ---------------------------------------------------- */
+@keyframes soft-float-in-subtle {
+  0% {
+    opacity: 0;
+    transform: translateY(10px); /* わずか10px下からスタート */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------------------------------------------------- */
+/* 料金カードの初期状態とアニメーション設定 */
+/* ---------------------------------------------------- */
+.price__card {
+  /* アニメーション開始前の初期状態 */
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+/* JavaScriptで付与するトリガークラス */
+.price__card.is-price-visible {
+  animation-name: soft-float-in-subtle;
+  animation-duration: 0.6s; /* アニメーションの時間 */
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out; /* 緩やかな動き */
+}
+
+// 施工実績の200件突破の吹き出しのアニメーション
+// SCSSファイルにそのまま貼り付けてください。
+
+// ------------------------------------------------
+// アニメーションのキーフレーム定義
+// ------------------------------------------------
+@keyframes bounce-in {
+  0% {
+    // 開始時: 小さく透明
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  60% {
+    // 最大サイズに拡大（弾む瞬間）
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    // 終了時: 元のサイズに戻る
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+// ------------------------------------------------
+// アニメーションを適用する要素とその制御
+// ------------------------------------------------
+.feature-achievement__image {
+  // 親要素が position: relative であることが前提
+  // position: relative; // 既存コードで指定済みと仮定
+
+  // JavaScriptでこのクラスが付与されたときにアニメーションを実行
+  &.is-visible {
+    &::before {
+      // アニメーションの実行
+      animation: bounce-in 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    }
+  }
+
+  &::before {
+    // content や position, width, height, background など、
+    // 既存のスタイルはここに残っているものとします。
+
+    // --- アニメーション初期状態 ---
+    transform: scale(0.5); // アニメーション開始前は小さくしておく
+    opacity: 0; // アニメーション開始前は透明にしておく
+    transform-origin: center center; // 中央を起点に拡大縮小
   }
 }

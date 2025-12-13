@@ -48,6 +48,7 @@ jQuery('#js-drawer-content--1 a[href^="#"]').on("click", function (e) {
   jQuery("#js-drawer-button--2").removeClass("is-checked");
   jQuery("#js-drawer-content--1").removeClass("is-checked");
   jQuery("#js-drawer-content--2").removeClass("is-checked");
+  jQuery("html").removeClass("no-scroll");
 });
 
 //ドロワーメニュー2の中のリンクをクリックした時にドロワーメニューを非表示にする
@@ -58,6 +59,7 @@ jQuery('#js-drawer-content--2 a[href^="#"]').on("click", function (e) {
   jQuery("#js-drawer-button--2").removeClass("is-checked");
   jQuery("#js-drawer-content--1").removeClass("is-checked");
   jQuery("#js-drawer-content--2").removeClass("is-checked");
+  jQuery("html").removeClass("no-scroll");
 });
 
 //スムーススクロール
@@ -83,32 +85,42 @@ const gallerySwiper = new Swiper("#js-gallery-swiper", {
   // loopSlides: 10,
   // spaceBetween: 10,
   loop: true,
-  speed: 3000,
+  speed: 5000,
 
   // 一旦ストップ
-  // autoplay: {
-  //   delay: 0,
-  //   pauseOnMouseEnter: true,
-  //   disableOnInteraction: false,
-  // },
+  autoplay: {
+    delay: 0,
+    pauseOnMouseEnter: true,
+    disableOnInteraction: false,
+  },
 });
 
-// 2つ目のヘッダーがTOPに来たタイミングで上部固定
-// 1. 🚀 要素を取得 (変更なし)
+// ヘッダー2が浮いたスペースを埋める実装
+// 1. 🚀 要素を取得
 const stickyHeader = document.getElementById("fv__header-2");
+// 🚀 スペーサー要素を取得
+const spacer = document.getElementById("header-spacer");
 
 // 2. 📐 固定開始位置を格納する変数
-let originalOffset = 0;
+let originalOffset = 0; // fv__header-2 の元の位置
+let headerHeight = 0; // fv__header-2 の高さ（スペーサーに必要）
 
 /**
- * 固定開始位置 (originalOffset) を計算し、更新する関数
+ * 固定開始位置 (originalOffset) とヘッダーの高さ (headerHeight) を計算し、更新する関数
  */
 function updateOffset() {
-  // 要素が存在する場合のみ処理
   if (stickyHeader) {
-    // 現在のレイアウトでの正確な位置を取得して更新
+    // 現在のレイアウトでの正確な位置を取得
     originalOffset = stickyHeader.offsetTop;
-    console.log(`Original Offset Updated: ${originalOffset}px`);
+    // 現在のヘッダーの高さを取得
+    headerHeight = stickyHeader.offsetHeight;
+
+    // スペーサーの高さも更新（念のため）
+    if (spacer) {
+      spacer.style.height = `${headerHeight}px`;
+    }
+
+    console.log(`Offset: ${originalOffset}px, Height: ${headerHeight}px`);
   }
 }
 
@@ -116,35 +128,87 @@ function updateOffset() {
 
 // A. スクロールイベント: 固定処理の実行
 window.addEventListener("scroll", () => {
-  // 要素が存在しない場合は処理を終了
-  if (!stickyHeader) return;
+  if (!stickyHeader || !spacer) return;
 
-  // 現在のスクロール位置（垂直方向）を取得
   const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
 
-  // スクロール位置が固定開始位置を超えたかチェック
+  // 現在の状態をチェック
+  const isSticky = stickyHeader.classList.contains("is-sticky");
+
   if (scrollPosition >= originalOffset) {
-    // クラス名を変更（クラスが存在しないかチェックしてから追加するのがベスト）
-    if (!stickyHeader.classList.contains("is-sticky")) {
+    // 固定処理
+    if (!isSticky) {
       stickyHeader.classList.add("is-sticky");
-      // コンテンツのズレを防ぐための処理をここに追加
+      // 固定時にスペーサーを表示し、ヘッダーの高さと同じ高さを設定してスペースを確保
+      spacer.style.display = "block";
     }
   } else {
-    // 固定を解除
-    stickyHeader.classList.remove("is-sticky");
+    // 固定解除処理
+    if (isSticky) {
+      stickyHeader.classList.remove("is-sticky");
+      // 固定解除時にスペーサーを非表示
+      spacer.style.display = "none";
+    }
   }
 });
 
-// B. 初期計算と再計算イベント
-
-// 1. ページ全体の読み込みが完了した時点 (画像などのロード後) で計算
+// B. 初期計算と再計算イベント (変更なし)
 window.addEventListener("load", updateOffset);
-
-// 2. 画面サイズが変更された時点 (スマホの縦横切り替えなど) で再計算
 window.addEventListener("resize", updateOffset);
-
-// 3. (念のため) DOMがロードされた時点でも一度計算
 document.addEventListener("DOMContentLoaded", updateOffset);
+
+// // 2つ目のヘッダーがTOPに来たタイミングで上部固定
+// // 1. 🚀 要素を取得 (変更なし)
+// const stickyHeader = document.getElementById("fv__header-2");
+
+// // 2. 📐 固定開始位置を格納する変数
+// let originalOffset = 0;
+
+// /**
+//  * 固定開始位置 (originalOffset) を計算し、更新する関数
+//  */
+// function updateOffset() {
+//   // 要素が存在する場合のみ処理
+//   if (stickyHeader) {
+//     // 現在のレイアウトでの正確な位置を取得して更新
+//     originalOffset = stickyHeader.offsetTop;
+//     console.log(`Original Offset Updated: ${originalOffset}px`);
+//   }
+// }
+
+// // --- 3. イベントリスナーの設定 ---
+
+// // A. スクロールイベント: 固定処理の実行
+// window.addEventListener("scroll", () => {
+//   // 要素が存在しない場合は処理を終了
+//   if (!stickyHeader) return;
+
+//   // 現在のスクロール位置（垂直方向）を取得
+//   const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+
+//   // スクロール位置が固定開始位置を超えたかチェック
+//   if (scrollPosition >= originalOffset) {
+//     // クラス名を変更（クラスが存在しないかチェックしてから追加するのがベスト）
+//     if (!stickyHeader.classList.contains("is-sticky")) {
+//       stickyHeader.classList.add("is-sticky");
+//       // コンテンツのズレを防ぐための処理をここに追加
+//     }
+//   } else {
+//     // 固定を解除
+//     stickyHeader.classList.remove("is-sticky");
+//   }
+// });
+
+// // B. 初期計算と再計算イベント
+
+// // 1. ページ全体の読み込みが完了した時点 (画像などのロード後) で計算
+// window.addEventListener("load", updateOffset);
+
+// // 2. 画面サイズが変更された時点 (スマホの縦横切り替えなど) で再計算
+// window.addEventListener("resize", updateOffset);
+
+// // 3. (念のため) DOMがロードされた時点でも一度計算
+// document.addEventListener("DOMContentLoaded", updateOffset);
 
 // TwentyTwenty 初期化用関数（シンプルかつ安全な再初期化）
 function initTwentyTwenty() {
@@ -223,6 +287,11 @@ jQuery(window).on("load", function () {
         centeredSlides: true,
       },
       1200: {
+        slidesPerView: 1.2,
+        spaceBetween: 60,
+        centeredSlides: true,
+      },
+      1400: {
         slidesPerView: 1.34,
         spaceBetween: 81,
         centeredSlides: true,
@@ -292,6 +361,10 @@ const reviewSwiper = new Swiper(".review__swiper", {
 
   //ブレイクポイントによって変える
   breakpoints: {
+    600: {
+      slidesPerView: 1.5,
+      spaceBetween: 40,
+    },
     768: {
       slidesPerView: 1.7,
       spaceBetween: 40,
@@ -575,3 +648,224 @@ custom：自由にカスタマイズ
 //     }
 //   });
 // });
+
+// お悩みセクションのアニメーション
+document.addEventListener("DOMContentLoaded", () => {
+  const targetElement = document.querySelector(".problem__body");
+
+  if (!targetElement) return;
+
+  // Intersection Observerのオプション
+  const options = {
+    root: null, // ビューポートをルートとする
+    rootMargin: "0px",
+    threshold: 0.2, // 要素が20%見えたら発火
+  };
+
+  const observerCallback = (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        // 要素がビューポートに入ったらクラスを追加し、アニメーションを発火
+        entry.target.classList.add("is-animated");
+        // 一度実行したら監視を終了
+        observer.unobserve(entry.target);
+      }
+    });
+  };
+
+  const observer = new IntersectionObserver(observerCallback, options);
+  observer.observe(targetElement);
+});
+
+// caseセクションのアニメーション
+document.addEventListener("DOMContentLoaded", () => {
+  const targetElement = document.querySelector(".case__contents");
+  const cards = document.querySelectorAll(".case__contents > .case__card"); // 全てのカードを取得
+  const delayStep = 150; // 0.15秒 (150ミリ秒)
+
+  if (!targetElement || cards.length === 0) return;
+
+  const options = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.2,
+  };
+
+  const observerCallback = (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        // コンテナが見えたら、時間差で各カードにクラスを付与
+        cards.forEach((card, index) => {
+          setTimeout(() => {
+            // is-visibleクラスを付与することでアニメーションが開始する
+            card.classList.add("is-visible");
+          }, index * delayStep); // index * 150ms で時間差を設定
+        });
+
+        // 監視を終了
+        observer.unobserve(entry.target);
+      }
+    });
+  };
+
+  const observer = new IntersectionObserver(observerCallback, options);
+  observer.observe(targetElement);
+});
+
+// featureセクションのアニメーション
+document.addEventListener("DOMContentLoaded", () => {
+  // 監視対象の要素（カード全体を囲むコンテナ）
+  const targetContainer = document.querySelector(".feature__cards");
+
+  // 子要素（カード）全てを取得
+  const cards = document.querySelectorAll(".feature__cards > .feature__card");
+
+  // 時間差の設定 (0.15秒)
+  const delayStep = 150;
+
+  if (!targetContainer || cards.length === 0) return;
+
+  // Intersection Observerの設定
+  const options = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.2, // 要素が20%見えたら発火
+  };
+
+  const observerCallback = (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        // コンテナが見えたら、時間差で各カードにクラスを付与
+        cards.forEach((card, index) => {
+          setTimeout(() => {
+            // is-visibleクラスを付与することでアニメーションが開始する
+            card.classList.add("is-visible");
+          }, index * delayStep); // index * 150ms で時間差を設定
+        });
+
+        // 一度実行したら監視を終了
+        observer.unobserve(entry.target);
+      }
+    });
+  };
+
+  // 監視を開始
+  const observer = new IntersectionObserver(observerCallback, options);
+  observer.observe(targetContainer);
+});
+
+// serviceセクションのアニメーション
+document.addEventListener("DOMContentLoaded", () => {
+  // 監視対象のセクションとその子要素のセレクタを定義
+  const containerSelector = ".service__area-cards";
+  const itemSelector = ".service__area-card";
+  const triggerClass = "is-area-visible";
+
+  const targetContainer = document.querySelector(containerSelector);
+  const items = document.querySelectorAll(`${containerSelector} > ${itemSelector}`);
+
+  const delayStep = 150; // 0.15秒ごとの時間差
+
+  if (!targetContainer || items.length === 0) return;
+
+  const observer = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // コンテナが見えたら、時間差で各アイテムにクラスを付与
+          items.forEach((item, index) => {
+            setTimeout(() => {
+              item.classList.add(triggerClass);
+            }, index * delayStep);
+          });
+
+          // 監視を終了
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.2,
+    }
+  );
+
+  observer.observe(targetContainer);
+});
+
+// priceセクションのアニメーション
+document.addEventListener("DOMContentLoaded", () => {
+  // 監視対象のセクションとその子要素のセレクタを定義
+  const containerSelector = ".price__cards";
+  const itemSelector = ".price__card";
+  const triggerClass = "is-price-visible";
+
+  const targetContainer = document.querySelector(containerSelector);
+  const items = document.querySelectorAll(`${containerSelector} > ${itemSelector}`);
+
+  const delayStep = 150; // 0.15秒ごとの時間差
+
+  if (!targetContainer || items.length === 0) return;
+
+  const observer = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // コンテナが見えたら、時間差で各アイテムにクラスを付与
+          items.forEach((item, index) => {
+            setTimeout(() => {
+              item.classList.add(triggerClass);
+            }, index * delayStep);
+          });
+
+          // 監視を終了
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.2,
+    }
+  );
+
+  observer.observe(targetContainer);
+});
+
+// 施工実績の200件突破の吹き出しのアニメーション
+// JavaScriptファイルにそのまま貼り付けてください。
+
+document.addEventListener("DOMContentLoaded", () => {
+  // 監視対象となる要素: .feature-achievement__image
+  const target = document.querySelector(".feature-achievement__image");
+
+  // 対象要素が存在しない場合は処理を終了
+  if (!target) {
+    return;
+  }
+
+  // Intersection Observer API を使用して要素の表示を監視
+  const observer = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        // 要素が画面内に表示された（交差した）とき
+        if (entry.isIntersecting) {
+          // 親要素に 'is-visible' クラスを追加し、CSSアニメーションをトリガー
+          entry.target.classList.add("is-visible");
+
+          // アニメーションは一度きりなので、監視を停止
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      // オプション: 要素が10%以上表示されたら発火
+      threshold: 0.1,
+    }
+  );
+
+  // 監視を開始
+  observer.observe(target);
+});
