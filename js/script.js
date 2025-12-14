@@ -63,18 +63,53 @@ jQuery('#js-drawer-content--2 a[href^="#"]').on("click", function (e) {
 });
 
 //スムーススクロール
+// jQuery('a[href^="#"]').on("click", function (e) {
+//   e.preventDefault();
+//   const speed = 600;
+//   const id = jQuery(this).attr("href");
+//   const target = jQuery("#" == id ? "html" : id);
+//   const position = jQuery(target).offset().top;
+//   jQuery("html,body").animate(
+//     {
+//       scrollTop: position,
+//     },
+//     speed,
+//     "swing" //swing or linear
+//   );
+// });
+
+//スムーススクロール
+// ドロワーメニュー内のリンクをクリックした際に上部に余白を設ける
+// 固定ヘッダーの高さ
+const HEADER_HEIGHT = 100; // 100pxに設定
+
 jQuery('a[href^="#"]').on("click", function (e) {
   e.preventDefault();
+
   const speed = 600;
   const id = jQuery(this).attr("href");
   const target = jQuery("#" == id ? "html" : id);
-  const position = jQuery(target).offset().top;
+
+  let position = jQuery(target).offset().top; // ターゲット要素の上端位置を取得
+
+  // -----------------------------------------------------------------
+  // 【⭐修正点⭐】ドロワーリンク（.drawer__link）の場合のみオフセットを適用
+  // -----------------------------------------------------------------
+  // クリックされたリンクがドロワーリンクのクラスを持っているか確認
+  if (jQuery(this).hasClass("drawer__link")) {
+    // セクションへのリンクの場合、ヘッダーの高さ分を差し引く
+    position -= HEADER_HEIGHT;
+  }
+  // ※ トップへ戻るボタン（href="#top" や href="#" のリンク）の場合、
+  //    この if 文に入らないため、position はそのまま (0 または target の位置) になります。
+  // -----------------------------------------------------------------
+
   jQuery("html,body").animate(
     {
       scrollTop: position,
     },
     speed,
-    "swing" //swing or linear
+    "swing"
   );
 });
 
@@ -95,6 +130,7 @@ const gallerySwiper = new Swiper("#js-gallery-swiper", {
   },
 });
 
+// // 2つ目のヘッダーがTOPに来たタイミングで上部固定
 // ヘッダー2が浮いたスペースを埋める実装
 // 1. 🚀 要素を取得
 const stickyHeader = document.getElementById("fv__header-2");
@@ -140,6 +176,7 @@ window.addEventListener("scroll", () => {
     if (!isSticky) {
       stickyHeader.classList.add("is-sticky");
       // 固定時にスペーサーを表示し、ヘッダーの高さと同じ高さを設定してスペースを確保
+
       spacer.style.display = "block";
     }
   } else {
@@ -293,6 +330,11 @@ jQuery(window).on("load", function () {
       },
       1400: {
         slidesPerView: 1.34,
+        spaceBetween: 81,
+        centeredSlides: true,
+      },
+      1700: {
+        slidesPerView: 1.5,
         spaceBetween: 81,
         centeredSlides: true,
       },
@@ -681,7 +723,7 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
   const targetElement = document.querySelector(".case__contents");
   const cards = document.querySelectorAll(".case__contents > .case__card"); // 全てのカードを取得
-  const delayStep = 150; // 0.15秒 (150ミリ秒)
+  const delayStep = 500; // 0.50秒 (500ミリ秒)
 
   if (!targetElement || cards.length === 0) return;
 
@@ -720,8 +762,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // 子要素（カード）全てを取得
   const cards = document.querySelectorAll(".feature__cards > .feature__card");
 
-  // 時間差の設定 (0.15秒)
-  const delayStep = 150;
+  // 時間差の設定 (0.50秒)
+  const delayStep = 500;
 
   if (!targetContainer || cards.length === 0) return;
 
@@ -764,7 +806,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const targetContainer = document.querySelector(containerSelector);
   const items = document.querySelectorAll(`${containerSelector} > ${itemSelector}`);
 
-  const delayStep = 150; // 0.15秒ごとの時間差
+  const delayStep = 500; // 0.50秒ごとの時間差
 
   if (!targetContainer || items.length === 0) return;
 
@@ -804,7 +846,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const targetContainer = document.querySelector(containerSelector);
   const items = document.querySelectorAll(`${containerSelector} > ${itemSelector}`);
 
-  const delayStep = 150; // 0.15秒ごとの時間差
+  const delayStep = 500; // 0.50秒ごとの時間差
 
   if (!targetContainer || items.length === 0) return;
 

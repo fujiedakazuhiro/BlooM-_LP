@@ -96,6 +96,7 @@ body.is-no-scroll {
   }
 }
 
+/* 固定ヘッダーの高さ 100px に合わせて設定 */
 .fv {
   width: 100vw;
   height: auto;
@@ -563,12 +564,14 @@ body.is-no-scroll {
 .fv__drawer--1 {
   z-index: 1000;
   right: -100%;
-  -webkit-transition: right 0.3s ease;
-  transition: right 0.3s ease;
+  -webkit-transition: right 0.4s ease;
+  transition: right 0.4s ease;
 }
 @media screen and (min-width:768px) {
   .fv__drawer--1 {
     margin-left: 18px;
+    -webkit-transition: right 0.3s ease;
+    transition: right 0.3s ease;
   }
 }
 .fv__drawer--1.is-fixed {
@@ -1320,7 +1323,7 @@ body.is-no-scroll {
 }
 
 .problem {
-  padding-block: 55px 40px;
+  padding-block: 54px 40px;
   background: #fff;
   position: relative;
   z-index: 1;
@@ -1328,6 +1331,12 @@ body.is-no-scroll {
 @media screen and (min-width:1200px) {
   .problem {
     padding-block: 26px 243px;
+    margin-top: 0;
+  }
+}
+@media screen and (min-width:1900px) {
+  .problem {
+    padding-block: 150px 243px;
   }
 }
 
@@ -1343,7 +1352,12 @@ body.is-no-scroll {
 }
 
 .problem__title-main {
-  margin-top: 26px;
+  margin-top: 11px;
+}
+@media screen and (min-width:1400px) {
+  .problem__title-main {
+    margin-top: 27px;
+  }
 }
 
 .problem__body {
@@ -1690,6 +1704,26 @@ body.is-no-scroll {
     background: url(../img/case/wave.svg) no-repeat center top/cover;
   }
 }
+@media screen and (min-width:1400px) {
+  .case {
+    margin-top: -412px;
+  }
+}
+@media screen and (min-width:1800px) {
+  .case {
+    margin-top: -420px;
+  }
+}
+@media screen and (min-width:1850px) {
+  .case {
+    padding-top: 550px;
+  }
+}
+@media screen and (min-width:1900px) {
+  .case {
+    padding-top: 650px;
+  }
+}
 
 .case__wrapper {
   padding-inline: 20px;
@@ -1818,6 +1852,11 @@ body.is-no-scroll {
     max-width: 1070px;
   }
 }
+@media screen and (min-width:1400px) {
+  .case__contents {
+    padding-top: 74px;
+  }
+}
 
 .case-card {
   position: relative;
@@ -1848,6 +1887,7 @@ body.is-no-scroll {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  z-index: 5;
 }
 
 .case-card__head-number {
@@ -1866,6 +1906,24 @@ body.is-no-scroll {
   padding-bottom: 16px;
   text-align: center;
   height: 224px;
+  z-index: 1;
+  position: relative;
+}
+.case-card__problem::after {
+  position: absolute;
+  content: "";
+  bottom: -20px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-width: 10px;
+  border-style: solid;
+  border-top-color: #fff;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
 }
 
 .case-card__problem-inner {
@@ -2189,6 +2247,33 @@ body.is-no-scroll {
 @media screen and (min-width:1450px) {
   .feature {
     padding-bottom: 200px;
+  }
+}
+@media screen and (min-width:1650px) {
+  .feature {
+    padding-bottom: 200px;
+  }
+}
+@media screen and (min-width:1700px) {
+  .feature {
+    padding-top: 260px;
+  }
+}
+@media screen and (min-width:1750px) {
+  .feature {
+    padding-bottom: 260px;
+  }
+}
+@media screen and (min-width:1800px) {
+  .feature {
+    padding-top: 360px;
+    padding-bottom: 315px;
+  }
+}
+@media screen and (min-width:1900px) {
+  .feature {
+    padding-top: 450px;
+    padding-bottom: 400px;
   }
 }
 
@@ -2975,6 +3060,38 @@ body.is-no-scroll {
     margin-top: -180px;
   }
 }
+@media screen and (min-width:1650px) {
+  .service {
+    padding-block: 360px 170px;
+    margin-top: -230px;
+  }
+}
+@media screen and (min-width:1700px) {
+  .service {
+    padding-block: 430px 170px;
+  }
+}
+@media screen and (min-width:1750px) {
+  .service {
+    padding-block: 470px 170px;
+  }
+}
+@media screen and (min-width:1800px) {
+  .service {
+    padding-block: 515px 170px;
+  }
+}
+@media screen and (min-width:1850px) {
+  .service {
+    padding-block: 575px 170px;
+    margin-top: -300px;
+  }
+}
+@media screen and (min-width:1900px) {
+  .service {
+    padding-block: 700px 220px;
+  }
+}
 
 .service__wave--sp {
   position: absolute;
@@ -3011,6 +3128,16 @@ body.is-no-scroll {
 @media screen and (min-width:1600px) {
   .service__wave--pc {
     top: 80px;
+  }
+}
+@media screen and (min-width:1650px) {
+  .service__wave--pc {
+    top: 130px;
+  }
+}
+@media screen and (min-width:1850px) {
+  .service__wave--pc {
+    top: 200px;
   }
 }
 
@@ -3350,7 +3477,8 @@ body.is-no-scroll {
 }
 
 .works {
-  padding-top: 51px;
+  padding-top: 80px;
+  margin-top: -29px;
   padding-bottom: 65px;
   position: relative;
   z-index: 3;
@@ -3359,11 +3487,32 @@ body.is-no-scroll {
   .works {
     padding-top: 72px;
     padding-bottom: 75px;
+    margin-top: 0;
   }
 }
 @media screen and (min-width:1600px) {
   .works {
     padding-top: 160px;
+  }
+}
+@media screen and (min-width:1650px) {
+  .works {
+    padding-top: 260px;
+  }
+}
+@media screen and (min-width:1800px) {
+  .works {
+    padding-top: 330px;
+  }
+}
+@media screen and (min-width:1850px) {
+  .works {
+    padding-top: 370px;
+  }
+}
+@media screen and (min-width:1900px) {
+  .works {
+    padding-top: 500px;
   }
 }
 
@@ -3798,6 +3947,12 @@ body.is-no-scroll {
     top: 230px !important;
   }
 }
+@media screen and (min-width:1650px) {
+  .works__swiper-button-prev,
+  .works__swiper-button-next {
+    top: 260px !important;
+  }
+}
 .works__swiper-button-prev svg,
 .works__swiper-button-next svg {
   content: "" !important;
@@ -3843,6 +3998,21 @@ body.is-no-scroll {
     left: 185px !important;
   }
 }
+@media screen and (min-width:1650px) {
+  .works__swiper-button-prev {
+    left: 190px !important;
+  }
+}
+@media screen and (min-width:1700px) {
+  .works__swiper-button-prev {
+    left: 270px !important;
+  }
+}
+@media screen and (min-width:1800px) {
+  .works__swiper-button-prev {
+    left: 285px !important;
+  }
+}
 
 .works__swiper-button-next {
   background: url(../img/works/next-arrow.svg) no-repeat center center/contain;
@@ -3881,6 +4051,21 @@ body.is-no-scroll {
 @media screen and (min-width:1600px) {
   .works__swiper-button-next {
     right: 185px !important;
+  }
+}
+@media screen and (min-width:1650px) {
+  .works__swiper-button-next {
+    right: 190px !important;
+  }
+}
+@media screen and (min-width:1700px) {
+  .works__swiper-button-next {
+    right: 270px !important;
+  }
+}
+@media screen and (min-width:1800px) {
+  .works__swiper-button-next {
+    right: 285px !important;
   }
 }
 
@@ -4125,6 +4310,11 @@ body.is-no-scroll {
     max-width: 500px;
   }
 }
+@media screen and (min-width:1400px) {
+  .cta__contents {
+    max-width: 657px;
+  }
+}
 
 .cta__text--large {
   color: #fff;
@@ -4252,7 +4442,7 @@ body.is-no-scroll {
 }
 
 .price {
-  padding-block: 61px 148px;
+  padding-block: 63px 148px;
   position: relative;
   background: linear-gradient(135deg, #f9f7f3 21.75%, #edebe7 83.66%);
   z-index: 1;
@@ -4270,6 +4460,26 @@ body.is-no-scroll {
 @media screen and (min-width:1200px) {
   .price {
     padding-block: 80px 442px;
+  }
+}
+@media screen and (min-width:1400px) {
+  .price {
+    padding-block: 86px 442px;
+  }
+}
+@media screen and (min-width:1650px) {
+  .price {
+    padding-block: 80px 300px;
+  }
+}
+@media screen and (min-width:1750px) {
+  .price {
+    padding-block: 80px 360px;
+  }
+}
+@media screen and (min-width:1800px) {
+  .price {
+    padding-block: 80px 400px;
   }
 }
 
@@ -4369,6 +4579,12 @@ body.is-no-scroll {
   padding-bottom: 4px;
 }
 
+@media screen and (min-width:1200px) {
+  .price__title-main {
+    margin-top: 28px;
+  }
+}
+
 .price__text-pink--1 {
   margin-inline: 6px;
 }
@@ -4396,6 +4612,11 @@ body.is-no-scroll {
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
+  }
+}
+@media screen and (min-width:1400px) {
+  .price__cards {
+    margin-top: 51px;
   }
 }
 
@@ -4534,6 +4755,12 @@ body.is-no-scroll {
     margin-top: -400px;
   }
 }
+@media screen and (min-width:1400px) {
+  .flow {
+    margin-top: -380px;
+    padding-block: 202px 215px;
+  }
+}
 @media screen and (min-width:1500px) {
   .flow {
     padding-block: 290px 224px;
@@ -4543,6 +4770,39 @@ body.is-no-scroll {
   .flow {
     padding-block: 400px 224px;
     margin-top: -480px;
+  }
+}
+@media screen and (min-width:1650px) {
+  .flow {
+    padding-block: 430px 225px;
+    margin-top: -370px;
+  }
+}
+@media screen and (min-width:1700px) {
+  .flow {
+    padding-block: 485px 225px;
+  }
+}
+@media screen and (min-width:1750px) {
+  .flow {
+    padding-block: 530px 255px;
+  }
+}
+@media screen and (min-width:1800px) {
+  .flow {
+    padding-block: 570px 255px;
+    margin-top: -400px;
+  }
+}
+@media screen and (min-width:1850px) {
+  .flow {
+    padding-block: 625px 260px;
+  }
+}
+@media screen and (min-width:1900px) {
+  .flow {
+    padding-block: 730px 350px;
+    margin-top: -450px;
   }
 }
 
@@ -4738,12 +4998,24 @@ body.is-no-scroll {
     max-width: 834px;
   }
 }
+@media screen and (min-width:1400px) {
+  .flow__contents {
+    max-width: 820px;
+  }
+}
 
 .flow__head {
   width: 100%;
 }
 .flow__title-sub {
   padding-bottom: 4px;
+}
+
+@media screen and (min-width:1200px) {
+  .flow__title-main {
+    margin-top: 30px;
+    letter-spacing: 5.6px;
+  }
 }
 
 .flow__body {
@@ -4753,6 +5025,13 @@ body.is-no-scroll {
   .flow__body {
     margin-top: 48px;
     padding-inline: 100px;
+  }
+}
+@media screen and (min-width:1400px) {
+  .flow__body {
+    margin-top: 52px;
+    margin-left: -7px;
+    padding-inline: 0;
   }
 }
 
@@ -4997,9 +5276,24 @@ body.is-no-scroll {
     padding-block: 237px 221px;
   }
 }
+@media screen and (min-width:1400px) {
+  .review {
+    padding-block: 244px 221px;
+  }
+}
 @media screen and (min-width:1600px) {
   .review {
     padding-block: 320px 221px;
+  }
+}
+@media screen and (min-width:1650px) {
+  .review {
+    padding-block: 350px 280px;
+  }
+}
+@media screen and (min-width:1900px) {
+  .review {
+    padding-block: 470px 400px;
   }
 }
 
@@ -5094,6 +5388,13 @@ body.is-no-scroll {
   padding-bottom: 6px;
 }
 
+@media screen and (min-width:1200px) {
+  .review__title-main {
+    margin-top: 33px;
+    letter-spacing: -7px;
+  }
+}
+
 .review__text-pink--1 {
   margin-inline: 10px;
 }
@@ -5115,6 +5416,12 @@ body.is-no-scroll {
   .review__swiper-container {
     margin-top: 62px !important;
     padding-inline: 40px;
+  }
+}
+@media screen and (min-width:1400px) {
+  .review__swiper-container {
+    margin-top: 54px !important;
+    max-width: 1353px !important;
   }
 }
 
@@ -5155,6 +5462,11 @@ body.is-no-scroll {
   .review__type {
     margin-top: 16px;
     gap: 10px;
+  }
+}
+@media screen and (min-width:1400px) {
+  .review__type {
+    margin-top: 24px;
   }
 }
 
@@ -5346,6 +5658,22 @@ body.is-no-scroll {
     background: url(../img/instagram/wave.svg) no-repeat center top/cover;
   }
 }
+@media screen and (min-width:1400px) {
+  .instagram {
+    margin-top: -176px;
+    padding-top: 172px;
+  }
+}
+@media screen and (min-width:1650px) {
+  .instagram {
+    padding-top: 250px;
+  }
+}
+@media screen and (min-width:1900px) {
+  .instagram {
+    padding-top: 370px;
+  }
+}
 
 .instagram__inner {
   padding-inline: 21px;
@@ -5389,6 +5717,11 @@ body.is-no-scroll {
 @media screen and (min-width:768px) {
   .instagram__title {
     gap: 10px;
+  }
+}
+@media screen and (min-width:1400px) {
+  .instagram__title {
+    margin-left: -19px;
   }
 }
 
@@ -5441,6 +5774,11 @@ body.is-no-scroll {
     gap: 16px;
   }
 }
+@media screen and (min-width:1400px) {
+  .instagram__posts {
+    margin-top: 34px;
+  }
+}
 
 .instagram__button {
   margin-top: 24px;
@@ -5459,6 +5797,11 @@ body.is-no-scroll {
 @media screen and (min-width:1200px) {
   .instagram__button {
     text-align: right;
+  }
+}
+@media screen and (min-width:1400px) {
+  .instagram__button {
+    margin-top: 23px;
   }
 }
 
@@ -5538,6 +5881,12 @@ body.is-no-scroll {
     gap: 16px;
   }
 }
+@media screen and (min-width:1400px) {
+  .footer__title {
+    margin-left: -17px;
+    gap: 23px;
+  }
+}
 
 .footer__title--logo1 {
   position: relative;
@@ -5567,6 +5916,11 @@ body.is-no-scroll {
 @media screen and (min-width:1200px) {
   .footer__title--logo1 img {
     width: 86px;
+  }
+}
+@media screen and (min-width:1400px) {
+  .footer__title--logo1 img {
+    width: 100px;
   }
 }
 
@@ -5626,11 +5980,12 @@ body.is-no-scroll {
     margin-top: 72px;
   }
 }
-.footer__logo img {
+
+.footer__logo-link img {
   width: 170px;
 }
 @media screen and (min-width:1200px) {
-  .footer__logo img {
+  .footer__logo-link img {
     width: 217px;
   }
 }
@@ -5652,6 +6007,11 @@ body.is-no-scroll {
   .footer__address {
     margin-top: 24px;
     gap: 12px;
+  }
+}
+@media screen and (min-width:1400px) {
+  .footer__address {
+    margin-top: 23px;
   }
 }
 
@@ -5708,6 +6068,11 @@ body.is-no-scroll {
     gap: 6px;
   }
 }
+@media screen and (min-width:1400px) {
+  .footer__contact {
+    margin-top: -2px;
+  }
+}
 
 .footer__fax {
   padding-left: 17px;
@@ -5760,6 +6125,11 @@ body.is-no-scroll {
 @media screen and (min-width:1200px) {
   .footer__instagram {
     margin-top: 8px;
+  }
+}
+@media screen and (min-width:1400px) {
+  .footer__instagram {
+    margin-top: 6px;
   }
 }
 
@@ -6041,10 +6411,10 @@ body.is-no-scroll {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 25s;
-          animation-duration: 25s;
-  -webkit-animation-delay: 0.5600279188s;
-          animation-delay: 0.5600279188s;
+  -webkit-animation-duration: 30s;
+          animation-duration: 30s;
+  -webkit-animation-delay: 9.4383295467s;
+          animation-delay: 9.4383295467s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6066,10 +6436,10 @@ body.is-no-scroll {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 16s;
-          animation-duration: 16s;
-  -webkit-animation-delay: 9.8853432472s;
-          animation-delay: 9.8853432472s;
+  -webkit-animation-duration: 20s;
+          animation-duration: 20s;
+  -webkit-animation-delay: 2.0092910861s;
+          animation-delay: 2.0092910861s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6091,10 +6461,10 @@ body.is-no-scroll {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 24s;
-          animation-duration: 24s;
-  -webkit-animation-delay: 0.0252169954s;
-          animation-delay: 0.0252169954s;
+  -webkit-animation-duration: 18s;
+          animation-duration: 18s;
+  -webkit-animation-delay: 1.6129621009s;
+          animation-delay: 1.6129621009s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6116,10 +6486,10 @@ body.is-no-scroll {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 17s;
-          animation-duration: 17s;
-  -webkit-animation-delay: 4.2821262186s;
-          animation-delay: 4.2821262186s;
+  -webkit-animation-duration: 20s;
+          animation-duration: 20s;
+  -webkit-animation-delay: 3.5738532556s;
+          animation-delay: 3.5738532556s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6141,10 +6511,10 @@ body.is-no-scroll {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 27s;
-          animation-duration: 27s;
-  -webkit-animation-delay: 9.7263719468s;
-          animation-delay: 9.7263719468s;
+  -webkit-animation-duration: 28s;
+          animation-duration: 28s;
+  -webkit-animation-delay: 7.3815706901s;
+          animation-delay: 7.3815706901s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6168,8 +6538,8 @@ body.is-no-scroll {
   ------------------------------------- */
   -webkit-animation-duration: 20s;
           animation-duration: 20s;
-  -webkit-animation-delay: 9.8296849542s;
-          animation-delay: 9.8296849542s;
+  -webkit-animation-delay: 6.8079190199s;
+          animation-delay: 6.8079190199s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6191,10 +6561,10 @@ body.is-no-scroll {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 19s;
-          animation-duration: 19s;
-  -webkit-animation-delay: 5.9308817945s;
-          animation-delay: 5.9308817945s;
+  -webkit-animation-duration: 22s;
+          animation-duration: 22s;
+  -webkit-animation-delay: 2.9081347429s;
+          animation-delay: 2.9081347429s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6216,10 +6586,10 @@ body.is-no-scroll {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 18s;
-          animation-duration: 18s;
-  -webkit-animation-delay: 1.8114840622s;
-          animation-delay: 1.8114840622s;
+  -webkit-animation-duration: 28s;
+          animation-duration: 28s;
+  -webkit-animation-delay: 5.2772194183s;
+          animation-delay: 5.2772194183s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6241,10 +6611,10 @@ body.is-no-scroll {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 30s;
-          animation-duration: 30s;
-  -webkit-animation-delay: 8.1971424441s;
-          animation-delay: 8.1971424441s;
+  -webkit-animation-duration: 26s;
+          animation-duration: 26s;
+  -webkit-animation-delay: 8.1549426476s;
+          animation-delay: 8.1549426476s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6266,10 +6636,10 @@ body.is-no-scroll {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 19s;
-          animation-duration: 19s;
-  -webkit-animation-delay: 4.5138520968s;
-          animation-delay: 4.5138520968s;
+  -webkit-animation-duration: 16s;
+          animation-duration: 16s;
+  -webkit-animation-delay: 6.5904543259s;
+          animation-delay: 6.5904543259s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6291,10 +6661,10 @@ body.is-no-scroll {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 20s;
-          animation-duration: 20s;
-  -webkit-animation-delay: 2.5442339178s;
-          animation-delay: 2.5442339178s;
+  -webkit-animation-duration: 28s;
+          animation-duration: 28s;
+  -webkit-animation-delay: 3.6834353928s;
+          animation-delay: 3.6834353928s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6316,10 +6686,10 @@ body.is-no-scroll {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 27s;
-          animation-duration: 27s;
-  -webkit-animation-delay: 5.5036905588s;
-          animation-delay: 5.5036905588s;
+  -webkit-animation-duration: 18s;
+          animation-duration: 18s;
+  -webkit-animation-delay: 8.917020055s;
+          animation-delay: 8.917020055s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6341,10 +6711,10 @@ body.is-no-scroll {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 19s;
-          animation-duration: 19s;
-  -webkit-animation-delay: 0.7961351072s;
-          animation-delay: 0.7961351072s;
+  -webkit-animation-duration: 25s;
+          animation-duration: 25s;
+  -webkit-animation-delay: 9.7091227748s;
+          animation-delay: 9.7091227748s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6366,10 +6736,10 @@ body.is-no-scroll {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 25s;
-          animation-duration: 25s;
-  -webkit-animation-delay: 0.6433828757s;
-          animation-delay: 0.6433828757s;
+  -webkit-animation-duration: 23s;
+          animation-duration: 23s;
+  -webkit-animation-delay: 7.7856411727s;
+          animation-delay: 7.7856411727s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6391,10 +6761,10 @@ body.is-no-scroll {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 30s;
-          animation-duration: 30s;
-  -webkit-animation-delay: 5.4000256345s;
-          animation-delay: 5.4000256345s;
+  -webkit-animation-duration: 16s;
+          animation-duration: 16s;
+  -webkit-animation-delay: 9.6811183812s;
+          animation-delay: 9.6811183812s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6680,6 +7050,13 @@ body.is-no-scroll {
     opacity: 1;
   }
 }
+.feature-achievement__image {
+  -webkit-transform: none !important;
+          transform: none !important;
+  opacity: 1 !important;
+  -webkit-transition: none !important;
+  transition: none !important;
+}
 .feature-achievement__image.is-visible::before {
   -webkit-animation: bounce-in 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
           animation: bounce-in 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
@@ -6690,4 +7067,79 @@ body.is-no-scroll {
   opacity: 0;
   -webkit-transform-origin: center center;
           transform-origin: center center;
+}
+
+@-webkit-keyframes gentle-sway {
+  0% {
+    -webkit-transform: rotate(-2deg);
+            transform: rotate(-2deg);
+  }
+  50% {
+    -webkit-transform: rotate(2deg);
+            transform: rotate(2deg);
+  }
+  100% {
+    -webkit-transform: rotate(-2deg);
+            transform: rotate(-2deg);
+  }
+}
+
+@keyframes gentle-sway {
+  0% {
+    -webkit-transform: rotate(-2deg);
+            transform: rotate(-2deg);
+  }
+  50% {
+    -webkit-transform: rotate(2deg);
+            transform: rotate(2deg);
+  }
+  100% {
+    -webkit-transform: rotate(-2deg);
+            transform: rotate(-2deg);
+  }
+}
+.fv__cherry-tree--left {
+  /* アニメーションの適用 */
+  -webkit-animation: gentle-sway 5s ease-in-out infinite alternate;
+          animation: gentle-sway 5s ease-in-out infinite alternate;
+  -webkit-transform-origin: 0% 80%;
+          transform-origin: 0% 80%;
+  /* 画像の特性に合わせて調整が必要な transform-origin の候補:
+    - 枝の根元が左下にある場合: 0% 100%
+    - 枝の根元が下端中央にある場合: 50% 100% 
+    */
+}
+@media screen and (min-width:900px) {
+  .fv__cherry-tree--left {
+    -webkit-transform-origin: 0% 20%;
+            transform-origin: 0% 20%;
+  }
+}
+
+.fv__cherry-tree--right {
+  /* アニメーションの適用 */
+  -webkit-animation: gentle-sway 5s ease-in-out infinite alternate;
+          animation: gentle-sway 5s ease-in-out infinite alternate;
+  -webkit-transform-origin: 100% 20%;
+          transform-origin: 100% 20%;
+  /* 画像の特性に合わせて調整が必要な transform-origin の候補:
+    - 枝の根元が左下にある場合: 0% 100%
+    - 枝の根元が下端中央にある場合: 50% 100% 
+    */
+}
+@media screen and (min-width:900px) {
+  .fv__cherry-tree--right {
+    -webkit-transform-origin: 100% 80%;
+            transform-origin: 100% 80%;
+  }
+}
+
+/* 画像が親要素内で適切に配置されるように調整 */
+.fv__cherry-tree--left picture,
+.fv__cherry-tree--left img,
+.fv__cherry-tree--right picture,
+.fv__cherry-tree--right img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
