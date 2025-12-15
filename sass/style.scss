@@ -173,8 +173,21 @@ body {
   position: relative;
   width: 100%;
   height: 100%;
+  padding-bottom: 87px;
+
+  @include mq(ms) {
+    padding-bottom: 175px;
+  }
+
+  @include mq(mt) {
+    padding-bottom: 216px;
+  }
 
   @include mq(md) {
+    padding-bottom: 118px;
+  }
+
+  @include mq(ml) {
     padding-bottom: 145px;
   }
 }
@@ -248,12 +261,12 @@ body {
   }
 
   // 一旦ストップ
-  &.is-sticky {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 20;
-  }
+  // &.is-sticky {
+  //   position: fixed;
+  //   top: 0;
+  //   width: 100%;
+  //   z-index: 20;
+  // }
 }
 
 .fv__logo {
@@ -796,49 +809,90 @@ body {
 
   @include mq(md) {
     // top: 334px;
-    top: 343px; //pp
+    top: 220px; //pp
     // left: -50px;
     left: -77px; //pp
   }
 
+  @include mq(ml) {
+    top: 320px;
+    left: -5px;
+  }
+
+  @include mq(ll) {
+    top: 408px;
+    left: -40px;
+  }
+
+  @include mq(ln) {
+    top: 500px;
+  }
+
   img {
-    width: 175px;
+    width: 175px !important;
 
     @include mq(ms) {
-      width: 400px;
+      width: 400px !important;
     }
 
     @include mq(md) {
       // width: 462px;
-      width: 472px; //pp
+      width: 472px !important; //pp
       // height: 346px;
-      height: 356px; //pp
+      height: 356px !important; //pp
+    }
+
+    @include mq(ml) {
+      width: 325px !important;
+    }
+
+    @include mq(ll) {
+      width: 598px !important;
+      height: 424px !important;
     }
   }
 }
 
 .fv__cherry-tree--right {
-  bottom: 34px;
+  bottom: 116px;
   right: 0;
+
+  @include mq(ms) {
+    bottom: 276px;
+    right: -36px;
+  }
 
   @include mq(md) {
     bottom: unset;
     // top: 0;
-    top: -2px; //pp
+    top: 7px; //pp
     // right: 0;
-    right: -2px; //pp
+    right: 0; //pp
+  }
+
+  @include mq(ll) {
+    top: 82px;
+    right: 0;
   }
 
   img {
-    width: 150px;
+    width: 150px !important;
 
     @include mq(ms) {
-      width: 360px;
+      width: 360px !important;
+    }
+
+    @include mq(mt) {
+      width: 425px !important;
     }
 
     @include mq(md) {
       // width: 356px;
-      width: 390px; //pp
+      width: 366px !important; //pp
+    }
+
+    @include mq(ll) {
+      width: 450px !important;
     }
   }
 }
@@ -938,7 +992,7 @@ body {
 
 .fv__title {
   position: absolute;
-  top: 50%;
+  top: 41.5%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
@@ -953,8 +1007,14 @@ body {
     // margin-top: -36px;
     margin-top: -134px; //pp
     margin-left: -12px;
-    gap: 30px;
+    gap: 17px;
     width: 100%;
+    top: 55%;
+  }
+
+  @include mq(ml) {
+    top: 50%;
+    gap: 30px;
   }
 }
 
@@ -1012,8 +1072,18 @@ body {
     }
 
     @include mq(md) {
+      width: 145px;
+      height: 40px;
+    }
+
+    @include mq(ml) {
       width: 168px;
       height: 48px;
+    }
+
+    @include mq(ll) {
+      width: 176px;
+      height: 58px;
     }
   }
 }
@@ -1034,8 +1104,18 @@ body {
     }
 
     @include mq(md) {
+      width: 50px;
+      height: 48px;
+    }
+
+    @include mq(ml) {
       width: 63px;
       height: 61px;
+    }
+
+    @include mq(ll) {
+      width: 70px;
+      height: 68px;
     }
   }
 }
@@ -1051,8 +1131,18 @@ body {
     }
 
     @include mq(md) {
+      width: 50px;
+      height: 48px;
+    }
+
+    @include mq(ml) {
       width: 63px;
       height: 61px;
+    }
+
+    @include mq(ll) {
+      width: 70px;
+      height: 68px;
     }
   }
 }
@@ -1068,8 +1158,18 @@ body {
     }
 
     @include mq(md) {
+      width: 50px;
+      height: 48px;
+    }
+
+    @include mq(ml) {
       width: 63px;
       height: 63px;
+    }
+
+    @include mq(ll) {
+      width: 70px;
+      height: 68px;
     }
   }
 }
@@ -1085,8 +1185,18 @@ body {
     }
 
     @include mq(md) {
+      width: 50px;
+      height: 45px;
+    }
+
+    @include mq(ml) {
       width: 40px;
       height: 52px;
+    }
+
+    @include mq(ll) {
+      width: 70px;
+      height: 68px;
     }
   }
 }
@@ -1109,11 +1219,19 @@ body {
   @include mq(md) {
     writing-mode: horizontal-tb;
     text-shadow: 0 0 32px rgba(121, 5, 16, 0.5);
-    font-size: 48px;
+    font-size: 36px;
     font-style: normal;
     font-weight: 700;
     line-height: 110%; /* 52.8px */
     letter-spacing: 4.8px;
+  }
+
+  @include mq(ml) {
+    font-size: 48px;
+  }
+
+  @include mq(ll) {
+    font-size: 53px;
   }
 }
 
@@ -1150,12 +1268,16 @@ body {
 
   @include mq(md) {
     writing-mode: horizontal-tb;
-    font-size: 48px;
+    font-size: 36px;
     padding-inline: 92px;
     margin-inline: auto;
     letter-spacing: 5.86px; //pp
     // left: 315px;
     // bottom: 410px;
+  }
+
+  @include mq(ml) {
+    font-size: 48px;
   }
 
   &::before,
@@ -1268,11 +1390,6 @@ body {
 // 解、体、壊、すの文字を1文字ずつ出現するアニメーション ここまで
 
 .gallery {
-  display: none;
-
-  @include mq(md) {
-    display: block;
-  }
 }
 
 .gallery__inner {
@@ -1289,7 +1406,27 @@ body {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 300px;
+  height: 160px;
+
+  @include mq(ms) {
+    height: 334px;
+  }
+
+  @include mq(mt) {
+    height: 420px;
+  }
+
+  @include mq(md) {
+    height: 224px;
+  }
+
+  @include mq(ml) {
+    height: 300px;
+  }
+
+  @include mq(mo) {
+    height: 306px;
+  }
 }
 
 .gallery__swiper-wrapper {
@@ -1712,7 +1849,8 @@ body {
   }
 
   @include mq(ml) {
-    margin-top: -412px; //pp
+    margin-top: -408px; //pp
+    padding-top: 404px; //pp
   }
 
   @include mq(ll) {
@@ -2001,8 +2139,8 @@ body {
   align-items: center;
 
   @include mq(md) {
-    margin-top: 18px;
-    margin-left: 85px; //pp
+    margin-top: 31px; //pp
+    margin-left: 204px; //pp
     flex-direction: row;
     align-items: flex-start;
   }
@@ -2052,17 +2190,17 @@ body {
   // width: 305px;
   // margin-top: -45px;
   // margin-left: 50px;
-  width: 345px; //pp
-  margin-top: -60px; //pp
-  margin-left: 57px; //pp
+  width: 170px; //pp
+  margin-top: -35px; //pp
+  margin-left: 84px; //pp
   z-index: 1;
 
   @include mq(md) {
     // width: 596px;
-    width: 672px; //pp
-    margin-top: 0;
+    width: 363px; //pp
+    margin-top: -7px;
     // margin-left: -159px;
-    margin-left: -176px; //pp
+    margin-left: -84px; //pp
   }
 }
 
@@ -2206,7 +2344,7 @@ body {
   color: #f99b9e;
   text-align: center;
   font-family: "Zen Old Mincho";
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 900;
   line-height: 30px; /* 125% */
   letter-spacing: 1.68px;
@@ -2224,7 +2362,7 @@ body {
   padding-top: 108px;
   padding-bottom: 103px;
   // margin-top: -175px;
-  margin-top: -196px; //pp
+  margin-top: -131px; //pp
   // 11/30変更ここまで
   background: url(../img/feature/sp/wave-sp.svg) no-repeat center top / cover;
   z-index: 3;
@@ -2243,7 +2381,7 @@ body {
     padding-top: 200px; //pp
     padding-bottom: 170px;
     // margin-top: -368px;
-    margin-top: -437px; //pp
+    margin-top: -331px; //pp
     background: url(../img/feature/wave.svg) no-repeat center top / cover;
   }
 
@@ -3046,6 +3184,12 @@ body {
   max-width: 800px;
   margin: 0 auto;
   margin-top: 8px;
+
+  @include mq(md) {
+    font-size: 16px;
+    margin-top: 15px;
+    margin-left: 146px;
+  }
 }
 
 .service {
@@ -3068,8 +3212,8 @@ body {
 
   @include mq(md) {
     // padding-block: 138px 190px;
-    padding-block: 146px 172px; //pp
-    margin-top: -98px; //pp
+    padding-block: 145px 172px; //pp
+    margin-top: -103px; //pp
   }
 
   @include mq(mm) {
@@ -3109,6 +3253,7 @@ body {
 
   @include mq(ln) {
     padding-block: 700px 220px;
+    margin-top: -360px;
   }
 
   // 11/30コメントアウト
@@ -3186,6 +3331,10 @@ body {
 
   @include mq(lm) {
     top: 200px;
+  }
+
+  @include mq(ln) {
+    top: 250px; //pp
   }
 }
 
@@ -3717,6 +3866,7 @@ body {
 
   @include mq(md) {
     padding: 32px 32px;
+    box-shadow: 6px 12px 12px 0 rgba(0, 0, 0, 0.25);
   }
 }
 
@@ -3999,6 +4149,10 @@ body {
   @include mq(ll) {
     left: 285px !important;
   }
+
+  @include mq(ln) {
+    left: 300px !important;
+  }
 }
 
 .works__swiper-button-next {
@@ -4043,6 +4197,10 @@ body {
 
   @include mq(ll) {
     right: 285px !important;
+  }
+
+  @include mq(ln) {
+    right: 300px !important;
   }
 }
 
@@ -4311,6 +4469,7 @@ body {
 
   @include mq(ml) {
     max-width: 657px; //pp
+    margin-top: 24px;
   }
 }
 
@@ -4350,6 +4509,10 @@ body {
     padding-inline: 35px;
   }
 
+  @include mq(ml) {
+    margin-top: 9px;
+  }
+
   &::before,
   &::after {
     position: absolute;
@@ -4387,6 +4550,10 @@ body {
     margin-top: 27px;
     flex-direction: row;
     gap: 16px;
+  }
+
+  @include mq(ml) {
+    margin-top: 21px;
   }
 }
 
@@ -6195,11 +6362,11 @@ body {
   }
 
   // 一旦ストップ
-  &.is-active {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
+  // &.is-active {
+  //   opacity: 1;
+  //   visibility: visible;
+  //   transform: translateY(0);
+  // }
 }
 
 .to-top-button__inner {

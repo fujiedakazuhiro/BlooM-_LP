@@ -123,10 +123,48 @@ const gallerySwiper = new Swiper("#js-gallery-swiper", {
   speed: 5000,
 
   // 一旦ストップ
-  autoplay: {
-    delay: 0,
-    pauseOnMouseEnter: true,
-    disableOnInteraction: false,
+  // autoplay: {
+  //   delay: 0,
+  //   pauseOnMouseEnter: false,
+  //   disableOnInteraction: false,
+  // },
+
+  breakpoints: {
+    375: {
+      slidesPerView: 1.519,
+      spaceBetween: 20,
+      centeredSlides: true,
+    },
+    768: {
+      slidesPerView: 1.5,
+      spaceBetween: 40,
+      centeredSlides: true,
+    },
+    900: {
+      slidesPerView: 1.4,
+      spaceBetween: 60,
+      centeredSlides: true,
+    },
+    1200: {
+      slidesPerView: 3.2,
+      spaceBetween: 40,
+      centeredSlides: true,
+    },
+    1400: {
+      slidesPerView: 3.038,
+      spaceBetween: 40,
+      centeredSlides: true,
+    },
+    1600: {
+      slidesPerView: 3.3,
+      spaceBetween: 40,
+      centeredSlides: true,
+    },
+    // 1700: {
+    //   slidesPerView: 1.5,
+    //   spaceBetween: 81,
+    //   centeredSlides: true,
+    // },
   },
 });
 
@@ -177,7 +215,8 @@ window.addEventListener("scroll", () => {
       stickyHeader.classList.add("is-sticky");
       // 固定時にスペーサーを表示し、ヘッダーの高さと同じ高さを設定してスペースを確保
 
-      spacer.style.display = "block";
+      //一旦block→none
+      spacer.style.display = "none";
     }
   } else {
     // 固定解除処理
