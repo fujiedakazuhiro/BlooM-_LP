@@ -10,6 +10,11 @@ html {
 html.no-scroll {
   overflow: hidden;
 }
+html.no-scroll body::before {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
 
 body {
   font-family: "Zen Kaku Gothic New";
@@ -18,10 +23,20 @@ body {
   line-height: 1.7;
   font-weight: 300;
 }
-body.is-no-scroll {
-  overflow: hidden;
-  position: fixed; /* iOSで背景スクロールを止めるための重要設定 */
-  width: 100%; /* position: fixedにした際に幅が崩れないようにする */
+body::before {
+  position: fixed;
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+  z-index: 20;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: opacity 0.4s ease, visibility 0.4s ease;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
 }
 
 .hidden-pc {
@@ -180,11 +195,13 @@ body.is-no-scroll {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 72px;
   padding-left: 20px;
+  -webkit-transition: background-color 0.4s ease, opacity 0.4s ease, -webkit-transform 0.4s ease;
+  transition: background-color 0.4s ease, opacity 0.4s ease, -webkit-transform 0.4s ease;
+  transition: background-color 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
+  transition: background-color 0.4s ease, opacity 0.4s ease, transform 0.4s ease, -webkit-transform 0.4s ease;
 }
 @media screen and (min-width:768px) {
   .fv__header,
@@ -195,22 +212,75 @@ body.is-no-scroll {
 
 .fv__header {
   position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: transparent;
+  opacity: 1;
+  -webkit-transition: opacity 0.4s ease;
+  transition: opacity 0.4s ease;
+}
+.fv__header.is-appearing {
+  opacity: 0;
+  -webkit-transition: none;
+  transition: none;
+}
+.fv__header.is-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  opacity: 1;
+}
+@media screen and (min-width:1200px) {
+  .fv__header.is-fixed {
+    background-color: transparent;
+  }
+}
+.fv__header.is-fixed .logo-1 {
+  display: none;
+}
+.fv__header.is-fixed .logo-2 {
+  display: block;
+}
+.fv__header.is-fixed .fv__logo-text {
+  color: #7d7d7d;
+}
+.fv__header.is-fixed.is-hiding {
+  opacity: 0;
+}
+.fv__header.is-fixed.is-absolute-style {
+  background-color: transparent;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.logo-2 {
+  display: none;
 }
 
 /* スペーサーのCSS */
-#header-spacer {
-  /* 固定解除時にチラつきを防ぐため、透明な状態を維持 */
-  visibility: hidden;
-  /* display: none/block で制御するため、高さのみを調整 */
-}
-
 .fv__header-2 {
-  background: #fff;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  opacity: 0;
+  z-index: 1000;
 }
 @media screen and (min-width:1200px) {
   .fv__header-2 {
     background: transparent;
   }
+}
+.fv__header-2.is-hidden {
+  opacity: 0 !important;
+  pointer-events: none;
+}
+.fv__header-2.is-block {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .fv__logo-text,
@@ -573,15 +643,10 @@ body.is-no-scroll {
 
 .fv__drawer--1 {
   z-index: 1000;
-  right: -100%;
-  -webkit-transition: right 0.4s ease;
-  transition: right 0.4s ease;
 }
 @media screen and (min-width:768px) {
   .fv__drawer--1 {
     margin-left: 18px;
-    -webkit-transition: right 0.3s ease;
-    transition: right 0.3s ease;
   }
 }
 .fv__drawer--1.is-fixed {
@@ -597,12 +662,12 @@ body.is-no-scroll {
   display: none;
   width: 72px;
   height: 72px;
+  margin-left: 18px;
 }
 @media screen and (min-width:768px) {
   .drawer__button-spacer {
     width: 100px;
     height: 100px;
-    margin-left: 8px;
   }
 }
 
@@ -6383,6 +6448,12 @@ body.is-no-scroll {
     background: transparent;
   }
 }
+.to-top-button.is-active {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
 
 .to-top-button__inner {
   padding-inline: 12px;
@@ -6604,10 +6675,10 @@ body.is-no-scroll {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 22s;
-          animation-duration: 22s;
-  -webkit-animation-delay: 2.5948638529s;
-          animation-delay: 2.5948638529s;
+  -webkit-animation-duration: 23s;
+          animation-duration: 23s;
+  -webkit-animation-delay: 7.268956106s;
+          animation-delay: 7.268956106s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6631,8 +6702,8 @@ body.is-no-scroll {
   ------------------------------------- */
   -webkit-animation-duration: 30s;
           animation-duration: 30s;
-  -webkit-animation-delay: 5.1037908942s;
-          animation-delay: 5.1037908942s;
+  -webkit-animation-delay: 0.8122493542s;
+          animation-delay: 0.8122493542s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6654,10 +6725,10 @@ body.is-no-scroll {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 20s;
-          animation-duration: 20s;
-  -webkit-animation-delay: 7.0539543473s;
-          animation-delay: 7.0539543473s;
+  -webkit-animation-duration: 30s;
+          animation-duration: 30s;
+  -webkit-animation-delay: 8.7437297532s;
+          animation-delay: 8.7437297532s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6679,10 +6750,10 @@ body.is-no-scroll {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 27s;
-          animation-duration: 27s;
-  -webkit-animation-delay: 4.3694060385s;
-          animation-delay: 4.3694060385s;
+  -webkit-animation-duration: 30s;
+          animation-duration: 30s;
+  -webkit-animation-delay: 5.8174595491s;
+          animation-delay: 5.8174595491s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6704,10 +6775,10 @@ body.is-no-scroll {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 29s;
-          animation-duration: 29s;
-  -webkit-animation-delay: 7.2297651197s;
-          animation-delay: 7.2297651197s;
+  -webkit-animation-duration: 24s;
+          animation-duration: 24s;
+  -webkit-animation-delay: 2.5295313094s;
+          animation-delay: 2.5295313094s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6729,10 +6800,10 @@ body.is-no-scroll {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 30s;
-          animation-duration: 30s;
-  -webkit-animation-delay: 9.1540286229s;
-          animation-delay: 9.1540286229s;
+  -webkit-animation-duration: 19s;
+          animation-duration: 19s;
+  -webkit-animation-delay: 7.7095233371s;
+          animation-delay: 7.7095233371s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6754,10 +6825,10 @@ body.is-no-scroll {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 26s;
-          animation-duration: 26s;
-  -webkit-animation-delay: 2.1899325793s;
-          animation-delay: 2.1899325793s;
+  -webkit-animation-duration: 27s;
+          animation-duration: 27s;
+  -webkit-animation-delay: 1.9637679323s;
+          animation-delay: 1.9637679323s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6779,10 +6850,10 @@ body.is-no-scroll {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 27s;
-          animation-duration: 27s;
-  -webkit-animation-delay: 8.2080468504s;
-          animation-delay: 8.2080468504s;
+  -webkit-animation-duration: 21s;
+          animation-duration: 21s;
+  -webkit-animation-delay: 9.4139195576s;
+          animation-delay: 9.4139195576s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6804,10 +6875,10 @@ body.is-no-scroll {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 16s;
-          animation-duration: 16s;
-  -webkit-animation-delay: 5.2262219792s;
-          animation-delay: 5.2262219792s;
+  -webkit-animation-duration: 28s;
+          animation-duration: 28s;
+  -webkit-animation-delay: 5.2829278455s;
+          animation-delay: 5.2829278455s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6829,10 +6900,10 @@ body.is-no-scroll {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 17s;
-          animation-duration: 17s;
-  -webkit-animation-delay: 1.6714893718s;
-          animation-delay: 1.6714893718s;
+  -webkit-animation-duration: 23s;
+          animation-duration: 23s;
+  -webkit-animation-delay: 3.1486969655s;
+          animation-delay: 3.1486969655s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6854,10 +6925,10 @@ body.is-no-scroll {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 25s;
-          animation-duration: 25s;
-  -webkit-animation-delay: 3.3415414108s;
-          animation-delay: 3.3415414108s;
+  -webkit-animation-duration: 26s;
+          animation-duration: 26s;
+  -webkit-animation-delay: 7.2687265184s;
+          animation-delay: 7.2687265184s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6879,10 +6950,10 @@ body.is-no-scroll {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 25s;
-          animation-duration: 25s;
-  -webkit-animation-delay: 1.8013162871s;
-          animation-delay: 1.8013162871s;
+  -webkit-animation-duration: 23s;
+          animation-duration: 23s;
+  -webkit-animation-delay: 6.9650004717s;
+          animation-delay: 6.9650004717s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6904,10 +6975,10 @@ body.is-no-scroll {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 23s;
-          animation-duration: 23s;
-  -webkit-animation-delay: 1.0908140126s;
-          animation-delay: 1.0908140126s;
+  -webkit-animation-duration: 17s;
+          animation-duration: 17s;
+  -webkit-animation-delay: 9.1586645361s;
+          animation-delay: 9.1586645361s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6929,10 +7000,10 @@ body.is-no-scroll {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 24s;
-          animation-duration: 24s;
-  -webkit-animation-delay: 0.4649198803s;
-          animation-delay: 0.4649198803s;
+  -webkit-animation-duration: 30s;
+          animation-duration: 30s;
+  -webkit-animation-delay: 8.1577435033s;
+          animation-delay: 8.1577435033s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6954,10 +7025,10 @@ body.is-no-scroll {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 16s;
-          animation-duration: 16s;
-  -webkit-animation-delay: 9.3773925494s;
-          animation-delay: 9.3773925494s;
+  -webkit-animation-duration: 30s;
+          animation-duration: 30s;
+  -webkit-animation-delay: 3.4928528511s;
+          animation-delay: 3.4928528511s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。

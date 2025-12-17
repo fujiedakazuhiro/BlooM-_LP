@@ -123,11 +123,11 @@ const gallerySwiper = new Swiper("#js-gallery-swiper", {
   speed: 5000,
 
   // 一旦ストップ
-  // autoplay: {
-  //   delay: 0,
-  //   pauseOnMouseEnter: false,
-  //   disableOnInteraction: false,
-  // },
+  autoplay: {
+    delay: 0,
+    pauseOnMouseEnter: false,
+    disableOnInteraction: false,
+  },
 
   breakpoints: {
     375: {
@@ -168,87 +168,143 @@ const gallerySwiper = new Swiper("#js-gallery-swiper", {
   },
 });
 
-// // 2つ目のヘッダーがTOPに来たタイミングで上部固定
-// ヘッダー2が浮いたスペースを埋める実装
-// 1. 🚀 要素を取得
-const stickyHeader = document.getElementById("fv__header-2");
-// 🚀 スペーサー要素を取得
-const spacer = document.getElementById("header-spacer");
+//ヘッダーのfix表示の切り替え
+document.addEventListener("DOMContentLoaded", () => {
+  const fvSection = document.querySelector(".fv");
+  const header = document.querySelector(".fv__header"); // シングルヘッダー
 
-// 2. 📐 固定開始位置を格納する変数
-let originalOffset = 0; // fv__header-2 の元の位置
-let headerHeight = 0; // fv__header-2 の高さ（スペーサーに必要）
-
-/**
- * 固定開始位置 (originalOffset) とヘッダーの高さ (headerHeight) を計算し、更新する関数
- */
-function updateOffset() {
-  if (stickyHeader) {
-    // 現在のレイアウトでの正確な位置を取得
-    originalOffset = stickyHeader.offsetTop;
-    // 現在のヘッダーの高さを取得
-    headerHeight = stickyHeader.offsetHeight;
-
-    // スペーサーの高さも更新（念のため）
-    if (spacer) {
-      spacer.style.height = `${headerHeight}px`;
-    }
-
-    console.log(`Offset: ${originalOffset}px, Height: ${headerHeight}px`);
+  if (!fvSection || !header) {
+    return;
   }
-}
 
-// --- 3. イベントリスナーの設定 ---
+  const FIXED_CLASS = "is-fixed";
+  const APPEAR_CLASS = "is-appearing"; // Fixed開始時の準備状態
+  const HIDING_CLASS = "is-hiding"; // Fixed解除時の非表示アニメーション状態
 
-// A. スクロールイベント: 固定処理の実行
-window.addEventListener("scroll", () => {
-  if (!stickyHeader || !spacer) return;
+  const ANIMATION_DURATION_MS = 400;
+  let hideTimer = null;
 
-  const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+  // observerCallbackをDOMContentLoadedスコープ内で定義
+  const observerCallback = (entries) => {
+    entries.forEach((entry) => {
+      // Fixed解除プロセス (スクロールアップ時: fvSectionがビューポートに入った)
+      if (entry.isIntersecting) {
+        if (header.classList.contains(FIXED_CLASS)) {
+          if (hideTimer) clearTimeout(hideTimer);
 
-  // 現在の状態をチェック
-  const isSticky = stickyHeader.classList.contains("is-sticky");
+          // Fixed状態を維持しながら、非表示アニメーションを開始
+          header.classList.add(HIDING_CLASS);
+          header.classList.remove(APPEAR_CLASS);
 
-  if (scrollPosition >= originalOffset) {
-    // 固定処理
-    if (!isSticky) {
-      stickyHeader.classList.add("is-sticky");
-      // 固定時にスペーサーを表示し、ヘッダーの高さと同じ高さを設定してスペースを確保
+          // アニメーションが完了する時間を待つ
+          hideTimer = setTimeout(() => {
+            // ★改良ポイント1: Fixed解除のジャンプを見せないために、要素を一時的に非表示にする
+            header.style.visibility = "hidden";
 
-      //一旦block→none
-      spacer.style.display = "none";
-    }
-  } else {
-    // 固定解除処理
-    if (isSticky) {
-      stickyHeader.classList.remove("is-sticky");
-      // 固定解除時にスペーサーを非表示
-      spacer.style.display = "none";
-    }
+            // アニメーション完了後、position: fixed と is-hiding を解除
+            header.classList.remove(FIXED_CLASS);
+            header.classList.remove(HIDING_CLASS);
+            hideTimer = null;
+
+            // ★改良ポイント2: position: absolute に戻った後、次のレンダリングで visibility を元に戻す
+            setTimeout(() => {
+              header.style.visibility = "visible";
+            }, 10);
+          }, ANIMATION_DURATION_MS);
+        }
+      }
+      // Fixed開始プロセス (スクロールダウン時: fvSectionがビューポートから出た)
+      else {
+        // 固定中に、非表示アニメーション中だった場合（アニメーション中断からの再固定）
+        if (header.classList.contains(FIXED_CLASS) && header.classList.contains(HIDING_CLASS)) {
+          if (hideTimer) clearTimeout(hideTimer);
+          hideTimer = null;
+          header.classList.remove(HIDING_CLASS);
+          header.classList.remove(APPEAR_CLASS);
+          return;
+        }
+
+        // 既に完全に固定されている場合は終了
+        if (header.classList.contains(FIXED_CLASS)) {
+          return;
+        }
+
+        // --- ここに来るのは、完全に Fixed が外れた状態から Fixed になるとき ---
+
+        // 1. Fixed出現準備：アニメーション開始状態へ
+        header.classList.add(APPEAR_CLASS);
+        header.classList.remove(HIDING_CLASS);
+        header.style.visibility = "visible";
+
+        // 2. リフローを強制し、トランジションの開始を保証する
+        header.offsetWidth;
+
+        // 3. Fixedと終了状態のスタイルを適用: トランジションが有効になる
+        header.classList.add(FIXED_CLASS);
+        header.classList.remove(APPEAR_CLASS);
+      }
+    });
+  };
+
+  // ★ 1. ヘッダーの高さを取得し、rootMarginを動的に設定する関数 (修正済)
+  function createObserver() {
+    // header要素の現在の高さを正確に取得
+    const headerHeight = header.offsetHeight;
+
+    const options = {
+      root: null,
+      rootMargin: `-${headerHeight}px 0px 0px 0px`,
+      threshold: 0,
+    };
+
+    const fvObserver = new IntersectionObserver(observerCallback, options);
+    fvObserver.observe(fvSection);
+
+    // ★重要修正点: 生成したインスタンスを window スコープに格納
+    window.fvObserverInstance = fvObserver;
   }
+
+  // ★ 2. リサイズ時にも再計算 (修正済)
+  window.addEventListener("resize", () => {
+    // 既存のObserverがあれば解除（ガベージコレクションのため）
+    if (window.fvObserverInstance) {
+      window.fvObserverInstance.unobserve(fvSection);
+      window.fvObserverInstance = null; // nullにしてメモリを解放
+    }
+    createObserver();
+  });
+
+  // 初期実行
+  createObserver();
 });
 
-// B. 初期計算と再計算イベント (変更なし)
-window.addEventListener("load", updateOffset);
-window.addEventListener("resize", updateOffset);
-document.addEventListener("DOMContentLoaded", updateOffset);
-
-// // 2つ目のヘッダーがTOPに来たタイミングで上部固定
-// // 1. 🚀 要素を取得 (変更なし)
+// // // 2つ目のヘッダーがTOPに来たタイミングで上部固定
+// // ヘッダー2が浮いたスペースを埋める実装
+// // 1. 🚀 要素を取得
 // const stickyHeader = document.getElementById("fv__header-2");
+// // 🚀 スペーサー要素を取得
+// const spacer = document.getElementById("header-spacer");
 
 // // 2. 📐 固定開始位置を格納する変数
-// let originalOffset = 0;
+// let originalOffset = 0; // fv__header-2 の元の位置
+// let headerHeight = 0; // fv__header-2 の高さ（スペーサーに必要）
 
 // /**
-//  * 固定開始位置 (originalOffset) を計算し、更新する関数
+//  * 固定開始位置 (originalOffset) とヘッダーの高さ (headerHeight) を計算し、更新する関数
 //  */
 // function updateOffset() {
-//   // 要素が存在する場合のみ処理
 //   if (stickyHeader) {
-//     // 現在のレイアウトでの正確な位置を取得して更新
+//     // 現在のレイアウトでの正確な位置を取得
 //     originalOffset = stickyHeader.offsetTop;
-//     console.log(`Original Offset Updated: ${originalOffset}px`);
+//     // 現在のヘッダーの高さを取得
+//     headerHeight = stickyHeader.offsetHeight;
+
+//     // スペーサーの高さも更新（念のため）
+//     if (spacer) {
+//       spacer.style.height = `${headerHeight}px`;
+//     }
+
+//     console.log(`Offset: ${originalOffset}px, Height: ${headerHeight}px`);
 //   }
 // }
 
@@ -256,34 +312,35 @@ document.addEventListener("DOMContentLoaded", updateOffset);
 
 // // A. スクロールイベント: 固定処理の実行
 // window.addEventListener("scroll", () => {
-//   // 要素が存在しない場合は処理を終了
-//   if (!stickyHeader) return;
+//   if (!stickyHeader || !spacer) return;
 
-//   // 現在のスクロール位置（垂直方向）を取得
 //   const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
 
-//   // スクロール位置が固定開始位置を超えたかチェック
+//   // 現在の状態をチェック
+//   const isSticky = stickyHeader.classList.contains("is-sticky");
+
 //   if (scrollPosition >= originalOffset) {
-//     // クラス名を変更（クラスが存在しないかチェックしてから追加するのがベスト）
-//     if (!stickyHeader.classList.contains("is-sticky")) {
+//     // 固定処理
+//     if (!isSticky) {
 //       stickyHeader.classList.add("is-sticky");
-//       // コンテンツのズレを防ぐための処理をここに追加
+//       // 固定時にスペーサーを表示し、ヘッダーの高さと同じ高さを設定してスペースを確保
+
+//       //一旦block→none
+//       spacer.style.display = "none";
 //     }
 //   } else {
-//     // 固定を解除
-//     stickyHeader.classList.remove("is-sticky");
+//     // 固定解除処理
+//     if (isSticky) {
+//       stickyHeader.classList.remove("is-sticky");
+//       // 固定解除時にスペーサーを非表示
+//       spacer.style.display = "none";
+//     }
 //   }
 // });
 
-// // B. 初期計算と再計算イベント
-
-// // 1. ページ全体の読み込みが完了した時点 (画像などのロード後) で計算
+// // B. 初期計算と再計算イベント (変更なし)
 // window.addEventListener("load", updateOffset);
-
-// // 2. 画面サイズが変更された時点 (スマホの縦横切り替えなど) で再計算
 // window.addEventListener("resize", updateOffset);
-
-// // 3. (念のため) DOMがロードされた時点でも一度計算
 // document.addEventListener("DOMContentLoaded", updateOffset);
 
 // TwentyTwenty 初期化用関数（シンプルかつ安全な再初期化）
@@ -461,6 +518,7 @@ const reviewSwiper = new Swiper(".review__swiper", {
   },
 });
 
+//スクロールするとトップへ戻るボタンが下から表示される
 document.addEventListener("DOMContentLoaded", function () {
   const fixedButton = document.querySelector(".to-top-button");
 
@@ -507,7 +565,7 @@ document.addEventListener("DOMContentLoaded", function () {
   handleScroll();
 });
 
-// スクロール時のアニメーション
+//トップへ戻るボタンをクリックすると画面トップに戻る
 document.addEventListener("DOMContentLoaded", function () {
   const topLink = document.querySelector(".to-top__arrow");
 
@@ -916,8 +974,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // 施工実績の200件突破の吹き出しのアニメーション
-// JavaScriptファイルにそのまま貼り付けてください。
-
 document.addEventListener("DOMContentLoaded", () => {
   // 監視対象となる要素: .feature-achievement__image
   const target = document.querySelector(".feature-achievement__image");
@@ -950,3 +1006,89 @@ document.addEventListener("DOMContentLoaded", () => {
   // 監視を開始
   observer.observe(target);
 });
+
+// 一旦、ダブルヘッダー方式採用のため、停止中
+// ヘッダー(class="fv__header")がfvセクションのスクロール完了後に上部固定
+// document.addEventListener("DOMContentLoaded", () => {
+//   const fvSection = document.querySelector(".fv");
+//   const header = document.querySelector(".fv__header");
+
+//   if (!fvSection || !header) {
+//     return;
+//   }
+
+//   const FIXED_CLASS = "is-fixed";
+//   const APPEAR_CLASS = "is-appearing";
+//   const HIDING_CLASS = "is-hiding";
+
+//   const ANIMATION_DURATION_MS = 400;
+//   // RENDER_DELAY_MS は不要になります
+
+//   let hideTimer = null;
+
+//   const options = {
+//     root: null,
+//     rootMargin: "0px 0px 0px 0px",
+//     threshold: 0, // 0に設定されているため、fvSectionの端がビューポートに入ると発火します
+//   };
+
+//   const observerCallback = (entries) => {
+//     entries.forEach((entry) => {
+//       // Fixed解除プロセス (スクロールアップ時: fvSectionがビューポートに入った)
+//       if (entry.isIntersecting) {
+//         if (header.classList.contains(FIXED_CLASS)) {
+//           // 1. Fixed解除待機中の既存タイマーをキャンセル (もしあれば)
+//           if (hideTimer) clearTimeout(hideTimer);
+
+//           // 2. Fixed状態を維持しながら、非表示アニメーションを開始
+//           // FIXED_CLASSを維持したまま、is-hidingを付与 (SCSSで opacity: 0, transform: -20px になる)
+//           header.classList.add(HIDING_CLASS);
+//           header.classList.remove(APPEAR_CLASS); //念のため
+
+//           // 3. アニメーションが完了する時間を待って、Fixed状態を解除
+//           hideTimer = setTimeout(() => {
+//             // アニメーション完了後、position: fixed と is-hiding を解除
+//             header.classList.remove(FIXED_CLASS);
+//             header.classList.remove(HIDING_CLASS); // これがないと absolute に戻っても opacity: 0 のまま
+//             hideTimer = null; // タイマーIDをリセット
+//           }, ANIMATION_DURATION_MS);
+//         }
+//       }
+//       // Fixed開始プロセス (スクロールダウン時: fvSectionがビューポートから出た)
+//       else {
+//         // Fixed解除アニメーション中にスクロールダウンされた場合 (中断)
+//         if (header.classList.contains(FIXED_CLASS) && header.classList.contains(HIDING_CLASS)) {
+//           // 1. Fixed解除待機中のタイマーを即座にキャンセル
+//           if (hideTimer) clearTimeout(hideTimer);
+//           hideTimer = null;
+
+//           // 2. Hidingクラスを解除し、すぐに再出現アニメーションを実行
+//           header.classList.remove(HIDING_CLASS);
+//           // APPEAR_CLASS は次に Fixed が付与される時に処理されるので、ここでは不要
+//         }
+
+//         // 既に固定されている場合は処理を終了
+//         if (header.classList.contains(FIXED_CLASS)) {
+//           return;
+//         }
+
+//         // --- ここに来るのは、完全に Fixed が外れた状態から Fixed になるとき ---
+
+//         // 1. Fixed出現準備：アニメーション開始状態へ (transition: none が適用された状態)
+//         header.classList.add(APPEAR_CLASS);
+//         header.classList.remove(HIDING_CLASS);
+
+//         // 2. リフローを強制: これによりブラウザは APPEAR_CLASS のスタイルを適用したレンダリングを行います。
+//         // これがトランジションの「開始フレーム」となります。
+//         header.offsetWidth; // 強制リフロー（この行に意味はありませんが、トランジション開始に必須）
+
+//         // 3. Fixedと終了状態のスタイルを適用: トランジションが有効になる
+//         header.classList.add(FIXED_CLASS);
+//         header.classList.remove(APPEAR_CLASS); // FIXED_CLASSに transition: 0.4s が適用されているため、これでアニメーション開始
+//       }
+//     });
+//   };
+
+//   const fvObserver = new IntersectionObserver(observerCallback, options);
+//   fvObserver.observe(fvSection);
+// });

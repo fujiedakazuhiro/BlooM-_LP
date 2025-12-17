@@ -45,6 +45,12 @@ html {
   &.no-scroll {
     overflow: hidden;
     // height: 100vh;
+
+    body::before {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
   }
 }
 
@@ -55,12 +61,27 @@ body {
   line-height: 1.7;
   font-weight: 300;
 
-  &.is-no-scroll {
-    overflow: hidden;
-    // height: 100vh; /* 高さ100%に固定 */
-    position: fixed; /* iOSで背景スクロールを止めるための重要設定 */
-    width: 100%; /* position: fixedにした際に幅が崩れないようにする */
+  &::before {
+    position: fixed;
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    pointer-events: none;
+    z-index: 20;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
   }
+
+  // &.is-no-scroll {
+  //   overflow: hidden;
+  //   // height: 100vh; /* 高さ100%に固定 */
+  //   position: fixed; /* iOSで背景スクロールを止めるための重要設定 */
+  //   width: 100%; /* position: fixedにした際に幅が崩れないようにする */
+  // }
 }
 
 .hidden-pc {
@@ -231,11 +252,10 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 72px;
   padding-left: 20px;
+  transition: background-color 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
 
   @include mq(ms) {
     height: 100px;
@@ -244,24 +264,95 @@ body {
 
 .fv__header {
   position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: transparent;
+  opacity: 1;
+  // transform: translateY(0);
+  transition: opacity 0.4s ease;
+
+  &.is-appearing {
+    opacity: 0; // 見えない状態
+    // transform: translateY(-20px); // わずかに上
+    transition: none; // トランジションを無効化（開始状態へのジャンプ用）
+  }
+
+  &.is-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    opacity: 1;
+    // transform: translateY(0);
+
+    @include mq(md) {
+      background-color: transparent;
+    }
+
+    .logo-1 {
+      display: none;
+    }
+
+    .logo-2 {
+      display: block;
+    }
+
+    .fv__logo-text {
+      color: #7d7d7d;
+    }
+  }
+
+  &.is-fixed.is-hiding {
+    opacity: 0;
+    // transform: translateY(-20px);
+  }
+
+  &.is-fixed.is-absolute-style {
+    // 固定は維持したまま、デザインだけを元の状態に戻す
+    background-color: transparent;
+    box-shadow: none;
+  }
+}
+
+.logo-2 {
+  display: none;
 }
 
 /* スペーサーのCSS */
-#header-spacer {
-  /* 固定解除時にチラつきを防ぐため、透明な状態を維持 */
-  visibility: hidden;
-  /* display: none/block で制御するため、高さのみを調整 */
-}
+// #header-spacer {
+//   /* 固定解除時にチラつきを防ぐため、透明な状態を維持 */
+//   visibility: hidden;
+//   display: none;
+//   /* display: none/block で制御するため、高さのみを調整 */
+// }
 
 .fv__header-2 {
-  background: #fff;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  opacity: 0;
+  z-index: 1000;
 
   @include mq(md) {
     background: transparent;
   }
 
+  &.is-hidden {
+    opacity: 0 !important;
+    pointer-events: none; // クリック/タップを無効化
+  }
+
+  &.is-block {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
   // 一旦ストップ
   // &.is-sticky {
+  //   display: flex;
   //   position: fixed;
   //   top: 0;
   //   width: 100%;
@@ -588,12 +679,12 @@ body {
 .fv__drawer--1 {
   z-index: 1000;
 
-  right: -100%;
-  transition: right 0.4s ease;
+  // right: -100%;
+  // transition: right 0.4s ease;
 
   @include mq(ms) {
     margin-left: 18px; //pp
-    transition: right 0.3s ease;
+    // transition: right 0.3s ease;
   }
 
   &.is-fixed {
@@ -611,11 +702,12 @@ body {
   display: none;
   width: 72px;
   height: 72px;
+  margin-left: 18px;
 
   @include mq(ms) {
     width: 100px;
     height: 100px;
-    margin-left: 8px;
+    // margin-left: 8px;
   }
 }
 
@@ -6362,11 +6454,11 @@ body {
   }
 
   // 一旦ストップ
-  // &.is-active {
-  //   opacity: 1;
-  //   visibility: visible;
-  //   transform: translateY(0);
-  // }
+  &.is-active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
 }
 
 .to-top-button__inner {
