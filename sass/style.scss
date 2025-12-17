@@ -1419,7 +1419,7 @@ body {
     &::before {
       position: absolute;
       content: "";
-      background: url(../img/ellipse.svg) no-repeat center center / contain;
+      background: url(../img/problem/ellipse.svg) no-repeat center center / contain;
       width: 23px;
       height: 15px;
     }
@@ -1427,7 +1427,7 @@ body {
     &::after {
       position: absolute;
       content: "";
-      background: url(../img/ellipse.svg) no-repeat center center / contain;
+      background: url(../img/problem/ellipse.svg) no-repeat center center / contain;
       width: 12px;
       height: 8px;
     }
@@ -1456,7 +1456,7 @@ body {
 }
 
 .problem__inheritance {
-  background: url(../img/inheritance-bubble.svg) no-repeat center center / contain;
+  background: url(../img/problem/inheritance-bubble.svg) no-repeat center center / contain;
   width: 314px;
   height: 164px;
   top: 0;
@@ -1491,7 +1491,7 @@ body {
 .problem__demolish {
   width: 400px;
   height: 170px;
-  background: url(../img/demolish-bubble.svg) no-repeat center center / contain;
+  background: url(../img/problem/demolish-bubble.svg) no-repeat center center / contain;
   top: 146px;
   right: -35px;
 
@@ -1524,7 +1524,7 @@ body {
 .problem__price {
   width: 257px;
   height: 127px;
-  background: url(../img/price-bubble.svg) no-repeat center center / contain;
+  background: url(../img/problem/price-bubble.svg) no-repeat center center / contain;
   top: 289px;
   left: -9px;
 
@@ -1557,7 +1557,7 @@ body {
 .problem__contract {
   width: 334px;
   height: 139px;
-  background: url(../img/contract-bubble.svg) no-repeat center center / contain;
+  background: url(../img/problem/contract-bubble.svg) no-repeat center center / contain;
   top: 403px;
   right: -34px;
 
@@ -1590,7 +1590,7 @@ body {
 .problem__trouble {
   width: 350px; //pp
   height: 147px; //pp
-  background: url(../img/trouble-bubble.svg) no-repeat center center / contain;
+  background: url(../img/problem/trouble-bubble.svg) no-repeat center center / contain;
   top: 533px;
   left: -30px; //pp
 
@@ -1625,7 +1625,7 @@ body {
   margin-top: 10px; //pp
   width: 373px;
   height: 169px;
-  background: url(../img/valuables-bubble.svg) no-repeat center center / contain;
+  background: url(../img/problem/valuables-bubble.svg) no-repeat center center / contain;
   top: 648px;
   right: -18px;
 

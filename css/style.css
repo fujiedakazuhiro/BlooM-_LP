@@ -1500,7 +1500,7 @@ body::before {
   .problem__valuables::before {
     position: absolute;
     content: "";
-    background: url(../img/ellipse.svg) no-repeat center center/contain;
+    background: url(../img/problem/ellipse.svg) no-repeat center center/contain;
     width: 23px;
     height: 15px;
   }
@@ -1512,7 +1512,7 @@ body::before {
   .problem__valuables::after {
     position: absolute;
     content: "";
-    background: url(../img/ellipse.svg) no-repeat center center/contain;
+    background: url(../img/problem/ellipse.svg) no-repeat center center/contain;
     width: 12px;
     height: 8px;
   }
@@ -1546,7 +1546,7 @@ body::before {
 }
 
 .problem__inheritance {
-  background: url(../img/inheritance-bubble.svg) no-repeat center center/contain;
+  background: url(../img/problem/inheritance-bubble.svg) no-repeat center center/contain;
   width: 314px;
   height: 164px;
   top: 0;
@@ -1581,7 +1581,7 @@ body::before {
 .problem__demolish {
   width: 400px;
   height: 170px;
-  background: url(../img/demolish-bubble.svg) no-repeat center center/contain;
+  background: url(../img/problem/demolish-bubble.svg) no-repeat center center/contain;
   top: 146px;
   right: -35px;
 }
@@ -1614,7 +1614,7 @@ body::before {
 .problem__price {
   width: 257px;
   height: 127px;
-  background: url(../img/price-bubble.svg) no-repeat center center/contain;
+  background: url(../img/problem/price-bubble.svg) no-repeat center center/contain;
   top: 289px;
   left: -9px;
 }
@@ -1647,7 +1647,7 @@ body::before {
 .problem__contract {
   width: 334px;
   height: 139px;
-  background: url(../img/contract-bubble.svg) no-repeat center center/contain;
+  background: url(../img/problem/contract-bubble.svg) no-repeat center center/contain;
   top: 403px;
   right: -34px;
 }
@@ -1680,7 +1680,7 @@ body::before {
 .problem__trouble {
   width: 350px;
   height: 147px;
-  background: url(../img/trouble-bubble.svg) no-repeat center center/contain;
+  background: url(../img/problem/trouble-bubble.svg) no-repeat center center/contain;
   top: 533px;
   left: -30px;
 }
@@ -1715,7 +1715,7 @@ body::before {
   margin-top: 10px;
   width: 373px;
   height: 169px;
-  background: url(../img/valuables-bubble.svg) no-repeat center center/contain;
+  background: url(../img/problem/valuables-bubble.svg) no-repeat center center/contain;
   top: 648px;
   right: -18px;
 }
@@ -6532,10 +6532,10 @@ body::before {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 26s;
-          animation-duration: 26s;
-  -webkit-animation-delay: 1.8847841983s;
-          animation-delay: 1.8847841983s;
+  -webkit-animation-duration: 16s;
+          animation-duration: 16s;
+  -webkit-animation-delay: 3.7428196957s;
+          animation-delay: 3.7428196957s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6557,10 +6557,10 @@ body::before {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 30s;
-          animation-duration: 30s;
-  -webkit-animation-delay: 0.1301365341s;
-          animation-delay: 0.1301365341s;
+  -webkit-animation-duration: 28s;
+          animation-duration: 28s;
+  -webkit-animation-delay: 6.5680635809s;
+          animation-delay: 6.5680635809s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6582,10 +6582,10 @@ body::before {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 22s;
-          animation-duration: 22s;
-  -webkit-animation-delay: 6.3802560542s;
-          animation-delay: 6.3802560542s;
+  -webkit-animation-duration: 17s;
+          animation-duration: 17s;
+  -webkit-animation-delay: 2.7739712845s;
+          animation-delay: 2.7739712845s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6609,8 +6609,8 @@ body::before {
   ------------------------------------- */
   -webkit-animation-duration: 21s;
           animation-duration: 21s;
-  -webkit-animation-delay: 8.6837594135s;
-          animation-delay: 8.6837594135s;
+  -webkit-animation-delay: 0.2710137289s;
+          animation-delay: 0.2710137289s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6632,10 +6632,10 @@ body::before {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 26s;
-          animation-duration: 26s;
-  -webkit-animation-delay: 8.8186705015s;
-          animation-delay: 8.8186705015s;
+  -webkit-animation-duration: 27s;
+          animation-duration: 27s;
+  -webkit-animation-delay: 3.8309621802s;
+          animation-delay: 3.8309621802s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6657,10 +6657,10 @@ body::before {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 30s;
-          animation-duration: 30s;
-  -webkit-animation-delay: 3.7379273588s;
-          animation-delay: 3.7379273588s;
+  -webkit-animation-duration: 28s;
+          animation-duration: 28s;
+  -webkit-animation-delay: 1.4493214418s;
+          animation-delay: 1.4493214418s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6682,10 +6682,10 @@ body::before {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 18s;
-          animation-duration: 18s;
-  -webkit-animation-delay: 3.2741054008s;
-          animation-delay: 3.2741054008s;
+  -webkit-animation-duration: 23s;
+          animation-duration: 23s;
+  -webkit-animation-delay: 4.0450536549s;
+          animation-delay: 4.0450536549s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6707,10 +6707,10 @@ body::before {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 18s;
-          animation-duration: 18s;
-  -webkit-animation-delay: 5.6966681137s;
-          animation-delay: 5.6966681137s;
+  -webkit-animation-duration: 24s;
+          animation-duration: 24s;
+  -webkit-animation-delay: 5.7955211139s;
+          animation-delay: 5.7955211139s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6732,10 +6732,10 @@ body::before {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 26s;
-          animation-duration: 26s;
-  -webkit-animation-delay: 3.4126357747s;
-          animation-delay: 3.4126357747s;
+  -webkit-animation-duration: 28s;
+          animation-duration: 28s;
+  -webkit-animation-delay: 2.8244884642s;
+          animation-delay: 2.8244884642s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6757,10 +6757,10 @@ body::before {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 30s;
-          animation-duration: 30s;
-  -webkit-animation-delay: 1.896868214s;
-          animation-delay: 1.896868214s;
+  -webkit-animation-duration: 29s;
+          animation-duration: 29s;
+  -webkit-animation-delay: 9.8972449711s;
+          animation-delay: 9.8972449711s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6782,10 +6782,10 @@ body::before {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 20s;
-          animation-duration: 20s;
-  -webkit-animation-delay: 4.1441086191s;
-          animation-delay: 4.1441086191s;
+  -webkit-animation-duration: 21s;
+          animation-duration: 21s;
+  -webkit-animation-delay: 6.1685756912s;
+          animation-delay: 6.1685756912s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6807,10 +6807,10 @@ body::before {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 21s;
-          animation-duration: 21s;
-  -webkit-animation-delay: 4.5375237146s;
-          animation-delay: 4.5375237146s;
+  -webkit-animation-duration: 29s;
+          animation-duration: 29s;
+  -webkit-animation-delay: 0.8520174483s;
+          animation-delay: 0.8520174483s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6832,10 +6832,10 @@ body::before {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 25s;
-          animation-duration: 25s;
-  -webkit-animation-delay: 5.972898308s;
-          animation-delay: 5.972898308s;
+  -webkit-animation-duration: 18s;
+          animation-duration: 18s;
+  -webkit-animation-delay: 0.5498253958s;
+          animation-delay: 0.5498253958s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6857,10 +6857,10 @@ body::before {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 23s;
-          animation-duration: 23s;
-  -webkit-animation-delay: 2.0142340167s;
-          animation-delay: 2.0142340167s;
+  -webkit-animation-duration: 27s;
+          animation-duration: 27s;
+  -webkit-animation-delay: 7.6172531342s;
+          animation-delay: 7.6172531342s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6882,10 +6882,10 @@ body::before {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 29s;
-          animation-duration: 29s;
-  -webkit-animation-delay: 6.9668938701s;
-          animation-delay: 6.9668938701s;
+  -webkit-animation-duration: 27s;
+          animation-duration: 27s;
+  -webkit-animation-delay: 4.8777269767s;
+          animation-delay: 4.8777269767s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
