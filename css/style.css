@@ -4,9 +4,6 @@ html {
   overflow-x: hidden;
 }
 
-html {
-  /* ... htmlの他のスタイル ... */
-}
 html.no-scroll {
   overflow: hidden;
 }
@@ -18,7 +15,7 @@ html.no-scroll body::before {
 
 body {
   font-family: "Zen Kaku Gothic New";
-  color: #000;
+  color: #242424;
   font-size: 16px;
   line-height: 1.7;
   font-weight: 300;
@@ -111,7 +108,6 @@ body::before {
   }
 }
 
-/* 固定ヘッダーの高さ 100px に合わせて設定 */
 .fv {
   width: 100vw;
   height: auto;
@@ -184,8 +180,7 @@ body::before {
   height: 100%;
 }
 
-.fv__header,
-.fv__header-2 {
+.fv__header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -198,19 +193,6 @@ body::before {
   width: 100%;
   height: 72px;
   padding-left: 20px;
-  -webkit-transition: background-color 0.4s ease, opacity 0.4s ease, -webkit-transform 0.4s ease;
-  transition: background-color 0.4s ease, opacity 0.4s ease, -webkit-transform 0.4s ease;
-  transition: background-color 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
-  transition: background-color 0.4s ease, opacity 0.4s ease, transform 0.4s ease, -webkit-transform 0.4s ease;
-}
-@media screen and (min-width:768px) {
-  .fv__header,
-  .fv__header-2 {
-    height: 100px;
-  }
-}
-
-.fv__header {
   position: absolute;
   top: 0;
   left: 0;
@@ -249,43 +231,18 @@ body::before {
 .fv__header.is-fixed.is-hiding {
   opacity: 0;
 }
-.fv__header.is-fixed.is-absolute-style {
-  background-color: transparent;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+@media screen and (min-width:768px) {
+  .fv__header {
+    height: 100px;
+  }
 }
 
 .logo-2 {
   display: none;
 }
 
-/* スペーサーのCSS */
-.fv__header-2 {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: #fff;
-  opacity: 0;
-  z-index: 1000;
-}
-@media screen and (min-width:1200px) {
-  .fv__header-2 {
-    background: transparent;
-  }
-}
-.fv__header-2.is-hidden {
-  opacity: 0 !important;
-  pointer-events: none;
-}
-.fv__header-2.is-block {
-  opacity: 1;
-  pointer-events: auto;
-}
-
 .fv__logo-text,
 .fv__logo-text2 {
-  /* h1_Zen Kaku Gothic New_Bold_11px */
   font-family: "Zen Kaku Gothic New";
   font-size: 12px;
   font-weight: 700;
@@ -339,14 +296,10 @@ body::before {
 @media screen and (min-width:1200px) {
   .fv__tel {
     display: block;
-    border-radius: 28px;
-    background: #242424;
-    width: 230px;
-    height: 56px;
-    padding-block: 5px;
   }
 }
 
+.fv__tel,
 .tel {
   border-radius: 28px;
   background-color: #242424;
@@ -356,6 +309,7 @@ body::before {
   -webkit-transition: background-color 0.3s ease-out;
   transition: background-color 0.3s ease-out;
 }
+.fv__tel:hover,
 .tel:hover {
   background-color: #454545;
 }
@@ -440,14 +394,10 @@ body::before {
 @media screen and (min-width:1200px) {
   .fv__line {
     display: block;
-    width: 230px;
-    height: 56px;
-    border-radius: 28px;
-    background: #06c755;
-    padding-block: 5px;
   }
 }
 
+.fv__line,
 .line {
   width: 230px;
   height: 56px;
@@ -457,6 +407,7 @@ body::before {
   -webkit-transition: background-color 0.3s ease-out;
   transition: background-color 0.3s ease-out;
 }
+.fv__line:hover,
 .line:hover {
   background-color: #4ed887;
 }
@@ -492,9 +443,7 @@ body::before {
   letter-spacing: 0.8px;
 }
 
-.fv__drawer--1,
-.fv__drawer--2,
-.fv__drawer--3 {
+.fv__drawer--1 {
   width: 72px;
   height: 72px;
   z-index: 1000;
@@ -513,23 +462,17 @@ body::before {
   padding: 28px 15px;
 }
 @media screen and (min-width:768px) {
-  .fv__drawer--1,
-  .fv__drawer--2,
-  .fv__drawer--3 {
+  .fv__drawer--1 {
     margin-left: 8px;
     width: 100px;
     height: 100px;
     padding: 37px 24px;
   }
 }
-.fv__drawer--1:hover,
-.fv__drawer--2:hover,
-.fv__drawer--3:hover {
+.fv__drawer--1:hover {
   background-color: #454545;
 }
-.fv__drawer--1 .drawer-button__bar:nth-child(1),
-.fv__drawer--2 .drawer-button__bar:nth-child(1),
-.fv__drawer--3 .drawer-button__bar:nth-child(1) {
+.fv__drawer--1 .drawer-button__bar:nth-child(1) {
   top: 50%;
   -webkit-transform: translateY(-8px);
           transform: translateY(-8px);
@@ -537,17 +480,13 @@ body::before {
   width: 42px;
 }
 @media screen and (min-width:768px) {
-  .fv__drawer--1 .drawer-button__bar:nth-child(1),
-  .fv__drawer--2 .drawer-button__bar:nth-child(1),
-  .fv__drawer--3 .drawer-button__bar:nth-child(1) {
+  .fv__drawer--1 .drawer-button__bar:nth-child(1) {
     width: 52px;
     -webkit-transform: translateY(-13px);
             transform: translateY(-13px);
   }
 }
-.fv__drawer--1 .drawer-button__bar:nth-child(2),
-.fv__drawer--2 .drawer-button__bar:nth-child(2),
-.fv__drawer--3 .drawer-button__bar:nth-child(2) {
+.fv__drawer--1 .drawer-button__bar:nth-child(2) {
   top: 50%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
@@ -555,15 +494,11 @@ body::before {
   width: 30px;
 }
 @media screen and (min-width:768px) {
-  .fv__drawer--1 .drawer-button__bar:nth-child(2),
-  .fv__drawer--2 .drawer-button__bar:nth-child(2),
-  .fv__drawer--3 .drawer-button__bar:nth-child(2) {
+  .fv__drawer--1 .drawer-button__bar:nth-child(2) {
     width: 37px;
   }
 }
-.fv__drawer--1 .drawer-button__bar:nth-child(3),
-.fv__drawer--2 .drawer-button__bar:nth-child(3),
-.fv__drawer--3 .drawer-button__bar:nth-child(3) {
+.fv__drawer--1 .drawer-button__bar:nth-child(3) {
   top: 50%;
   -webkit-transform: translateY(6px);
           transform: translateY(6px);
@@ -571,35 +506,23 @@ body::before {
   width: 18px;
 }
 @media screen and (min-width:768px) {
-  .fv__drawer--1 .drawer-button__bar:nth-child(3),
-  .fv__drawer--2 .drawer-button__bar:nth-child(3),
-  .fv__drawer--3 .drawer-button__bar:nth-child(3) {
+  .fv__drawer--1 .drawer-button__bar:nth-child(3) {
     width: 22px;
     -webkit-transform: translateY(11px);
             transform: translateY(11px);
   }
 }
-.fv__drawer--1.is-checked,
-.fv__drawer--2.is-checked,
-.fv__drawer--3.is-checked {
+.fv__drawer--1.is-checked {
   width: 73px;
   height: 74px;
 }
 @media screen and (min-width:768px) {
-  .fv__drawer--1.is-checked,
-  .fv__drawer--2.is-checked,
-  .fv__drawer--3.is-checked {
+  .fv__drawer--1.is-checked {
     width: 100px;
     height: 100px;
   }
 }
-.fv__drawer--1.is-checked .drawer-button__bar:nth-child(1), .fv__drawer--1.is-checked .drawer-button__bar:nth-child(2), .fv__drawer--1.is-checked .drawer-button__bar:nth-child(3),
-.fv__drawer--2.is-checked .drawer-button__bar:nth-child(1),
-.fv__drawer--2.is-checked .drawer-button__bar:nth-child(2),
-.fv__drawer--2.is-checked .drawer-button__bar:nth-child(3),
-.fv__drawer--3.is-checked .drawer-button__bar:nth-child(1),
-.fv__drawer--3.is-checked .drawer-button__bar:nth-child(2),
-.fv__drawer--3.is-checked .drawer-button__bar:nth-child(3) {
+.fv__drawer--1.is-checked .drawer-button__bar:nth-child(1), .fv__drawer--1.is-checked .drawer-button__bar:nth-child(2), .fv__drawer--1.is-checked .drawer-button__bar:nth-child(3) {
   top: 50%;
   right: unset;
   left: 50%;
@@ -608,36 +531,22 @@ body::before {
   width: 23px;
 }
 @media screen and (min-width:768px) {
-  .fv__drawer--1.is-checked .drawer-button__bar:nth-child(1), .fv__drawer--1.is-checked .drawer-button__bar:nth-child(2), .fv__drawer--1.is-checked .drawer-button__bar:nth-child(3),
-  .fv__drawer--2.is-checked .drawer-button__bar:nth-child(1),
-  .fv__drawer--2.is-checked .drawer-button__bar:nth-child(2),
-  .fv__drawer--2.is-checked .drawer-button__bar:nth-child(3),
-  .fv__drawer--3.is-checked .drawer-button__bar:nth-child(1),
-  .fv__drawer--3.is-checked .drawer-button__bar:nth-child(2),
-  .fv__drawer--3.is-checked .drawer-button__bar:nth-child(3) {
+  .fv__drawer--1.is-checked .drawer-button__bar:nth-child(1), .fv__drawer--1.is-checked .drawer-button__bar:nth-child(2), .fv__drawer--1.is-checked .drawer-button__bar:nth-child(3) {
     width: 34px;
   }
 }
-.fv__drawer--1.is-checked .drawer-button__bar:nth-child(1),
-.fv__drawer--2.is-checked .drawer-button__bar:nth-child(1),
-.fv__drawer--3.is-checked .drawer-button__bar:nth-child(1) {
+.fv__drawer--1.is-checked .drawer-button__bar:nth-child(1) {
   -webkit-transform: translate(-50%, -50%) rotate(45deg);
           transform: translate(-50%, -50%) rotate(45deg);
 }
-.fv__drawer--1.is-checked .drawer-button__bar:nth-child(2),
-.fv__drawer--2.is-checked .drawer-button__bar:nth-child(2),
-.fv__drawer--3.is-checked .drawer-button__bar:nth-child(2) {
+.fv__drawer--1.is-checked .drawer-button__bar:nth-child(2) {
   opacity: 0;
 }
-.fv__drawer--1.is-checked .drawer-button__bar:nth-child(3),
-.fv__drawer--2.is-checked .drawer-button__bar:nth-child(3),
-.fv__drawer--3.is-checked .drawer-button__bar:nth-child(3) {
+.fv__drawer--1.is-checked .drawer-button__bar:nth-child(3) {
   -webkit-transform: translate(-50%, -50%) rotate(-45deg);
           transform: translate(-50%, -50%) rotate(-45deg);
 }
-.fv__drawer--1.is-closed,
-.fv__drawer--2.is-closed,
-.fv__drawer--3.is-closed {
+.fv__drawer--1.is-closed {
   z-index: 1;
 }
 
@@ -648,45 +557,6 @@ body::before {
   .fv__drawer--1 {
     margin-left: 18px;
   }
-}
-.fv__drawer--1.is-fixed {
-  position: fixed;
-  top: 0;
-  right: 0;
-}
-.fv__drawer--1.is-fixed + .drawer__button-spacer {
-  display: block;
-}
-
-.drawer__button-spacer {
-  display: none;
-  width: 72px;
-  height: 72px;
-  margin-left: 18px;
-}
-@media screen and (min-width:768px) {
-  .drawer__button-spacer {
-    width: 100px;
-    height: 100px;
-  }
-}
-
-.fv__drawer--3 {
-  position: fixed;
-  top: 0;
-  right: 0;
-  -webkit-transform: translateX(100%);
-          transform: translateX(100%);
-  opacity: 0;
-  visibility: hidden;
-  -webkit-transition: all 0.3s ease-out;
-  transition: all 0.3s ease-out;
-}
-.fv__drawer--3.is-checked {
-  -webkit-transform: translateX(0);
-          transform: translateX(0);
-  opacity: 1;
-  visibility: visible;
 }
 
 .drawer-button__contents {
@@ -703,8 +573,7 @@ body::before {
   position: absolute;
 }
 
-.drawer__nav--1,
-.drawer__nav--2 {
+.drawer__nav--1 {
   background: #f2f0ec;
   width: 100%;
   height: 100vh;
@@ -722,14 +591,12 @@ body::before {
   padding: 106px 38px;
 }
 @media screen and (min-width:1200px) {
-  .drawer__nav--1,
-  .drawer__nav--2 {
+  .drawer__nav--1 {
     width: 552px;
     padding: 140px 100px;
   }
 }
-.drawer__nav--1.is-checked,
-.drawer__nav--2.is-checked {
+.drawer__nav--1.is-checked {
   -webkit-transform: translateX(0);
           transform: translateX(0);
 }
@@ -1988,7 +1855,6 @@ body::before {
 
 .case__title-main {
   color: #231815;
-  /* SP_h2_Zen Kaku Gothic New_Bold_22px */
   font-family: "Zen Kaku Gothic New";
   font-size: 22px;
   font-weight: 700;
@@ -1997,7 +1863,6 @@ body::before {
 }
 @media screen and (min-width:1200px) {
   .case__title-main {
-    /* h2_Noto Sans JP_Bold_36px */
     font-family: "Noto Sans JP";
     font-size: 36px;
     letter-spacing: 4.5px;
@@ -2379,7 +2244,6 @@ body::before {
 
 .text-blue-1 {
   color: #5075b0;
-  /* SP_h2_強調文字_Zen Old Mincho_Black__32px */
   font-family: "Zen Old Mincho";
   font-size: 32px;
   font-weight: 900;
@@ -2788,7 +2652,6 @@ body::before {
 
 .feature-card__title--black {
   color: #242424;
-  /* SP_h3_Zen Kaku Gothic New_Bold_18px */
   font-family: "Zen Kaku Gothic New";
   font-size: 18px;
   font-weight: 700;
@@ -2841,7 +2704,6 @@ body::before {
 .feature-card__description {
   margin-top: 10px;
   color: #242424;
-  /* SP_p_Zen Kaku Gothic New_Medium_15px */
   font-family: "Zen Kaku Gothic New";
   font-size: 15px;
   font-weight: 500;
@@ -3986,7 +3848,6 @@ body::before {
 
 .works-card__title {
   color: #242424;
-  /* SP_h3_Zen Kaku Gothic New_Bold_18px */
   font-family: "Zen Kaku Gothic New";
   font-size: 18px;
   font-weight: 700;
@@ -4061,7 +3922,6 @@ body::before {
 
 .value {
   color: #242424;
-  /* SP_p_Zen Kaku Gothic New_Medium_15px */
   font-family: "Zen Kaku Gothic New";
   font-size: 15px;
   font-weight: 500;
@@ -4114,7 +3974,6 @@ body::before {
 .works-card__point--text {
   margin-top: 3px;
   color: #242424;
-  /* SP_p_Zen Kaku Gothic New_Medium_15px */
   font-family: "Zen Kaku Gothic New";
   font-size: 15px;
   font-weight: 500;
@@ -4941,7 +4800,6 @@ body::before {
 .price-card__text--black {
   margin-top: -2px;
   color: #242424;
-  /* p_Zen Kaku Gothic New_Medium_16px */
   font-family: "Zen Kaku Gothic New";
   font-size: 16px;
   font-weight: 500;
@@ -5271,6 +5129,7 @@ body::before {
 .flow__head {
   width: 100%;
 }
+
 .flow__title-sub {
   padding-bottom: 4px;
 }
@@ -5488,7 +5347,6 @@ body::before {
 
 .flow-step__title {
   color: #242424;
-  /* SP_h3_Zen Kaku Gothic New_Bold_18px */
   font-family: "Zen Kaku Gothic New";
   font-size: 18px;
   font-weight: 700;
@@ -5505,7 +5363,6 @@ body::before {
 
 .flow-step__description {
   color: #242424;
-  /* SP_p_Zen Kaku Gothic New_Medium_15px */
   font-family: "Zen Kaku Gothic New";
   font-size: 15px;
   font-weight: 500;
@@ -6675,10 +6532,10 @@ body::before {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 23s;
-          animation-duration: 23s;
-  -webkit-animation-delay: 7.268956106s;
-          animation-delay: 7.268956106s;
+  -webkit-animation-duration: 25s;
+          animation-duration: 25s;
+  -webkit-animation-delay: 2.4548438399s;
+          animation-delay: 2.4548438399s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6700,10 +6557,10 @@ body::before {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 30s;
-          animation-duration: 30s;
-  -webkit-animation-delay: 0.8122493542s;
-          animation-delay: 0.8122493542s;
+  -webkit-animation-duration: 16s;
+          animation-duration: 16s;
+  -webkit-animation-delay: 2.0417862415s;
+          animation-delay: 2.0417862415s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6725,10 +6582,10 @@ body::before {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 30s;
-          animation-duration: 30s;
-  -webkit-animation-delay: 8.7437297532s;
-          animation-delay: 8.7437297532s;
+  -webkit-animation-duration: 26s;
+          animation-duration: 26s;
+  -webkit-animation-delay: 8.1238369422s;
+          animation-delay: 8.1238369422s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6750,10 +6607,10 @@ body::before {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 30s;
-          animation-duration: 30s;
-  -webkit-animation-delay: 5.8174595491s;
-          animation-delay: 5.8174595491s;
+  -webkit-animation-duration: 27s;
+          animation-duration: 27s;
+  -webkit-animation-delay: 5.942063446s;
+          animation-delay: 5.942063446s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6775,10 +6632,10 @@ body::before {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 24s;
-          animation-duration: 24s;
-  -webkit-animation-delay: 2.5295313094s;
-          animation-delay: 2.5295313094s;
+  -webkit-animation-duration: 25s;
+          animation-duration: 25s;
+  -webkit-animation-delay: 1.377092709s;
+          animation-delay: 1.377092709s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6800,10 +6657,10 @@ body::before {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 19s;
-          animation-duration: 19s;
-  -webkit-animation-delay: 7.7095233371s;
-          animation-delay: 7.7095233371s;
+  -webkit-animation-duration: 24s;
+          animation-duration: 24s;
+  -webkit-animation-delay: 9.5366962014s;
+          animation-delay: 9.5366962014s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6825,10 +6682,10 @@ body::before {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 27s;
-          animation-duration: 27s;
-  -webkit-animation-delay: 1.9637679323s;
-          animation-delay: 1.9637679323s;
+  -webkit-animation-duration: 19s;
+          animation-duration: 19s;
+  -webkit-animation-delay: 5.0493217145s;
+          animation-delay: 5.0493217145s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6850,10 +6707,10 @@ body::before {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 21s;
-          animation-duration: 21s;
-  -webkit-animation-delay: 9.4139195576s;
-          animation-delay: 9.4139195576s;
+  -webkit-animation-duration: 25s;
+          animation-duration: 25s;
+  -webkit-animation-delay: 6.9203586302s;
+          animation-delay: 6.9203586302s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6875,10 +6732,10 @@ body::before {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 28s;
-          animation-duration: 28s;
-  -webkit-animation-delay: 5.2829278455s;
-          animation-delay: 5.2829278455s;
+  -webkit-animation-duration: 23s;
+          animation-duration: 23s;
+  -webkit-animation-delay: 0.1586546967s;
+          animation-delay: 0.1586546967s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6900,10 +6757,10 @@ body::before {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 23s;
-          animation-duration: 23s;
-  -webkit-animation-delay: 3.1486969655s;
-          animation-delay: 3.1486969655s;
+  -webkit-animation-duration: 30s;
+          animation-duration: 30s;
+  -webkit-animation-delay: 1.590632369s;
+          animation-delay: 1.590632369s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6925,10 +6782,10 @@ body::before {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 26s;
-          animation-duration: 26s;
-  -webkit-animation-delay: 7.2687265184s;
-          animation-delay: 7.2687265184s;
+  -webkit-animation-duration: 25s;
+          animation-duration: 25s;
+  -webkit-animation-delay: 1.2219060683s;
+          animation-delay: 1.2219060683s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6950,10 +6807,10 @@ body::before {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 23s;
-          animation-duration: 23s;
-  -webkit-animation-delay: 6.9650004717s;
-          animation-delay: 6.9650004717s;
+  -webkit-animation-duration: 19s;
+          animation-duration: 19s;
+  -webkit-animation-delay: 3.3101494024s;
+          animation-delay: 3.3101494024s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6975,10 +6832,10 @@ body::before {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 17s;
-          animation-duration: 17s;
-  -webkit-animation-delay: 9.1586645361s;
-          animation-delay: 9.1586645361s;
+  -webkit-animation-duration: 20s;
+          animation-duration: 20s;
+  -webkit-animation-delay: 7.5845526336s;
+          animation-delay: 7.5845526336s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -7000,10 +6857,10 @@ body::before {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 30s;
-          animation-duration: 30s;
-  -webkit-animation-delay: 8.1577435033s;
-          animation-delay: 8.1577435033s;
+  -webkit-animation-duration: 26s;
+          animation-duration: 26s;
+  -webkit-animation-delay: 4.6063742715s;
+          animation-delay: 4.6063742715s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -7025,10 +6882,10 @@ body::before {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 30s;
-          animation-duration: 30s;
-  -webkit-animation-delay: 3.4928528511s;
-          animation-delay: 3.4928528511s;
+  -webkit-animation-duration: 22s;
+          animation-duration: 22s;
+  -webkit-animation-delay: 8.5457400013s;
+          animation-delay: 8.5457400013s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
