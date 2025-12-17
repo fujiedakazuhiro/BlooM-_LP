@@ -5,16 +5,6 @@ jQuery("#js-drawer-button--1").on("click", function (e) {
   jQuery("#js-drawer-button--1").toggleClass("is-checked is-fixed");
   jQuery("#js-drawer-content--1").toggleClass("is-checked");
   jQuery("html").toggleClass("no-scroll");
-  // jQuery("#js-drawer-button--2").toggleClass("is-closed");
-});
-
-//ドロワーボタン2をクリックした時にドロワーメニューを表示させる
-jQuery("#js-drawer-button--2").on("click", function (e) {
-  e.preventDefault();
-
-  jQuery("#js-drawer-button--1").toggleClass("is-checked is-fixed");
-  jQuery("#js-drawer-content--1").toggleClass("is-checked");
-  jQuery("html").toggleClass("no-scroll");
 });
 
 // 💡 bodyの任意の部分をクリックしたときにドロワーメニューを閉じる処理
@@ -22,9 +12,7 @@ jQuery("body").on("click", function (e) {
   // クリックされた要素がドロワーメニューの要素、またはドロワーボタンの要素である場合は、何もしない
   if (
     jQuery(e.target).closest("#js-drawer-content--1").length || // クリックがドロワーメニュー内
-    jQuery(e.target).closest("#js-drawer-button--1").length || // クリックがボタン1
-    jQuery(e.target).closest("#js-drawer-button--2").length // クリックがボタン2
-    // jQuery(e.target).closest("html").length //htmlにスクロールしない
+    jQuery(e.target).closest("#js-drawer-button--1").length // クリックがボタン1
   ) {
     return; // 処理を終了
   }
@@ -35,7 +23,6 @@ jQuery("body").on("click", function (e) {
     // 重要な点: ここは toggleClass ではなく removeClass を使います。
     jQuery("#js-drawer-button--1").removeClass("is-checked is-fixed");
     jQuery("#js-drawer-content--1").removeClass("is-checked");
-    jQuery("#js-drawer-button--2").removeClass("is-checked");
     jQuery("html").removeClass("no-scroll");
   }
 });
@@ -45,38 +32,9 @@ jQuery('#js-drawer-content--1 a[href^="#"]').on("click", function (e) {
   // e.preventDefault();
 
   jQuery("#js-drawer-button--1").removeClass("is-checked is-fixed");
-  jQuery("#js-drawer-button--2").removeClass("is-checked");
   jQuery("#js-drawer-content--1").removeClass("is-checked");
-  jQuery("#js-drawer-content--2").removeClass("is-checked");
   jQuery("html").removeClass("no-scroll");
 });
-
-//ドロワーメニュー2の中のリンクをクリックした時にドロワーメニューを非表示にする
-jQuery('#js-drawer-content--2 a[href^="#"]').on("click", function (e) {
-  // e.preventDefault();
-
-  jQuery("#js-drawer-button--1").removeClass("is-checked");
-  jQuery("#js-drawer-button--2").removeClass("is-checked");
-  jQuery("#js-drawer-content--1").removeClass("is-checked");
-  jQuery("#js-drawer-content--2").removeClass("is-checked");
-  jQuery("html").removeClass("no-scroll");
-});
-
-//スムーススクロール
-// jQuery('a[href^="#"]').on("click", function (e) {
-//   e.preventDefault();
-//   const speed = 600;
-//   const id = jQuery(this).attr("href");
-//   const target = jQuery("#" == id ? "html" : id);
-//   const position = jQuery(target).offset().top;
-//   jQuery("html,body").animate(
-//     {
-//       scrollTop: position,
-//     },
-//     speed,
-//     "swing" //swing or linear
-//   );
-// });
 
 //スムーススクロール
 // ドロワーメニュー内のリンクをクリックした際に上部に余白を設ける
@@ -122,7 +80,6 @@ const gallerySwiper = new Swiper("#js-gallery-swiper", {
   loop: true,
   speed: 5000,
 
-  // 一旦ストップ
   autoplay: {
     delay: 0,
     pauseOnMouseEnter: false,
@@ -160,11 +117,6 @@ const gallerySwiper = new Swiper("#js-gallery-swiper", {
       spaceBetween: 40,
       centeredSlides: true,
     },
-    // 1700: {
-    //   slidesPerView: 1.5,
-    //   spaceBetween: 81,
-    //   centeredSlides: true,
-    // },
   },
 });
 
@@ -277,71 +229,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // 初期実行
   createObserver();
 });
-
-// // // 2つ目のヘッダーがTOPに来たタイミングで上部固定
-// // ヘッダー2が浮いたスペースを埋める実装
-// // 1. 🚀 要素を取得
-// const stickyHeader = document.getElementById("fv__header-2");
-// // 🚀 スペーサー要素を取得
-// const spacer = document.getElementById("header-spacer");
-
-// // 2. 📐 固定開始位置を格納する変数
-// let originalOffset = 0; // fv__header-2 の元の位置
-// let headerHeight = 0; // fv__header-2 の高さ（スペーサーに必要）
-
-// /**
-//  * 固定開始位置 (originalOffset) とヘッダーの高さ (headerHeight) を計算し、更新する関数
-//  */
-// function updateOffset() {
-//   if (stickyHeader) {
-//     // 現在のレイアウトでの正確な位置を取得
-//     originalOffset = stickyHeader.offsetTop;
-//     // 現在のヘッダーの高さを取得
-//     headerHeight = stickyHeader.offsetHeight;
-
-//     // スペーサーの高さも更新（念のため）
-//     if (spacer) {
-//       spacer.style.height = `${headerHeight}px`;
-//     }
-
-//     console.log(`Offset: ${originalOffset}px, Height: ${headerHeight}px`);
-//   }
-// }
-
-// // --- 3. イベントリスナーの設定 ---
-
-// // A. スクロールイベント: 固定処理の実行
-// window.addEventListener("scroll", () => {
-//   if (!stickyHeader || !spacer) return;
-
-//   const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
-
-//   // 現在の状態をチェック
-//   const isSticky = stickyHeader.classList.contains("is-sticky");
-
-//   if (scrollPosition >= originalOffset) {
-//     // 固定処理
-//     if (!isSticky) {
-//       stickyHeader.classList.add("is-sticky");
-//       // 固定時にスペーサーを表示し、ヘッダーの高さと同じ高さを設定してスペースを確保
-
-//       //一旦block→none
-//       spacer.style.display = "none";
-//     }
-//   } else {
-//     // 固定解除処理
-//     if (isSticky) {
-//       stickyHeader.classList.remove("is-sticky");
-//       // 固定解除時にスペーサーを非表示
-//       spacer.style.display = "none";
-//     }
-//   }
-// });
-
-// // B. 初期計算と再計算イベント (変更なし)
-// window.addEventListener("load", updateOffset);
-// window.addEventListener("resize", updateOffset);
-// document.addEventListener("DOMContentLoaded", updateOffset);
 
 // TwentyTwenty 初期化用関数（シンプルかつ安全な再初期化）
 function initTwentyTwenty() {
@@ -466,36 +353,17 @@ const reviewSwiper = new Swiper(".review__swiper", {
 
   //最後→最初に戻るループ再生を有効に
   loop: true,
-  //自動スライドについて
-  // autoplay: {
-  //   delay: 3000, //何秒ごとにスライドを動かすか
-  //   stopOnLastSlide: false, //最後のスライドで自動再生を終了させるか
-  //   disableOnInteraction: true, //ユーザーの操作時に止める
-  //   reverseDirection: false, //自動再生を逆向きにする
-  // },
 
   //表示について
   centeredSlides: true, //中央寄せにする
   slidesPerView: "auto",
   spaceBetween: 40,
 
-  // //ページネーション
-  // pagination: {
-  //   el: ".swiper-pagination", //paginationのclass
-  //   clickable: true, //クリックでの切り替えを有効に
-  //   type: "bullets" //paginationのタイプ (※2)
-  // },
   //ナビゲーション
   navigation: {
     prevEl: ".swiper-button-prev.review__swiper-button-prev", //戻るボタンのclass
     nextEl: ".swiper-button-next.review__swiper-button-next", //進むボタンのclass
   },
-  // //スクロールバー
-  // scrollbar: { //スクロールバーを表示したいとき
-  //   el: ".swiper-scrollbar", //スクロールバーのclass
-  //   hide: true, //操作時のときのみ表示
-  //   draggable: true //スクロールバーを直接表示できるようにする
-  // },
 
   //ブレイクポイントによって変える
   breakpoints: {
@@ -673,120 +541,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // 監視を開始
   observer.observe(fvTarget);
 });
-
-/* =================================================== 
-※1 effectについて
-slide：左から次のスライドが流れてくる
-fade：次のスライドがふわっと表示
-■ fadeの場合は下記を記述
-  fadeEffect: {
-    crossFade: true
-  },
-cube：スライドが立方体になり、3D回転を繰り返す
-coverflow：写真やアルバムジャケットをめくるようなアニメーション
-flip：平面が回転するようなアニメーション
-cards：カードを順番にみていくようなアニメーション
-creative：カスタマイズしたアニメーションを使うときに使用します
-
-=======================================================
-※2 paginationのタイプ
-bullets：スライド枚数と同じ数のドットが表示
-fraction：分数で表示（例：1 / 3）
-progressbar：スライドの進捗に応じてプログレスバーが伸びる
-custom：自由にカスタマイズ
-
-=====================================================*/
-
-// jQuery(function ($) {
-//   // --- セレクタの定義 ---
-//   const $body = $("body");
-//   const $html = $("html"); // <html>要素
-//   const $drawerContent = $("#js-drawer-content--1");
-//   const $drawerButton1 = $("#js-drawer-button--1");
-//   const $drawerButton2 = $("#js-drawer-button--2");
-//   const $allDrawerButtons = $drawerButton1.add($drawerButton2);
-//   const $drawerLinks = $drawerContent.find("a");
-
-//   // 開閉状態を示す共通クラス
-//   const CHECKED_CLASS = "is-checked";
-//   const NO_SCROLL_CLASS = "is-no-scroll";
-
-//   let scrollPosition = 0; // スクロール位置を保持する変数
-
-//   /**
-//    * ドロワーメニューの開閉状態を切り替える共通関数
-//    * @param {boolean} forceOpen - true: 開く, false: 閉じる, undefined: トグル
-//    */
-//   function toggleDrawer(forceOpen) {
-//     const isOpening = $drawerContent.hasClass(CHECKED_CLASS);
-//     const shouldOpen = forceOpen !== undefined ? forceOpen : !isOpening;
-
-//     // 1. 各要素の状態を同期して操作
-//     $drawerContent.toggleClass(CHECKED_CLASS, shouldOpen);
-//     $drawerButton1.toggleClass(CHECKED_CLASS, shouldOpen);
-//     $drawerButton2.toggleClass(CHECKED_CLASS, shouldOpen);
-
-//     if (shouldOpen) {
-//       // 🔷 開く時：現在のスクロール位置を記録し、その位置を基準に固定する
-//       scrollPosition = $(window).scrollTop(); // 現在のスクロール位置を記録 (例: 500px)
-
-//       // bodyを上方向にずらすことで、見た目を固定する
-//       // (例: top: -500px; とすることで、500pxスクロールした位置が画面のトップに来る)
-//       $body.css("top", -scrollPosition + "px");
-
-//       $body.addClass(NO_SCROLL_CLASS);
-//       $html.addClass(NO_SCROLL_CLASS);
-//     } else {
-//       // 🔷 閉じる時：固定を解除し、元のスクロール位置に戻す
-//       $body.removeClass(NO_SCROLL_CLASS);
-//       $html.removeClass(NO_SCROLL_CLASS);
-
-//       $body.css("top", ""); // bodyのtopプロパティをリセット
-//       // クラス解除後に、記録したスクロール位置に戻す
-//       $(window).scrollTop(scrollPosition);
-//     }
-//   }
-
-//   // --- イベントハンドラ ---
-
-//   // 1. ドロワーボタン1と2をクリックした時の処理（共通）
-//   $allDrawerButtons.on("click", function (e) {
-//     e.preventDefault();
-//     const clickedButton = $(this); // クリックされたボタンを特定
-
-//     // 1-1. 共通の開閉処理を実行 (ドロワーを開閉し、スクロールをロック/解除する)
-//     toggleDrawer();
-
-//     // ドロワーの開閉状態をチェック (toggleDrawer実行後なので、CHECKED_CLASSがあるなら開いている)
-//     const isDrawerOpen = $drawerContent.hasClass(CHECKED_CLASS);
-
-//     // 1-2. ✨ ボタン2がクリックされた場合にのみ、ボタン1に is-fixed クラスを付与/削除
-//     if (clickedButton.is($drawerButton2)) {
-//       // ドロワーが開いている状態に合わせて、ボタン1に 'is-fixed' クラスを付与/削除
-//       $drawerButton1.toggleClass("is-fixed", isDrawerOpen);
-//     }
-//   });
-
-//   // 2. メニュー外クリックで閉じる処理
-//   $body.on("click", function (e) {
-//     if (!$drawerContent.hasClass(CHECKED_CLASS)) {
-//       return;
-//     }
-//     const $target = $(e.target);
-//     if (!$target.closest($allDrawerButtons).length && !$target.closest($drawerContent).length) {
-//       toggleDrawer(false);
-//     }
-//   });
-
-//   // 3. ドロワーメニュー内のリンクをクリックした時の閉じる処理
-//   $drawerLinks.on("click", function (e) {
-//     const href = $(this).attr("href");
-//     if (href === "" || href.startsWith("#")) {
-//       // ページ内リンクで遷移する場合、閉じる処理を実行
-//       toggleDrawer(false);
-//     }
-//   });
-// });
 
 // お悩みセクションのアニメーション
 document.addEventListener("DOMContentLoaded", () => {
@@ -1006,89 +760,3 @@ document.addEventListener("DOMContentLoaded", () => {
   // 監視を開始
   observer.observe(target);
 });
-
-// 一旦、ダブルヘッダー方式採用のため、停止中
-// ヘッダー(class="fv__header")がfvセクションのスクロール完了後に上部固定
-// document.addEventListener("DOMContentLoaded", () => {
-//   const fvSection = document.querySelector(".fv");
-//   const header = document.querySelector(".fv__header");
-
-//   if (!fvSection || !header) {
-//     return;
-//   }
-
-//   const FIXED_CLASS = "is-fixed";
-//   const APPEAR_CLASS = "is-appearing";
-//   const HIDING_CLASS = "is-hiding";
-
-//   const ANIMATION_DURATION_MS = 400;
-//   // RENDER_DELAY_MS は不要になります
-
-//   let hideTimer = null;
-
-//   const options = {
-//     root: null,
-//     rootMargin: "0px 0px 0px 0px",
-//     threshold: 0, // 0に設定されているため、fvSectionの端がビューポートに入ると発火します
-//   };
-
-//   const observerCallback = (entries) => {
-//     entries.forEach((entry) => {
-//       // Fixed解除プロセス (スクロールアップ時: fvSectionがビューポートに入った)
-//       if (entry.isIntersecting) {
-//         if (header.classList.contains(FIXED_CLASS)) {
-//           // 1. Fixed解除待機中の既存タイマーをキャンセル (もしあれば)
-//           if (hideTimer) clearTimeout(hideTimer);
-
-//           // 2. Fixed状態を維持しながら、非表示アニメーションを開始
-//           // FIXED_CLASSを維持したまま、is-hidingを付与 (SCSSで opacity: 0, transform: -20px になる)
-//           header.classList.add(HIDING_CLASS);
-//           header.classList.remove(APPEAR_CLASS); //念のため
-
-//           // 3. アニメーションが完了する時間を待って、Fixed状態を解除
-//           hideTimer = setTimeout(() => {
-//             // アニメーション完了後、position: fixed と is-hiding を解除
-//             header.classList.remove(FIXED_CLASS);
-//             header.classList.remove(HIDING_CLASS); // これがないと absolute に戻っても opacity: 0 のまま
-//             hideTimer = null; // タイマーIDをリセット
-//           }, ANIMATION_DURATION_MS);
-//         }
-//       }
-//       // Fixed開始プロセス (スクロールダウン時: fvSectionがビューポートから出た)
-//       else {
-//         // Fixed解除アニメーション中にスクロールダウンされた場合 (中断)
-//         if (header.classList.contains(FIXED_CLASS) && header.classList.contains(HIDING_CLASS)) {
-//           // 1. Fixed解除待機中のタイマーを即座にキャンセル
-//           if (hideTimer) clearTimeout(hideTimer);
-//           hideTimer = null;
-
-//           // 2. Hidingクラスを解除し、すぐに再出現アニメーションを実行
-//           header.classList.remove(HIDING_CLASS);
-//           // APPEAR_CLASS は次に Fixed が付与される時に処理されるので、ここでは不要
-//         }
-
-//         // 既に固定されている場合は処理を終了
-//         if (header.classList.contains(FIXED_CLASS)) {
-//           return;
-//         }
-
-//         // --- ここに来るのは、完全に Fixed が外れた状態から Fixed になるとき ---
-
-//         // 1. Fixed出現準備：アニメーション開始状態へ (transition: none が適用された状態)
-//         header.classList.add(APPEAR_CLASS);
-//         header.classList.remove(HIDING_CLASS);
-
-//         // 2. リフローを強制: これによりブラウザは APPEAR_CLASS のスタイルを適用したレンダリングを行います。
-//         // これがトランジションの「開始フレーム」となります。
-//         header.offsetWidth; // 強制リフロー（この行に意味はありませんが、トランジション開始に必須）
-
-//         // 3. Fixedと終了状態のスタイルを適用: トランジションが有効になる
-//         header.classList.add(FIXED_CLASS);
-//         header.classList.remove(APPEAR_CLASS); // FIXED_CLASSに transition: 0.4s が適用されているため、これでアニメーション開始
-//       }
-//     });
-//   };
-
-//   const fvObserver = new IntersectionObserver(observerCallback, options);
-//   fvObserver.observe(fvSection);
-// });
