@@ -2,7 +2,7 @@
 jQuery("#js-drawer-button--1").on("click", function (e) {
   e.preventDefault();
 
-  jQuery("#js-drawer-button--1").toggleClass("is-checked is-fixed");
+  jQuery("#js-drawer-button--1").toggleClass("is-checked");
   jQuery("#js-drawer-content--1").toggleClass("is-checked");
   jQuery("html").toggleClass("no-scroll");
 });
@@ -21,7 +21,7 @@ jQuery("body").on("click", function (e) {
   if (jQuery("#js-drawer-content--1").hasClass("is-checked")) {
     // ドロワーを閉じるために必要なクラスを全て外す (removeClass)
     // 重要な点: ここは toggleClass ではなく removeClass を使います。
-    jQuery("#js-drawer-button--1").removeClass("is-checked is-fixed");
+    jQuery("#js-drawer-button--1").removeClass("is-checked");
     jQuery("#js-drawer-content--1").removeClass("is-checked");
     jQuery("html").removeClass("no-scroll");
   }
@@ -31,7 +31,7 @@ jQuery("body").on("click", function (e) {
 jQuery('#js-drawer-content--1 a[href^="#"]').on("click", function (e) {
   // e.preventDefault();
 
-  jQuery("#js-drawer-button--1").removeClass("is-checked is-fixed");
+  jQuery("#js-drawer-button--1").removeClass("is-checked");
   jQuery("#js-drawer-content--1").removeClass("is-checked");
   jQuery("html").removeClass("no-scroll");
 });
@@ -78,7 +78,7 @@ const gallerySwiper = new Swiper("#js-gallery-swiper", {
   // loopSlides: 10,
   // spaceBetween: 10,
   loop: true,
-  speed: 5000,
+  speed: 10000,
 
   autoplay: {
     delay: 0,
@@ -121,6 +121,7 @@ const gallerySwiper = new Swiper("#js-gallery-swiper", {
 });
 
 //ヘッダーのfix表示の切り替え
+//シングルヘッダーの切り替え時のアニメーション用のクラスも付与
 document.addEventListener("DOMContentLoaded", () => {
   const fvSection = document.querySelector(".fv");
   const header = document.querySelector(".fv__header"); // シングルヘッダー
@@ -293,6 +294,11 @@ jQuery(window).on("load", function () {
     breakpoints: {
       375: {
         slidesPerView: 1.0,
+        spaceBetween: 20,
+        centeredSlides: true,
+      },
+      600: {
+        slidesPerView: 1.2,
         spaceBetween: 20,
         centeredSlides: true,
       },
@@ -493,6 +499,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // フワッと表示の実装
 // 表示領域に監視対象が入ってきたら、is-in-viewクラスを付与
+//セクションタイトルを監視対象に登録し、表示されたらアニメーション用のクラスを付与
 const intersectionObserver = new IntersectionObserver(function (entries) {
   entries.forEach(function (entry) {
     if (entry.isIntersecting) {

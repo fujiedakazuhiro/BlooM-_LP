@@ -10,6 +10,7 @@ $font-base: "Zen Kaku Gothic New";
 $breakpoints: (
   ss: "screen and (min-width:320px)",
   st: "screen and (min-width:375px)",
+  sc: "screen and (min-width:500px)",
   sd: "screen and (min-width:600px)",
   ms: "screen and (min-width:768px)",
   mt: "screen and (min-width:900px)",
@@ -39,6 +40,8 @@ html {
 }
 
 html {
+  scrollbar-gutter: stable;
+
   &.no-scroll {
     overflow: hidden;
     // height: 100vh;
@@ -158,6 +161,14 @@ body {
   height: 100%;
   padding-bottom: 87px;
 
+  @include mq(sc) {
+    padding-bottom: 120px;
+  }
+
+  @include mq(sd) {
+    padding-bottom: 130px;
+  }
+
   @include mq(ms) {
     padding-bottom: 175px;
   }
@@ -172,6 +183,10 @@ body {
 
   @include mq(ml) {
     padding-bottom: 145px;
+  }
+
+  @include mq(ln) {
+    padding-bottom: 175px;
   }
 }
 
@@ -461,7 +476,7 @@ body {
   padding: 28px 15px;
 
   @include mq(ms) {
-    margin-left: 8px;
+    margin-left: 18px;
     width: 100px;
     height: 100px;
     padding: 37px 24px;
@@ -545,18 +560,6 @@ body {
       }
     }
   }
-
-  &.is-closed {
-    z-index: 1;
-  }
-}
-
-.fv__drawer--1 {
-  z-index: 1000;
-
-  @include mq(ms) {
-    margin-left: 18px; //pp
-  }
 }
 
 .drawer-button__contents {
@@ -588,6 +591,10 @@ body {
   @include mq(md) {
     width: 552px;
     padding: 140px 100px;
+  }
+
+  @include mq(mo) {
+    padding: 140px 90px;
   }
 
   &.is-checked {
@@ -721,6 +728,10 @@ body {
   top: 39px;
   left: 0;
 
+  @include mq(sd) {
+    top: 60px;
+  }
+
   @include mq(ms) {
     top: 70px;
   }
@@ -731,7 +742,7 @@ body {
   }
 
   @include mq(ml) {
-    top: 320px;
+    top: 335px;
     left: -5px;
   }
 
@@ -746,6 +757,10 @@ body {
 
   img {
     width: 175px !important;
+
+    @include mq(sd) {
+      width: 245px !important;
+    }
 
     @include mq(ms) {
       width: 400px !important;
@@ -771,6 +786,10 @@ body {
   bottom: 116px;
   right: 0;
 
+  @include mq(sd) {
+    bottom: 167px;
+  }
+
   @include mq(ms) {
     bottom: 276px;
     right: -36px;
@@ -789,6 +808,10 @@ body {
 
   img {
     width: 150px !important;
+
+    @include mq(sd) {
+      width: 255px !important;
+    }
 
     @include mq(ms) {
       width: 360px !important;
@@ -1003,6 +1026,11 @@ body {
     width: 32px;
     height: 30px;
 
+    @include mq(sd) {
+      width: 35px;
+      height: 32px;
+    }
+
     @include mq(ms) {
       width: 60px;
       height: 58px;
@@ -1019,8 +1047,8 @@ body {
     }
 
     @include mq(ll) {
-      width: 70px;
-      height: 68px;
+      width: 75px;
+      height: 73px;
     }
   }
 }
@@ -1030,6 +1058,11 @@ body {
     width: 32px;
     height: 30px;
 
+    @include mq(sd) {
+      width: 35px;
+      height: 32px;
+    }
+
     @include mq(ms) {
       width: 60px;
       height: 58px;
@@ -1046,8 +1079,8 @@ body {
     }
 
     @include mq(ll) {
-      width: 70px;
-      height: 68px;
+      width: 75px;
+      height: 73px;
     }
   }
 }
@@ -1056,6 +1089,11 @@ body {
   img {
     width: 32px;
     height: 32px;
+
+    @include mq(sd) {
+      width: 35px;
+      height: 32px;
+    }
 
     @include mq(ms) {
       width: 60px;
@@ -1083,6 +1121,11 @@ body {
   img {
     width: 20px;
     height: 26px;
+
+    @include mq(sd) {
+      width: 35px;
+      height: 32px;
+    }
 
     @include mq(ms) {
       width: 60px;
@@ -1115,6 +1158,10 @@ body {
   font-weight: 700;
   line-height: 1.16;
   letter-spacing: 3.84px;
+
+  @include mq(sd) {
+    font-size: 30px;
+  }
 
   @include mq(ms) {
     font-size: 60px;
@@ -1160,6 +1207,10 @@ body {
   padding-inline: 44px;
   position: relative;
   margin-bottom: -37px; //pp
+
+  @include mq(sd) {
+    font-size: 30px;
+  }
 
   @include mq(ms) {
     font-size: 45px;
@@ -1223,6 +1274,10 @@ body {
 .fv__title--sub-small {
   font-size: 18px;
   margin-inline: 2px;
+
+  @include mq(sd) {
+    font-size: 22px;
+  }
 
   @include mq(ms) {
     font-size: 47px;
@@ -1306,6 +1361,14 @@ body {
   width: 100%;
   height: 160px;
 
+  @include mq(sc) {
+    height: 252px;
+  }
+
+  @include mq(sd) {
+    height: 267px;
+  }
+
   @include mq(ms) {
     height: 334px;
   }
@@ -1324,6 +1387,10 @@ body {
 
   @include mq(mo) {
     height: 306px;
+  }
+
+  @include mq(ln) {
+    height: 367px;
   }
 }
 
@@ -1456,13 +1523,28 @@ body {
 }
 
 .problem__inheritance {
-  background: url(../img/problem/inheritance-bubble.svg) no-repeat center center / contain;
+  background: url(../img/problem/sp/inheritance-bubble.svg) no-repeat center center / contain;
   width: 314px;
   height: 164px;
   top: 0;
   left: -6px;
 
+  @include mq(sd) {
+    background: url(../img/problem/inheritance-bubble.svg) no-repeat center center / contain;
+  }
+
+  @include mq(mt) {
+    width: 350px;
+    height: 180px;
+    left: 0;
+  }
+
   @include mq(md) {
+    top: 0;
+    left: 256px;
+  }
+
+  @include mq(ml) {
     width: 401px;
     height: 209px;
     top: 4px;
@@ -1496,6 +1578,14 @@ body {
   right: -35px;
 
   @include mq(md) {
+    width: 420px;
+    height: 190px;
+    top: 185px;
+    right: unset;
+    left: 24px;
+  }
+
+  @include mq(ml) {
     width: 405px;
     height: 194px;
     top: 162px;
@@ -1514,7 +1604,7 @@ body {
 }
 
 .problem__demolish-text {
-  margin-top: 15px;
+  margin-top: -5px;
 
   @include mq(md) {
     margin-top: 10px; //pp
@@ -1528,11 +1618,22 @@ body {
   top: 289px;
   left: -9px;
 
+  @include mq(mt) {
+    width: 300px;
+    height: 160px;
+  }
+
   @include mq(md) {
+    top: 50px;
+    left: unset;
+    right: 60px;
+  }
+
+  @include mq(ml) {
     width: 375px;
     height: 185px;
     top: 100px;
-    left: 950px;
+    right: 50px;
 
     &::before {
       left: 177px;
@@ -1561,7 +1662,18 @@ body {
   top: 403px;
   right: -34px;
 
+  @include mq(mt) {
+    width: 360px;
+    height: 160px;
+  }
+
   @include mq(md) {
+    top: 400px;
+    right: unset;
+    left: 75px;
+  }
+
+  @include mq(ml) {
     width: 401px;
     height: 181px;
     top: 402px;
@@ -1594,7 +1706,19 @@ body {
   top: 533px;
   left: -30px; //pp
 
+  @include mq(mt) {
+    width: 380px;
+    height: 160px;
+  }
+
   @include mq(md) {
+    width: 400px;
+    height: 180px;
+    top: 190px;
+    left: 445px;
+  }
+
+  @include mq(ml) {
     width: 396px;
     height: 189px; //pp
     top: 189px; //pp
@@ -1616,6 +1740,10 @@ body {
   line-height: 6px; //pp
   margin-left: 18px; //pp
 
+  @include mq(mt) {
+    line-height: 25px;
+  }
+
   @include mq(md) {
     line-height: 27px; //pp
   }
@@ -1630,6 +1758,13 @@ body {
   right: -18px;
 
   @include mq(md) {
+    width: 420px;
+    height: 190px;
+    top: 360px;
+    right: 20px;
+  }
+
+  @include mq(ml) {
     width: 435px;
     height: 188px;
     top: 363px;
@@ -1693,9 +1828,21 @@ body {
   background: url(../img/case/sp/wave-sp.svg) no-repeat center top / cover;
   z-index: 2;
 
+  @include mq(sc) {
+    margin-top: -130px;
+  }
+
+  @include mq(sd) {
+    margin-top: -140px;
+  }
+
   @include mq(ms) {
     margin-top: -130px;
     padding-top: 130px;
+  }
+
+  @include mq(mt) {
+    margin-top: -160px;
   }
 
   @include mq(md) {
@@ -1780,7 +1927,14 @@ body {
   letter-spacing: 1.12px;
   text-align: left;
 
+  @include mq(sd) {
+    max-width: 500px;
+    margin-inline: auto;
+    width: 100%;
+  }
+
   @include mq(md) {
+    max-width: unset;
     margin-top: 24px; //pp
     margin-left: -12px; //pp
     font-size: 18px;
@@ -1788,15 +1942,32 @@ body {
     letter-spacing: 1.26px;
     text-align: center;
   }
+
+  @include mq(ml) {
+    margin-top: 29px;
+  }
 }
 
 .case__title-label {
   position: absolute;
-  top: 110px;
-  left: 15px;
+  top: 108px;
+  left: 4px;
+
+  @include mq(sc) {
+    left: 80px;
+  }
+
+  @include mq(sd) {
+    left: 80px;
+  }
 
   @include mq(ms) {
     left: 143px;
+  }
+
+  @include mq(mt) {
+    top: 140px;
+    left: 220px;
   }
 
   @include mq(md) {
@@ -1805,7 +1976,7 @@ body {
   }
 
   img {
-    width: 170px;
+    width: 180px;
 
     @include mq(md) {
       width: 250px; //pp
@@ -1818,6 +1989,11 @@ body {
   display: flex;
   flex-direction: column;
   gap: 16px;
+
+  @include mq(sd) {
+    max-width: 400px;
+    margin-inline: auto;
+  }
 
   @include mq(md) {
     flex-direction: row;
@@ -2170,19 +2346,31 @@ body {
 
 .feature {
   position: relative;
-  padding-top: 108px;
+  padding-top: 106px;
   padding-bottom: 103px;
   margin-top: -131px; //pp
   background: url(../img/feature/sp/wave-sp.svg) no-repeat center top / cover;
   z-index: 3;
 
+  @include mq(sc) {
+    padding-top: 140px;
+  }
+
   @include mq(sd) {
+    padding-top: 140px;
     padding-bottom: 130px;
+    margin-top: -150px;
   }
 
   @include mq(ms) {
     padding-top: 150px;
     padding-bottom: 150px;
+    margin-top: -180px;
+  }
+
+  @include mq(mt) {
+    padding-top: 230px;
+    margin-top: -230px;
   }
 
   @include mq(md) {
@@ -2239,6 +2427,11 @@ body {
   gap: 16px;
   width: 100%;
 
+  @include mq(sd) {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
   @include mq(ms) {
     max-width: 400px;
     margin: 0 auto;
@@ -2248,7 +2441,7 @@ body {
   @include mq(md) {
     max-width: 984px;
     position: relative;
-    gap: 60px;
+    gap: 63px;
   }
 }
 
@@ -2779,6 +2972,13 @@ body {
 }
 
 .feature-achievement__inner {
+  @include mq(sd) {
+    max-width: 400px;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+  }
+
   @include mq(ms) {
     max-width: 450px;
     margin: 0 auto;
@@ -2843,6 +3043,7 @@ body {
   line-height: 26px; /* 162.5% */
   letter-spacing: 1.12px;
   padding-inline: 2px; //pp
+  text-align: left;
 
   @include mq(md) {
     margin-top: 18px; //pp
@@ -2850,6 +3051,7 @@ body {
     font-size: 18px;
     line-height: 30px;
     letter-spacing: 1.26px;
+    text-align: center;
   }
 }
 
@@ -2944,7 +3146,7 @@ body {
   z-index: 6;
 
   @include mq(sd) {
-    margin-top: -60px;
+    margin-top: -70px;
     padding-block: 130px 140px;
   }
 
@@ -2996,7 +3198,7 @@ body {
 
   @include mq(ln) {
     padding-block: 700px 220px;
-    margin-top: -360px;
+    margin-top: -400px;
   }
 }
 
@@ -3006,7 +3208,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  // object-fit: cover;
   z-index: -1;
 
   @include mq(sd) {
@@ -3026,6 +3228,10 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+
+  @include mq(mn) {
+    object-fit: fill;
   }
 
   @include mq(mo) {
@@ -3151,6 +3357,11 @@ body {
 }
 
 .service__contents {
+  @include mq(sd) {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
   @include mq(ms) {
     width: 100%;
     max-width: 500px;
@@ -3503,7 +3714,7 @@ body {
   position: relative;
 }
 .works__swiper-container {
-  margin-top: 36px; //pp
+  margin-top: 39px; //pp
 
   @include mq(md) {
     margin-top: 55px; //pp
@@ -3748,7 +3959,11 @@ body {
   position: absolute;
   width: 40px;
   height: 40px;
-  top: 280px !important;
+  top: 269px !important;
+
+  @include mq(sd) {
+    top: 390px !important;
+  }
 
   @include mq(ms) {
     width: 50px;
@@ -3783,6 +3998,10 @@ body {
 .works__swiper-button-prev {
   background: url(../img/works/prev-arrow.svg) no-repeat center center / contain;
   left: 0 !important;
+
+  @include mq(sd) {
+    left: 40px !important;
+  }
 
   @include mq(ms) {
     left: 65px !important;
@@ -3832,6 +4051,10 @@ body {
 .works__swiper-button-next {
   background: url(../img/works/next-arrow.svg) no-repeat center center / contain;
   right: 0 !important;
+
+  @include mq(sd) {
+    right: 40px !important;
+  }
 
   @include mq(ms) {
     right: 65px !important;
@@ -4392,9 +4615,12 @@ body {
 }
 
 .price__contents {
-  max-width: 302px;
   width: 100%;
-  margin: 0 auto;
+
+  @include mq(sd) {
+    max-width: 400px;
+    margin: 0 auto;
+  }
 
   @include mq(ms) {
     max-width: 450px;
@@ -4460,7 +4686,7 @@ body {
 
   img {
     width: 100%;
-    aspect-ratio: 302 / 232; //pp
+    aspect-ratio: 302 / 230; //pp
     border-radius: 4px 4px 0 0;
   }
 }
@@ -4547,12 +4773,16 @@ body {
 }
 
 .flow {
-  padding-block: 94px 114px; //pp
+  padding-block: 97px 114px; //pp
   position: relative;
   margin-top: -97px;
   margin-bottom: -114px;
   // background: url(../img/flow/sp/wave-sp.svg) no-repeat center top / cover;
   z-index: 3;
+
+  @include mq(sc) {
+    padding-block: 160px 190px;
+  }
 
   @include mq(sd) {
     padding-block: 205px 185px;
@@ -4561,12 +4791,12 @@ body {
 
   @include mq(ms) {
     padding-block: 200px 176px;
-    margin-top: -200px;
+    margin-top: -215px;
     // background: url(../img/flow/wave.svg) no-repeat center top / cover;
   }
 
   @include mq(mt) {
-    margin-top: -215px;
+    margin-top: -250px;
   }
 
   @include mq(md) {
@@ -4580,35 +4810,40 @@ body {
     padding-block: 202px 215px; //pp
   }
 
+  @include mq(mm) {
+    padding-block: 250px 230px;
+  }
+
   @include mq(mn) {
-    padding-block: 290px 224px;
+    padding-block: 310px 290px;
   }
 
   @include mq(mo) {
-    padding-block: 400px 224px;
+    padding-block: 400px 260px;
     margin-top: -480px;
   }
 
   @include mq(ls) {
-    padding-block: 430px 225px;
+    padding-block: 430px 296px;
     margin-top: -370px;
   }
 
   @include mq(lt) {
-    padding-block: 485px 225px;
+    padding-block: 485px 290px;
   }
 
   @include mq(ld) {
-    padding-block: 530px 255px;
+    padding-block: 530px 310px;
+    margin-top: -380px;
   }
 
   @include mq(ll) {
-    padding-block: 570px 255px;
+    padding-block: 570px 330px;
     margin-top: -400px;
   }
 
   @include mq(lm) {
-    padding-block: 625px 260px;
+    padding-block: 625px 350px;
   }
 
   @include mq(ln) {
@@ -4623,7 +4858,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  // object-fit: cover;
   z-index: -1;
 
   @include mq(sd) {
@@ -4647,6 +4882,10 @@ body {
 
   @include mq(mo) {
     top: 90px;
+  }
+
+  @include mq(ln) {
+    top: 125px;
   }
 }
 
@@ -5405,6 +5644,10 @@ body {
   background: url(../img/instagram/sp/wave-sp.svg) no-repeat center top / cover;
   z-index: 3;
 
+  @include mq(sc) {
+    padding-top: 140px;
+  }
+
   @include mq(sd) {
     padding-top: 160px;
   }
@@ -5873,7 +6116,7 @@ body {
   bottom: 40px;
   left: 0;
   background: #fff;
-  z-index: 1000;
+  z-index: 950;
   opacity: 0;
   visibility: hidden;
   transform: translateY(100%);

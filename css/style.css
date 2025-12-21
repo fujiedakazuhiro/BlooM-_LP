@@ -4,6 +4,9 @@ html {
   overflow-x: hidden;
 }
 
+html {
+  scrollbar-gutter: stable;
+}
 html.no-scroll {
   overflow: hidden;
 }
@@ -125,6 +128,16 @@ body::before {
   height: 100%;
   padding-bottom: 87px;
 }
+@media screen and (min-width:500px) {
+  .fv__body {
+    padding-bottom: 120px;
+  }
+}
+@media screen and (min-width:600px) {
+  .fv__body {
+    padding-bottom: 130px;
+  }
+}
 @media screen and (min-width:768px) {
   .fv__body {
     padding-bottom: 175px;
@@ -143,6 +156,11 @@ body::before {
 @media screen and (min-width:1400px) {
   .fv__body {
     padding-bottom: 145px;
+  }
+}
+@media screen and (min-width:1900px) {
+  .fv__body {
+    padding-bottom: 175px;
   }
 }
 
@@ -463,7 +481,7 @@ body::before {
 }
 @media screen and (min-width:768px) {
   .fv__drawer--1 {
-    margin-left: 8px;
+    margin-left: 18px;
     width: 100px;
     height: 100px;
     padding: 37px 24px;
@@ -546,18 +564,6 @@ body::before {
   -webkit-transform: translate(-50%, -50%) rotate(-45deg);
           transform: translate(-50%, -50%) rotate(-45deg);
 }
-.fv__drawer--1.is-closed {
-  z-index: 1;
-}
-
-.fv__drawer--1 {
-  z-index: 1000;
-}
-@media screen and (min-width:768px) {
-  .fv__drawer--1 {
-    margin-left: 18px;
-  }
-}
 
 .drawer-button__contents {
   width: 100%;
@@ -594,6 +600,11 @@ body::before {
   .drawer__nav--1 {
     width: 552px;
     padding: 140px 100px;
+  }
+}
+@media screen and (min-width:1600px) {
+  .drawer__nav--1 {
+    padding: 140px 90px;
   }
 }
 .drawer__nav--1.is-checked {
@@ -711,6 +722,11 @@ body::before {
   top: 39px;
   left: 0;
 }
+@media screen and (min-width:600px) {
+  .fv__cherry-tree--left {
+    top: 60px;
+  }
+}
 @media screen and (min-width:768px) {
   .fv__cherry-tree--left {
     top: 70px;
@@ -724,7 +740,7 @@ body::before {
 }
 @media screen and (min-width:1400px) {
   .fv__cherry-tree--left {
-    top: 320px;
+    top: 335px;
     left: -5px;
   }
 }
@@ -741,6 +757,11 @@ body::before {
 }
 .fv__cherry-tree--left img {
   width: 175px !important;
+}
+@media screen and (min-width:600px) {
+  .fv__cherry-tree--left img {
+    width: 245px !important;
+  }
 }
 @media screen and (min-width:768px) {
   .fv__cherry-tree--left img {
@@ -769,6 +790,11 @@ body::before {
   bottom: 116px;
   right: 0;
 }
+@media screen and (min-width:600px) {
+  .fv__cherry-tree--right {
+    bottom: 167px;
+  }
+}
 @media screen and (min-width:768px) {
   .fv__cherry-tree--right {
     bottom: 276px;
@@ -790,6 +816,11 @@ body::before {
 }
 .fv__cherry-tree--right img {
   width: 150px !important;
+}
+@media screen and (min-width:600px) {
+  .fv__cherry-tree--right img {
+    width: 255px !important;
+  }
 }
 @media screen and (min-width:768px) {
   .fv__cherry-tree--right img {
@@ -1059,6 +1090,12 @@ body::before {
   width: 32px;
   height: 30px;
 }
+@media screen and (min-width:600px) {
+  .fv__title--logo1 img {
+    width: 35px;
+    height: 32px;
+  }
+}
 @media screen and (min-width:768px) {
   .fv__title--logo1 img {
     width: 60px;
@@ -1079,8 +1116,8 @@ body::before {
 }
 @media screen and (min-width:1800px) {
   .fv__title--logo1 img {
-    width: 70px;
-    height: 68px;
+    width: 75px;
+    height: 73px;
   }
 }
 
@@ -1088,6 +1125,12 @@ body::before {
   width: 32px;
   height: 30px;
 }
+@media screen and (min-width:600px) {
+  .fv__title--logo2 img {
+    width: 35px;
+    height: 32px;
+  }
+}
 @media screen and (min-width:768px) {
   .fv__title--logo2 img {
     width: 60px;
@@ -1108,14 +1151,20 @@ body::before {
 }
 @media screen and (min-width:1800px) {
   .fv__title--logo2 img {
-    width: 70px;
-    height: 68px;
+    width: 75px;
+    height: 73px;
   }
 }
 
 .fv__title--logo3 img {
   width: 32px;
   height: 32px;
+}
+@media screen and (min-width:600px) {
+  .fv__title--logo3 img {
+    width: 35px;
+    height: 32px;
+  }
 }
 @media screen and (min-width:768px) {
   .fv__title--logo3 img {
@@ -1145,6 +1194,12 @@ body::before {
 .fv__title--logo4 img {
   width: 20px;
   height: 26px;
+}
+@media screen and (min-width:600px) {
+  .fv__title--logo4 img {
+    width: 35px;
+    height: 32px;
+  }
 }
 @media screen and (min-width:768px) {
   .fv__title--logo4 img {
@@ -1182,6 +1237,12 @@ body::before {
   font-weight: 700;
   line-height: 1.16;
   letter-spacing: 3.84px;
+}
+@media screen and (min-width:600px) {
+  .fv__title--text1,
+  .fv__title--text2 {
+    font-size: 30px;
+  }
 }
 @media screen and (min-width:768px) {
   .fv__title--text1,
@@ -1229,6 +1290,11 @@ body::before {
   padding-inline: 44px;
   position: relative;
   margin-bottom: -37px;
+}
+@media screen and (min-width:600px) {
+  .fv__title--sub {
+    font-size: 30px;
+  }
 }
 @media screen and (min-width:768px) {
   .fv__title--sub {
@@ -1300,6 +1366,11 @@ body::before {
 .fv__title--sub-small {
   font-size: 18px;
   margin-inline: 2px;
+}
+@media screen and (min-width:600px) {
+  .fv__title--sub-small {
+    font-size: 22px;
+  }
 }
 @media screen and (min-width:768px) {
   .fv__title--sub-small {
@@ -1380,6 +1451,16 @@ body::before {
   width: 100%;
   height: 160px;
 }
+@media screen and (min-width:500px) {
+  .gallery__swiper {
+    height: 252px;
+  }
+}
+@media screen and (min-width:600px) {
+  .gallery__swiper {
+    height: 267px;
+  }
+}
 @media screen and (min-width:768px) {
   .gallery__swiper {
     height: 334px;
@@ -1403,6 +1484,11 @@ body::before {
 @media screen and (min-width:1600px) {
   .gallery__swiper {
     height: 306px;
+  }
+}
+@media screen and (min-width:1900px) {
+  .gallery__swiper {
+    height: 367px;
   }
 }
 
@@ -1546,13 +1632,31 @@ body::before {
 }
 
 .problem__inheritance {
-  background: url(../img/problem/inheritance-bubble.svg) no-repeat center center/contain;
+  background: url(../img/problem/sp/inheritance-bubble.svg) no-repeat center center/contain;
   width: 314px;
   height: 164px;
   top: 0;
   left: -6px;
 }
+@media screen and (min-width:600px) {
+  .problem__inheritance {
+    background: url(../img/problem/inheritance-bubble.svg) no-repeat center center/contain;
+  }
+}
+@media screen and (min-width:900px) {
+  .problem__inheritance {
+    width: 350px;
+    height: 180px;
+    left: 0;
+  }
+}
 @media screen and (min-width:1200px) {
+  .problem__inheritance {
+    top: 0;
+    left: 256px;
+  }
+}
+@media screen and (min-width:1400px) {
   .problem__inheritance {
     width: 401px;
     height: 209px;
@@ -1587,6 +1691,15 @@ body::before {
 }
 @media screen and (min-width:1200px) {
   .problem__demolish {
+    width: 420px;
+    height: 190px;
+    top: 185px;
+    right: unset;
+    left: 24px;
+  }
+}
+@media screen and (min-width:1400px) {
+  .problem__demolish {
     width: 405px;
     height: 194px;
     top: 162px;
@@ -1603,7 +1716,7 @@ body::before {
 }
 
 .problem__demolish-text {
-  margin-top: 15px;
+  margin-top: -5px;
 }
 @media screen and (min-width:1200px) {
   .problem__demolish-text {
@@ -1618,12 +1731,25 @@ body::before {
   top: 289px;
   left: -9px;
 }
+@media screen and (min-width:900px) {
+  .problem__price {
+    width: 300px;
+    height: 160px;
+  }
+}
 @media screen and (min-width:1200px) {
+  .problem__price {
+    top: 50px;
+    left: unset;
+    right: 60px;
+  }
+}
+@media screen and (min-width:1400px) {
   .problem__price {
     width: 375px;
     height: 185px;
     top: 100px;
-    left: 950px;
+    right: 50px;
   }
   .problem__price::before {
     left: 177px;
@@ -1651,7 +1777,20 @@ body::before {
   top: 403px;
   right: -34px;
 }
+@media screen and (min-width:900px) {
+  .problem__contract {
+    width: 360px;
+    height: 160px;
+  }
+}
 @media screen and (min-width:1200px) {
+  .problem__contract {
+    top: 400px;
+    right: unset;
+    left: 75px;
+  }
+}
+@media screen and (min-width:1400px) {
   .problem__contract {
     width: 401px;
     height: 181px;
@@ -1684,7 +1823,21 @@ body::before {
   top: 533px;
   left: -30px;
 }
+@media screen and (min-width:900px) {
+  .problem__trouble {
+    width: 380px;
+    height: 160px;
+  }
+}
 @media screen and (min-width:1200px) {
+  .problem__trouble {
+    width: 400px;
+    height: 180px;
+    top: 190px;
+    left: 445px;
+  }
+}
+@media screen and (min-width:1400px) {
   .problem__trouble {
     width: 396px;
     height: 189px;
@@ -1705,6 +1858,11 @@ body::before {
   line-height: 6px;
   margin-left: 18px;
 }
+@media screen and (min-width:900px) {
+  .problem__trouble-text {
+    line-height: 25px;
+  }
+}
 @media screen and (min-width:1200px) {
   .problem__trouble-text {
     line-height: 27px;
@@ -1720,6 +1878,14 @@ body::before {
   right: -18px;
 }
 @media screen and (min-width:1200px) {
+  .problem__valuables {
+    width: 420px;
+    height: 190px;
+    top: 360px;
+    right: 20px;
+  }
+}
+@media screen and (min-width:1400px) {
   .problem__valuables {
     width: 435px;
     height: 188px;
@@ -1785,10 +1951,25 @@ body::before {
   background: url(../img/case/sp/wave-sp.svg) no-repeat center top/cover;
   z-index: 2;
 }
+@media screen and (min-width:500px) {
+  .case {
+    margin-top: -130px;
+  }
+}
+@media screen and (min-width:600px) {
+  .case {
+    margin-top: -140px;
+  }
+}
 @media screen and (min-width:768px) {
   .case {
     margin-top: -130px;
     padding-top: 130px;
+  }
+}
+@media screen and (min-width:900px) {
+  .case {
+    margin-top: -160px;
   }
 }
 @media screen and (min-width:1200px) {
@@ -1880,8 +2061,16 @@ body::before {
   letter-spacing: 1.12px;
   text-align: left;
 }
+@media screen and (min-width:600px) {
+  .case__title-sub {
+    max-width: 500px;
+    margin-inline: auto;
+    width: 100%;
+  }
+}
 @media screen and (min-width:1200px) {
   .case__title-sub {
+    max-width: unset;
     margin-top: 24px;
     margin-left: -12px;
     font-size: 18px;
@@ -1890,15 +2079,36 @@ body::before {
     text-align: center;
   }
 }
+@media screen and (min-width:1400px) {
+  .case__title-sub {
+    margin-top: 29px;
+  }
+}
 
 .case__title-label {
   position: absolute;
-  top: 110px;
-  left: 15px;
+  top: 108px;
+  left: 4px;
+}
+@media screen and (min-width:500px) {
+  .case__title-label {
+    left: 80px;
+  }
+}
+@media screen and (min-width:600px) {
+  .case__title-label {
+    left: 80px;
+  }
 }
 @media screen and (min-width:768px) {
   .case__title-label {
     left: 143px;
+  }
+}
+@media screen and (min-width:900px) {
+  .case__title-label {
+    top: 140px;
+    left: 220px;
   }
 }
 @media screen and (min-width:1200px) {
@@ -1908,7 +2118,7 @@ body::before {
   }
 }
 .case__title-label img {
-  width: 170px;
+  width: 180px;
 }
 @media screen and (min-width:1200px) {
   .case__title-label img {
@@ -1926,6 +2136,12 @@ body::before {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 16px;
+}
+@media screen and (min-width:600px) {
+  .case__contents {
+    max-width: 400px;
+    margin-inline: auto;
+  }
 }
 @media screen and (min-width:1200px) {
   .case__contents {
@@ -2311,21 +2527,35 @@ body::before {
 
 .feature {
   position: relative;
-  padding-top: 108px;
+  padding-top: 106px;
   padding-bottom: 103px;
   margin-top: -131px;
   background: url(../img/feature/sp/wave-sp.svg) no-repeat center top/cover;
   z-index: 3;
 }
+@media screen and (min-width:500px) {
+  .feature {
+    padding-top: 140px;
+  }
+}
 @media screen and (min-width:600px) {
   .feature {
+    padding-top: 140px;
     padding-bottom: 130px;
+    margin-top: -150px;
   }
 }
 @media screen and (min-width:768px) {
   .feature {
     padding-top: 150px;
     padding-bottom: 150px;
+    margin-top: -180px;
+  }
+}
+@media screen and (min-width:900px) {
+  .feature {
+    padding-top: 230px;
+    margin-top: -230px;
   }
 }
 @media screen and (min-width:1200px) {
@@ -2398,6 +2628,12 @@ body::before {
   gap: 16px;
   width: 100%;
 }
+@media screen and (min-width:600px) {
+  .feature__contents {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
 @media screen and (min-width:768px) {
   .feature__contents {
     max-width: 400px;
@@ -2409,7 +2645,7 @@ body::before {
   .feature__contents {
     max-width: 984px;
     position: relative;
-    gap: 60px;
+    gap: 63px;
   }
 }
 
@@ -2954,6 +3190,14 @@ body::before {
   }
 }
 
+@media screen and (min-width:600px) {
+  .feature-achievement__inner {
+    max-width: 400px;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+  }
+}
 @media screen and (min-width:768px) {
   .feature-achievement__inner {
     max-width: 450px;
@@ -3018,6 +3262,7 @@ body::before {
   line-height: 26px; /* 162.5% */
   letter-spacing: 1.12px;
   padding-inline: 2px;
+  text-align: left;
 }
 @media screen and (min-width:1200px) {
   .feature-achievement__title-sub {
@@ -3026,6 +3271,7 @@ body::before {
     font-size: 18px;
     line-height: 30px;
     letter-spacing: 1.26px;
+    text-align: center;
   }
 }
 
@@ -3125,7 +3371,7 @@ body::before {
 }
 @media screen and (min-width:600px) {
   .service {
-    margin-top: -60px;
+    margin-top: -70px;
     padding-block: 130px 140px;
   }
 }
@@ -3187,7 +3433,7 @@ body::before {
 @media screen and (min-width:1900px) {
   .service {
     padding-block: 700px 220px;
-    margin-top: -360px;
+    margin-top: -400px;
   }
 }
 
@@ -3197,8 +3443,6 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
   z-index: -1;
 }
 @media screen and (min-width:600px) {
@@ -3221,6 +3465,12 @@ body::before {
     height: 100%;
     -o-object-fit: cover;
        object-fit: cover;
+  }
+}
+@media screen and (min-width:1500px) {
+  .service__wave--pc {
+    -o-object-fit: fill;
+       object-fit: fill;
   }
 }
 @media screen and (min-width:1600px) {
@@ -3357,6 +3607,12 @@ body::before {
   }
 }
 
+@media screen and (min-width:600px) {
+  .service__contents {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
 @media screen and (min-width:768px) {
   .service__contents {
     width: 100%;
@@ -3749,7 +4005,7 @@ body::before {
 }
 
 .works__swiper-container {
-  margin-top: 36px;
+  margin-top: 39px;
 }
 @media screen and (min-width:1200px) {
   .works__swiper-container {
@@ -4019,7 +4275,13 @@ body::before {
   position: absolute;
   width: 40px;
   height: 40px;
-  top: 280px !important;
+  top: 269px !important;
+}
+@media screen and (min-width:600px) {
+  .works__swiper-button-prev,
+  .works__swiper-button-next {
+    top: 390px !important;
+  }
 }
 @media screen and (min-width:768px) {
   .works__swiper-button-prev,
@@ -4064,6 +4326,11 @@ body::before {
 .works__swiper-button-prev {
   background: url(../img/works/prev-arrow.svg) no-repeat center center/contain;
   left: 0 !important;
+}
+@media screen and (min-width:600px) {
+  .works__swiper-button-prev {
+    left: 40px !important;
+  }
 }
 @media screen and (min-width:768px) {
   .works__swiper-button-prev {
@@ -4124,6 +4391,11 @@ body::before {
 .works__swiper-button-next {
   background: url(../img/works/next-arrow.svg) no-repeat center center/contain;
   right: 0 !important;
+}
+@media screen and (min-width:600px) {
+  .works__swiper-button-next {
+    right: 40px !important;
+  }
 }
 @media screen and (min-width:768px) {
   .works__swiper-button-next {
@@ -4683,9 +4955,13 @@ body::before {
 }
 
 .price__contents {
-  max-width: 302px;
   width: 100%;
-  margin: 0 auto;
+}
+@media screen and (min-width:600px) {
+  .price__contents {
+    max-width: 400px;
+    margin: 0 auto;
+  }
 }
 @media screen and (min-width:768px) {
   .price__contents {
@@ -4749,7 +5025,7 @@ body::before {
 }
 .price-card__image img {
   width: 100%;
-  aspect-ratio: 302/232;
+  aspect-ratio: 302/230;
   border-radius: 4px 4px 0 0;
 }
 
@@ -4847,11 +5123,16 @@ body::before {
 }
 
 .flow {
-  padding-block: 94px 114px;
+  padding-block: 97px 114px;
   position: relative;
   margin-top: -97px;
   margin-bottom: -114px;
   z-index: 3;
+}
+@media screen and (min-width:500px) {
+  .flow {
+    padding-block: 160px 190px;
+  }
 }
 @media screen and (min-width:600px) {
   .flow {
@@ -4862,12 +5143,12 @@ body::before {
 @media screen and (min-width:768px) {
   .flow {
     padding-block: 200px 176px;
-    margin-top: -200px;
+    margin-top: -215px;
   }
 }
 @media screen and (min-width:900px) {
   .flow {
-    margin-top: -215px;
+    margin-top: -250px;
   }
 }
 @media screen and (min-width:1200px) {
@@ -4883,42 +5164,48 @@ body::before {
     padding-block: 202px 215px;
   }
 }
+@media screen and (min-width:1450px) {
+  .flow {
+    padding-block: 250px 230px;
+  }
+}
 @media screen and (min-width:1500px) {
   .flow {
-    padding-block: 290px 224px;
+    padding-block: 310px 290px;
   }
 }
 @media screen and (min-width:1600px) {
   .flow {
-    padding-block: 400px 224px;
+    padding-block: 400px 260px;
     margin-top: -480px;
   }
 }
 @media screen and (min-width:1650px) {
   .flow {
-    padding-block: 430px 225px;
+    padding-block: 430px 296px;
     margin-top: -370px;
   }
 }
 @media screen and (min-width:1700px) {
   .flow {
-    padding-block: 485px 225px;
+    padding-block: 485px 290px;
   }
 }
 @media screen and (min-width:1750px) {
   .flow {
-    padding-block: 530px 255px;
+    padding-block: 530px 310px;
+    margin-top: -380px;
   }
 }
 @media screen and (min-width:1800px) {
   .flow {
-    padding-block: 570px 255px;
+    padding-block: 570px 330px;
     margin-top: -400px;
   }
 }
 @media screen and (min-width:1850px) {
   .flow {
-    padding-block: 625px 260px;
+    padding-block: 625px 350px;
   }
 }
 @media screen and (min-width:1900px) {
@@ -4934,8 +5221,6 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
   z-index: -1;
 }
 @media screen and (min-width:600px) {
@@ -4963,6 +5248,11 @@ body::before {
 @media screen and (min-width:1600px) {
   .flow__wave--pc {
     top: 90px;
+  }
+}
+@media screen and (min-width:1900px) {
+  .flow__wave--pc {
+    top: 125px;
   }
 }
 
@@ -5756,6 +6046,11 @@ body::before {
   background: url(../img/instagram/sp/wave-sp.svg) no-repeat center top/cover;
   z-index: 3;
 }
+@media screen and (min-width:500px) {
+  .instagram {
+    padding-top: 140px;
+  }
+}
 @media screen and (min-width:600px) {
   .instagram {
     padding-top: 160px;
@@ -6284,7 +6579,7 @@ body::before {
   bottom: 40px;
   left: 0;
   background: #fff;
-  z-index: 1000;
+  z-index: 950;
   opacity: 0;
   visibility: hidden;
   -webkit-transform: translateY(100%);
@@ -6532,10 +6827,10 @@ body::before {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 16s;
-          animation-duration: 16s;
-  -webkit-animation-delay: 3.7428196957s;
-          animation-delay: 3.7428196957s;
+  -webkit-animation-duration: 28s;
+          animation-duration: 28s;
+  -webkit-animation-delay: 7.9238359983s;
+          animation-delay: 7.9238359983s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6557,10 +6852,10 @@ body::before {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 28s;
-          animation-duration: 28s;
-  -webkit-animation-delay: 6.5680635809s;
-          animation-delay: 6.5680635809s;
+  -webkit-animation-duration: 29s;
+          animation-duration: 29s;
+  -webkit-animation-delay: 8.1729835633s;
+          animation-delay: 8.1729835633s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6582,10 +6877,10 @@ body::before {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 17s;
-          animation-duration: 17s;
-  -webkit-animation-delay: 2.7739712845s;
-          animation-delay: 2.7739712845s;
+  -webkit-animation-duration: 22s;
+          animation-duration: 22s;
+  -webkit-animation-delay: 9.9977375407s;
+          animation-delay: 9.9977375407s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6607,10 +6902,10 @@ body::before {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 21s;
-          animation-duration: 21s;
-  -webkit-animation-delay: 0.2710137289s;
-          animation-delay: 0.2710137289s;
+  -webkit-animation-duration: 17s;
+          animation-duration: 17s;
+  -webkit-animation-delay: 1.6692834003s;
+          animation-delay: 1.6692834003s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6632,10 +6927,10 @@ body::before {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 27s;
-          animation-duration: 27s;
-  -webkit-animation-delay: 3.8309621802s;
-          animation-delay: 3.8309621802s;
+  -webkit-animation-duration: 17s;
+          animation-duration: 17s;
+  -webkit-animation-delay: 9.5819560491s;
+          animation-delay: 9.5819560491s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6657,10 +6952,10 @@ body::before {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 28s;
-          animation-duration: 28s;
-  -webkit-animation-delay: 1.4493214418s;
-          animation-delay: 1.4493214418s;
+  -webkit-animation-duration: 19s;
+          animation-duration: 19s;
+  -webkit-animation-delay: 5.6261678853s;
+          animation-delay: 5.6261678853s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6682,10 +6977,10 @@ body::before {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 23s;
-          animation-duration: 23s;
-  -webkit-animation-delay: 4.0450536549s;
-          animation-delay: 4.0450536549s;
+  -webkit-animation-duration: 29s;
+          animation-duration: 29s;
+  -webkit-animation-delay: 5.4080298768s;
+          animation-delay: 5.4080298768s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6707,10 +7002,10 @@ body::before {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 24s;
-          animation-duration: 24s;
-  -webkit-animation-delay: 5.7955211139s;
-          animation-delay: 5.7955211139s;
+  -webkit-animation-duration: 17s;
+          animation-duration: 17s;
+  -webkit-animation-delay: 4.2136215291s;
+          animation-delay: 4.2136215291s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6732,10 +7027,10 @@ body::before {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 28s;
-          animation-duration: 28s;
-  -webkit-animation-delay: 2.8244884642s;
-          animation-delay: 2.8244884642s;
+  -webkit-animation-duration: 21s;
+          animation-duration: 21s;
+  -webkit-animation-delay: 8.5089044598s;
+          animation-delay: 8.5089044598s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6757,10 +7052,10 @@ body::before {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 29s;
-          animation-duration: 29s;
-  -webkit-animation-delay: 9.8972449711s;
-          animation-delay: 9.8972449711s;
+  -webkit-animation-duration: 21s;
+          animation-duration: 21s;
+  -webkit-animation-delay: 0.9999487596s;
+          animation-delay: 0.9999487596s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6782,10 +7077,10 @@ body::before {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 21s;
-          animation-duration: 21s;
-  -webkit-animation-delay: 6.1685756912s;
-          animation-delay: 6.1685756912s;
+  -webkit-animation-duration: 20s;
+          animation-duration: 20s;
+  -webkit-animation-delay: 2.862003108s;
+          animation-delay: 2.862003108s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6809,8 +7104,8 @@ body::before {
   ------------------------------------- */
   -webkit-animation-duration: 29s;
           animation-duration: 29s;
-  -webkit-animation-delay: 0.8520174483s;
-          animation-delay: 0.8520174483s;
+  -webkit-animation-delay: 2.1027753768s;
+          animation-delay: 2.1027753768s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6832,10 +7127,10 @@ body::before {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 18s;
-          animation-duration: 18s;
-  -webkit-animation-delay: 0.5498253958s;
-          animation-delay: 0.5498253958s;
+  -webkit-animation-duration: 29s;
+          animation-duration: 29s;
+  -webkit-animation-delay: 9.561222573s;
+          animation-delay: 9.561222573s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6857,10 +7152,10 @@ body::before {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 27s;
-          animation-duration: 27s;
-  -webkit-animation-delay: 7.6172531342s;
-          animation-delay: 7.6172531342s;
+  -webkit-animation-duration: 17s;
+          animation-duration: 17s;
+  -webkit-animation-delay: 5.3919485854s;
+          animation-delay: 5.3919485854s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6882,10 +7177,10 @@ body::before {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 27s;
-          animation-duration: 27s;
-  -webkit-animation-delay: 4.8777269767s;
-          animation-delay: 4.8777269767s;
+  -webkit-animation-duration: 24s;
+          animation-duration: 24s;
+  -webkit-animation-delay: 9.9761523475s;
+          animation-delay: 9.9761523475s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
