@@ -162,31 +162,43 @@ body {
   padding-bottom: 87px;
 
   @include mq(sc) {
-    padding-bottom: 120px;
-  }
-
-  @include mq(sd) {
     padding-bottom: 130px;
   }
 
+  @include mq(sd) {
+    padding-bottom: 152px;
+  }
+
   @include mq(ms) {
-    padding-bottom: 175px;
+    padding-bottom: 196px;
   }
 
   @include mq(mt) {
-    padding-bottom: 216px;
+    padding-bottom: 281px;
   }
 
   @include mq(md) {
-    padding-bottom: 118px;
+    padding-bottom: 137px;
   }
 
   @include mq(ml) {
     padding-bottom: 145px;
   }
 
+  @include mq(mo) {
+    padding-bottom: 163px;
+  }
+
+  @include mq(lt) {
+    padding-bottom: 173px;
+  }
+
+  @include mq(ll) {
+    padding-bottom: 183px;
+  }
+
   @include mq(ln) {
-    padding-bottom: 175px;
+    padding-bottom: 200px;
   }
 }
 
@@ -980,7 +992,7 @@ body {
 
   @include mq(md) {
     flex-direction: row;
-    gap: 0;
+    gap: 8px;
   }
 
   &::after {
@@ -1016,8 +1028,15 @@ body {
   }
 }
 
+.fv__title--logo-wrapper1 {
+  @include mq(md) {
+    gap: 5px;
+  }
+}
+
 .fv__title--logo-wrapper2 {
   @include mq(md) {
+    gap: 8px;
   }
 }
 
@@ -1362,23 +1381,23 @@ body {
   height: 160px;
 
   @include mq(sc) {
-    height: 252px;
+    height: 260px;
   }
 
   @include mq(sd) {
-    height: 267px;
+    height: 304px;
   }
 
   @include mq(ms) {
-    height: 334px;
+    height: 393px;
   }
 
   @include mq(mt) {
-    height: 420px;
+    height: 563px;
   }
 
   @include mq(md) {
-    height: 224px;
+    height: 274px;
   }
 
   @include mq(ml) {
@@ -1386,11 +1405,19 @@ body {
   }
 
   @include mq(mo) {
-    height: 306px;
+    height: 326px;
+  }
+
+  @include mq(lt) {
+    height: 347px;
+  }
+
+  @include mq(ll) {
+    height: 367px;
   }
 
   @include mq(ln) {
-    height: 367px;
+    height: 400px;
   }
 }
 
@@ -1405,6 +1432,7 @@ body {
 
 .gallery__image {
   img {
+    border-radius: 4px;
   }
 }
 
@@ -2105,6 +2133,14 @@ body {
   border-radius: 0 0 4px 4px;
   background: $main-color;
   height: 156px; //pp
+
+  @include mq(sc) {
+    height: 170px;
+  }
+
+  @include mq(md) {
+    height: 156px;
+  }
 }
 
 .case-card__strength-inner {
@@ -3758,7 +3794,6 @@ body {
 
   @include mq(md) {
     padding: 32px 32px;
-    box-shadow: 6px 12px 12px 0 rgba(0, 0, 0, 0.25);
   }
 }
 
@@ -4386,7 +4421,7 @@ body {
 .cta__text--small {
   margin-top: 11px; //pp
   color: #fff;
-  text-shadow: 0 0 16px rgba(39, 58, 88, 0.5);
+  text-shadow: 0 0 16px #a3383c;
   font-family: $font-base;
   font-size: 16px;
   font-weight: 700;
@@ -5079,149 +5114,157 @@ body {
 
 .flow-step {
   display: flex;
-  align-items: flex-start;
+  align-items: stretch;
   gap: 8px;
+  width: 100%;
 
   @include mq(md) {
     gap: 24px;
   }
 
-  &:nth-of-type(1) {
-    .flow-step__logo {
-      padding-bottom: 129px;
-
-      &::after {
-        height: 121px;
-      }
-
-      @include mq(ms) {
-        padding-bottom: 80px;
-
-        &::after {
-          height: 72px;
-        }
-      }
-
-      @include mq(md) {
-        padding-bottom: 62px;
-
-        &::after {
-          height: 54px;
-        }
-      }
+  &:last-of-type {
+    .flow-step__logo::after {
+      display: none;
     }
   }
 
-  &:nth-of-type(2) {
-    .flow-step__logo {
-      padding-bottom: 277px;
+  // &:nth-of-type(1) {
+  //   .flow-step__logo {
+  //     padding-bottom: 129px;
 
-      &::after {
-        height: 269px;
-      }
+  //     &::after {
+  //       height: 121px;
+  //     }
 
-      @include mq(ms) {
-        padding-bottom: 180px;
+  //     @include mq(ms) {
+  //       padding-bottom: 80px;
 
-        &::after {
-          height: 172px;
-        }
-      }
+  //       &::after {
+  //         height: 72px;
+  //       }
+  //     }
 
-      @include mq(md) {
-        padding-bottom: 146px;
+  //     @include mq(md) {
+  //       padding-bottom: 62px;
 
-        &::after {
-          height: 138px;
-        }
-      }
-    }
-  }
+  //       &::after {
+  //         height: 54px;
+  //       }
+  //     }
+  //   }
+  // }
 
-  &:nth-of-type(3) {
-    .flow-step__logo {
-      padding-bottom: 153px;
+  // &:nth-of-type(2) {
+  //   .flow-step__logo {
+  //     padding-bottom: 277px;
 
-      &::after {
-        height: 145px;
-      }
+  //     &::after {
+  //       height: 269px;
+  //     }
 
-      @include mq(ms) {
-        padding-bottom: 100px;
+  //     @include mq(ms) {
+  //       padding-bottom: 180px;
 
-        &::after {
-          height: 92px;
-        }
-      }
+  //       &::after {
+  //         height: 172px;
+  //       }
+  //     }
 
-      @include mq(md) {
-        padding-bottom: 62px;
+  //     @include mq(md) {
+  //       padding-bottom: 146px;
 
-        &::after {
-          height: 54px;
-        }
-      }
-    }
-  }
+  //       &::after {
+  //         height: 138px;
+  //       }
+  //     }
+  //   }
+  // }
 
-  &:nth-of-type(4) {
-    .flow-step__logo {
-      padding-bottom: 153px;
+  // &:nth-of-type(3) {
+  //   .flow-step__logo {
+  //     padding-bottom: 153px;
 
-      &::after {
-        height: 145px;
-      }
+  //     &::after {
+  //       height: 145px;
+  //     }
 
-      @include mq(ms) {
-        padding-bottom: 100px;
+  //     @include mq(ms) {
+  //       padding-bottom: 100px;
 
-        &::after {
-          height: 92px;
-        }
-      }
+  //       &::after {
+  //         height: 92px;
+  //       }
+  //     }
 
-      @include mq(md) {
-        padding-bottom: 78px;
+  //     @include mq(md) {
+  //       padding-bottom: 62px;
 
-        &::after {
-          height: 70px;
-        }
-      }
-    }
-  }
+  //       &::after {
+  //         height: 54px;
+  //       }
+  //     }
+  //   }
+  // }
 
-  &:nth-of-type(5) {
-    .flow-step__logo {
-      padding-bottom: 178px;
+  // &:nth-of-type(4) {
+  //   .flow-step__logo {
+  //     padding-bottom: 153px;
 
-      &::after {
-        height: 170px;
-      }
+  //     &::after {
+  //       height: 145px;
+  //     }
 
-      @include mq(ms) {
-        padding-bottom: 100px;
+  //     @include mq(ms) {
+  //       padding-bottom: 100px;
 
-        &::after {
-          height: 92px;
-        }
-      }
+  //       &::after {
+  //         height: 92px;
+  //       }
+  //     }
 
-      @include mq(md) {
-        padding-bottom: 90px;
+  //     @include mq(md) {
+  //       padding-bottom: 78px;
 
-        &::after {
-          height: 82px;
-        }
-      }
-    }
-  }
+  //       &::after {
+  //         height: 70px;
+  //       }
+  //     }
+  //   }
+  // }
+
+  // &:nth-of-type(5) {
+  //   .flow-step__logo {
+  //     padding-bottom: 178px;
+
+  //     &::after {
+  //       height: 170px;
+  //     }
+
+  //     @include mq(ms) {
+  //       padding-bottom: 100px;
+
+  //       &::after {
+  //         height: 92px;
+  //       }
+  //     }
+
+  //     @include mq(md) {
+  //       padding-bottom: 90px;
+
+  //       &::after {
+  //         height: 82px;
+  //       }
+  //     }
+  //   }
+  // }
 }
 
-.flow-step__logo {
+.flow-step__logo-wrapper {
   width: calc(56px / 335px * 100%);
   flex-shrink: 0;
   margin-top: 6px;
   position: relative;
+  overflow: hidden;
 
   @include mq(ms) {
     width: calc(115px / 768px * 100%);
@@ -5231,37 +5274,55 @@ body {
     width: calc(80px / 834px * 100%);
     margin-top: 6px;
   }
+}
+
+.flow-step__logo {
+  position: relative;
 
   &::after {
     position: absolute;
     content: "";
     width: 1px;
+    height: 1000px;
     background-image: linear-gradient(to bottom, #242424 50%, transparent 50%);
     background-size: 1px 5px; // 点線の間隔を調整
     background-repeat: repeat-y;
+    // top: calc(73px + 8px);
+    top: calc(100% + 8px);
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
   }
 
   img {
-    width: 56px;
-    height: 73px;
+    width: 100%;
+    height: auto;
+    // width: 56px;
+    // height: 73px;
 
-    @include mq(ms) {
-      width: 70px;
-      height: 85px;
-    }
+    // @include mq(ms) {
+    //   width: 70px;
+    //   height: 85px;
+    // }
 
-    @include mq(md) {
-      width: 80px;
-      height: 104px;
-    }
+    // @include mq(md) {
+    //   width: 80px;
+    //   height: 104px;
+    // }
   }
 }
 
 .flow-step__body {
   flex-grow: 1;
+  padding-bottom: 24px;
+
+  @include mq(mt) {
+    padding-bottom: 30px;
+  }
+
+  @include mq(md) {
+    padding-bottom: 40px;
+  }
 }
 
 .flow-step__title {
@@ -6113,7 +6174,7 @@ body {
   height: 72px;
   padding-block: 8px;
   position: fixed;
-  bottom: 40px;
+  bottom: 0;
   left: 0;
   background: #fff;
   z-index: 950;
