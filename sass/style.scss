@@ -3963,8 +3963,8 @@ body {
 }
 
 //位置のreset
-.works__swiper-button-prev,
-.works__swiper-button-next,
+.swiper-button-prev.works__swiper-button-prev,
+.swiper-button-next.works__swiper-button-next,
 .works__swiper-pagination-bullets.works__swiper-pagination-horizontal {
   top: unset;
   bottom: unset;
@@ -3983,14 +3983,14 @@ body {
 // ナビゲーションボタン
 // =============================
 //デフォルトのボタンを初期化
-.works__swiper-button-prev::after,
-.works__swiper-button-next::after {
+.swiper-button-prev.works__swiper-button-prev::after,
+.swiper-button-next.works__swiper-button-next::after {
   content: "" !important; //デフォルトのものを初期化
   display: none !important;
 }
 //各ボタンのカスタマイズ
-.works__swiper-button-prev,
-.works__swiper-button-next {
+.swiper-button-prev.works__swiper-button-prev,
+.swiper-button-next.works__swiper-button-next {
   position: absolute;
   width: 40px;
   height: 40px;
@@ -4017,7 +4017,7 @@ body {
   }
 
   @include mq(ml) {
-    top: 230px !important;
+    top: 210px !important;
   }
 
   @include mq(ls) {
@@ -4030,7 +4030,7 @@ body {
   }
 }
 
-.works__swiper-button-prev {
+.swiper-button-prev.works__swiper-button-prev {
   background: url(../img/works/prev-arrow.svg) no-repeat center center / contain;
   left: 0 !important;
 
@@ -4083,7 +4083,7 @@ body {
   }
 }
 
-.works__swiper-button-next {
+.swiper-button-next.works__swiper-button-next {
   background: url(../img/works/next-arrow.svg) no-repeat center center / contain;
   right: 0 !important;
 
@@ -5490,8 +5490,8 @@ body {
   }
 }
 
-.review__swiper-button-prev,
-.review__swiper-button-next {
+.swiper-button-prev.review__swiper-button-prev,
+.swiper-button-next.review__swiper-button-next {
   top: unset;
   bottom: unset;
   left: unset;
@@ -5514,7 +5514,7 @@ body {
   }
 }
 
-.review__swiper-button-prev {
+.swiper-button-prev.review__swiper-button-prev {
   background: url(../img/review/review-prev.svg) no-repeat center center / contain;
   left: 0;
 
@@ -5535,7 +5535,7 @@ body {
   }
 }
 
-.review__swiper-button-next {
+.swiper-button-next.review__swiper-button-next {
   background: url(../img/review/review-next.svg) no-repeat center center / contain;
   right: 0;
 

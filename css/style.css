@@ -4292,8 +4292,8 @@ body::before {
   }
 }
 
-.works__swiper-button-prev,
-.works__swiper-button-next,
+.swiper-button-prev.works__swiper-button-prev,
+.swiper-button-next.works__swiper-button-next,
 .works__swiper-pagination-bullets.works__swiper-pagination-horizontal {
   top: unset;
   bottom: unset;
@@ -4313,191 +4313,191 @@ body::before {
   gap: 4px;
 }
 
-.works__swiper-button-prev::after,
-.works__swiper-button-next::after {
+.swiper-button-prev.works__swiper-button-prev::after,
+.swiper-button-next.works__swiper-button-next::after {
   content: "" !important;
   display: none !important;
 }
 
-.works__swiper-button-prev,
-.works__swiper-button-next {
+.swiper-button-prev.works__swiper-button-prev,
+.swiper-button-next.works__swiper-button-next {
   position: absolute;
   width: 40px;
   height: 40px;
   top: 269px !important;
 }
 @media screen and (min-width:600px) {
-  .works__swiper-button-prev,
-  .works__swiper-button-next {
+  .swiper-button-prev.works__swiper-button-prev,
+  .swiper-button-next.works__swiper-button-next {
     top: 390px !important;
   }
 }
 @media screen and (min-width:768px) {
-  .works__swiper-button-prev,
-  .works__swiper-button-next {
+  .swiper-button-prev.works__swiper-button-prev,
+  .swiper-button-next.works__swiper-button-next {
     width: 50px;
     height: 50px;
     top: 350px !important;
   }
 }
 @media screen and (min-width:900px) {
-  .works__swiper-button-prev,
-  .works__swiper-button-next {
+  .swiper-button-prev.works__swiper-button-prev,
+  .swiper-button-next.works__swiper-button-next {
     top: 360px !important;
   }
 }
 @media screen and (min-width:1200px) {
-  .works__swiper-button-prev,
-  .works__swiper-button-next {
+  .swiper-button-prev.works__swiper-button-prev,
+  .swiper-button-next.works__swiper-button-next {
     width: 56px;
     height: 56px;
     top: 220px !important;
   }
 }
 @media screen and (min-width:1400px) {
-  .works__swiper-button-prev,
-  .works__swiper-button-next {
-    top: 230px !important;
+  .swiper-button-prev.works__swiper-button-prev,
+  .swiper-button-next.works__swiper-button-next {
+    top: 210px !important;
   }
 }
 @media screen and (min-width:1650px) {
-  .works__swiper-button-prev,
-  .works__swiper-button-next {
+  .swiper-button-prev.works__swiper-button-prev,
+  .swiper-button-next.works__swiper-button-next {
     top: 260px !important;
   }
 }
-.works__swiper-button-prev svg,
-.works__swiper-button-next svg {
+.swiper-button-prev.works__swiper-button-prev svg,
+.swiper-button-next.works__swiper-button-next svg {
   content: "" !important;
   display: none !important;
 }
 
-.works__swiper-button-prev {
+.swiper-button-prev.works__swiper-button-prev {
   background: url(../img/works/prev-arrow.svg) no-repeat center center/contain;
   left: 0 !important;
 }
 @media screen and (min-width:600px) {
-  .works__swiper-button-prev {
+  .swiper-button-prev.works__swiper-button-prev {
     left: 40px !important;
   }
 }
 @media screen and (min-width:768px) {
-  .works__swiper-button-prev {
+  .swiper-button-prev.works__swiper-button-prev {
     left: 65px !important;
   }
 }
 @media screen and (min-width:900px) {
-  .works__swiper-button-prev {
+  .swiper-button-prev.works__swiper-button-prev {
     left: 170px !important;
   }
 }
 @media screen and (min-width:1200px) {
-  .works__swiper-button-prev {
+  .swiper-button-prev.works__swiper-button-prev {
     left: 80px !important;
   }
 }
 @media screen and (min-width:1400px) {
-  .works__swiper-button-prev {
+  .swiper-button-prev.works__swiper-button-prev {
     left: 162px !important;
   }
 }
 @media screen and (min-width:1450px) {
-  .works__swiper-button-prev {
+  .swiper-button-prev.works__swiper-button-prev {
     left: 165px !important;
   }
 }
 @media screen and (min-width:1500px) {
-  .works__swiper-button-prev {
+  .swiper-button-prev.works__swiper-button-prev {
     left: 175px !important;
   }
 }
 @media screen and (min-width:1600px) {
-  .works__swiper-button-prev {
+  .swiper-button-prev.works__swiper-button-prev {
     left: 185px !important;
   }
 }
 @media screen and (min-width:1650px) {
-  .works__swiper-button-prev {
+  .swiper-button-prev.works__swiper-button-prev {
     left: 190px !important;
   }
 }
 @media screen and (min-width:1700px) {
-  .works__swiper-button-prev {
+  .swiper-button-prev.works__swiper-button-prev {
     left: 270px !important;
   }
 }
 @media screen and (min-width:1800px) {
-  .works__swiper-button-prev {
+  .swiper-button-prev.works__swiper-button-prev {
     left: 285px !important;
   }
 }
 @media screen and (min-width:1900px) {
-  .works__swiper-button-prev {
+  .swiper-button-prev.works__swiper-button-prev {
     left: 300px !important;
   }
 }
 
-.works__swiper-button-next {
+.swiper-button-next.works__swiper-button-next {
   background: url(../img/works/next-arrow.svg) no-repeat center center/contain;
   right: 0 !important;
 }
 @media screen and (min-width:600px) {
-  .works__swiper-button-next {
+  .swiper-button-next.works__swiper-button-next {
     right: 40px !important;
   }
 }
 @media screen and (min-width:768px) {
-  .works__swiper-button-next {
+  .swiper-button-next.works__swiper-button-next {
     right: 65px !important;
   }
 }
 @media screen and (min-width:900px) {
-  .works__swiper-button-next {
+  .swiper-button-next.works__swiper-button-next {
     right: 170px !important;
   }
 }
 @media screen and (min-width:1200px) {
-  .works__swiper-button-next {
+  .swiper-button-next.works__swiper-button-next {
     right: 80px !important;
   }
 }
 @media screen and (min-width:1400px) {
-  .works__swiper-button-next {
+  .swiper-button-next.works__swiper-button-next {
     right: 162px !important;
   }
 }
 @media screen and (min-width:1450px) {
-  .works__swiper-button-next {
+  .swiper-button-next.works__swiper-button-next {
     right: 165px !important;
   }
 }
 @media screen and (min-width:1500px) {
-  .works__swiper-button-next {
+  .swiper-button-next.works__swiper-button-next {
     right: 175px !important;
   }
 }
 @media screen and (min-width:1600px) {
-  .works__swiper-button-next {
+  .swiper-button-next.works__swiper-button-next {
     right: 185px !important;
   }
 }
 @media screen and (min-width:1650px) {
-  .works__swiper-button-next {
+  .swiper-button-next.works__swiper-button-next {
     right: 190px !important;
   }
 }
 @media screen and (min-width:1700px) {
-  .works__swiper-button-next {
+  .swiper-button-next.works__swiper-button-next {
     right: 270px !important;
   }
 }
 @media screen and (min-width:1800px) {
-  .works__swiper-button-next {
+  .swiper-button-next.works__swiper-button-next {
     right: 285px !important;
   }
 }
 @media screen and (min-width:1900px) {
-  .works__swiper-button-next {
+  .swiper-button-next.works__swiper-button-next {
     right: 300px !important;
   }
 }
@@ -5912,8 +5912,8 @@ body::before {
   }
 }
 
-.review__swiper-button-prev,
-.review__swiper-button-next {
+.swiper-button-prev.review__swiper-button-prev,
+.swiper-button-next.review__swiper-button-next {
   top: unset;
   bottom: unset;
   left: unset;
@@ -5927,63 +5927,63 @@ body::before {
   height: 39px;
 }
 @media screen and (min-width:1200px) {
-  .review__swiper-button-prev,
-  .review__swiper-button-next {
+  .swiper-button-prev.review__swiper-button-prev,
+  .swiper-button-next.review__swiper-button-next {
     width: 56px;
     height: 56px;
   }
 }
-.review__swiper-button-prev svg,
-.review__swiper-button-next svg {
+.swiper-button-prev.review__swiper-button-prev svg,
+.swiper-button-next.review__swiper-button-next svg {
   display: none;
 }
 
-.review__swiper-button-prev {
+.swiper-button-prev.review__swiper-button-prev {
   background: url(../img/review/review-prev.svg) no-repeat center center/contain;
   left: 0;
 }
 @media screen and (min-width:600px) {
-  .review__swiper-button-prev {
+  .swiper-button-prev.review__swiper-button-prev {
     left: 80px !important;
   }
 }
 @media screen and (min-width:768px) {
-  .review__swiper-button-prev {
+  .swiper-button-prev.review__swiper-button-prev {
     left: 140px !important;
   }
 }
 @media screen and (min-width:900px) {
-  .review__swiper-button-prev {
+  .swiper-button-prev.review__swiper-button-prev {
     left: 165px !important;
   }
 }
 @media screen and (min-width:1200px) {
-  .review__swiper-button-prev {
+  .swiper-button-prev.review__swiper-button-prev {
     left: 0 !important;
   }
 }
 
-.review__swiper-button-next {
+.swiper-button-next.review__swiper-button-next {
   background: url(../img/review/review-next.svg) no-repeat center center/contain;
   right: 0;
 }
 @media screen and (min-width:600px) {
-  .review__swiper-button-next {
+  .swiper-button-next.review__swiper-button-next {
     right: 80px !important;
   }
 }
 @media screen and (min-width:768px) {
-  .review__swiper-button-next {
+  .swiper-button-next.review__swiper-button-next {
     right: 140px !important;
   }
 }
 @media screen and (min-width:900px) {
-  .review__swiper-button-next {
+  .swiper-button-next.review__swiper-button-next {
     right: 165px !important;
   }
 }
 @media screen and (min-width:1200px) {
-  .review__swiper-button-next {
+  .swiper-button-next.review__swiper-button-next {
     right: 0 !important;
   }
 }
@@ -6778,8 +6778,8 @@ body::before {
   ------------------------------------- */
   -webkit-animation-duration: 19s;
           animation-duration: 19s;
-  -webkit-animation-delay: 5.6979802791s;
-          animation-delay: 5.6979802791s;
+  -webkit-animation-delay: 2.260477365s;
+          animation-delay: 2.260477365s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6801,10 +6801,10 @@ body::before {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 20s;
-          animation-duration: 20s;
-  -webkit-animation-delay: 3.9862759136s;
-          animation-delay: 3.9862759136s;
+  -webkit-animation-duration: 28s;
+          animation-duration: 28s;
+  -webkit-animation-delay: 9.3525923646s;
+          animation-delay: 9.3525923646s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6826,10 +6826,10 @@ body::before {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 21s;
-          animation-duration: 21s;
-  -webkit-animation-delay: 0.8568218453s;
-          animation-delay: 0.8568218453s;
+  -webkit-animation-duration: 30s;
+          animation-duration: 30s;
+  -webkit-animation-delay: 2.5212608038s;
+          animation-delay: 2.5212608038s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6851,10 +6851,10 @@ body::before {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 28s;
-          animation-duration: 28s;
-  -webkit-animation-delay: 4.5746503161s;
-          animation-delay: 4.5746503161s;
+  -webkit-animation-duration: 29s;
+          animation-duration: 29s;
+  -webkit-animation-delay: 4.0439730807s;
+          animation-delay: 4.0439730807s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6876,10 +6876,10 @@ body::before {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 18s;
-          animation-duration: 18s;
-  -webkit-animation-delay: 2.6759784537s;
-          animation-delay: 2.6759784537s;
+  -webkit-animation-duration: 22s;
+          animation-duration: 22s;
+  -webkit-animation-delay: 8.8059978168s;
+          animation-delay: 8.8059978168s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6901,10 +6901,10 @@ body::before {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 21s;
-          animation-duration: 21s;
-  -webkit-animation-delay: 1.9772975988s;
-          animation-delay: 1.9772975988s;
+  -webkit-animation-duration: 28s;
+          animation-duration: 28s;
+  -webkit-animation-delay: 2.7752415559s;
+          animation-delay: 2.7752415559s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6926,10 +6926,10 @@ body::before {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 30s;
-          animation-duration: 30s;
-  -webkit-animation-delay: 5.2611543562s;
-          animation-delay: 5.2611543562s;
+  -webkit-animation-duration: 16s;
+          animation-duration: 16s;
+  -webkit-animation-delay: 9.501364956s;
+          animation-delay: 9.501364956s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6951,10 +6951,10 @@ body::before {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 17s;
-          animation-duration: 17s;
-  -webkit-animation-delay: 7.9772192567s;
-          animation-delay: 7.9772192567s;
+  -webkit-animation-duration: 19s;
+          animation-duration: 19s;
+  -webkit-animation-delay: 2.7874925401s;
+          animation-delay: 2.7874925401s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -6976,10 +6976,10 @@ body::before {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 16s;
-          animation-duration: 16s;
-  -webkit-animation-delay: 7.8736121058s;
-          animation-delay: 7.8736121058s;
+  -webkit-animation-duration: 20s;
+          animation-duration: 20s;
+  -webkit-animation-delay: 1.9426929613s;
+          animation-delay: 1.9426929613s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -7001,10 +7001,10 @@ body::before {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 23s;
-          animation-duration: 23s;
-  -webkit-animation-delay: 8.3479979286s;
-          animation-delay: 8.3479979286s;
+  -webkit-animation-duration: 22s;
+          animation-duration: 22s;
+  -webkit-animation-delay: 2.4605779264s;
+          animation-delay: 2.4605779264s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -7026,10 +7026,10 @@ body::before {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 18s;
-          animation-duration: 18s;
-  -webkit-animation-delay: 4.6788234777s;
-          animation-delay: 4.6788234777s;
+  -webkit-animation-duration: 16s;
+          animation-duration: 16s;
+  -webkit-animation-delay: 2.5728777654s;
+          animation-delay: 2.5728777654s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -7051,10 +7051,10 @@ body::before {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 17s;
-          animation-duration: 17s;
-  -webkit-animation-delay: 5.7824893095s;
-          animation-delay: 5.7824893095s;
+  -webkit-animation-duration: 20s;
+          animation-duration: 20s;
+  -webkit-animation-delay: 2.7530529192s;
+          animation-delay: 2.7530529192s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -7076,10 +7076,10 @@ body::before {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 20s;
-          animation-duration: 20s;
-  -webkit-animation-delay: 9.8160315888s;
-          animation-delay: 9.8160315888s;
+  -webkit-animation-duration: 29s;
+          animation-duration: 29s;
+  -webkit-animation-delay: 1.453019785s;
+          animation-delay: 1.453019785s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -7101,10 +7101,10 @@ body::before {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 25s;
-          animation-duration: 25s;
-  -webkit-animation-delay: 9.3154766295s;
-          animation-delay: 9.3154766295s;
+  -webkit-animation-duration: 29s;
+          animation-duration: 29s;
+  -webkit-animation-delay: 7.2354028408s;
+          animation-delay: 7.2354028408s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
@@ -7126,10 +7126,10 @@ body::before {
   /* -------------------------------------
      アニメーションの速度と遅延をランダムに設定
   ------------------------------------- */
-  -webkit-animation-duration: 19s;
-          animation-duration: 19s;
-  -webkit-animation-delay: 5.0407294388s;
-          animation-delay: 5.0407294388s;
+  -webkit-animation-duration: 21s;
+          animation-duration: 21s;
+  -webkit-animation-delay: 6.9198627421s;
+          animation-delay: 6.9198627421s;
   /* -------------------------------------
      ★重要：既存のCSSとの競合を防ぐため、
      top/left/width/height の設定はすべて削除しました。
